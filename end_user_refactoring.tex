@@ -53,26 +53,40 @@ end-user computing; refactoring;
 \section{Introduction}
 The number of end-user programmers is said to greatly exceed the number of professional programmers. ``The proportion of American end user workers reporting they “do programming” has remained relatively constant, rising from around 10\% in 1989 to only around 15\% in 2001''~\cite{Scaf2005} This 15\% of 2001 totals to about 11 million end users, while the number of professional developers was estimated at 3 million for the same period~\cite{Scaf2005}.
 
-These end-user programmers perform a wide variety of tasks within the organizations they work for, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-users user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding someone else’s code~\cite{Ko2011}.
+These end-user programmers perform a wide variety of tasks within the organizations they work for, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-users user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
 
 Contrary to what people might think, end-user artifacts are not always created ad-hoc, but may in fact have a long life-span. A recent case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. In their lifespan, these artifacts are modified, often by different people. This makes them vulnerable for \emph{smells}, like programming artifacts. 
 
-These smells in end-user programming have been a topic of research over the past few years. Most notable are smells in Yahoo Pipes~\cite{Stolee2011}, smells in spreadsheets\todo{cite}, and performance smells in Labview code\todo{cite}. Experiments in all these areas have shown that end-users in fact understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads us to the topic of this paper: how can we support do end-users in refactoring their artifacts? \todo{This is up for discussion.}
+These smells in end-user programming have been a topic of research over the past few years. Most notable are smells in Yahoo Pipes~\cite{Stolee2011}, smells in spreadsheets \cite{Hermans2012-2}, and performance smells in Labview code \cite{chambers2013smell}. Experiments in all these areas have shown that end-users in fact understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads us to the topic of this paper: how can we support do end-users in refactoring their artifacts? \todo{This is up for discussion.}
 
 \section{Background}
 \label{sec:background}
-Since there introduction by Martin Fowler in 1999, extensive research has been done into code smells. Code smells, according to Fowler, indicate suspicious or weak parts parts, that the developer might want to change, in order to improve readability and minimize the chance of future errors~\cite{Fowl1999} `'A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. Just as source code produced by professionals, end-user program can also contain smells.
+
+%Refactoring, improving the internal composition of a software program without altering its functionality or output \todo{quote a definition}, has been a part of software engineering since at least 1989 \cite{arnold1989software}, but was popularized by Fowler's 1999 "Refactoring: Improving the design of existing programs" \cite{fowler1999refactoring}. 
+Since their introduction by Martin Fowler in 1999, extensive research has been done into code smells. Code smells, according to Fowler, indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors. ~\cite{Fowl1999} `'A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. Like source code produced by professional developers, programs made by end-users can also contain smells.
 
 \section{Smells in end-user artifacts}
 \label{sec:smells}
-Research into end-user programming smells comes in two different variants. Some authors have interviewed end-users to obtain an understanding of smells perceived by them \todo{cite Labview}. Other authors have taken Fowler's smells and transformed them slightly to be applicable to end-user artifacts~\cite{Hermans2012,Hermans2012-2}. There are also authors~\cite{Stolee2011} that have combined these two approaches. This section provides an overview of different types of smells that can be applicable to end-user artifacts.
+Research into end-user programming smells can take on of two approaches.
+The first approach take existing smells for object-oriented programming languages, usually those defined by Fowler, and transform them to be applicable to the end-user environment \cite{Hermans2012,Hermans2012-2}.
+
+Another approach is to define smells directly for the end-user environment.
+This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts \cite{Stolee2011} or by analyzing publicly available artifacts \cite{Stolee2011}.
+A combination of both approaches is also possible.
+
+This section provides an overview of different types of smells that can be applicable to end-user artifacts.
 
 \subsection{Smells in spreadsheets}
 Fowler defines his smells on two levels: within classes and between them. This is a distinction that can be easily translated to spreadsheets: smells within worksheets and smells between them. In \cite{Hermans2012-2}, Hermans \emph{et al.} describe \emph{inter-worksheet} smells and in \cite{Hermans2012} they add smells within worksheets.
 \todo{more summary here}
 
-\subsection{Smells in Labview code}
-\todo{add summary here}
+\subsection{Smells in LabVIEW programs}
+
+LabVIEW is a proprietary hardware system design environment which features the visual programming language "G" as one of its primary features.
+Some users claim they are two to three times as productive in G as they are in general-purpose alternatives like C or FORTRAN \cite{chambers2013smell}.
+However, G programs do not always perform well, which has motivated Chambers and Scaffidi \cite{chambers2013smell} to define performance-degrading smells in G and implement heuristics to identify these smells.
+
+
 
 \subsection{Smells in Yahoo pipes}
 In ~\cite{Stolee2011}, Stolee and Elbaum describe a number of smells. In addition to the smells, they present evidence that users of Yahoo pipes prefer non-smelly pipes over smelly ones, as shown in Figure \ref{fig:Table1-Stolee2011}.
