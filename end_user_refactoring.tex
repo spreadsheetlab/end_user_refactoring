@@ -154,41 +154,6 @@ Now that we have described various smells in different end-user artifacts, we di
 
 \newpage
 \balance
-
-\begin{table}[h]
-\begin{tabular}{llll}
-\begin{tabular}[c]{@{}l@{}}General\\   Purpose programming languages\end{tabular} & LabVIEW/G                                                                                          & Yahoo Pipes & Spreadsheets                                    \\
-Long method                                                                       &                                                                                                    &             & Multiple operations                             \\
-Many parameters                                                                   &                                                                                                    &             & Multiple references                             \\
-High conditional complexity                                                       &                                                                                                    &             & High conditional complexity                     \\
-Lasagna code                                                                      &                                                                                                    &             & Long calculation chain                          \\
-Code duplication                                                                  &                                                                                                    &             & Duplicated formulas                             \\
-                                                                                  &                                                                                                    &             & Named range of multiple separate ranges         \\
-Inappropriate class intimacy                                                      &                                                                                                    &             & Inappropriate worksheet intimacy                \\
-Method feature envy                                                               &                                                                                                    &             & Formula feature envy                            \\
-Middle man class                                                                  &                                                                                                    &             & Middle man worksheet                            \\
-Shotgun surgery                                                &                                                                                                    &             & Shotgun surgery            \\
-\textbf{}                                                                         & Too many variables                                                                                 &             &                                                 \\
-Allocate memory inside loop                                                       & \begin{tabular}[c]{@{}l@{}}Build array inside loop\\     string concatenation in loop\end{tabular} &             &                                                 \\
-                                                                                  & Multiple array copies                                                                              &             &                                                 \\
-                                                                                  & No wait in a loop                                                                                  &             & \cellcolor[HTML]{333333}                        \\
-\cellcolor[HTML]{F8A102}{\color[HTML]{333333} Unconnected GUI element?}           & \cellcolor[HTML]{F8A102}{\color[HTML]{333333} Unconnected front panel elements}                    &             & \cellcolor[HTML]{333333}                        \\
-\rowcolor[HTML]{F8A102} 
-{\color[HTML]{333333} Redundant operations}                                       & {\color[HTML]{333333} Redundant operations}                                                        &             & Redundant operations                            \\
-\rowcolor[HTML]{F8A102} 
-{\color[HTML]{333333} No constraint on queues}                                    & {\color[HTML]{333333} No constraint on queues}                                                     &             &                                                 \\
-\rowcolor[HTML]{F8A102} 
-{\color[HTML]{333333} Infinite while loop}                                        & {\color[HTML]{333333} Infinite while loop}                                                         &             &                                                 \\
-Non reentrant function or method                                                  & Non reentrant VI's                                                                                 &             & \cellcolor[HTML]{333333}{\color[HTML]{333333} } \\
-\cellcolor[HTML]{333333}                                                          & Sequence instead of state machine                                                                  &             & \cellcolor[HTML]{333333}{\color[HTML]{333333} } \\
-Multiple nested loops                                                             & Multiple nested loops                                                                              &             &                                                 \\
-\rowcolor[HTML]{F8A102} 
-Only loop once                                                                    & Only loop once                                                                                     &             & Vaste Lookup functie?                          
-\end{tabular}
-\end{table}
-
-\newpage
-\balance
 \bibliographystyle{plain}
 \bibliography{literaturelist}
 
