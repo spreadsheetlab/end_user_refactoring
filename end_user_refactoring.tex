@@ -86,6 +86,20 @@ LabVIEW is a proprietary hardware system design environment which features the v
 Some users claim they are two to three times as productive in G as they are in general-purpose alternatives like C or FORTRAN \cite{chambers2013smell}.
 However, G programs do not always perform well, which has motivated Chambers and Scaffidi \cite{chambers2013smell} to define performance-degrading smells in G and implement heuristics to identify these smells.
 
+The smells identified roughly fall into three categories. The first are smells specific to the environment, for example the \textit{"Sequence instead of State machine"} smell which is a smell because state machines can be much better optimized by the G compiler.
+
+The second and third categories are more broadly applicable, with the second category being smells you could find a any program that uses concurrency.
+One can easily see how \textit{"Non reentrant VI"}, a VI being a building block similar to a function, is a smell in a language that heavily relies on concurrency and parallelization since such a VI will require blocking and thus possibly slows down the program.
+
+The third and largest category are (performance) smells that are applicable to general purpose languages.
+\textit{"Multiple Nested Loops"} is a smell in almost any language that supports loops, and \textit{"Build Array inside Loop"} would be similar to allocating multiple small segments of memory with C's \texttt{malloc} inside a loop with potentially equally bad performance implications.
+
+Chambers and Scaffidie implemented their smell-finding heuristics in a tool integrated into LabVIEW and evaluated it with 26 experienced LabVIEW programmers divided in two groups of 13 of which only one had access to their tool.
+
+The results were promising, with all 13 tool-users being able to identify the problems in the given programs and 12 being able to fix the problem.
+In contrast only 5 out of 13 non-tool-users were able to identify the problem and 3 out of 5 being able to fix the problem, although the latter is statistically insignificant.
+Tool users also needed 34\% less time to identify the problem and 65\% less time to fix the problem, but these results were not statistically significant.
+This evaluation shows that experienced end user programmers can benefit from tool support in identifying problems.
 
 
 \subsection{Smells in Yahoo pipes}
