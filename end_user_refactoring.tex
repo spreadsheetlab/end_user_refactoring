@@ -63,6 +63,9 @@ These smells in end-user programming have been a topic of research over the past
 %Refactoring, improving the internal composition of a software program without altering its functionality or output \todo{quote a definition}, has been a part of software engineering since at least 1989 \cite{arnold1989software}, but was popularized by Fowler's 1999 "Refactoring: Improving the design of existing programs" \cite{fowler1999refactoring}. 
 Since their introduction by Martin Fowler in 1999 \cite{Fowl1999}, extensive research has been done into code smells. Code smells, according to Fowler, indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors. `'A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. Like source code produced by professional developers, programs made by end-users can also contain smells.
 
+Refactoring code is usually motivated by noticing a code smell which signals the opportunity for improvement.
+This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
+
 \section{Smells in end-user artifacts}
 \label{sec:smells}
 Research into end-user programming smells has two approaches which can be combined.
@@ -78,7 +81,7 @@ This section provides an overview of different smells that researchers have foun
 In modern spreadsheet programs a \textit{cell} can contain a single \textit{formula} which performs a calculation, and a table of cells is bundled in a \textit{worksheet}.
 A \textit{workbook} consist of a collection of worksheets.
 Formulas can reference other cells in the same or in a different worksheet.
-References to a different workbook are also possible but less common.
+References to a different workbook are possible but less common.
  
 Hermans et al. \cite{Hermans2012inter} \cite{Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method.
 Working from this analogy, the classic Fowler smells can be divided into class and method smells.
@@ -91,9 +94,19 @@ Similarly a cell can use cells of other worksheets more than it uses those of it
 
 In \cite{Hermans2012intra}, Hermans et al. define five intra-worksheet or formula smells and again define and evaluate thresholds for them based on the EUSES corpus.
 Several method-level smells translate well into cell-level smells, supporting the validity of the above analogy.
-\textit{Multiple References} is similar to the \textit{Many parameters} code smell. Like a method with many parameters can be hard to understand or change a cell that uses many references can have the same problem.
+\textit{Multiple Calculations} is similar to the \textit{Long method} code smell. Like a method with many lines or operations can be hard to understand or change a cell that has a long formula can have the same problem.
 Another interesting smell is the \textit{Long Calculation Chain}, which happens because referenced formulas can reference other formulas ad infinitum.
 This is very similar to Fowler's \textit{Message Chain} smell and the problems associated with programs with too much layers or indirection, sometimes referred to as \textit{Lasanga Code}.
+
+\todo{Okay I think the Cunha paper is not great, do we want to reference it?
+The data anomaly "smells" have \textit{some} value for detecting input errors, but I wouldn't classify them as software smells per se. Also the smell names are rubbish, how is "Standard Deviation" a smell? as opposed to e.g. "Improbable values"
+}
+
+Cunha et. al \cite{cunha2012towards} take a different approach and consider the data contained in a spreadsheet.
+They look different types of anomalies in the data of a spreadsheet and define these as smells. 
+Examples of this are \textit{Standard Deviation} which occur if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
+Another example is the \textit{Quasi-Functional Dependencies} smell, which occurs if two columns are functionally dependent in all but a small number of occurrences. This can indicate a mistake in the anomalous rows.
+While these smells have no direct analogy in general purpose programming languages, they can indicate problems with the user input and as such still indicate problems with the artifact.
 
 \subsection{Smells in LabVIEW programs}
 
@@ -131,7 +144,20 @@ In ~\cite{Stolee2011}, Stolee and Elbaum describe a number of smells.
 
 \section{Refactoring end-user programs}
 \label{sec:refactoring}
-Now that we have described various smells in different end-user artifacts, we direct our attention to the refactoring of them. 
+
+A way to solve smells is by refactoring, changing the composition of an artifact so that it no longer contains the smell.
+Now that we have examined smells, we can continue to the refactoring of end-user programs.
+
+\subsection{Refactoring spreadsheets}
+
+The first work done on spreadsheet refactoring was done by Badame and Dig \cite{badame2012refactoring}. They define six refactorings applicable to spreadsheets, although the corresponding smells are only implied and not explicitly defined and implement these in an Excel plugin called \textit{REFbook}. Three of these have to do with preventing errors, like \textit{Guard Call} which places an \texttt{IF} around an expression which can result in an error such as a division by potentially zero. The other two directly correspond to known smells. \textit{Extract Row or Column} or more generally \textit{Extract Subformula} is a refactoring with which part of a formula is extracted to a new cell. This solves the \textit{Multiple operations} smell defined by Hermans \cite{Hermans2012intra}. A similar operation is the \textit{Extract Literal} refactoring, in which a literal value is extracted formulas into a different cell. This can solve the \textit{Magic Number} smell.
+The last one, \textit{Replace akward formula} is very specific and transforms multiple additions into a single \texttt{SUM} operation.
+
+Hermans and Dig \cite{hermans2014bumblebee} take a more general approach and provide a way to transform spreadsheet formulas to other spreadsheet formulas, in a way that is very similar to how a regular expression works in some modern programming languages. They implement this in an Excel plugin called \textit{BumbleBee}. To define a transformation rule one defines a formula to match and a formula to replace it with. While every Excel formula can be provided, the power comes from patterns which can bind to a subformula, cell or range. For example, the transformation rule
+\[F_1/F_2 \leftrightarrow IF(F_2<>0,F_1/F_2,"undefined")\]
+ implements the \textit{Guard Call} refactoring by preventing division by zero. With this approach all refactorings inside cell formulas are possible.
+
+\subsection{Refactoring Yahoo Pipes}
 
 \section{Empirical evidence}
 \label{sec:empirical}
@@ -170,6 +196,9 @@ In addition to the smells, they present evidence that users of Yahoo pipes prefe
 
 \newpage
 \balance
+
+% Work that wasn't directly referenced but should still appear in the literature list
+\nocite{sui2008automated}
 
 \bibliographystyle{IEEEtran}
 \bibliography{literaturelist}
