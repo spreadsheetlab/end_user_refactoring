@@ -161,7 +161,7 @@ To define a transformation rule one defines a formula to match and a formula to 
 \[F_1/F_2 \leftrightarrow IF(F_2<>0,F_1/F_2,''undefined'')\]
  implements the \textit{Guard Call} \cite{badame2012refactoring} refactoring by transforming a formula into one which prevents division by zero.
  In this example $F$ can capture (bind to) any valid Excel Formula.
- With this approach it is possible to define all refactorings which are contained the the formula of a single cell.
+ With this approach it is possible to create a rule for all refactorings defined by Badame and Dig \cite{badame2012refactoring}, but also all refactorings as long as they do not require more intricate capturing groups.
 
 \subsection{Refactoring LabVIEW programs}
 
