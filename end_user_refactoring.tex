@@ -98,15 +98,15 @@ Several method-level smells translate well into cell-level smells, supporting th
 Another interesting smell is the \textit{Long Calculation Chain}, which happens because referenced formulas can reference other formulas ad infinitum.
 This is very similar to Fowler's \textit{Message Chain} smell and the problems associated with programs with too much layers or indirection, sometimes referred to as \textit{Lasanga Code}.
 
-\todo{Okay I think the Cunha paper is not great, do we want to reference it?
-The data anomaly "smells" have \textit{some} value for detecting input errors, but I wouldn't classify them as software smells per se. Also the smell names are rubbish, how is "Standard Deviation" a smell? as opposed to e.g. "Improbable values"
-}
-
-Cunha et. al \cite{cunha2012towards} take a different approach and consider the data contained in a spreadsheet.
-They look different types of anomalies in the data of a spreadsheet and define these as smells. 
+Cunha et. al \cite{cunha2012towards} take a different approach and  consider the data contained in a spreadsheet.
+For most of their smells, they look different types of anomalies in the data of a spreadsheet and define these as smells. 
 Examples of this are \textit{Standard Deviation} which occur if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
-Another example is the \textit{Quasi-Functional Dependencies} smell, which occurs if two columns are functionally dependent in all but a small number of occurrences. This can indicate a mistake in the anomalous rows.
-While these smells have no direct analogy in general purpose programming languages, they can indicate problems with the user input and as such still indicate problems with the artifact.
+They implement detection for their smells in a stand-alone tool called SmellSheet Detective which can analyze spreadsheets from the online office environment Google Docs.
+However, it is doubtful if these smells qualify as code smells because they are mostly related to input and not programming and as such ``data smells'' would be a more appropriate name. As such they also do not have an analogy in general purpose programming languages.
+They can indicate problems with the user input and as such still indicate problems with the artifact.
+
+In more recent work Barowy et. Al \cite{barowy2014checkcell} take a very similar approach and they do not label it ``code smell'' but rather ``data debugging''. They developed an Excel plugin called CheckCell which uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet.
+Such values are likely either very important or erroneous.
 
 \subsection{Smells in LabVIEW programs}
 
@@ -136,7 +136,6 @@ One can easily see how ``\textit{Non-reentrant VI}'' is a smell in a language th
 The third and largest category with 8 smells are those that are applicable to general purpose languages.
 ``\textit{Multiple Nested Loops}'' is a smell in almost any language that supports loops, and ``\textit{Build Array inside Loop}'' would be similar to allocating multiple small segments of memory with C's \texttt{malloc} inside a loop with potentially equally bad performance implications.
 
-
 \subsection{Smells in Yahoo pipes}
 In ~\cite{Stolee2011}, Stolee and Elbaum describe a number of smells. 
 
@@ -150,12 +149,16 @@ Now that we have examined smells, we can continue to the refactoring of end-user
 
 \subsection{Refactoring spreadsheets}
 
-The first work done on spreadsheet refactoring was done by Badame and Dig \cite{badame2012refactoring}. They define six refactorings applicable to spreadsheets, although the corresponding smells are only implied and not explicitly defined and implement these in an Excel plugin called \textit{REFbook}. Three of these have to do with preventing errors, like \textit{Guard Call} which places an \texttt{IF} around an expression which can result in an error such as a division by potentially zero. The other two directly correspond to known smells. \textit{Extract Row or Column} or more generally \textit{Extract Subformula} is a refactoring with which part of a formula is extracted to a new cell. This solves the \textit{Multiple operations} smell defined by Hermans \cite{Hermans2012intra}. A similar operation is the \textit{Extract Literal} refactoring, in which a literal value is extracted formulas into a different cell. This can solve the \textit{Magic Number} smell.
-The last one, \textit{Replace akward formula} is very specific and transforms multiple additions into a single \texttt{SUM} operation.
+The first work done on spreadsheet refactoring was done by Badame and Dig \cite{badame2012refactoring}. They define six refactorings applicable to spreadsheets, although the corresponding smells are only implied and not explicitly defined and implement these in an Excel plugin called \textit{REFbook}. Three of these have to do with preventing errors, like \textit{Guard Call} which places an \texttt{IF} around an expression which can result in an error such as a division by potentially zero. The other two directly correspond to known smells. \textit{Extract Row or Column} or more generally \textit{Extract Subformula} is a refactoring with which part of a formula is extracted to a new cell. This solves the \textit{Multiple operations} smell, which is analogous to the \textit{Long Method} \cite{Hermans2012intra} smell. A similar operation is the \textit{Extract Literal} refactoring, in which a literal value is extracted formulas into a different cell. This can solve the \textit{Magic Number} smell.
+The last one, \textit{Replace Akward Formula} is very specific and transforms multiple additions into a single \texttt{SUM} operation.
 
-Hermans and Dig \cite{hermans2014bumblebee} take a more general approach and provide a way to transform spreadsheet formulas to other spreadsheet formulas, in a way that is very similar to how a regular expression works in some modern programming languages. They implement this in an Excel plugin called \textit{BumbleBee}. To define a transformation rule one defines a formula to match and a formula to replace it with. While every Excel formula can be provided, the power comes from patterns which can bind to a subformula, cell or range. For example, the transformation rule
-\[F_1/F_2 \leftrightarrow IF(F_2<>0,F_1/F_2,"undefined")\]
- implements the \textit{Guard Call} refactoring by preventing division by zero. With this approach all refactorings inside cell formulas are possible.
+Hermans and Dig \cite{hermans2014bumblebee} take a more general approach and provide a way to transform spreadsheet formulas to other spreadsheet formulas, in a way that is very similar to how a regular expression or patterns works in some modern programming languages.
+They implement this in an Excel plugin called BumbleBee.
+To define a transformation rule one defines a formula to match and a formula to replace it with. While every Excel formula can be provided, the power comes from, to use the regular expression terminology, ``capturing groups'' which can bind to a subformula, cell or range. For example, the transformation rule
+\[F_1/F_2 \leftrightarrow IF(F_2<>0,F_1/F_2,''undefined'')\]
+ implements the \textit{Guard Call} refactoring by transforming a formula into one which prevents division by zero.
+ In this example $F$ can capture (bind to) any valid Excel Formula.
+ With this approach it is possible to define all refactorings which are contained the the formula of a single cell.
 
 \subsection{Refactoring Yahoo Pipes}
 
