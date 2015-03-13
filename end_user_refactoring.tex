@@ -61,17 +61,17 @@ These smells in end-user programming have been a topic of research over the past
 \label{sec:background}
 
 %Refactoring, improving the internal composition of a software program without altering its functionality or output \todo{quote a definition}, has been a part of software engineering since at least 1989 \cite{arnold1989software}, but was popularized by Fowler's 1999 "Refactoring: Improving the design of existing programs" \cite{fowler1999refactoring}. 
-Since their introduction by Martin Fowler in 1999 \cite{Fowl1999}, extensive research has been done into code smells. Code smells, according to Fowler, indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors. `'A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. Like source code produced by professional developers, programs made by end-users can also contain smells.
+Since their introduction by Martin Fowler in 1999 \cite{Fowl1999}, extensive research has been done into code smells. Code smells, according to Fowler, indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors. ``A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. Like source code produced by professional developers, programs made by end-users can also contain smells.
 
 Refactoring code is usually motivated by noticing a code smell which signals the opportunity for improvement.
 This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
 
 \section{Smells in end-user artifacts}
 \label{sec:smells}
-Research into end-user programming smells has two approaches which can be combined.
+Research into end-user programming smells has two approaches, which are not mutually exclusive.
 The first approach take existing smells for object-oriented programming languages, usually those defined by Fowler, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011}.
 
-Another approach is to define smells directly for the end-user environment.
+Another approach is to define smells tailored to the end-user environment.
 This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts or by analyzing publicly available artifacts \cite{Stolee2011}.
 
 This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts.
@@ -94,19 +94,15 @@ Similarly a cell can use cells of other worksheets more than it uses those of it
 
 In \cite{Hermans2012intra}, Hermans et al. define five intra-worksheet or formula smells and again define and evaluate thresholds for them based on the EUSES corpus.
 Several method-level smells translate well into cell-level smells, supporting the validity of the above analogy.
-\textit{Multiple Calculations} is similar to the \textit{Long method} code smell. Like a method with many lines or operations can be hard to understand or change a cell that has a long formula can have the same problem.
+\textit{Multiple Calculations} is similar to the \textit{Long method} code smell.
+Like a method with many lines or operations can be hard to understand or change, a cell that has a long formula can have the same problem.
 Another interesting smell is the \textit{Long Calculation Chain}, which happens because referenced formulas can reference other formulas ad infinitum.
 This is very similar to Fowler's \textit{Message Chain} smell and the problems associated with programs with too much layers or indirection, sometimes referred to as \textit{Lasanga Code}.
 
-Cunha et. al \cite{cunha2012towards} take a different approach and  consider the data contained in a spreadsheet.
-For most of their smells, they look different types of anomalies in the data of a spreadsheet and define these as smells. 
-Examples of this are \textit{Standard Deviation} which occur if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
-They implement detection for their smells in a stand-alone tool called SmellSheet Detective which can analyze spreadsheets from the online office environment Google Docs.
-However, it is doubtful if these smells qualify as code smells because they are mostly related to input and not programming and as such ``data smells'' would be a more appropriate name. As such they also do not have an analogy in general purpose programming languages.
-They can indicate problems with the user input and as such still indicate problems with the artifact.
-
-In more recent work Barowy et. Al \cite{barowy2014checkcell} take a very similar approach and they do not label it ``code smell'' but rather ``data debugging''. They developed an Excel plugin called CheckCell which uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet.
-Such values are likely either very important or erroneous.
+Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but they take a different approach and  consider the data contained in a spreadsheet.
+However, it is doubtful if these smells qualify as code smells because they are mostly related to input and not programming and as such ``data smells'' would be a more appropriate name.
+As such they also do not have an analogy in general purpose programming languages.
+We refer to related work section \ref{subsec:related_datasmells}.
 
 \subsection{Smells in LabVIEW programs}
 
@@ -127,13 +123,13 @@ Wires with no source VI are inputs and wires without a destination VI are output
 Some users claim they are two to three times as productive in G as they are in general-purpose alternatives like C or FORTRAN \cite{chambers2013smell}.
 However, G programs do not always perform well, which has motivated Chambers and Scaffidi \cite{chambers2013smell} to define smells in G and implement heuristics to identify these smells, where they particularly focus on smells that can indicate performance problems.
 
-The 13 smells identified roughly fall into three categories.
-The first 3 are smells specific to the environment, for example the ``\textit{Sequence instead of State machine}'' smell which is a smell because state machines can be much better optimized by the G compiler.
+The thirteen smells identified roughly fall into three categories.
+The first three are smells specific to the environment, for example the ``\textit{Sequence instead of State machine}'' smell which is a smell because state machines can be much better optimized by the G compiler.
 
-The second and third categories are more broadly applicable, with the second category of 2 smells being smells you could find a any program that uses concurrency.
+The second and third categories are more broadly applicable, with the second category of two smells being smells you could find a any program that uses concurrency.
 One can easily see how ``\textit{Non-reentrant VI}'' is a smell in a language that heavily relies on concurrency and parallelization since such a VI will require blocking and thus possibly slows down the program, similar to how a non-reentrant function could be a problem in a concurrent program written in a general purpose language.
 
-The third and largest category with 8 smells are those that are applicable to general purpose languages.
+The third and largest category with eight smells are those that are applicable to general purpose languages.
 ``\textit{Multiple Nested Loops}'' is a smell in almost any language that supports loops, and ``\textit{Build Array inside Loop}'' would be similar to allocating multiple small segments of memory with C's \texttt{malloc} inside a loop with potentially equally bad performance implications.
 
 \subsection{Smells in Yahoo pipes}
@@ -144,21 +140,37 @@ In ~\cite{Stolee2011}, Stolee and Elbaum describe a number of smells.
 \section{Refactoring end-user programs}
 \label{sec:refactoring}
 
-A way to solve smells is by refactoring, changing the composition of an artifact so that it no longer contains the smell.
+A way to solve smells is by refactoring, changing the composition of an artifact so that it no longer contains the smell without changing its behavior or output.
 Now that we have examined smells, we can continue to the refactoring of end-user programs.
 
 \subsection{Refactoring spreadsheets}
 
-The first work done on spreadsheet refactoring was done by Badame and Dig \cite{badame2012refactoring}. They define six refactorings applicable to spreadsheets, although the corresponding smells are only implied and not explicitly defined and implement these in an Excel plugin called \textit{REFbook}. Three of these have to do with preventing errors, like \textit{Guard Call} which places an \texttt{IF} around an expression which can result in an error such as a division by potentially zero. The other two directly correspond to known smells. \textit{Extract Row or Column} or more generally \textit{Extract Subformula} is a refactoring with which part of a formula is extracted to a new cell. This solves the \textit{Multiple operations} smell, which is analogous to the \textit{Long Method} \cite{Hermans2012intra} smell. A similar operation is the \textit{Extract Literal} refactoring, in which a literal value is extracted formulas into a different cell. This can solve the \textit{Magic Number} smell.
+The first work on spreadsheet refactoring was done by Badame and Dig \cite{badame2012refactoring}.
+They define six refactorings applicable to spreadsheets, although the corresponding smells are only implied and not explicitly defined and implement these in an Excel plugin called \textit{REFbook}.
+Three of these have to do with preventing errors, like \textit{Guard Call} which places an \texttt{IF} around an expression which can result in an error such as a division by potentially zero.
+The other two directly correspond to known smells.
+\textit{Extract Row or Column} or more generally \textit{Extract Subformula} is a refactoring with which part of a formula is extracted to a new cell.
+This solves the \textit{Multiple operations} smell, which is analogous to the \textit{Long Method} \cite{Hermans2012intra} smell.
+A similar operation is the \textit{Extract Literal} refactoring, in which a literal value is extracted formulas into a different cell.
+This can solve the \textit{Magic Number} smell.
 The last one, \textit{Replace Akward Formula} is very specific and transforms multiple additions into a single \texttt{SUM} operation.
 
-Hermans and Dig \cite{hermans2014bumblebee} take a more general approach and provide a way to transform spreadsheet formulas to other spreadsheet formulas, in a way that is very similar to how a regular expression or patterns works in some modern programming languages.
+Hermans and Dig \cite{hermans2014bumblebee} take a more generic approach and provide a way to transform spreadsheet formulas to other spreadsheet formulas, in a way that is very similar to how a regular expression or patterns works in some modern programming languages.
 They implement this in an Excel plugin called BumbleBee.
 To define a transformation rule one defines a formula to match and a formula to replace it with. While every Excel formula can be provided, the power comes from, to use the regular expression terminology, ``capturing groups'' which can bind to a subformula, cell or range. For example, the transformation rule
 \[F_1/F_2 \leftrightarrow IF(F_2<>0,F_1/F_2,''undefined'')\]
- implements the \textit{Guard Call} refactoring by transforming a formula into one which prevents division by zero.
+ implements the \textit{Guard Call} \cite{badame2012refactoring} refactoring by transforming a formula into one which prevents division by zero.
  In this example $F$ can capture (bind to) any valid Excel Formula.
  With this approach it is possible to define all refactorings which are contained the the formula of a single cell.
+
+\subsection{Refactoring LabVIEW programs}
+
+Chambers and Scaffidi \cite{chambers2013smell} do not provide support for automatic refactorings in their tool, instead relying on the users to know how to fix the indicated smell themselves.
+However, the LabVIEW programming language G is a visual dataflow language.
+Sui et. al \cite{sui2008automated} have done some work on refactoring visual dataflow languages and defined some refactorings which are applicable to G.
+Most notable is the \textit{Extract sub graph into Node} refactoring which is similar to the \textit{Extract Method} refactoring and moves part of a graph into a separate node which is then included in the original graph.
+In LabVIEW this could be named \textit{Extract Virtual Instrument}.
+However, Sui et. al did not implement their proposed refactorings in an end-user programming environment.
 
 \subsection{Refactoring Yahoo Pipes}
 
@@ -167,7 +179,7 @@ To define a transformation rule one defines a formula to match and a formula to 
 
 \subsection{LabVIEW}
 
-Chambers and Scaffidie implemented their smell-finding heuristics in a tool integrated into LabVIEW and evaluated it with 26 experienced LabVIEW programmers divided in two groups of 13 of which only one had access to their tool.
+Chambers and Scaffidie implemented their smell-finding heuristics in a tool integrated into LabVIEW and evaluated it with 26 experienced LabVIEW programmers divided in two groups of thirteen of which only one had access to their tool.
 
 The results were promising, with all 13 tool-users being able to identify the problems in the given programs and 12 being able to fix the problem.
 In contrast only 5 out of 13 non-tool-users were able to identify the problem and 3 out of 5 being able to fix the problem, although the latter is statistically insignificant.
@@ -190,6 +202,30 @@ In addition to the smells, they present evidence that users of Yahoo pipes prefe
 \section{Related Work}
 \label{sec:related_work}
 
+\subsection{``Data smells''}
+\label{subsec:related_datasmells}
+
+In end-user programming environments user input and logic are often more closely linked than they are in general purpose programming languages.
+As such analyzing the input data as opposed to the logic can also be used to detect problems.
+
+Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but for most of their smells they look at different types of anomalies in the data of a spreadsheet and define these as smells.
+As such ``Data Smell'' is a more appropriate name.
+Examples of this are \textit{Standard Deviation} which occur if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
+They implement detection for their smells in a stand-alone tool called SmellSheet Detective which can analyze spreadsheets from the online office environment Google Docs.
+
+In more recent work Barowy et. Al \cite{barowy2014checkcell} take a very similar but more formalized and thorough approach which they label ``Data Debugging''.
+They developed an Excel plugin called CheckCell which uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet.
+Such values are likely either very important or erroneous.
+While ``Data Debugging'' is a valid term, we think the term ``Data Smell'' is more valid because it shows the similarity to code smells and its similar potential such as locating weak points in the artifact and possibility for refactoring.
+
+\subsection{Testing end user-programs}
+
+\todo{expand}
+
+Refactoring is linked to testing because refactoring an artifact is made safer and easier by the existence of a good test suite in said artifact.
+
+\todo{Mention expector}
+
 \section{Discussion}
 \label{sec:discussion}
 
@@ -201,7 +237,7 @@ In addition to the smells, they present evidence that users of Yahoo pipes prefe
 \balance
 
 % Work that wasn't directly referenced but should still appear in the literature list
-\nocite{sui2008automated}
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{literaturelist}
