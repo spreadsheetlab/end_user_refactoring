@@ -1,10 +1,14 @@
 \documentclass[10pt,conference,compsocconf]{IEEEtran}
 
+%Deadline: April 8, 2015
+%Call for papers: http://www.computer.org/web/computingnow/swcfp6
+
 \usepackage{url}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{eurosym}
 \usepackage{amsfonts}
 \usepackage{balance}
+\usepackage{cite} %this package is awesome - it reorders lists of citations to be in numeric order
 \usepackage[pdftex]{graphicx}
 \graphicspath{ {}{img/} }
 \DeclareGraphicsExtensions{.pdf,.jpg,.png}
@@ -56,7 +60,7 @@ These end-user programmers perform a wide variety of tasks within their organiza
 
 Similar to the code written by professional developers, end-user artifacts may have a long life-span. In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. In their lifespan, these artifacts are modified, often by different people. This makes them vulnerable for code \emph{smells}, like other source code artifacts. 
 
-These smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo Pipes~\cite{Stolee2011} and spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}. Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads to the topic of this paper: \emph{how can we support end-users in recognizing code smells and refactoring their artifacts?} \todo{This is up for discussion.}
+These smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes~\cite{Stolee2011} and spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}. Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads to the topic of this paper: \emph{how can we support end-users in recognizing code smells and refactoring their artifacts?} \todo{This is up for discussion.}
 
 \section{Background}
 \label{sec:background}
@@ -73,14 +77,16 @@ programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTS
 %Like source code produced by professional developers, programs made by end-users can also contain smells.
 
 %This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
+Researchers have also found that code smells matter to end-user programmers. When presented with Yahoo!\ Pipes web mashups with and without smells, a significant majority preferred the pipes without smells (p=0.01, ~\cite{StoleeTSE2013}). \todo{add a finding about the impact of smells on spreadsheets} \todo{add a  finding from LabView}
+Considering the large number of end-user programmers, the longevity of their artifacts, and the impact of smells, supporting end-user programmers in code smell detection and refactoring is important. 
 
 \section{Smells in end-user artifacts}
 \label{sec:smells}
-Research into end-user programming smells has two approaches, which are not mutually exclusive.
-The first approach take existing smells for object-oriented programming languages, usually those defined by Fowler, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011}.
+Research into end-user programming smells has had two approaches, which are not mutually exclusive.
+The first approach take existing smells for object-oriented programming languages, usually those defined by Fowler, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013}.
 
 Another approach is to define smells tailored to the end-user environment.
-This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts or by analyzing publicly available artifacts \cite{Stolee2011}.
+This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{}, or by analyzing publicly available artifacts \cite{Stolee2011,StoleeTSE2013}. \todo{Do we have a citation for the forum or newsgroup approach?}
 
 This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts.
 
