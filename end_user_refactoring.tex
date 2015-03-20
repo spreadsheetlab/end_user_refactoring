@@ -154,18 +154,17 @@ A web mashup is a program that collects and combines information from various
 sources. 
 In  Yahoo!\ Pipes, the information comes from RSS feeds. Figure~\ref{fig:ypexample} shows an example Yahoo!\ Pipes program with five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. 
 
-Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a program and each module as a method. Smells in this domain take the form of 
+Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a program and each module as a method. Smells in this domain have been adapted from Fowler's definitions, defined based on changes to the Pipes environment, and derived from common patterns in pipe structures. 
 
 %Talk about adapting Fowler's definitions
-\emph{Lazy Class} smell identifies classes, components or methods that "do not do enough"~\cite{Fowl99}. We defined three related smells specific for the mashup domain, identifying noisy modules, unnecessary modules, and unnecessary abstraction. The \emph{duplicate code} smell is rather vague, but applies to duplicate module parameters, modules, and structures. 
+\emph{Lazy Class} smell identifies classes, components or methods that ``do not do enough"~\cite{Fowl1999}. Three laziness smells were defined for the mashup domain, identifying noisy modules, unnecessary modules, and unnecessary abstraction. The \emph{duplicate code} smell is rather vague, but applies to duplicate module parameters, modules, and structures. Three smells were defined to identify duplication. 
 
 %Talk about smells unique to the domain
-By exploring a large subset of the Yahoo!\ Pipes repository, Stolee et al. identified two smells based on the presence of broken data sources and the use of deprecated modules. 
+By exploring a large subset of the Yahoo!\ Pipes repository, Stolee et al. identified two smells based on the presence of broken data sources and the use of deprecated modules. These are based on the presence of unsupported, or deprecated, modules, and trying to access an RSS feed that either does not exist or requires special permission. 
 
 %Talk about deriving smells from the community
+The presence of a large, publicly available repositories of code opens an opportunity to identify common programming practices, and deviations from those practices as smells. This approach was used to define smells based on community standards for the Yahoo!\ Pipes domain. 
 
-
-\todo{more summary here}
 
 \begin{figure}
 \caption{Example of a program in Yahoo!\ Pipes}
