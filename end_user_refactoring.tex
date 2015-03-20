@@ -31,11 +31,11 @@ f.f.j.hermans@tudelft.nl}
 
 
 \and
-\IEEEauthorblockN{Katryn Stolee}
+\IEEEauthorblockN{Kathryn T. Stolee}
 \IEEEauthorblockA{Iowa State University\\
 209 Atanasoff Hall\\
 Ames, IA 50011-1041\\
-Email Katie}
+kstolee@iastate.edu}
 }
 
 \maketitle
@@ -50,21 +50,29 @@ end-user computing; refactoring;
 
 \section{Introduction}
 The number of end-user programmers is said to greatly exceed the number of professional programmers. ``The proportion of American end user workers reporting they ``do programming'' has remained relatively constant, rising from around 10\% in 1989 to only around 15\% in 2001''~\cite{Scaf2005} This 15\% of 2001 totals to about 11 million end users, while the number of professional developers was estimated at 3 million for the same period~\cite{Scaf2005}.
+%These statistics seem a little dated... is there anything more recent?
 
-These end-user programmers perform a wide variety of tasks within the organizations they work for, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-users user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
+These end-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
 
-Contrary to what people might think, end-user artifacts are not always created ad-hoc, but may in fact have a long life-span. A recent case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. In their lifespan, these artifacts are modified, often by different people. This makes them vulnerable for \emph{smells}, like programming artifacts. 
+Similar to the code written by professional developers, end-user artifacts may have a long life-span. In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. In their lifespan, these artifacts are modified, often by different people. This makes them vulnerable for code \emph{smells}, like other source code artifacts. 
 
-These smells in end-user programming have been a topic of research over the past few years. Most notable are smells in Yahoo Pipes~\cite{Stolee2011}, smells in spreadsheets \cite{Hermans2012inter}, and performance smells in LabVIEW code \cite{chambers2013smell}. Experiments in all these areas have shown that end-users in fact understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads us to the topic of this paper: how can we support do end-users in refactoring their artifacts? \todo{This is up for discussion.}
+These smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo Pipes~\cite{Stolee2011} and spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}. Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads to the topic of this paper: \emph{how can we support end-users in recognizing code smells and refactoring their artifacts?} \todo{This is up for discussion.}
 
 \section{Background}
 \label{sec:background}
 
-%Refactoring, improving the internal composition of a software program without altering its functionality or output \todo{quote a definition}, has been a part of software engineering since at least 1989 \cite{arnold1989software}, but was popularized by Fowler's 1999 "Refactoring: Improving the design of existing programs" \cite{fowler1999refactoring}. 
-Since their introduction by Martin Fowler in 1999 \cite{Fowl1999}, extensive research has been done into code smells. Code smells, according to Fowler, indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors. ``A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. Like source code produced by professional developers, programs made by end-users can also contain smells.
 
-Refactoring code is usually motivated by noticing a code smell which signals the opportunity for improvement.
-This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
+Refactoring was first introduced as a systematic way to restructure source code and facilitate software evolution and maintenance~\cite{Opdyke:1992:ROF:169783, Griswold:1993:AAP:152388.152389}. In 1999, Martin Fowler introduced the concept of code smells~\cite{Fowl1999}. 
+%Refactoring, improving the internal composition of a software program without altering its functionality or output \todo{quote a definition}, has been a part of software engineering since at least 1989 \cite{arnold1989software}, but was popularized by Fowler's 1999 "Refactoring: Improving the design of existing programs" \cite{fowler1999refactoring}. 
+According to Fowler, code smells indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors. ``A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. For professional programmers, refactoring code is usually motivated by noticing a code smell, which signals the opportunity for improvement.
+
+
+The taxonomy of smells outlined in Fowler's text pertained exclusively to object-oriented code, and professional programming languages were focus of refactoring research for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}.  Since 2011, however, refactoring and smell definitions have been adapted and extended to other 
+programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTSE2013}, spreadsheets~\cite{Hermans2011, Hermans2012inter, hermans2014bumblebee}, and dataflow programs~\cite{chambers2013smell}, all of which are  end-user programming domains. 
+%Further, these smells can be addressed using refactorings that, like the refactorings for professional programming languages, remove the smell while maintaining the code's behavior. 
+%Like source code produced by professional developers, programs made by end-users can also contain smells.
+
+%This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
 
 \section{Smells in end-user artifacts}
 \label{sec:smells}
