@@ -26,6 +26,7 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 \title{End-User Refactoring}
+%\title{Perspectives on End-User Refactoring: Past, Present, and Future}
 
 \author{\IEEEauthorblockN{Felienne Hermans, David Hoepelman}
 \IEEEauthorblockA{Delft University of Technology\\
@@ -92,7 +93,7 @@ This section provides an overview of different smells that researchers have foun
 
 \subsection{Smells in spreadsheets}
 
-In modern spreadsheet programs a \textit{cell} can contain a single \textit{formula} which performs a calculation, and a table of cells is bundled in a \textit{worksheet}.
+In modern spreadsheet programs, a \textit{cell} can contain a single \textit{formula} which performs a calculation, and a table of cells is bundled in a \textit{worksheet}.
 A \textit{workbook} consist of a collection of worksheets.
 Formulas can reference other cells in the same or in a different worksheet.
 References to a different workbook are possible but less common.
@@ -117,6 +118,8 @@ Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet
 However, it is doubtful if these smells qualify as code smells because they are mostly related to user input and not program logic.
 This also causes them to not have an equivalent in general purpose programming languages.
 We refer to related work section \ref{subsec:related_datasmells}.
+
+\todo{The other domains have figures. Do we need one for spreadsheets?}
 
 \subsection{Smells in LabVIEW programs}
 
@@ -147,9 +150,29 @@ The third and largest category with eight smells are those that are applicable t
 ``\textit{Multiple Nested Loops}'' is a smell in almost any language that supports loops, and ``\textit{Build Array inside Loop}'' would be similar to allocating multiple small segments of memory with C's \texttt{malloc} inside a loop with potentially equally bad performance implications.
 
 \subsection{Smells in Yahoo pipes}
-In ~\cite{Stolee2011}, Stolee and Elbaum describe a number of smells. 
+A web mashup is a program that collects and combines information from various
+sources. 
+In  Yahoo!\ Pipes, the information comes from RSS feeds. Figure~\ref{fig:ypexample} shows an example Yahoo!\ Pipes program with five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. 
+
+Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a program and each module as a method. Smells in this domain take the form of 
+
+%Talk about adapting Fowler's definitions
+\emph{Lazy Class} smell identifies classes, components or methods that "do not do enough"~\cite{Fowl99}. We defined three related smells specific for the mashup domain, identifying noisy modules, unnecessary modules, and unnecessary abstraction. The \emph{duplicate code} smell is rather vague, but applies to duplicate module parameters, modules, and structures. 
+
+%Talk about smells unique to the domain
+By exploring a large subset of the Yahoo!\ Pipes repository, Stolee et al. identified two smells based on the presence of broken data sources and the use of deprecated modules. 
+
+%Talk about deriving smells from the community
+
 
 \todo{more summary here}
+
+\begin{figure}
+\caption{Example of a program in Yahoo!\ Pipes}
+\centering
+\includegraphics[width=\columnwidth]{yp-1}
+\label{fig:ypexample}
+\end{figure}
 
 \section{Refactoring end-user programs}
 \label{sec:refactoring}
@@ -218,6 +241,7 @@ In addition to the smells, they present evidence that users of Yahoo pipes prefe
 
 \subsection{``Data smells''}
 \label{subsec:related_datasmells}
+\todo{This section seems a bit redundant with Background}
 
 In end-user programming environments user input and logic are often more closely linked than they are in general purpose programming languages.
 As such analyzing the input data as opposed to the logic can also be used to detect problems.
@@ -242,6 +266,10 @@ Refactoring is linked to testing because refactoring an artifact is made safer a
 
 \section{Discussion}
 \label{sec:discussion}
+
+There are many directions for future work in refactoring for end-user programmers. 
+
+In a qualitative analysis of the end-user preferences for Yahoo!\ Pipes programs, the participant responses showed preference toward programs with familiar elements~\cite{Stolee2015}. This opens an opportunity and perhaps a need to define code smells and refactorings based on end-user experience. 
 
 
 \section{Concluding Remarks}
