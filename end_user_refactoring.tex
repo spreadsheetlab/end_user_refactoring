@@ -62,12 +62,12 @@ These end-user programmers perform a wide variety of tasks within their organiza
 
 Similar to the code written by professional developers, end-user artifacts may have a long life-span. In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. In their lifespan, these artifacts are modified, often by different people. This makes them vulnerable for code \emph{smells}, like other source code artifacts. 
 
-These smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes~\cite{Stolee2011} and spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}. Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads to the topic of this paper: \emph{how can we support end-users in recognizing code smells and refactoring their artifacts?} \todo{This is up for discussion.} The contributions of this work are:
+These smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}. Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads to the topic of this paper: \emph{how can we support end-users in recognizing code smells and refactoring their artifacts?} \todo{This is up for discussion.} The contributions of this work are:
 
 \begin{itemize}
 %	\item Synthesis of recent research in smell detection and refacotring for end-user programming languages
 	\item Motivation for the study of smells and refactoring for end-user programming languages based on empirical evidence
-	\item Synthesis and catalog of code smells detected in end-user programs
+	\item Synthesis and catalog of code smells detected \todo{and refactorings?} in end-user programs
 	\item Identification of future opportunities for smell detection and refactoring in end-user programming domains
 \end{itemize}
 
@@ -89,46 +89,54 @@ programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTS
 Researchers have also found that code smells matter to end-user programmers. When presented with Yahoo!\ Pipes web mashups with and without smells, a significant majority of end-user programmers preferred the pipes without smells (p=0.01, ~\cite{StoleeTSE2013}). \todo{add a finding about the impact of smells on spreadsheets} \todo{add a  finding from LabView}
 Considering the large number of end-user programmers, the longevity of their artifacts, and the impact of smells, supporting end-user programmers in code smell detection and refactoring is important. 
 
-\section{Smells in end-user artifacts}
-\label{sec:smells}
-Research into end-user programming smells has had two approaches, which are not mutually exclusive.
-The first approach take existing smells for object-oriented programming languages, usually those defined by Fowler, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013}.
-We summarize the OO smells present in the three end-user domains, Spreadsheets, Yahoo!\ Pipes, and LabVIEW, in Table~\ref{table:oosmells}. Some smells are applicable to the domains but have not yet been studied (\ding{51}*); we discuss these future opportunities in Section~\ref{sec:discussion}. 
+In this work, we explore past research in three end-user programming domains: spreadsheets (Excel), web mashups (Yahoo!\ Pipes), and and visual system design (LabVIEW). Here, briefly explore each domain  before presenting the relevant code smells in  Section~\ref{sec:smells}.
 
-The second approach is to define smells tailored to the end-user environment.
-This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{}, or by analyzing publicly available artifacts \cite{Stolee2011,StoleeTSE2013}. \todo{Do we have a citation for the forum or newsgroup approach?}
-
-This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts.
-
-\subsection{Smells in spreadsheets}
-
+\paragraph{Excel}
+\todo{The other domains have figures. Do we need one for spreadsheets?}
+\todo{Give some high-level broad intro to spreadsheets. Just a couple sentences}
 In modern spreadsheet programs, a \textit{cell} can contain a single \textit{formula} which performs a calculation, and a table of cells is bundled in a \textit{worksheet}.
 A \textit{workbook} consist of a collection of worksheets.
 Formulas can reference other cells in the same or in a different worksheet.
 References to a different workbook are possible but less common.
- 
-Hermans et al. \cite{Hermans2012inter} \cite{Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method.
-Working from this analogy, the classic Fowler smells can be divided into class and method smells.
-The class smells correspond to \textit{inter-sheet} smells and method smells correspond to \textit{intra-sheet} or \textit{intra-cell} smells.
-
-Hermans et al. \cite{Hermans2012inter} define four inter-worksheet smells and define and evaluate threshold for them based on the EUSES spreadsheet corpus \cite{fisher2005euses}.
-Fowler's class smells are translated into spreadsheets using the above analogy. 
-For example the \textit{Feature Envy} smell indicates that a class uses members of another class more than it uses the members of its own class.
-Similarly a cell can use cells of other worksheets more than it uses those of its own sheet, and thus that cell could better be placed in the other sheet.
-
-In \cite{Hermans2012intra}, Hermans et al. define five intra-worksheet or formula smells and again define and evaluate thresholds for them based on the EUSES corpus.
-Several method-level smells translate well into cell-level smells, supporting the validity of the above analogy.
-\textit{Multiple Calculations} is similar to the \textit{Long method} code smell.
-Like a method with many lines or operations can be hard to understand or change, a cell that has a long formula can have the same problem.
-Another interesting smell is the \textit{Long Calculation Chain}, which happens because referenced formulas can reference other formulas ad infinitum.
-This is very similar to Fowler's \textit{Message Chain} smell and the problems associated with programs with too much layers or indirection, sometimes referred to as \textit{Lasanga Code}. \todo{Um, just curious, do you mean spaghetti?}
-
-Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but they take a different approach and  consider the data contained in a spreadsheet.
-However, it is doubtful if these smells qualify as code smells because they are mostly related to user input and not program logic.
-This also causes them to not have an equivalent in general purpose programming languages.
-We refer to related work section \ref{subsec:related_datasmells}.
 
 
+\paragraph{Yahoo!\ Pipes}
+A web mashup is a program that collects and combines information from various
+sources. 
+In  Yahoo!\ Pipes, the information comes from RSS feeds. Figure~\ref{fig:ypexample} shows an example Yahoo!\ Pipes program with five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. 
+
+\begin{figure}
+\caption{Example of a program in Yahoo!\ Pipes}
+\centering
+\includegraphics[width=\columnwidth]{yp-1}
+\label{fig:ypexample}
+\end{figure}
+
+
+\paragraph{LabVIEW}
+\begin{figure}
+\caption{Example of a G program from the LabVIEW manual}
+\centering
+\includegraphics[width=\columnwidth]{labview-1}
+\label{fig:labviewexample}
+\end{figure}
+
+LabVIEW is a proprietary, visual hardware system design environment which features the visual programming language ``G'' as one of its primary features.
+An example of a G program can be found in Figure \ref{fig:labviewexample}.
+G is a dataflow language which means a program is represented as a directed graph where data ``flows'' between nodes through their edges.
+As such the two most important primitives in G are the edges called \textit{wires} and nodes called \textit{virtual instruments}.
+VI's are very similar to functions, because they perform an operation on inputs and provide outputs.
+Wires with no source VI are inputs and wires without a destination VI are outputs. 
+
+
+\section{Smells in end-user programs}
+\label{sec:smells}
+Research into end-user programming smells has had two approaches, which are not mutually exclusive.
+The first approach take existing smells for object-oriented programming languages, usually those defined by Fowler, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013}.
+The second approach is to define smells tailored to the end-user environment.
+This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{}, or by analyzing publicly available artifacts \cite{Stolee2011,StoleeTSE2013}. \todo{Do we have a citation for the forum or newsgroup approach?}
+
+This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts.
 
 
 
@@ -140,7 +148,7 @@ We refer to related work section \ref{subsec:related_datasmells}.
 
 Feature Envy & \ding{51}\cite{Hermans2012inter} & \ding{51}*&  \\ 
 Long Method & \ding{51}\cite{Hermans2012intra} & & \\
-Message Chain & \ding{51} \cite{Hermans2012intra} & & \\
+Message Chain & \ding{51} \cite{Hermans2012intra} & & \ding{51} \cite{chambers2013smell} \\
 Inappropriate Intimacy & \ding{51} \cite{Hermans2012inter} & \ding{51}*&  \\ 
 Middle Man & \ding{51} \cite{Hermans2012inter} &\ding{51} \cite{StoleeTSE2013}  &  \\
 Shotgun Surgery & \ding{51} \cite{Hermans2012inter} & & \\ 
@@ -157,13 +165,39 @@ Dead Code & & \ding{51} \cite{StoleeTSE2013} & \ding{51} \cite{chambers2013smell
 \end{tabular}
 \end{table}
 
-\todo{The other domains have figures. Do we need one for spreadsheets?}
 
-\subsection{Smells in Yahoo pipes}
-A web mashup is a program that collects and combines information from various
-sources. 
-In  Yahoo!\ Pipes, the information comes from RSS feeds. Figure~\ref{fig:ypexample} shows an example Yahoo!\ Pipes program with five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. 
 
+
+\subsection{OO Smells in End-User Programs}
+ We summarize the OO smells present in the three end-user domains, Spreadsheets, Yahoo!\ Pipes, and LabVIEW, in Table~\ref{table:oosmells}. Some smells are applicable to the domains but have not yet been studied (\ding{51}*); we discuss these future opportunities in Section~\ref{sec:discussion}. 
+ 
+ \subsubsection{Spreadsheets}
+Hermans et al. \cite{Hermans2012inter} \cite{Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method.
+Working from this analogy, the classic Fowler smells can be divided into class and method smells.
+The class smells correspond to \textit{inter-sheet} smells and method smells correspond to \textit{intra-sheet} or \textit{intra-cell} smells.
+
+Hermans et al. \cite{Hermans2012inter} define four inter-worksheet smells and define and evaluate threshold for them based on the EUSES spreadsheet corpus \cite{fisher2005euses}.
+Fowler's class smells are translated into spreadsheets using the above analogy. 
+For example the \textit{Feature Envy} smell indicates that a class uses members of another class more than it uses the members of its own class.
+Similarly a cell can use cells of other worksheets more than it uses those of its own sheet, and thus that cell could better be placed in the other sheet.
+
+In \cite{Hermans2012intra}, Hermans et al. define five intra-worksheet or formula smells and again define and evaluate thresholds for them based on the EUSES corpus.
+Several method-level smells translate well into cell-level smells, supporting the validity of the above analogy.
+\textit{Multiple Calculations} is similar to the \textit{Long method} code smell.
+Like a method with many lines or operations can be hard to understand or change, a cell that has a long formula can have the same problem.
+Another interesting smell is the \textit{Long Calculation Chain}, which happens because referenced formulas can reference other formulas ad infinitum.
+This is very similar to Fowler's \textit{Message Chain} smell and the problems associated with programs with too much layers or indirection, sometimes referred to as \textit{Lasanga Code}. \todo{Um, just curious, do you mean spaghetti?}
+
+%Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but they take a different approach and  consider the data contained in a spreadsheet.
+%However, it is doubtful if these smells qualify as code smells because they are mostly related to user input and not program logic.
+%This also causes them to not have an equivalent in general purpose programming languages.
+%We refer to related work section \ref{subsec:related_datasmells}.
+%
+
+
+
+
+\subsubsection{Yahoo!\ Pipes}
 Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a program and each module as a method. Smells in this domain have been adapted from Fowler's definitions, defined based on changes to the Pipes environment, and derived from common patterns in pipe structures. 
 
 %The \emph{Middle Man} smell is referred to as \emph{Unnecessary Abstraction}.
@@ -171,6 +205,19 @@ Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a
 %Talk about adapting Fowler's definitions
 \emph{Lazy Class} smell identifies classes, components or methods that ``do not do enough"~\cite{Fowl1999}. Three laziness smells were defined for the mashup domain, identifying noisy modules, unnecessary modules, and unnecessary abstraction. The \emph{duplicate code} smell applies to duplicate module parameters, modules, and structures. Three smells were defined to identify duplication. 
 
+
+\subsubsection{LabVIEW}
+
+We mapped the following OO smells to the ones defined in prior work\cite{chambers2013smell}: message chain is Multiple Nested Loops , many parameters is Too Many Variables, duplicate code is Redundant operations, and dead code is Unconnected Front Panel
+elements. 
+\todo{discuss this}
+
+\subsection{Domain-Specific Smells}
+The end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain. For example, access to large repositories of programs can lead to smells that deviate from best practices in programming. Systems designed in LabVIEW do not always perform well, leading to the identification of performance smells~\cite{chambers2013smell}. 
+
+\subsubsection{Spreadsheets}
+
+\subsubsection{Yahoo!\ Pipes}
 %Talk about smells unique to the domain
 By exploring a large subset of the Yahoo!\ Pipes repository, Stolee et al. identified two smells based on the presence of broken data sources and the use of deprecated modules. These are based on the presence of unsupported, or deprecated, modules, and trying to access an RSS feed that either does not exist or requires special permission. 
 
@@ -178,32 +225,9 @@ By exploring a large subset of the Yahoo!\ Pipes repository, Stolee et al. ident
 The presence of a large, publicly available repositories of code opens an opportunity to identify common programming practices, and deviations from those practices as smells. This approach was used to define smells based on community standards for the Yahoo!\ Pipes domain. 
 
 
-\begin{figure}
-\caption{Example of a program in Yahoo!\ Pipes}
-\centering
-\includegraphics[width=\columnwidth]{yp-1}
-\label{fig:ypexample}
-\end{figure}
 
-
-\subsection{Smells in LabVIEW programs}
-
-\begin{figure}
-\caption{Example of a G program from the LabVIEW manual}
-\centering
-\includegraphics[width=\columnwidth]{labview-1}
-\label{fig:labviewexample}
-\end{figure}
-
-LabVIEW is a proprietary hardware system design environment which features the visual programming language ``G'' as one of its primary features.
-An example of a G program can be found in Figure \ref{fig:labviewexample}.
-G is a dataflow language which means a program is represented as a directed graph where data ``flows'' between nodes through their edges.
-As such the two most important primitives in G are the edges called \textit{wires} and nodes called \textit{virtual instruments}.
-VI's are very similar to functions, because they perform an operation on inputs and provide outputs.
-Wires with no source VI are inputs and wires without a destination VI are outputs. 
-
-Some users claim they are two to three times as productive in G as they are in general-purpose alternatives like C or FORTRAN \cite{chambers2013smell}.
-However, G programs do not always perform well, which has motivated Chambers and Scaffidi \cite{chambers2013smell} to define smells in G and implement heuristics to identify these smells, where they particularly focus on smells that can indicate performance problems.
+\subsubsection{LabVIEW}
+The G programs created in LabVIEW do not always perform well, which has motivated Chambers and Scaffidi \cite{chambers2013smell} to define smells in G and implement heuristics to identify these smells, where they particularly focus on smells that can indicate performance problems.
 
 The thirteen smells identified roughly fall into three categories.
 The first three are smells specific to the environment, for example the ``\textit{Sequence instead of State machine}'' smell which is a smell because state machines can be much better optimized by the G compiler.
@@ -220,6 +244,10 @@ The third and largest category with eight smells are those that are applicable t
 
 A way to solve smells is by refactoring, changing the composition of an artifact so that it no longer contains the smell without changing its behavior or output.
 Now that we have examined smells, we can continue to the refactoring of end-user programs.
+
+As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. 
+
+\todo{Restructure this section like the Smells section?}
 
 \subsection{Refactoring spreadsheets}
 
