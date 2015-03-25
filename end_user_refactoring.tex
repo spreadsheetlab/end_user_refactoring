@@ -373,12 +373,18 @@ Refactoring is linked to testing because refactoring an artifact is made safer a
 
 There are many directions for future work in refactoring for end-user programmers. Note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  \todo{Katie knows Chris Scaffidi - should we reach out to him for input?}
 
+\subsection{Future Opportunities in Code Smells}
+The smells analysis in Table~\ref{} identified a few opportunities for exploring object-oriented smells in end-user domains. 
 
+The Feature Envy smell could also apply to web mashups when a program uses too much abstraction, for example, if it is composed of only a subpipe and output module. \todo{Provide example}
+
+
+The inappropriate intimacy smell could also apply to Yahoo!\ Pipes. When introducing abstraction to Yahoo!\ Pipes programs, it was found that if the pipe contained too much abstraction (e.g., too many external dependencies), a significant majority of end-user programmers preferred the smelly pipe~\cite{StoleeTSE2013}.  
+
+
+\subsection{Future Opportunities in Refactoring}
 %YP opportunities
 In a qualitative analysis of the end-user preferences for Yahoo!\ Pipes programs, the participant responses showed preference toward programs with familiar elements~\cite{Stolee2015}. This opens an opportunity and perhaps a need to define code smells and refactorings based on end-user experience. 
-The Feature Envy smell found in spreadsheets could also apply to web mashups when a program uses too much abstraction, for example, if it is composed of only a subpipe and output module. 
-
-
 
 
 \section{Concluding Remarks}
