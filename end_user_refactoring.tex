@@ -205,6 +205,7 @@ Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a
 %Talk about adapting Fowler's definitions
 \emph{Lazy Class} smell identifies classes, components or methods that ``do not do enough"~\cite{Fowl1999}. Three laziness smells were defined for the mashup domain, identifying noisy modules, unnecessary modules, and unnecessary abstraction. The \emph{duplicate code} smell applies to duplicate module parameters, modules, and structures. Three smells were defined to identify duplication. 
 
+\todo{need a better discussion pertinent to the table}
 
 \subsubsection{LabVIEW}
 
@@ -227,6 +228,7 @@ The presence of a large, publicly available repositories of code opens an opport
 
 
 \subsubsection{LabVIEW}
+\todo{some of this should move to the OO LabView discussion, yes?}
 The G programs created in LabVIEW do not always perform well, which has motivated Chambers and Scaffidi \cite{chambers2013smell} to define smells in G and implement heuristics to identify these smells, where they particularly focus on smells that can indicate performance problems.
 
 The thirteen smells identified roughly fall into three categories.
@@ -246,6 +248,34 @@ A way to solve smells is by refactoring, changing the composition of an artifact
 Now that we have examined smells, we can continue to the refactoring of end-user programs.
 
 As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. 
+
+Prior work in LabVIEW does not handle automated refactorings, creating a clear opportunity for future work. 
+
+\begin{table}
+\caption{OO Code Refactoring in End-User Programs \label{table:ooref}}
+\begin{tabular} {| l | c | c | c |}
+\hline
+\textbf{Refactoring} & \textbf{Spreadsheets} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
+Remove Parameter & &   \ding{51} \cite{StoleeTSE2013}  & \ding{51}*\\ 
+Inline Class & &  \ding{51} \cite{StoleeTSE2013}  & \\
+Form Template Method & & \ding{51} \cite{StoleeTSE2013}  & \\ 
+Pull Up Method & &  \ding{51} \cite{StoleeTSE2013}  & \\ 
+Substitute Algorithm & &  \ding{51} \cite{StoleeTSE2013}  & \ding{51}*\\ 
+Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & \ding{51}* &  \ding{51} \cite{StoleeTSE2013}  & \ding{51}* \\ 
+
+%Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell} \\ 
+
+
+
+
+\hline
+\multicolumn{4}{c}{} \\ 
+\multicolumn{4}{l}{Key:} \\ 
+\multicolumn{4}{l}{\ding{51} : Supported in prior work}\\
+\multicolumn{4}{l}{\ding{51}* : Future opportunity}\\
+\end{tabular}
+\end{table}
+
 
 \todo{Restructure this section like the Smells section?}
 
@@ -279,6 +309,11 @@ In LabVIEW this could be named \textit{Extract Virtual Instrument}.
 However, Sui et. al did not implement their proposed refactorings in an end-user programming environment.
 
 \subsection{Refactoring Yahoo Pipes}
+
+OO-inspired: most of them
+
+Domain-specific: population based
+
 
 \section{Empirical evidence}
 \label{sec:empirical}
