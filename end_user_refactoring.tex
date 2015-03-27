@@ -92,8 +92,8 @@ Considering the large number of end-user programmers, the longevity of their art
 In this work, we explore past research in three end-user programming domains: spreadsheets (Excel), web mashups (Yahoo!\ Pipes), and and visual system design (LabVIEW). Here, briefly explore each domain  before presenting the relevant code smells in  Section~\ref{sec:smells}.
 
 \paragraph{Excel}
-\todo{The other domains have figures. Do we need one for spreadsheets?}
-\todo{Give some high-level broad intro to spreadsheets. Just a couple sentences}
+\todo{David - add spreadsheet image}
+\todo{Fellienne - short intro to spreadsheets.}
 In modern spreadsheet programs, a \textit{cell} can contain a single \textit{formula} which performs a calculation, and a table of cells is bundled in a \textit{worksheet}.
 A \textit{workbook} consist of a collection of worksheets.
 Formulas can reference other cells in the same or in a different worksheet.
@@ -129,12 +129,14 @@ VI's are very similar to functions, because they perform an operation on inputs 
 Wires with no source VI are inputs and wires without a destination VI are outputs. 
 
 
+\todo{Katherine - Add future opportunities subsections \& restructure}
+
 \section{Smells in end-user programs}
 \label{sec:smells}
 Research into end-user programming smells has had two approaches, which are not mutually exclusive.
-The first approach take existing smells for object-oriented programming languages, usually those defined by Fowler, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013}.
+The first approach is to take existing smells for object-oriented programming languages, usually those defined by Fowler, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013}.
 The second approach is to define smells tailored to the end-user environment.
-This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{}, or by analyzing publicly available artifacts \cite{Stolee2011,StoleeTSE2013}. \todo{Do we have a citation for the forum or newsgroup approach?}
+This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~ \cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available artifacts \cite{Stolee2011,StoleeTSE2013}.
 
 This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts.
 
@@ -147,21 +149,21 @@ This section provides an overview of different smells that researchers have foun
 \textbf{Smell} & \textbf{Spreadsheets} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
 
 Feature Envy & \ding{51}\cite{Hermans2012inter} & \ding{51}*&  \\ 
-Long Method & \ding{51}\cite{Hermans2012intra} & & \\
+Long Method & \ding{51}\cite{Hermans2012intra} & \ding{51}* & \ding{51}*\\
 Message Chain & \ding{51} \cite{Hermans2012intra} & & \ding{51} \cite{chambers2013smell} \\
 Inappropriate Intimacy & \ding{51} \cite{Hermans2012inter} & \ding{51}*&  \\ 
 Middle Man & \ding{51} \cite{Hermans2012inter} &\ding{51} \cite{StoleeTSE2013}  &  \\
 Shotgun Surgery & \ding{51} \cite{Hermans2012inter} & & \\ 
 Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell} \\ 
 Duplicate Code & \ding{51} \cite{Hermans2012intra} & \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell}\\
-Lazy Class & & \ding{51} \cite{StoleeTSE2013} & \\ 
+Lazy Class & & \ding{51} \cite{StoleeTSE2013} & \ding{51}* \\ 
 Dead Code & & \ding{51} \cite{StoleeTSE2013} & \ding{51} \cite{chambers2013smell} \\ 
 
 \hline
 \multicolumn{4}{c}{} \\ 
 \multicolumn{4}{l}{Key:} \\ 
 \multicolumn{4}{l}{\ding{51} : Supported in prior work}\\
-\multicolumn{4}{l}{\ding{51}* : Future opportunity}\\
+\multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
 \end{tabular}
 \end{table}
 
@@ -186,7 +188,7 @@ Several method-level smells translate well into cell-level smells, supporting th
 \textit{Multiple Calculations} is similar to the \textit{Long method} code smell.
 Like a method with many lines or operations can be hard to understand or change, a cell that has a long formula can have the same problem.
 Another interesting smell is the \textit{Long Calculation Chain}, which happens because referenced formulas can reference other formulas ad infinitum.
-This is very similar to Fowler's \textit{Message Chain} smell and the problems associated with programs with too much layers or indirection, sometimes referred to as \textit{Lasanga Code}. \todo{Um, just curious, do you mean spaghetti?}
+This is very similar to Fowler's \textit{Message Chain} smell.
 
 %Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but they take a different approach and  consider the data contained in a spreadsheet.
 %However, it is doubtful if these smells qualify as code smells because they are mostly related to user input and not program logic.
@@ -218,6 +220,10 @@ The end-user programming environments offer many opportunities to define smells 
 
 \subsubsection{Spreadsheets}
 
+\todo{David - Empty cel smell (Cunha)}
+\todo{David - Inconsistent formula (as detected by Excel already)}
+\todo{David - Add domain-specific smells to table if there's enough}
+
 \subsubsection{Yahoo!\ Pipes}
 %Talk about smells unique to the domain
 By exploring a large subset of the Yahoo!\ Pipes repository, Stolee et al. identified two smells based on the presence of broken data sources and the use of deprecated modules. These are based on the presence of unsupported, or deprecated, modules, and trying to access an RSS feed that either does not exist or requires special permission. 
@@ -228,7 +234,9 @@ The presence of a large, publicly available repositories of code opens an opport
 
 
 \subsubsection{LabVIEW}
-\todo{some of this should move to the OO LabView discussion, yes?}
+
+\todo{David - Move parts of this to III.A.3}
+
 The G programs created in LabVIEW do not always perform well, which has motivated Chambers and Scaffidi \cite{chambers2013smell} to define smells in G and implement heuristics to identify these smells, where they particularly focus on smells that can indicate performance problems.
 
 The thirteen smells identified roughly fall into three categories.
@@ -257,10 +265,11 @@ Prior work in LabVIEW does not handle automated refactorings, creating a clear o
 \hline
 \textbf{Refactoring} & \textbf{Spreadsheets} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
 Remove Parameter & &   \ding{51} \cite{StoleeTSE2013}  & \ding{51}*\\ 
-Inline Class & &  \ding{51} \cite{StoleeTSE2013}  & \\
+Extract Method & \ding{51}* & \ding{51}* & \ding{51}* \\
+Inline Method & \ding{51}* &  \ding{51} \cite{StoleeTSE2013} & \ding{51}* \\
 Form Template Method & & \ding{51} \cite{StoleeTSE2013}  & \\ 
 Pull Up Method & &  \ding{51} \cite{StoleeTSE2013}  & \\ 
-Substitute Algorithm & &  \ding{51} \cite{StoleeTSE2013}  & \ding{51}*\\ 
+Substitute Algorithm & \ding{51}* &  \ding{51} \cite{StoleeTSE2013}  & \ding{51}*\\ 
 Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & \ding{51}* &  \ding{51} \cite{StoleeTSE2013}  & \ding{51}* \\ 
 
 %Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell} \\ 
@@ -272,15 +281,13 @@ Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & \ding{51}* &  \ding{
 \multicolumn{4}{c}{} \\ 
 \multicolumn{4}{l}{Key:} \\ 
 \multicolumn{4}{l}{\ding{51} : Supported in prior work}\\
-\multicolumn{4}{l}{\ding{51}* : Future opportunity}\\
+\multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
 \end{tabular}
 \end{table}
 
-
-\todo{Restructure this section like the Smells section?}
-
 \subsection{Refactoring spreadsheets}
 
+\todo{David - Divide into subsections like section III after Kathy has moved them}
 The first work on spreadsheet refactoring was done by Badame and Dig \cite{badame2012refactoring}.
 They define six refactorings applicable to spreadsheets, although the corresponding smells are only implied and not explicitly defined and implement these in an Excel plugin called \textit{REFbook}.
 Three of these have to do with preventing errors, like \textit{Guard Call} which places an \texttt{IF} around an expression which can result in an error such as a division by potentially zero.
@@ -300,7 +307,7 @@ To define a transformation rule one defines a formula to match and a formula to 
  With this approach it is possible to create a rule for all refactorings defined by Badame and Dig \cite{badame2012refactoring}, but also all refactorings as long as they do not require more intricate capturing groups.
 
 \subsection{Refactoring LabVIEW programs}
-
+\todo{David - Divide into subsections like section III after Kathy has moved them}
 Chambers and Scaffidi \cite{chambers2013smell} do not provide support for automatic refactorings in their tool, instead relying on the users to know how to fix the indicated smell themselves.
 However, the LabVIEW programming language G is a visual dataflow language.
 Sui et. al \cite{sui2008automated} have done some work on refactoring visual dataflow languages and defined some refactorings which are applicable to G.
@@ -315,6 +322,7 @@ OO-inspired: most of them
 Domain-specific: population based
 
 
+\todo{Katherine- Move into background (if not already done) \& remove (right? - David)}
 \section{Empirical evidence}
 \label{sec:empirical}
 
@@ -345,7 +353,6 @@ In addition to the smells, they present evidence that users of Yahoo pipes prefe
 
 \subsection{``Data smells''}
 \label{subsec:related_datasmells}
-\todo{This section seems a bit redundant with Background}
 
 In end-user programming environments user input and logic are often more closely linked than they are in general purpose programming languages.
 As such analyzing the input data as opposed to the logic can also be used to detect problems.
@@ -373,6 +380,7 @@ Refactoring is linked to testing because refactoring an artifact is made safer a
 
 There are many directions for future work in refactoring for end-user programmers. Note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  \todo{Katie knows Chris Scaffidi - should we reach out to him for input?}
 
+\todo{Katherine - Move into Section III \& IV}
 \subsection{Future Opportunities in Code Smells}
 The smells analysis in Table~\ref{} identified a few opportunities for exploring object-oriented smells in end-user domains. 
 
