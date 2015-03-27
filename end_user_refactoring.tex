@@ -86,7 +86,9 @@ programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTS
 %Like source code produced by professional developers, programs made by end-users can also contain smells.
 
 %This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
-Researchers have also found that code smells matter to end-user programmers. When presented with Yahoo!\ Pipes web mashups with and without smells, a significant majority of end-user programmers preferred the pipes without smells (p=0.01, ~\cite{StoleeTSE2013}). \todo{add a finding about the impact of smells on spreadsheets} \todo{add a  finding from LabView}
+Researchers have also found that code smells matter to end-user programmers. When presented with Yahoo!\ Pipes web mashups with and without smells, a significant majority of end-user programmers preferred the pipes without smells (p=0.01, ~\cite{StoleeTSE2013}). 
+\todo{add a finding about the impact of smells on spreadsheets} 
+When presenting LabVIEW users with information about code smells in their programs, all thirteen tool-users were able to identify the problems in the given programs and twelve being able to fix the problem~\cite{chambers2013smell}.
 Considering the large number of end-user programmers, the longevity of their artifacts, and the impact of smells, supporting end-user programmers in code smell detection and refactoring is important. 
 
 In this work, we explore past research in three end-user programming domains: spreadsheets (Excel), web mashups (Yahoo!\ Pipes), and and visual system design (LabVIEW). Here, briefly explore each domain  before presenting the relevant code smells in  Section~\ref{sec:smells}.
@@ -128,8 +130,6 @@ As such the two most important primitives in G are the edges called \textit{wire
 VI's are very similar to functions, because they perform an operation on inputs and provide outputs.
 Wires with no source VI are inputs and wires without a destination VI are outputs. 
 
-
-\todo{Katherine - Add future opportunities subsections \& restructure}
 
 \section{Smells in end-user programs}
 \label{sec:smells}
@@ -248,16 +248,20 @@ One can easily see how ``\textit{Non-reentrant VI}'' is a smell in a language th
 The third and largest category with eight smells are those that are applicable to general purpose languages.
 ``\textit{Multiple Nested Loops}'' is a smell in almost any language that supports loops, and ``\textit{Build Array inside Loop}'' would be similar to allocating multiple small segments of memory with C's \texttt{malloc} inside a loop with potentially equally bad performance implications.
 
+\subsection{Future Opportunities for Smell Detection}
+There are several OO code smells in Table~\ref{fig:ypexample} that apply to all three domains, such as \emph{Duplicate Code}. However, there are other smells that could apply to additional domains, but have not been studied in prior work. Here, we discuss the potential of generalizing smell definitions to additional domains. 
 
-\section{Refactoring end-user programs}
-\label{sec:refactoring}
+\subsubsection{Spreadsheets} \todo{Felienne}
+\subsubsection{Yahoo!\ Pipes}
+The Feature Envy or Inappropriate Intimacy smells could also apply to web mashups. 
+%uses methods of another class excessively - envy
+The feature envy smell could also apply when introducing abstraction to Yahoo!\ Pipes programs. For example, if a pipe has several instances of the same subpipe module, this could be smelly. 
+%depends on implementation of another class too much - intimacy
+On the other hand, when a program uses too much abstraction relative to the size of the pipe, for example, if it is composed of only a subpipe and output module, a pipe could suffer from inappropriate intimacy. In fact, this smell matters to end-user programmers.  In an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
 
-A way to solve smells is by refactoring, changing the composition of an artifact so that it no longer contains the smell without changing its behavior or output.
-Now that we have examined smells, we can continue to the refactoring of end-user programs.
 
-As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. 
 
-Prior work in LabVIEW does not handle automated refactorings, creating a clear opportunity for future work. 
+\subsubsection{LabVIEW} \todo{David}
 
 \begin{table}
 \caption{OO Code Refactoring in End-User Programs \label{table:ooref}}
@@ -285,9 +289,21 @@ Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & \ding{51}* &  \ding{
 \end{tabular}
 \end{table}
 
-\subsection{Refactoring spreadsheets}
 
-\todo{David - Divide into subsections like section III after Kathy has moved them}
+\section{Refactoring end-user programs}
+\label{sec:refactoring}
+
+A way to solve smells is by refactoring, changing the composition of an artifact so that it no longer contains the smell without changing its behavior or output.
+Now that we have examined smells, we can continue to the refactoring of end-user programs.
+
+As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. 
+
+Note that prior work in LabVIEW does not handle automated refactorings, creating a clear opportunity for future work. 
+
+\subsection{OO Refactorings}
+
+\subsubsection{Spreadsheets}
+\todo{David - Divide into subsections like section III}
 The first work on spreadsheet refactoring was done by Badame and Dig \cite{badame2012refactoring}.
 They define six refactorings applicable to spreadsheets, although the corresponding smells are only implied and not explicitly defined and implement these in an Excel plugin called \textit{REFbook}.
 Three of these have to do with preventing errors, like \textit{Guard Call} which places an \texttt{IF} around an expression which can result in an error such as a division by potentially zero.
@@ -305,9 +321,22 @@ To define a transformation rule one defines a formula to match and a formula to 
  implements the \textit{Guard Call} \cite{badame2012refactoring} refactoring by transforming a formula into one which prevents division by zero.
  In this example $F$ can capture (bind to) any valid Excel Formula.
  With this approach it is possible to create a rule for all refactorings defined by Badame and Dig \cite{badame2012refactoring}, but also all refactorings as long as they do not require more intricate capturing groups.
+ 
+\subsubsection{Yahoo!\ Pipes}
 
-\subsection{Refactoring LabVIEW programs}
-\todo{David - Divide into subsections like section III after Kathy has moved them}
+\subsection{Domain-Specific Refactorings}
+
+\subsubsection{Spreadsheets}
+\subsubsection{Yahoo!\ Pipes}
+
+Domain-specific: population based
+
+
+\subsection{Future Opportunities for Refactoring}
+\subsubsection{Spreadsheets}
+\subsubsection{Yahoo!\ Pipes}
+\subsubsection{LabVIEW}
+\todo{David - Divide into subsections like section III}
 Chambers and Scaffidi \cite{chambers2013smell} do not provide support for automatic refactorings in their tool, instead relying on the users to know how to fix the indicated smell themselves.
 However, the LabVIEW programming language G is a visual dataflow language.
 Sui et. al \cite{sui2008automated} have done some work on refactoring visual dataflow languages and defined some refactorings which are applicable to G.
@@ -315,37 +344,10 @@ Most notable is the \textit{Extract sub graph into Node} refactoring which is si
 In LabVIEW this could be named \textit{Extract Virtual Instrument}.
 However, Sui et. al did not implement their proposed refactorings in an end-user programming environment.
 
-\subsection{Refactoring Yahoo Pipes}
-
-OO-inspired: most of them
-
-Domain-specific: population based
 
 
-\todo{Katherine- Move into background (if not already done) \& remove (right? - David)}
-\section{Empirical evidence}
-\label{sec:empirical}
-
-\subsection{LabVIEW}
-
-Chambers and Scaffidi implemented their smell-finding heuristics in a tool integrated into LabVIEW and evaluated it with 26 experienced LabVIEW programmers divided in two groups of thirteen of which only one had access to their tool.
-
-The results were promising, with all thirteen tool-users being able to identify the problems in the given programs and twelve being able to fix the problem.
-In contrast only five out of thirteen non-tool-users were able to identify the problem and three out of five being able to fix the problem, although the latter is statistically insignificant.
-Tool users also needed 34\% less time to identify the problem and 65\% less time to fix the problem, but these results were not statistically significant.
-This evaluation shows that experienced end user programmers can benefit from tool support in identifying problems.
-
-\begin{figure}
-\centering
-\includegraphics[width=\columnwidth]{Table1-Stolee2011}
-\caption{End-users showing a preference for non-smelly pipes from \cite{Stolee2011}}
-\label{fig:Table1-Stolee2011}
-\end{figure}
 
 
-\subsection{Pipes}
-
-In addition to the smells, they present evidence that users of Yahoo pipes prefer non-smelly pipes over smelly ones, as shown in Figure \ref{fig:Table1-Stolee2011}.
 
 
 \section{Related Work}
@@ -380,14 +382,6 @@ Refactoring is linked to testing because refactoring an artifact is made safer a
 
 There are many directions for future work in refactoring for end-user programmers. Note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  \todo{Katie knows Chris Scaffidi - should we reach out to him for input?}
 
-\todo{Katherine - Move into Section III \& IV}
-\subsection{Future Opportunities in Code Smells}
-The smells analysis in Table~\ref{} identified a few opportunities for exploring object-oriented smells in end-user domains. 
-
-The Feature Envy smell could also apply to web mashups when a program uses too much abstraction, for example, if it is composed of only a subpipe and output module. \todo{Provide example}
-
-
-The inappropriate intimacy smell could also apply to Yahoo!\ Pipes. When introducing abstraction to Yahoo!\ Pipes programs, it was found that if the pipe contained too much abstraction (e.g., too many external dependencies), a significant majority of end-user programmers preferred the smelly pipe~\cite{StoleeTSE2013}.  
 
 
 \subsection{Future Opportunities in Refactoring}
