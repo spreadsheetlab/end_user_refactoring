@@ -297,9 +297,7 @@ Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & \ding{51}* &  \ding{
 A way to solve smells is by refactoring, changing the composition of an artifact so that it no longer contains the smell without changing its behavior or output.
 Now that we have examined smells, we can continue to the refactoring of end-user programs.
 
-As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. 
-
-Note that prior work in LabVIEW does not handle automated refactorings, creating a clear opportunity for future work. 
+As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. Note that prior work in LabVIEW does not define refactorings, creating a clear opportunity for future work. 
 
 \subsection{OO Refactorings}
 
@@ -324,18 +322,22 @@ To define a transformation rule one defines a formula to match and a formula to 
  With this approach it is possible to create a rule for all refactorings defined by Badame and Dig \cite{badame2012refactoring}, but also all refactorings as long as they do not require more intricate capturing groups.
  
 \subsubsection{Yahoo!\ Pipes}
+The refactorings studied in Yahoo!\ Pipes were targeted a the smells defined. Some of the refactorings translated easily from the OO domain. For example, removing dead code was as simple as \emph{removing non-contributing modules} or removing fields in \emph{clean up module}~\cite{StoleeTSE2013}. The \emph{Pull up method} refactoring involved extracting a connected set of modules into into a subpipe. Once the subpipe was created, all  parts of the program with the same pattern of connected modules were replaced with the subpipe module. 
+
 
 \subsection{Domain-Specific Refactorings}
 
 \subsubsection{Excel}
+
 \subsubsection{Yahoo!\ Pipes}
-
-Domain-specific: population based
-
+Opportunities for domain-specific refactorings stem from the domain-specific code smells. 
+For example, based on the smell of \emph{non-conforming module orderings} where a programming syntax was different than the community standard, the refactoring, \emph{normalize order of operations} was introduced. This refactoring was shown to preferable to end-user programers for improving the understandability of the program~\cite{StoleeTSE2013}. 
 
 \subsection{Future Opportunities for Refactoring}
 \subsubsection{Excel}
 \subsubsection{Yahoo!\ Pipes}
+\todo{Katie}
+
 \subsubsection{LabVIEW}
 \todo{David - Divide into subsections like section III}
 Chambers and Scaffidi \cite{chambers2013smell} do not provide support for automatic refactorings in their tool, instead relying on the users to know how to fix the indicated smell themselves.
@@ -402,6 +404,7 @@ source code~\cite{StoleeTSE2013}. Additionally, being presented with code smells
 \todo{Another lesson from spreadsheets?}
 These lessons could extend to other programming languages outside of the end-user programming domains. There has been successful in using automating smell detection, for example, during agile development (e.g.,~\cite{Schumacher:2010:BES:1852786.1852797}). Paired with the end-user evidence, a stronger case can be made to integrate automated smell detection in many domains. 
 
+\todo{Other data flow languages could benefit from \emph{normalize order of operations} to improve understandability (as it does with YP). }
 
 \section{Concluding Remarks}
 \label{sec:conclusions}
