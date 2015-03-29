@@ -67,7 +67,7 @@ These smells in end-user programming have been a topic of research over the past
 \begin{itemize}
 %	\item Synthesis of recent research in smell detection and refacotring for end-user programming languages
 	\item Motivation for the study of smells and refactoring for end-user programming languages based on empirical evidence
-	\item Synthesis and catalog of code smells detected \todo{and refactorings?} in end-user programs
+	\item Synthesis and catalog of code smells  and refactoring in end-user programs
 	\item Identification of future opportunities for smell detection and refactoring in end-user programming domains
 \end{itemize}
 
@@ -88,10 +88,10 @@ programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTS
 %This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
 Researchers have also found that code smells matter to end-user programmers. When presented with Yahoo!\ Pipes web mashups with and without smells, a significant majority of end-user programmers preferred the pipes without smells (p=0.01, ~\cite{StoleeTSE2013}). 
 \todo{add a finding about the impact of smells on spreadsheets} 
-When presenting LabVIEW users with information about code smells in their programs, all thirteen tool-users were able to identify the problems in the given programs and twelve being able to fix the problem~\cite{chambers2013smell}.
+When presenting LabVIEW users with information about code smells in their programs, all thirteen tool-users were able to identify the problems in the given programs and twelve were able to fix the problem~\cite{chambers2013smell}.
 Considering the large number of end-user programmers, the longevity of their artifacts, and the impact of smells, supporting end-user programmers in code smell detection and refactoring is important. 
 
-In this work, we explore past research in three end-user programming domains: spreadsheets (Excel), web mashups (Yahoo!\ Pipes), and and visual system design (LabVIEW). Here, briefly explore each domain  before presenting the relevant code smells in  Section~\ref{sec:smells}.
+In this work, we explore past research in three end-user programming domains: spreadsheets (Excel), web mashups (Yahoo!\ Pipes), and and visual system design (LabVIEW), and identify future opportunities for smell and refactoring research in these and other end-user programing domains. Here, briefly explore each domain  before presenting the relevant code smells in  Section~\ref{sec:smells}.
 
 \paragraph{Excel}
 \todo{David - add spreadsheet image}
@@ -171,9 +171,9 @@ Dead Code & & \ding{51} \cite{StoleeTSE2013} & \ding{51} \cite{chambers2013smell
 
 
 \subsection{OO Smells in End-User Programs}
- We summarize the OO smells present in the three end-user domains, Spreadsheets, Yahoo!\ Pipes, and LabVIEW, in Table~\ref{table:oosmells}. Some smells are applicable to the domains but have not yet been studied (\ding{51}*); we discuss these future opportunities in Section~\ref{sec:discussion}. 
+ We summarize the OO smells present in the three end-user languages, Microsoft Excel, Yahoo!\ Pipes, and LabVIEW, in Table~\ref{table:oosmells}. Some smells are applicable to the domains but have not yet been studied (\ding{51}*); we discuss these future opportunities in Section~\ref{sec:discussion}. 
  
- \subsubsection{Spreadsheets}
+ \subsubsection{Excel}
 Hermans et al. \cite{Hermans2012inter} \cite{Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method.
 Working from this analogy, the classic Fowler smells can be divided into class and method smells.
 The class smells correspond to \textit{inter-sheet} smells and method smells correspond to \textit{intra-sheet} or \textit{intra-cell} smells.
@@ -218,7 +218,7 @@ elements.
 \subsection{Domain-Specific Smells}
 The end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain. For example, access to large repositories of programs can lead to smells that deviate from best practices in programming. Systems designed in LabVIEW do not always perform well, leading to the identification of performance smells~\cite{chambers2013smell}. 
 
-\subsubsection{Spreadsheets}
+\subsubsection{Excel}
 
 \todo{David - Empty cel smell (Cunha)}
 \todo{David - Inconsistent formula (as detected by Excel already)}
@@ -226,7 +226,7 @@ The end-user programming environments offer many opportunities to define smells 
 
 \subsubsection{Yahoo!\ Pipes}
 %Talk about smells unique to the domain
-By exploring a large subset of the Yahoo!\ Pipes repository, Stolee et al. identified two smells based on the presence of broken data sources and the use of deprecated modules. These are based on the presence of unsupported, or deprecated, modules, and trying to access an RSS feed that either does not exist or requires special permission. 
+By exploring a large subset of the Yahoo!\ Pipes repository, Stolee et al. identified two smells based on the presence of broken data sources and the use of deprecated modules~\cite{StoleeTSE2013}. These are based on the presence of unsupported, or deprecated, modules, and trying to access an RSS feed that either does not exist or requires special permission. 
 
 %Talk about deriving smells from the community
 The presence of a large, publicly available repositories of code opens an opportunity to identify common programming practices, and deviations from those practices as smells. This approach was used to define smells based on community standards for the Yahoo!\ Pipes domain. 
@@ -251,7 +251,7 @@ The third and largest category with eight smells are those that are applicable t
 \subsection{Future Opportunities for Smell Detection}
 There are several OO code smells in Table~\ref{fig:ypexample} that apply to all three domains, such as \emph{Duplicate Code}. However, there are other smells that could apply to additional domains, but have not been studied in prior work. Here, we discuss the potential of generalizing smell definitions to additional domains. 
 
-\subsubsection{Spreadsheets} \todo{Felienne}
+\subsubsection{Excel} \todo{Felienne}
 \subsubsection{Yahoo!\ Pipes}
 The Feature Envy or Inappropriate Intimacy smells could also apply to web mashups. 
 %uses methods of another class excessively - envy
@@ -302,7 +302,7 @@ Note that prior work in LabVIEW does not handle automated refactorings, creating
 
 \subsection{OO Refactorings}
 
-\subsubsection{Spreadsheets}
+\subsubsection{Excel}
 \todo{David - Divide into subsections like section III}
 The first work on spreadsheet refactoring was done by Badame and Dig \cite{badame2012refactoring}.
 They define six refactorings applicable to spreadsheets, although the corresponding smells are only implied and not explicitly defined and implement these in an Excel plugin called \textit{REFbook}.
@@ -326,14 +326,14 @@ To define a transformation rule one defines a formula to match and a formula to 
 
 \subsection{Domain-Specific Refactorings}
 
-\subsubsection{Spreadsheets}
+\subsubsection{Excel}
 \subsubsection{Yahoo!\ Pipes}
 
 Domain-specific: population based
 
 
 \subsection{Future Opportunities for Refactoring}
-\subsubsection{Spreadsheets}
+\subsubsection{Excel}
 \subsubsection{Yahoo!\ Pipes}
 \subsubsection{LabVIEW}
 \todo{David - Divide into subsections like section III}
@@ -380,13 +380,26 @@ Refactoring is linked to testing because refactoring an artifact is made safer a
 \section{Discussion}
 \label{sec:discussion}
 
-There are many directions for future work in refactoring for end-user programmers. Note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  \todo{Katie knows Chris Scaffidi - should we reach out to him for input?}
+Based on the research and results for smell detection and refactoring in end-user programming domains, there are many directions for future work in the domains studied, other end-user domains, and in professional languages. 
+
+Note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  \todo{Is this the best place for the disclaimer?}
+
+\todo{Katie asked Chris for a bit of feedback - waiting on response}
 
 
 
-\subsection{Future Opportunities in Refactoring}
+\subsection{Future Opportunities in the Domains Studied}
 %YP opportunities
 In a qualitative analysis of the end-user preferences for Yahoo!\ Pipes programs, the participant responses showed preference toward programs with familiar elements~\cite{Stolee2015}. This opens an opportunity and perhaps a need to define code smells and refactorings based on end-user experience. 
+
+\subsection{Future Opportunities in Other EUP Domains}
+\todo{education (kodu, scratch, alice), mathematics (matlab, mathematica), ...}
+
+\subsection{Future Opportunities in Professional Languages}
+In end-user programming languages, it has been shown that code smells impact the understandability of
+source code~\cite{StoleeTSE2013}. Additionally, being presented with code smells can motivate end-user programmers to improve their code~\cite{chambers2013smell}. 
+\todo{Another lesson from spreadsheets?}
+These lessons could extend to other programming languages outside of the end-user programming domains. There has been successful in using automating smell detection, for example, during agile development (e.g.,~\cite{Schumacher:2010:BES:1852786.1852797}). Paired with the end-user evidence, a stronger case can be made to integrate automated smell detection in many domains. 
 
 
 \section{Concluding Remarks}
