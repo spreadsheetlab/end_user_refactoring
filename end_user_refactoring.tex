@@ -106,6 +106,7 @@ References to a different workbook are possible but less common.
 A web mashup is a program that collects and combines information from various
 sources. 
 In  Yahoo!\ Pipes, the information comes from RSS feeds. Figure~\ref{fig:ypexample} shows an example Yahoo!\ Pipes program with five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. 
+Abstraction is possible in Yahoo!\ Pipes through the use of a \emph{subpipe} module, which allows a programmer to insert a different pipe as a subroutine. 
 
 \begin{figure}
 \caption{Example of a program in Yahoo!\ Pipes}
@@ -158,6 +159,7 @@ Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE
 Duplicate Code & \ding{51} \cite{Hermans2012intra} & \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell}\\
 Lazy Class & & \ding{51} \cite{StoleeTSE2013} & \ding{51}* \\ 
 Dead Code & & \ding{51} \cite{StoleeTSE2013} & \ding{51} \cite{chambers2013smell} \\ 
+Unused Field & & \ding{51} \cite{StoleeTSE2013} &\\ 
 
 \hline
 \multicolumn{4}{c}{} \\ 
@@ -172,6 +174,8 @@ Dead Code & & \ding{51} \cite{StoleeTSE2013} & \ding{51} \cite{chambers2013smell
 
 \subsection{OO Smells in End-User Programs}
  We summarize the OO smells present in the three end-user languages, Microsoft Excel, Yahoo!\ Pipes, and LabVIEW, in Table~\ref{table:oosmells}. Some smells are applicable to the domains but have not yet been studied (\ding{51}*); we discuss these future opportunities in Section~\ref{sec:discussion}. 
+ 
+ Overall, we observe a lot of overlap in the code smells studied. For example, the \emph{Duplicate Code} and \emph{Many Parameters} smells have been studied in all three languages. Other smells, like \emph{Shotgun Surgery}, has only been studied for Excel. \todo{Due to XYZ reason, this smell is not applicable to the other languages}
  
  \subsubsection{Excel}
 Hermans et al. \cite{Hermans2012inter} \cite{Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method.
@@ -200,14 +204,10 @@ This is very similar to Fowler's \textit{Message Chain} smell.
 
 
 \subsubsection{Yahoo!\ Pipes}
-Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a program and each module as a method. Smells in this domain have been adapted from Fowler's definitions, defined based on changes to the Pipes environment, and derived from common patterns in pipe structures. 
+Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a program and each module as a method.  The most common smell, appearing in nearly one-third of the pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
+Another common smell, \emph{Duplicate Modules}, impacted nearly one-quarter of the pipes studied. Again, this is an instance of the \emph{Duplicate Code} smell, but at a higher level of abstraction. 
 
-%The \emph{Middle Man} smell is referred to as \emph{Unnecessary Abstraction}.
-
-%Talk about adapting Fowler's definitions
-\emph{Lazy Class} smell identifies classes, components or methods that ``do not do enough"~\cite{Fowl1999}. Three laziness smells were defined for the mashup domain, identifying noisy modules, unnecessary modules, and unnecessary abstraction. The \emph{duplicate code} smell applies to duplicate module parameters, modules, and structures. Three smells were defined to identify duplication. 
-
-\todo{need a better discussion pertinent to the table}
+The \emph{Noisy Module} smell impacted 28\% of the pipes studied, and it maps to Fowler's \emph{Unused Field} smell. Here, we found empty or duplicate fields in the pipes, akin to parameters in a method. 
 
 \subsubsection{LabVIEW}
 
@@ -253,11 +253,12 @@ There are several OO code smells in Table~\ref{fig:ypexample} that apply to all 
 
 \subsubsection{Excel} \todo{Felienne}
 \subsubsection{Yahoo!\ Pipes}
-The Feature Envy or Inappropriate Intimacy smells could also apply to web mashups. 
+Many of the smells studied in Excel and LabVIEW could apply to Yahoo!\ Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
 %uses methods of another class excessively - envy
-The feature envy smell could also apply when introducing abstraction to Yahoo!\ Pipes programs. For example, if a pipe has several instances of the same subpipe module, this could be smelly. 
+The feature envy smell could also apply when introducing abstraction to Yahoo!\ Pipes programs. For example, if a pipe has several instances of the same subpipe module, this could be related to excessive use of another class and be smelly. 
+
 %depends on implementation of another class too much - intimacy
-On the other hand, when a program uses too much abstraction relative to the size of the pipe, for example, if it is composed of only a subpipe and output module, a pipe could suffer from inappropriate intimacy. In fact, this smell matters to end-user programmers.  In an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
+When a program uses too much abstraction relative to the size of the pipe, for example, if it is composed of only a subpipe and output module, a pipe could suffer from inappropriate intimacy by depending too much on the implementation of the other class. In fact, this smell matters to end-user programmers.  In an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
 
 
 
