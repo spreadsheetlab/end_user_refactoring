@@ -322,7 +322,7 @@ To define a transformation rule one defines a formula to match and a formula to 
  With this approach it is possible to create a rule for all refactorings defined by Badame and Dig \cite{badame2012refactoring}, but also all refactorings as long as they do not require more intricate capturing groups.
  
 \subsubsection{Yahoo!\ Pipes}
-The refactorings studied in Yahoo!\ Pipes were targeted a the smells defined. Some of the refactorings translated easily from the OO domain. For example, removing dead code was as simple as \emph{removing non-contributing modules} or removing fields in \emph{clean up module}~\cite{StoleeTSE2013}. The \emph{Pull up method} refactoring involved extracting a connected set of modules into into a subpipe. Once the subpipe was created, all  parts of the program with the same pattern of connected modules were replaced with the subpipe module. 
+The refactorings studied in Yahoo!\ Pipes were target the code smells with the goal of making pipes smaller, less complex, more maintainable, and easier to understand~\cite{StoleeTSE2013}. Some of the refactorings translated easily from the OO domain. For example, removing dead code was as simple as \emph{removing non-contributing modules} or removing fields in \emph{clean up module}~\cite{StoleeTSE2013}. The \emph{Pull up method} refactoring involved extracting a connected set of modules into into a subpipe. Once the subpipe was created, all  parts of the program with the same pattern of connected modules were replaced with the subpipe module. 
 
 
 \subsection{Domain-Specific Refactorings}
