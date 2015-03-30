@@ -11,6 +11,7 @@
 \usepackage{cite} %this package is awesome - it reorders lists of citations to be in numeric order
 \usepackage[pdftex]{graphicx}
 \usepackage{pifont}
+\usepackage{eqparbox}
 \graphicspath{ {}{img/} }
 \DeclareGraphicsExtensions{.pdf,.jpg,.png}
 
@@ -142,29 +143,29 @@ This can be done by interviewing experienced end-users to see which smells they 
 This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts.
 
 
-
 \begin{table}
 \caption{OO Code Smells in End-User Programs \label{table:oosmells}}
-\begin{tabular} {| l | c | c | c |}
+\begin{tabular} {| l | l | l | l |}
 \hline
 \textbf{Smell} & \textbf{Spreadsheets} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
 
-Feature Envy & \ding{51}\cite{Hermans2012inter} & \ding{51}*&  \\ 
-Long Method & \ding{51}\cite{Hermans2012intra} & \ding{51}* & \ding{51}*\\
-Message Chain & \ding{51} \cite{Hermans2012intra} & & \ding{51} \cite{chambers2013smell} \\
-Inappropriate Intimacy & \ding{51} \cite{Hermans2012inter} & \ding{51}*&  \\ 
-Middle Man & \ding{51} \cite{Hermans2012inter} &\ding{51} \cite{StoleeTSE2013}  &  \\
-Shotgun Surgery & \ding{51} \cite{Hermans2012inter} & & \\ 
-Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell} \\ 
-Duplicate Code & \ding{51} \cite{Hermans2012intra} & \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell}\\
-Lazy Class & & \ding{51} \cite{StoleeTSE2013} & \ding{51}* \\ 
-Dead Code & & \ding{51} \cite{StoleeTSE2013} & \ding{51} \cite{chambers2013smell} \\ 
-Unused Field & & \ding{51} \cite{StoleeTSE2013} &\\ 
+Feature Envy & ~~ \ding{51}\cite{Hermans2012inter} & ~~ \ding{51}*& ~~  \\ 
+Long Method & ~~ \ding{51}\cite{Hermans2012intra} & ~~ \ding{51}* & ~~ \ding{51}*\\
+Message Chain & ~~ \ding{51} \cite{Hermans2012intra} & ~~ & ~~ \ding{51} \cite{chambers2013smell} \\
+Inappropriate Intimacy & ~~ \ding{51} \cite{Hermans2012inter} & ~~ \ding{51}*& ~~  \\ 
+Middle Man & ~~ \ding{51} \cite{Hermans2012inter} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~  \\
+Shotgun Surgery & ~~ \ding{51} \cite{Hermans2012inter} & ~~ & ~~ \\ 
+Many Parameters & ~~ \ding{51} \cite{Hermans2012intra} & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~  \ding{51} \cite{chambers2013smell} \\ 
+Duplicate Code & ~~ \ding{51} \cite{Hermans2012intra} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~  \ding{51} \cite{chambers2013smell}\\
+Lazy Class & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\ 
+Dead Code & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2013smell} \\ 
+Unused Field & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} &\\ 
 
 \hline
 \multicolumn{4}{c}{} \\ 
 \multicolumn{4}{l}{Key:} \\ 
-\multicolumn{4}{l}{\ding{51} : Supported in prior work}\\
+\multicolumn{4}{l}{\ding{55} : Not applicable}\\
+\multicolumn{4}{l}{\ding{51} : Applicable, supported in prior work}\\
 \multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
 \end{tabular}
 \end{table}
@@ -269,13 +270,14 @@ When a program uses too much abstraction relative to the size of the pipe, for e
 \begin{tabular} {| l | c | c | c |}
 \hline
 \textbf{Refactoring} & \textbf{Spreadsheets} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
-Remove Parameter & &   \ding{51} \cite{StoleeTSE2013}  & \ding{51}*\\ 
-Extract Method & \ding{51}* & \ding{51}* & \ding{51}* \\
-Inline Method & \ding{51}* &  \ding{51} \cite{StoleeTSE2013} & \ding{51}* \\
-Form Template Method & & \ding{51} \cite{StoleeTSE2013}  & \\ 
-Pull Up Method & &  \ding{51} \cite{StoleeTSE2013}  & \\ 
-Substitute Algorithm & \ding{51}* &  \ding{51} \cite{StoleeTSE2013}  & \ding{51}*\\ 
-Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & \ding{51}* &  \ding{51} \cite{StoleeTSE2013}  & \ding{51}* \\ 
+Remove Parameter & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
+Extract Method & ~~ \ding{51} \cite{Hermans2012intraExt,badame2012refactoring} & ~~ \ding{51}* & ~~ \ding{51}* \\
+Inline Method & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
+Form Template Method & ~~ & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \\ 
+Pull Up Method & ~~ & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \\ 
+Substitute Algorithm & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
+Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & ~~ \ding{51}* & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}* \\ 
+Define named constant & ~~ \ding{51} \cite{badame2012refactoring} & ~~ & ~~ \\
 
 %Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell} \\ 
 
@@ -285,6 +287,7 @@ Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & \ding{51}* &  \ding{
 \hline
 \multicolumn{4}{c}{} \\ 
 \multicolumn{4}{l}{Key:} \\ 
+\multicolumn{4}{l}{\ding{55} : Not applicable}\\
 \multicolumn{4}{l}{\ding{51} : Supported in prior work}\\
 \multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
 \end{tabular}
