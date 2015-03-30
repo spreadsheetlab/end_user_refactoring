@@ -95,7 +95,14 @@ Considering the large number of end-user programmers, the longevity of their art
 In this work, we explore past research in three end-user programming domains: spreadsheets (Excel), web mashups (Yahoo!\ Pipes), and and visual system design (LabVIEW), and identify future opportunities for smell and refactoring research in these and other end-user programing domains. Here, briefly explore each domain  before presenting the relevant code smells in  Section~\ref{sec:smells}.
 
 \paragraph{Excel}
-\todo{David - add spreadsheet image}
+
+\begin{figure}
+\caption{Microsoft Excel 2013 showing a spreadsheet}
+\centering
+\includegraphics[width=\columnwidth]{excel-2}
+\label{fig:spreadsheetexample}
+\end{figure}
+
 \todo{Fellienne - short intro to spreadsheets.}
 In modern spreadsheet programs, a \textit{cell} can contain a single \textit{formula} which performs a calculation, and a table of cells is bundled in a \textit{worksheet}.
 A \textit{workbook} consist of a collection of worksheets.
@@ -221,9 +228,13 @@ The end-user programming environments offer many opportunities to define smells 
 
 \subsubsection{Excel}
 
-\todo{David - Empty cel smell (Cunha)}
-\todo{David - Inconsistent formula (as detected by Excel already)}
-\todo{David - Add domain-specific smells to table if there's enough}
+Similar to relational databases, data in spreadsheet is stored in rows and columns.
+To process data, a formula is placed at the end of this row and copied into the same column of the other rows.
+This leads to the definition of the \emph{Inconsistent Formula} smell, which occurs if a single, or small number, of cells contain a different formula while its neighbors or other cells in the row or column contain an identical formula.
+Interestingly Microsoft Excel already detects this smell and shows a small yellow exclamation mark to the user overlaid on the smelly cell.
+
+Another smell specific to spreadsheets is when a formula references an empty cell, which is often in error \cite{cunha2012towards}.
+This is similar to a null pointer in a program or a null value in a database, but because a spreadsheet contains both the data and logic we can mark it as a smell.
 
 \subsubsection{Yahoo!\ Pipes}
 %Talk about smells unique to the domain
