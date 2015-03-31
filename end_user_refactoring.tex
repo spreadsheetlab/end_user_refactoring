@@ -193,6 +193,7 @@ Unused Field & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} &\\
  Overall, we observe a lot of overlap in the code smells studied. For example, the \emph{Duplicate Code} and \emph{Many Parameters} smells have been studied in all three languages. Some smells, like the \emph{Long Method} smell, have been studies in only one domain but are a likely applicable in other domains too (\ding{51}*). These and smells for which we do not know if they apply present opportunities for future research, on which we will elaborate in subsection \ref{subsec:futuresmells}.
  
  A small number of smells is definitely not applicable (\ding{55}) because of differences in the domain. Spreadsheets for example cannot contain dead code because the user might still be interested in a piece of data even if it is not used anywhere else in the spreadsheet.
+\todo{The blank cells may or may not be applicable, and further study is needed. Should there be a ? symbol where we don't know? or should we make a decision for every cell in the table?}
  
  \subsubsection{Excel}
 Hermans et al. \cite{Hermans2012inter} \cite{Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method.
@@ -282,13 +283,13 @@ While these have some overlap, some smells do not have an impact on performance 
 \hline
 \textbf{Refactoring} & \textbf{Excel} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
 Remove Parameter & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
-Extract Method & ~~ \ding{51} \cite{Hermans2012intraExt,badame2012refactoring} & ~~ \ding{51}* & ~~ \ding{51} \cite{sui2008automated} \\
+Extract Method & ~~ \ding{51} \cite{Hermans2012intraExt,badame2012refactoring} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{sui2008automated} \\
 Inline Method & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
 Form Template Method & ~~ & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \\ 
 Pull Up Method & ~~ & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \\ 
 Substitute Algorithm & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
 Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & ~~ \ding{51}* & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}* \\ 
-Define named constant & ~~ \ding{51} \cite{badame2012refactoring} & ~~ \ding{51}* & ~~ \\
+Define named constant & ~~ \ding{51} \cite{badame2012refactoring} & ~~ \ding{55} & ~~ \\
 Remove dead code & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
 Remove redundant operations & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2015impact} \\
 
@@ -311,14 +312,15 @@ Remove redundant operations & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} 
 A way to solve smells is by refactoring, changing the composition of an artifact so that it no longer contains the smell without changing its behavior or output.
 Now that we have examined smells, we can continue to the refactoring of end-user programs.
 
-As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. Note that prior work in LabVIEW does not define refactorings, creating a clear opportunity for future work. 
+As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. 
 
 \subsection{OO Refactorings}
+Table~\ref{table:ooref} lists the OO refactorings adapted for the end-user domains, identifying those that have been studied (\ding{51}, definitely do not apply (\ding{55}), likely apply (\ding{51}*), and \todo{blanks in table?}. Some of these come from Fowler's definitions while others are from past refactoring research. 
 
 \subsubsection{Excel}
 
 Hermans et al. \cite{Hermans2012intraExt} define refactorings corresponding to most of their smells, but most do not have a direct OO equivalent.
-One which was defined earlier by Badame and Dig \cite{badame2012refactoring} is the direct equivalent of \emph{Extract method} and is called \emph{Extract Row or Column} by Badame and \emph{Extra subformula} by Hermans. Because Hermans equates formulas to methods, refactorings that change the parameters of a method also have a direct equivalent in spreadsheet by changing the references in a formula. For example \emph{Remove Parameter} becomes \emph{Remove reference}.
+One which was defined earlier by Badame and Dig \cite{badame2012refactoring} is the direct equivalent of \emph{Extract method} and is called \emph{Extract Row or Column} by Badame and \emph{Extra subformula} by Hermans. Because Hermans equates formulas to methods, refactorings that change the parameters of a method also have a direct equivalent in spreadsheet by changing the references in a formula. For example \emph{Remove Parameter} becomes \emph{Remove reference}. \todo{Could pull up method apply here, where you extract a formula into a VB script?}
  
 \subsubsection{Yahoo!\ Pipes}
 The refactorings studied in Yahoo!\ Pipes were target the code smells with the goal of making pipes smaller, less complex, more maintainable, and easier to understand~\cite{StoleeTSE2013}. Some of the refactorings translated easily from the OO domain. For example, removing dead code was as simple as \emph{removing non-contributing modules} or removing fields in \emph{clean up module}~\cite{StoleeTSE2013}. The \emph{Pull up method} refactoring involved extracting a connected set of modules into into a subpipe. Once the subpipe was created, all  parts of the program with the same pattern of connected modules were replaced with the subpipe module. 
@@ -399,7 +401,6 @@ Based on the research and results for smell detection and refactoring in end-use
 
 Note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  \todo{Is this the best place for the disclaimer?}
 
-\todo{Katie asked Chris for a bit of feedback - waiting on response}
 
 
 
