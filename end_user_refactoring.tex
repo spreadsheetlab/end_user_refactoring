@@ -270,7 +270,8 @@ The feature envy smell could also apply when introducing abstraction to Yahoo!\ 
 %depends on implementation of another class too much - intimacy
 When a program uses too much abstraction relative to the size of the pipe, for example, if it is composed of only a subpipe and output module, a pipe could suffer from inappropriate intimacy by depending too much on the implementation of the other class. In fact, this smell matters to end-user programmers.  In an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
 
-
+%long method
+The \emph{Long method} smell could apply to Yahoo!\ Pipes when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
 
 \subsubsection{LabVIEW}
 
