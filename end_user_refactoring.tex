@@ -149,7 +149,7 @@ The first approach is to take existing smells for object-oriented programming la
 The second approach is to define smells tailored to the end-user environment.
 This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~ \cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available artifacts \cite{Stolee2011,StoleeTSE2013}.
 
-This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts.
+This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts, using both the above described approaches.
 
 
 \begin{table}
@@ -188,7 +188,7 @@ Unused Field & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} &\\
 \subsection{OO Smells in End-User Programs}
  We summarize the OO smells present in the three end-user languages, Excel spreadsheets, Yahoo!\ Pipes, and LabVIEW, in Table~\ref{table:oosmells}.
  
- Overall, we observe a lot of overlap in the code smells studied. For example, the \emph{Duplicate Code} and \emph{Many Parameters} smells have been studied in all three languages. Some smells, like the \emph{Long Method} smell, have been studies in only one domain but are a likely applicable in other domains too (\ding{51}*). These and smells for which we do not know if they apply present opportunities for future research, on which we will elaborate in subsection \ref{subsec:futuresmells}.
+ Overall, we observe a lot of similarities in the code smells studied. For example, the \emph{Duplicate Code} and \emph{Many Parameters} smells have been studied in all three languages. Some smells, like the \emph{Long Method} smell, have been studies in only one domain but are a likely applicable in other domains too (\ding{51}*). These and smells for which we do not know if they apply present opportunities for future research, on which we will elaborate in subsection \ref{subsec:futuresmells}.
  
  A small number of smells is definitely not applicable (\ding{55}) because of differences in the domain. Spreadsheets for example cannot contain dead code because the user might still be interested in a piece of data even if it is not used anywhere else in the spreadsheet.
 \todo{The blank cells may or may not be applicable, and further study is needed. Should there be a ? symbol where we don't know? or should we make a decision for every cell in the table?}
@@ -200,16 +200,14 @@ The class smells correspond to \textit{inter-sheet} smells and method smells cor
 
 Hermans et al. \cite{Hermans2012inter} define four inter-worksheet smells and define and evaluate threshold for them based on the EUSES spreadsheet corpus \cite{fisher2005euses}.
 Fowler's class smells are translated into spreadsheets using the above analogy. 
-For example the \textit{Feature Envy} smell indicates that a class uses members of another class more than it uses the members of its own class.
+The \textit{Feature Envy} smell for example indicates that a class uses members of another class more than it uses the members of its own class.
 Similarly a cell can use cells of other worksheets more than it uses those of its own sheet, and thus that cell could better be placed in the other sheet.
 
 In \cite{Hermans2012intra}, Hermans et al. define five intra-worksheet or formula smells and again define and evaluate thresholds for them based on the EUSES corpus.
 Several method-level smells translate well into cell-level smells, supporting the validity of the above analogy.
-\textit{Multiple Calculations} is similar to the \textit{Long method} code smell.
-Like a method with many lines or operations can be hard to understand or change, a cell that has a long formula can have the same problem.
-Another interesting smell is the \textit{Long Calculation Chain}, which happens because referenced formulas can reference other formulas ad infinitum.
+\textit{Multiple Calculations} is similar to the \textit{Long method} code smell: like a method with many lines or operations can be hard to understand or change, a cell that has a long formula can have the same problem.
+Another interesting smell is the \textit{Long Calculation Chain}, which occurs because referenced formulas can reference other formulas ad infinitum.
 This is very similar to Fowler's \textit{Message Chain} smell.
-
 
 \subsubsection{Yahoo!\ Pipes}
 Stolee et al.~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a program and each module as a method.  The most common smell, appearing in nearly one-third of the pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
@@ -257,8 +255,9 @@ This is the reason for smells like ``\textit{Non-reentrant VI}'', similar to a n
 There are several OO code smells in Table~\ref{fig:ypexample} that apply to all three domains, such as \emph{Duplicate Code}. However, there are other smells that could apply to additional domains, but have not been studied in prior work. Here, we discuss the potential of generalizing smell definitions to additional domains. 
 
 \subsubsection{Excel} \todo{Felienne}
+The \emph{lazy class} smell is a smell that has not been explored yet within the spreadsheet domain. It could be mapped following the translation that was used before: by translating classes to worksheets. Hence a lazy class becomes a lazy worksheet, one with no or little formulas, and no links to other worksheets.
 
-All work on spreadsheet smells has been done with the Microsoft Excel implementation, which is by far the most used spreadsheet software. \todo{cite reference?} However, other spreadsheet software exists. Because these all operate on the same principles we expect all smells to be applicable there too, but this can be confirmed in future work.
+%All work on spreadsheet smells has been done with the Microsoft Excel implementation, which is by far the most used spreadsheet software. \todo{cite reference?} However, other spreadsheet software exists. Because these all operate on the same principles we expect all smells to be applicable there too, but this can be confirmed in future work.
 
 \subsubsection{Yahoo!\ Pipes}
 Many of the smells studied in Excel and LabVIEW could apply to Yahoo!\ Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
