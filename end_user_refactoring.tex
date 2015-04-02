@@ -9,10 +9,16 @@
 \usepackage{amsfonts}
 \usepackage{balance}
 \usepackage{cite} %this package is awesome - it reorders lists of citations to be in numeric order
-\usepackage[pdftex]{graphicx}
 \usepackage{pifont}
 \usepackage{eqparbox}
+
+% Tables
+\usepackage{booktabs}
 \usepackage{pbox}
+\renewcommand{\arraystretch}{1.2} 
+
+%Images
+\usepackage[pdftex]{graphicx}
 \graphicspath{ {}{img/} }
 \DeclareGraphicsExtensions{.pdf,.jpg,.png}
 
@@ -171,37 +177,110 @@ This can be done by interviewing experienced end-users to see which smells they 
 This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts using both the above described approaches and proposes future directions for smell detection in these domains. 
 
 
-\begin{table}
-\caption{OO Code Smells in End-User Programs \label{table:oosmells}}
-\begin{tabular} {| l | l | l | l |}
-\hline
-\textbf{Smell} & \textbf{Excel} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
+%\begin{table}
+%\caption{OO Code Smells in End-User Programs
+%\label{table:oosmells}}
+%\begin{tabular} {| l | l | l | l |}
+%\hline
+%\textbf{Smell} & \textbf{Excel} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
+%
+%Feature Envy & ~~ \ding{51}\cite{Hermans2012inter} & ~~ \ding{51}*& ~~  \\ 
+%Long Method & ~~ \ding{51}\cite{Hermans2012intra} & ~~ \ding{51}* & ~~ \ding{51}*\\
+%Message Chain & ~~ \ding{51} \cite{Hermans2012intra} & ~~ & ~~ \ding{51} \cite{chambers2013smell} \\
+%Inappropriate Intimacy & ~~ \ding{51} \cite{Hermans2012inter} & ~~ \ding{51}*& ~~  \\ 
+%Middle Man & ~~ \ding{51} \cite{Hermans2012inter} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~  \\
+%Shotgun Surgery & ~~ \ding{51} \cite{Hermans2012inter} & ~~ & ~~ \\ 
+%Many Parameters & ~~ \ding{51} \cite{Hermans2012intra} & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~  \ding{51} \cite{chambers2013smell} \\ 
+%Duplicate Code & ~~ \ding{51} \cite{Hermans2012intra} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~  \ding{51} \cite{chambers2013smell}\\
+%Lazy Class & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2015impact} \\ 
+%Dead Code & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2013smell} \\ 
+%Unused Field & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} &\\ 
+%
+%\hline
+%\multicolumn{4}{c}{} \\
+%\multicolumn{4}{l}{Key:} \\ 
+%\multicolumn{4}{l}{\ding{51} : Applicable, supported in prior work}\\
+%\multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
+%\end{tabular}
+%\end{table}
 
-Feature Envy & ~~ \ding{51}\cite{Hermans2012inter} & ~~ \ding{51}*& ~~  \\ 
-Long Method & ~~ \ding{51}\cite{Hermans2012intra} & ~~ \ding{51}* & ~~ \ding{51}*\\
-Message Chain & ~~ \ding{51} \cite{Hermans2012intra} & ~~ & ~~ \ding{51} \cite{chambers2013smell} \\
-Inappropriate Intimacy & ~~ \ding{51} \cite{Hermans2012inter} & ~~ \ding{51}*& ~~  \\ 
-Middle Man & ~~ \ding{51} \cite{Hermans2012inter} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~  \\
-Shotgun Surgery & ~~ \ding{51} \cite{Hermans2012inter} & ~~ & ~~ \\ 
-Many Parameters & ~~ \ding{51} \cite{Hermans2012intra} & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~  \ding{51} \cite{chambers2013smell} \\ 
-Duplicate Code & ~~ \ding{51} \cite{Hermans2012intra} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~  \ding{51} \cite{chambers2013smell}\\
-Lazy Class & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2015impact} \\ 
-Dead Code & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2013smell} \\ 
-Unused Field & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} &\\ 
-
-\hline
+\begin{table*}
+\caption{Code Smells in End-User Programs
+\label{table:oosmellslarge}}
+\centering
+\sffamily
+\begin{tabular} {@{}llll@{}}
+\toprule
+\textbf{OO smell}
+	& \textbf{Excel}
+	& \textbf{Yahoo!\ Pipes}
+	& \textbf{LabVIEW}
+\\ \midrule
+Feature Envy
+	& Feature Envy \cite{Hermans2012inter}
+	& Feature Envy *
+	& ~~ 
+\\ 
+Long Method
+	& Multiple operations \cite{Hermans2012intra}
+	& Large Pipe *
+	& Large Virtual Instrument *
+\\ 
+Message Chain
+	& Long Calculation Chain \cite{Hermans2012intra}
+	& 
+	& 
+\\ 
+Inappropriate Intimacy
+	& Inappropriate Intimacy \cite{Hermans2012inter}
+	& Inappropriate Intimacy *
+	& ~~ 
+\\ 
+Lazy class or Middle Man
+	& Middle Man \cite{Hermans2012inter}
+	& Noisy Module \cite{StoleeTSE2013}
+	& ~~ 
+\\ 
+Many Parameters
+	& Multiple References \cite{Hermans2012intra}
+	& Many Fields \todo{correct?} \cite{StoleeTSE2013}
+	& Many Control Terminals *
+\\ 
+Duplicate Code
+	& Duplicated Formulas \cite{Hermans2012intra}
+	& Isomorphic Path \cite{StoleeTSE2013}
+	& Isomorphic Path *
+\\ 
+Dead Code
+	& ~\ding{55}
+	& Disconnected or Dangling Modules \cite{StoleeTSE2013}
+	& Disconnected or Dangling Elements *
+\\ 
+Unused Field
+	& ~\ding{55}
+	& ~~ \ding{51} \cite{StoleeTSE2013}
+	&
+\\
+No-op
+	& Redundant Operations *
+	& Lazy Module \cite{StoleeTSE2013}
+	& Redundant Operations \cite{chambers2013smell}
+\\ Use of Deprecated Interfaces
+	& Deprecated Functions *
+	& Deprecated Modules \cite{StoleeTSE2013}
+	&
+\\ \bottomrule
 \multicolumn{4}{c}{} \\
-\multicolumn{4}{l}{Key:} \\ 
-\multicolumn{4}{l}{\ding{51} : Applicable, supported in prior work}\\
-\multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
+\multicolumn{4}{l}{* : Proposed name, future opportunity not supported by prior work.}\\
+\multicolumn{4}{l}{\ding{55} : Not applicable due to the nature of the paradigm} \\
+\multicolumn{4}{l}{\pbox{15cm}{\todo{I (David) do not fully understand the difference between duplicate module and isomorphic path, so that might be wrong}}} \\
+\multicolumn{4}{l}{\pbox{15cm}{\todo{Katie, you marked a row but I cannot directly find the mapping, can you fill them in?}}}
+
 \end{tabular}
-\end{table}
-
-
-
+\end{table*}
 
 \subsection{OO Smells in End-User Programs}
- We summarize the OO smells present in the three end-user languages, Excel spreadsheets, Yahoo!\ Pipes, and LabVIEW, in Table~\ref{table:oosmells}.
+ We summarize the OO smells present in the three end-user languages, Excel spreadsheets, Yahoo!\ Pipes, and LabVIEW, in Table~\ref{table:oosmellslarge}.
  
  Overall, we observe a lot of similarities in the code smells studied. For example, the \emph{Duplicate Code} and \emph{Many Parameters} smells have been studied in all three languages. Some smells, like the \emph{Long Method} smell, have been studied in only one domain but are likely applicable in other domains, too (\ding{51}*). These smells present opportunities for future research, on which we will elaborate in subsection \ref{subsec:futuresmells}.
  
@@ -272,8 +351,11 @@ This is the reason for smells like ``\textit{Non-reentrant VI}'', similar to a n
 \label{subsec:futuresmells}
 There are several OO code smells in Table~\ref{fig:ypexample} that apply to all three domains, such as \emph{Duplicate Code}. However, there are other smells that could apply to additional domains, but have not been studied in prior work. Here, we discuss the potential of generalizing smell definitions to additional domains. 
 
-\subsubsection{Excel} \todo{Felienne}
+\subsubsection{Excel}
+\todo{Felienne}
 The \emph{lazy class} smell is a smell that has not been explored yet within the spreadsheet domain. It could be mapped following the translation that was used before: by translating classes to worksheets. Hence a lazy class becomes a lazy worksheet, one with no or little formulas, and no links to other worksheets.
+
+\todo{I (David) have merged Lazy class and middle man, so this wouldn't be true anymore, Middle man is a special case of lazy class, and also I feel almost all lazy sheets would be middle mans. What do you think?}
 
 %All work on spreadsheet smells has been done with the Microsoft Excel implementation, which is by far the most used spreadsheet software. \todo{cite reference?} However, other spreadsheet software exists. Because these all operate on the same principles we expect all smells to be applicable there too, but this can be confirmed in future work.
 
@@ -292,33 +374,97 @@ The \emph{Long method} smell could apply to Yahoo!\ Pipes when a module has a la
 \subsubsection{LabVIEW}
 
 Research into smells for LabVIEW has focused mostly on performance problems, while traditionally research into code smells and refactorings has focused on maintainability and code quality.
-While these have some overlap, some smells do not have an impact on performance and as such could be further explored. And example of this is the \emph{Long Method} smell, which in G could be a smell related to large VI's.
 
-\begin{table}
-\caption{OO Code Refactoring in End-User Programs \label{table:ooref}}
-\begin{tabular} {| l | c | c | c |}
-\hline
-\textbf{Refactoring} & \textbf{Excel} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
-Remove Parameter & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
-% Double cite messes up the table, but this is also defined in Hermans2012intraExt for excel
-Extract Method & ~~ \ding{51} \cite{badame2012refactoring} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{sui2008automated} \\
-Inline Method & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
-Form Template Method & ~~ & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \\ 
-Substitute Algorithm & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
-Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & ~~ \ding{51}* & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}* \\ 
-Define named constant & ~~ \ding{51} \cite{badame2012refactoring} & ~~ \ding{55} & ~~ \\
-Remove dead code & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
-\pbox{3cm}{Remove redundant operations} & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2015impact} \\
+As such inspiration could be drawn for smells that do not necessarily have an impact on performance.
+We have defined some OO smells that have parallels in LabVIEW.
+A \emph{Large Virtual Instrument} would have similar problems to a \emph{Long Method} and could be divided, and like \emph{Many Parameters} make a method hard to understand \emph{Many Control Terminals} could increase the difficulty of understanding a VI.
+If a block diagram contains a combination of nodes wired identically multiple times, they are \emph{Duplicated Nodes} and should be extracted into their own VI. 
 
-%Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell} \\ 
+%\begin{table}
+%\caption{OO Code Refactoring in End-User Programs \label{table:ooref}}
+%\begin{tabular} {| l | c | c | c |}
+%\hline
+%\textbf{Refactoring} & \textbf{Excel} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
+%Remove Parameter & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
+%% Double cite messes up the table, but this is also defined in Hermans2012intraExt for excel
+%Extract Method & ~~ \ding{51} \cite{badame2012refactoring} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{sui2008automated} \\
+%Inline Method & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
+%Form Template Method & ~~ & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \\ 
+%Substitute Algorithm & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
+%Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & ~~ \ding{51}* & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}* \\ 
+%Define named constant & ~~ \ding{51} \cite{badame2012refactoring} & ~~ \ding{55} & ~~ \\
+%Remove dead code & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
+%\pbox{3cm}{Remove redundant operations} & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2015impact} \\
+%
+%%Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell} \\ 
+%
+%\hline
+%\multicolumn{4}{c}{} \\ 
+%\multicolumn{4}{l}{Key:} \\ 
+%\multicolumn{4}{l}{\ding{51} : Supported in prior work}\\
+%\multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
+%\end{tabular}
+%\end{table}
 
-\hline
-\multicolumn{4}{c}{} \\ 
-\multicolumn{4}{l}{Key:} \\ 
-\multicolumn{4}{l}{\ding{51} : Supported in prior work}\\
-\multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
+\begin{table*}
+\caption{Code Refactoring in End-User Programs}
+\label{table:ooreflarge}
+\centering
+\sffamily
+\begin{tabular} {@{}llll@{}}
+\toprule
+\textbf{OO smell}
+	& \textbf{Excel}
+	& \textbf{Yahoo!\ Pipes}
+	& \textbf{LabVIEW}
+\\ \midrule
+Remove Parameter
+	& Move References \cite{Hermans2012intraExt}
+	& Remove Field \cite{StoleeTSE2013} 
+	& Remove Terminal \cite{chambers2015impact}
+\\ 
+Extract Method
+	& Extract Subformula \cite{Hermans2012intraExt,badame2012refactoring}
+	& Extract Local Subpipe \cite{StoleeTSE2013}
+	& Extract Virtual Instrument \cite{sui2008automated}
+\\
+Inline Method
+	& Inline Formula *
+	& Inline Module \cite{StoleeTSE2013}
+	& Inline Virtual Instrument *
+\\
+Substitute Algorithm
+	& Replace Formula *
+	& ~~ \ding{51} \cite{StoleeTSE2013} 
+	& Substitute Block Diagram *
+\\ 
+Library Migration~\cite{Balaban:2005:RSC:1103845.1094832}
+	& Migrate Formulas \cite{hermans2014bumblebee}
+	& Replace Deprecated Modules \cite{StoleeTSE2013}
+	& 
+\\ 
+Define named constant
+	& Extract Literal \cite{badame2012refactoring}
+	& Pull Up Module \cite{StoleeTSE2013}
+	& ~~
+\\
+Remove dead code
+	& \ding{55}
+	& \pbox{4.5cm}{Remove Disconnected or Dangling Modules \cite{StoleeTSE2013}}
+	& \pbox{4.5cm}{Remove Disconnected or Dangling Elements *}
+\\
+Remove No-op
+	& Remove Redundant Operations *
+	& Remove Lazy Module \cite{StoleeTSE2013}
+	& Remove Redundant Operations \cite{chambers2015impact} \\
+\\ \bottomrule
+\multicolumn{4}{c}{} \\
+\multicolumn{4}{l}{* : Proposed name, future opportunity not supported by prior work.}\\
+\multicolumn{4}{l}{\ding{55} : Not applicable due to the nature of the paradigm} \\
+\multicolumn{4}{l}{\pbox{15cm}{\todo{Merged Extract Method, Pull Up Method and Form Template Method because they are similar in OO so the differences are lost in the translations, ok?}}} \\
+\multicolumn{4}{l}{\pbox{15cm}{\todo{I don't know how I feel about the substitute algorithm refactoring. It always seems corny/bland to me, because it basically is "replace something bad with something better", at least when you translate it into other paradigms. Should we leave it in?}}} \\
 \end{tabular}
-\end{table}
+\end{table*}
 
 
 \section{Refactoring end-user programs}
@@ -384,8 +530,8 @@ However, some refactorings which only slightly change program behavior were effe
 \subsection{Future Opportunities for Refactoring}
 \subsubsection{Excel}
 
-While some work has been done on refactoring the structure of the whole spreadsheet instead of only formulas in cells, there is possibility for more research. 
-Specifically how worksheets and regions of cells are similar and different to classes and methods can be further explored to define refactorings.
+A refactoring which was not previously defined is the \emph{Inline Formula} refactoring, which is done by replacing the reference to a cell by its formula and deleting the original cell, although this might not be possible if the cell is referenced as part of a range.
+The \emph{Remove Redundant Operations} refactoring could be adapted from other domains and is defined as removing parts of a formula which do not impact the result.
 
 Another domain to draw inspiration from is (relational) databases.
 As spreadsheets are often used to store data and lookup functions are similar to the \texttt{JOIN} functionality in SQL, spreadsheets might benefit from knowledge gained in database theory, for example normalization.
