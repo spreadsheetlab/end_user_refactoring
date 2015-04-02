@@ -61,7 +61,9 @@ Through exploring the commonalities and differences among the domains, we 1)~sho
 
 
 \begin{IEEEkeywords}
-end-user computing; refactoring; 
+code smells;
+end-user computing;
+refactoring;
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -70,9 +72,15 @@ The number of end-user programmers is said to greatly exceed the number of profe
 
 These end-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
 
-Similar to the code written by professional developers, end-user artifacts may have a long life-span. In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. In their lifespan, these artifacts are modified, often by different people. This makes them vulnerable for code \emph{smells}, like other source code artifacts. 
+Similar to code written by professional developers, end-user artifacts may have a long life-span.
+In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}.
+In their lifespan, these artifacts are modified, often by different people.
+This makes them, like source code artifacts, vulnerable to \emph{smells}. 
 
-These smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}. Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly. Alleviating those smells can be achieved with refactoring, which leads to the topic of this paper: \emph{what general concepts can we recognize over all types of end-user smell detection and refactoring approaches?}  The contributions of this work are:
+These smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}.
+Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly.
+Alleviating those smells can be achieved with refactoring, which leads to the topic of this paper: \emph{what general concepts can we recognize over all types of end-user smell detection and refactoring approaches?}
+The contributions of this work are:
 
 \begin{itemize}
 %	\item Synthesis of recent research in smell detection and refacotring for end-user programming languages
@@ -88,7 +96,8 @@ These smells in end-user programming have been a topic of research over the past
 
 Refactoring was first introduced as a systematic way to restructure source code and facilitate software evolution and maintenance~\cite{Opdyke:1992:ROF:169783, Griswold:1993:AAP:152388.152389}. In 1999, Martin Fowler introduced the concept of code smells for object-oriented (OO) languages~\cite{Fowl1999}. 
 %Refactoring, improving the internal composition of a software program without altering its functionality or output \todo{quote a definition}, has been a part of software engineering since at least 1989 \cite{arnold1989software}, but was popularized by Fowler's 1999 "Refactoring: Improving the design of existing programs" \cite{fowler1999refactoring}. 
-According to Fowler, code smells indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors. ``A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. For professional programmers, refactoring code is usually motivated by noticing a code smell, which signals the opportunity for improvement.
+According to Fowler, code smells indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors.
+``A code smell is a surface indication that usually corresponds to a deeper problem in the system'', says Fowler. For professional programmers, refactoring code is usually motivated by noticing a code smell, which signals the opportunity for improvement.
 
 The taxonomy of smells outlined in Fowler's text pertained exclusively to object-oriented code, and professional programming languages were focus of refactoring research for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}.
 Since 2011, however, refactoring and smell definitions have been adapted and extended to other 
@@ -97,7 +106,10 @@ programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTS
 %Like source code produced by professional developers, programs made by end-users can also contain smells.
 
 %This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
-More importantly, researchers have  found that code smells matter to end-user programmers. When presented with Yahoo!\ Pipes web mashups with and without smells, a significant majority of end-user programmers preferred the pipes without smells (p=0.01, ~\cite{StoleeTSE2013}). In a field study done with 10 spreadsheet users at an investment bank, users agreed smells could reveal actual errors in their spreadsheets\todo{~\cite{}}. When presenting LabVIEW users with information about code smells in their programs, all 13 participants were able to identify the problems and 12 were able to fix the problem~\cite{chambers2013smell}.
+More importantly, researchers have  found that code smells matter to end-user programmers.
+When presented with Yahoo!\ Pipes web mashups with and without smells, a significant majority of end-user programmers preferred the pipes without smells~\cite{StoleeTSE2013}.
+In a field study done with 10 spreadsheet users at an investment bank, users agreed smells could reveal actual errors in their spreadsheets\todo{~\cite{}}.
+When presenting LabVIEW users with information about code smells in their programs, all 13 participants were able to identify the problems and 12 were able to fix the problem~\cite{chambers2013smell}.
 Considering the large number of end-user programmers, the longevity of their artifacts, and the real impact of smells on understandability, errors, and performance, supporting end-user programmers in code smell detection and refactoring is valuable. 
 
 In this work, we explore past research in three end-user programming domains and languages: spreadsheets in Microsoft Excel, web mashups in Yahoo!\ Pipes, and visual system design in National Instruments' LabVIEW. Furthermore we identify future opportunities for smell and refactoring research in these and other end-user programing domains. Here, briefly explore each language  before presenting the relevant code smells in  Section~\ref{sec:smells} and refactorings in Section~\ref{sec:refactoring}.
@@ -174,16 +186,12 @@ Shotgun Surgery & ~~ \ding{51} \cite{Hermans2012inter} & ~~ & ~~ \\
 Many Parameters & ~~ \ding{51} \cite{Hermans2012intra} & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~  \ding{51} \cite{chambers2013smell} \\ 
 Duplicate Code & ~~ \ding{51} \cite{Hermans2012intra} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~  \ding{51} \cite{chambers2013smell}\\
 Lazy Class & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2015impact} \\ 
-Dead Code & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2013smell} \\ 
-Unused Field & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} &\\ 
+Dead Code & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2013smell} \\ 
+Unused Field & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} &\\ 
 
 \hline
-\multicolumn{4}{c}{} \\ 
-\multicolumn{4}{c}{\pbox{\columnwidth}{\todo{Should we say lazy class or redundant operation? The first is a close OO equivalent, the latter is more appropriate for what we mean in all 3 cases. Stolee calls it lazy class, Chambers redundant operations}}} \\
-\multicolumn{4}{c}{\pbox{\columnwidth}{\todo{Merge dead code and unused field? They are somewhat similar}}} \\
-\multicolumn{4}{l}{\todo{Remove shotgun surgery?}} \\
+\multicolumn{4}{c}{} \\
 \multicolumn{4}{l}{Key:} \\ 
-\multicolumn{4}{l}{\ding{55} : Not applicable}\\
 \multicolumn{4}{l}{\ding{51} : Applicable, supported in prior work}\\
 \multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
 \end{tabular}
@@ -198,8 +206,7 @@ Unused Field & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} &\\
  Overall, we observe a lot of similarities in the code smells studied. For example, the \emph{Duplicate Code} and \emph{Many Parameters} smells have been studied in all three languages. Some smells, like the \emph{Long Method} smell, have been studied in only one domain but are likely applicable in other domains, too (\ding{51}*). These smells present opportunities for future research, on which we will elaborate in subsection \ref{subsec:futuresmells}.
  
  A small number of smells are definitely not applicable (\ding{55}) because of differences in the domains. Spreadsheets, for example, cannot contain dead code because the user might still be interested in a piece of data even if it is not used anywhere else in the spreadsheet.
-\todo{The blank cells may or may not be applicable, and further study is needed. Should there be a ? symbol where we don't know? or should we make a decision for every cell in the table?}
- 
+
  \subsubsection{Excel}
 Hermans et al. \cite{Hermans2012inter} \cite{Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method.
 Working from this analogy, the classic Fowler smells can be divided into class and method smells.
@@ -293,23 +300,21 @@ While these have some overlap, some smells do not have an impact on performance 
 \hline
 \textbf{Refactoring} & \textbf{Excel} & \textbf{Yahoo!\ Pipes} & \textbf{LabVIEW} \\ \hline
 Remove Parameter & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
-Extract Method & ~~ \ding{51} \cite{Hermans2012intraExt,badame2012refactoring} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{sui2008automated} \\
+% Double cite messes up the table, but this is also defined in Hermans2012intraExt for excel
+Extract Method & ~~ \ding{51} \cite{badame2012refactoring} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{sui2008automated} \\
 Inline Method & ~~ \ding{51} \cite{Hermans2012intraExt} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
 Form Template Method & ~~ & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \\ 
-Pull Up Method & ~~ & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \\ 
 Substitute Algorithm & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}*\\ 
 Library Migration~\cite{Balaban:2005:RSC:1103845.1094832} & ~~ \ding{51}* & ~~  \ding{51} \cite{StoleeTSE2013}  & ~~ \ding{51}* \\ 
 Define named constant & ~~ \ding{51} \cite{badame2012refactoring} & ~~ \ding{55} & ~~ \\
-Remove dead code & ~~ \ding{55} & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
-Remove redundant operations & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2015impact} \\
+Remove dead code & ~~ & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51}* \\
+\pbox{3cm}{Remove redundant operations} & ~~ \ding{51}* & ~~ \ding{51} \cite{StoleeTSE2013} & ~~ \ding{51} \cite{chambers2015impact} \\
 
 %Many Parameters & \ding{51} \cite{Hermans2012intra} &  \ding{51} \cite{StoleeTSE2013}  &  \ding{51} \cite{chambers2013smell} \\ 
 
 \hline
 \multicolumn{4}{c}{} \\ 
-\multicolumn{4}{c}{\pbox{\columnwidth}{\todo{How do we handle smells and refactorings which are trivially connected?  E.g. "Dead code" and "Remove dead code", "Long method" and "extract method", "Magic number" and "Define named constant". Related, how do we handle refactorings with no smell defined?}}} \\ 
 \multicolumn{4}{l}{Key:} \\ 
-\multicolumn{4}{l}{\ding{55} : Not applicable}\\
 \multicolumn{4}{l}{\ding{51} : Supported in prior work}\\
 \multicolumn{4}{l}{\ding{51}* : Likely applicable, future opportunity}\\
 \end{tabular}
@@ -325,15 +330,20 @@ Now that we have examined smells, we can continue to the refactoring of end-user
 As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. 
 
 \subsection{OO Refactorings}
-Table~\ref{table:ooref} lists the OO refactorings adapted for the end-user domains, identifying those that have been studied (\ding{51}, definitely do not apply (\ding{55}), likely apply (\ding{51}*), and \todo{blanks in table?}. Some of these come from Fowler's definitions while others are from past refactoring research. 
+Table~\ref{table:ooref} lists the OO refactorings adapted for the end-user domains, identifying those that have been studied (\ding{51}) and likely apply (\ding{51}*).
+Some of these come from Fowler's definitions while others are from past refactoring research. 
 
 \subsubsection{Excel}
 
 Hermans et al. \cite{Hermans2012intraExt} define refactorings corresponding to most of their smells, but most do not have a direct OO equivalent.
-One which was defined earlier by Badame and Dig \cite{badame2012refactoring} is the direct equivalent of \emph{Extract method} and is called \emph{Extract Row or Column} by Badame and \emph{Extra subformula} by Hermans. Because Hermans equates formulas to methods, refactorings that change the parameters of a method also have a direct equivalent in spreadsheet by changing the references in a formula. For example \emph{Remove Parameter} becomes \emph{Remove reference}. \todo{Could pull up method apply here, where you extract a formula into a VB script?}
+One which was defined earlier by Badame and Dig \cite{badame2012refactoring} is the direct equivalent of \emph{Extract method} and is called \emph{Extract Row or Column} by Badame and \emph{Extra subformula} by Hermans.
+Because Hermans equates formulas to methods, refactorings that change the parameters of a method also have a direct equivalent in spreadsheet by changing the references in a formula. For example \emph{Remove Parameter} becomes \emph{Remove reference}.
  
 \subsubsection{Yahoo!\ Pipes}
-The refactorings studied in Yahoo!\ Pipes were target the code smells with the goal of making pipes smaller, less complex, more maintainable, and easier to understand~\cite{StoleeTSE2013}. Some of the refactorings translated easily from the OO domain. For example, removing dead code was as simple as \emph{removing non-contributing modules} or removing fields in \emph{clean up module}~\cite{StoleeTSE2013}. The \emph{Pull up method} refactoring involved extracting a connected set of modules into into a subpipe. Once the subpipe was created, all  parts of the program with the same pattern of connected modules were replaced with the subpipe module. 
+The refactorings studied in Yahoo!\ Pipes were target the code smells with the goal of making pipes smaller, less complex, more maintainable, and easier to understand~\cite{StoleeTSE2013}.
+Some of the refactorings translated easily from the OO domain. For example, removing dead code was as simple as \emph{removing non-contributing modules} or removing fields in \emph{clean up module}~\cite{StoleeTSE2013}.
+The \emph{Pull up method} refactoring involved extracting a connected set of modules into into a subpipe and thus is identical to the \emph{Extract Method} refactoring.
+Once the subpipe was created, all  parts of the program with the same pattern of connected modules were replaced with the subpipe module. 
 
 \subsubsection{LabVIEW}
 
@@ -395,21 +405,19 @@ Similarly to the research into smells in LabVIEW G programs, research into refac
 \section{Related Work}
 \label{sec:related_work}
 
-\subsection{``Data smells''}
-\label{subsec:related_datasmells}
+This paper builds upon the extensive body of work related to code smells and refactoring, an overview of which was done by Mens and Tourw\'{e} \cite{mens2004survey1}.
 
-In end-user programming environments user input and logic are often more closely linked than they are in general purpose programming languages.
+\subsection{Smells based on user input}
+\label{subsec:related_datasmells}
+In end-user programming environments user input and logic are often more closely linked than they are in general purpose languages.
 As such analyzing the input data as opposed to the logic can also be used to detect problems.
 
 Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but for most of their smells they look at different types of anomalies in the data of a spreadsheet and define these as smells.
-As such ``Data Smell'' is a more appropriate name.
-Examples of this are \textit{Standard Deviation} which occur if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
-They implement detection for their smells in a stand-alone tool called SmellSheet Detective which can analyze spreadsheets from the online office environment Google Docs.
+``Data Smell'' might be a more appropriate name for such smells.
+Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
 
-In more recent work Barowy et. Al \cite{barowy2014checkcell} take a very similar but more formalized and thorough approach which they label ``Data Debugging''.
-They developed an Excel plugin called CheckCell which uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet.
-Such values are likely either very important or erroneous.
-While ``Data Debugging'' is a valid term, we think the term ``Data Smell'' is more valid because it shows the similarity to code smells and its similar potential such as locating weak points in the artifact and possibility for refactoring.
+In more recent work Barowy et. Al \cite{barowy2014checkcell} take a very similar but more formalized approach which they label ``Data Debugging''.
+They developed an Excel plugin called CheckCell which uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
 
 \section{Discussion}
 \label{sec:discussion}
