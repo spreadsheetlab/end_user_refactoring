@@ -67,15 +67,12 @@ refactoring;
 \end{IEEEkeywords}
 
 \section{Introduction}
-The number of end-user programmers is said to greatly exceed the number of professional programmers. ``The proportion of American end user workers reporting they ``do programming'' has remained relatively constant, rising from around 10\% in 1989 to only around 15\% in 2001''~\cite{Scaf2005} This 15\% of 2001 totals to about 11 million end users, while the number of professional developers was estimated at 3 million for the same period~\cite{Scaf2005}.
+The number of end-user programmers is said to greatly exceed the number of professional programmers. ``The proportion of American end user workers reporting they \emph{do programming'} has remained relatively constant, rising from around 10\% in 1989 to only around 15\% in 2001''~\cite{Scaf2005} This 15\% of 2001 totals to about 11 million end users, while the number of professional developers was estimated at 3 million for the same period~\cite{Scaf2005}.
 %These statistics seem a little dated... is there anything more recent?
 
-These end-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
+End-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
 
-Similar to code written by professional developers, end-user artifacts may have a long life-span.
-In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}.
-In their lifespan, these artifacts are modified, often by different people.
-This makes them, like source code artifacts, vulnerable to \emph{smells}. 
+Similar to code written by professional developers, end-user artifacts may have a long life-span. In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people. This makes them, like source code artifacts, vulnerable to \emph{smells}. 
 
 These smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}.
 Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly.
@@ -89,6 +86,8 @@ The contributions of this work are:
 	\item Discussion of smells and refactorings in the end-user domains and how they may translate to professional languages
 	\item Identification of future opportunities for smell detection and refactoring in end-user programming domains
 \end{itemize}
+
+The applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is. Furthermore, studying the smells in a fresh context might also provide new insight on how to use smells in software engineering and might even suggest new types of smells. This is what we study in this paper.
 
 \section{Background}
 \label{sec:background}
@@ -244,7 +243,7 @@ This leads to the definition of the \emph{Inconsistent Formula} smell, which occ
 Interestingly Microsoft Excel already detects this smell and shows a small yellow exclamation mark to the user overlaid on the smelly cell.
 
 Another smell specific to spreadsheets is when a formula references an empty cell, which is often in error \cite{cunha2012towards}.
-This is similar to a null pointer in a program or a null value in a database, but because a spreadsheet contains both the data and logic we can mark it as a smell.
+This is comparable to a null pointer in a program or a null value in a database, but because a spreadsheet contains both the data and logic we can mark it as a smell.
 
 \subsubsection{Yahoo!\ Pipes}
 %Talk about smells unique to the domain
@@ -272,7 +271,7 @@ This is the reason for smells like ``\textit{Non-reentrant VI}'', similar to a n
 \label{subsec:futuresmells}
 There are several OO code smells in Table~\ref{fig:ypexample} that apply to all three domains, such as \emph{Duplicate Code}. However, there are other smells that could apply to additional domains, but have not been studied in prior work. Here, we discuss the potential of generalizing smell definitions to additional domains. 
 
-\subsubsection{Excel} \todo{Felienne}
+\subsubsection{Excel}
 The \emph{lazy class} smell is a smell that has not been explored yet within the spreadsheet domain. It could be mapped following the translation that was used before: by translating classes to worksheets. Hence a lazy class becomes a lazy worksheet, one with no or little formulas, and no links to other worksheets.
 
 %All work on spreadsheet smells has been done with the Microsoft Excel implementation, which is by far the most used spreadsheet software. \todo{cite reference?} However, other spreadsheet software exists. Because these all operate on the same principles we expect all smells to be applicable there too, but this can be confirmed in future work.
@@ -379,7 +378,7 @@ replace it, similar to updating legacy code in the presence of new library versi
 
 Chambers and Scaffidi \cite{chambers2015impact} have defined transformations for most of their performance smells, but not all are refactorings because some change the program behavior and the ones that did not modify program behavior turned out to not be particularly effective for this goal.
 
-However, some refactorings which only slightly change program behavior were effective. For example introducing a 1ms pause inside a loops without a pause decreased execution time by 37\%.
+However, some refactorings which only slightly change program behavior were effective. For example introducing a 1ms pause inside a loop without a pause decreased execution time by 37\%.
 
 \subsection{Future Opportunities for Refactoring}
 \subsubsection{Excel}
@@ -405,7 +404,7 @@ Similarly to the research into smells in LabVIEW G programs, research into refac
 \section{Related Work}
 \label{sec:related_work}
 
-This paper builds upon the extensive body of work related to code smells and refactoring, an overview of which was done by Mens and Tourw\'{e} \cite{mens2004survey1}.
+This paper builds upon the extensive body of work related to code smells and refactoring. For an extensive overview we review the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
 
 \subsection{Smells based on user input}
 \label{subsec:related_datasmells}
@@ -438,9 +437,7 @@ In a qualitative analysis of the end-user preferences for Yahoo!\ Pipes programs
 
 \subsection{Future Opportunities in Professional Languages}
 In end-user programming languages, it has been shown that code smells impact the understandability of
-source code~\cite{StoleeTSE2013}. Additionally, being presented with code smells can motivate end-user programmers to improve their code~\cite{chambers2013smell}. 
-\todo{Another lesson from spreadsheets?}
-These lessons could extend to other programming languages outside of the end-user programming domains. There has been successful in using automating smell detection, for example, during agile development (e.g.,~\cite{Schumacher:2010:BES:1852786.1852797}). Paired with the end-user evidence, a stronger case can be made to integrate automated smell detection in many domains. 
+source code~\cite{StoleeTSE2013}. Additionally, being presented with code smells can motivate end-user programmers to improve their code~\cite{chambers2013smell}, and smells in spreadsheets have even been known to reveal actual errors~\cite{Hermans2012intra}. These lessons could extend to other programming languages outside of the end-user programming domains. There has been successful in using automating smell detection, for example, during agile development (e.g.,~\cite{Schumacher:2010:BES:1852786.1852797}). Paired with the end-user evidence, a stronger case can be made to integrate automated smell detection in many domains. 
 
 \todo{Other data flow languages could benefit from \emph{normalize order of operations} to improve understandability (as it does with YP). }
 
