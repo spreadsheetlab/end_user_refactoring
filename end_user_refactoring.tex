@@ -57,12 +57,15 @@ kstolee@iastate.edu}
 
 \begin{abstract}
 In the workforce today, millions of people program without degrees or professional training in software development. 
-These end-user programmers write code that designs hardware circuits, collects web information, and impacts business decisions. 
-Software engineering research, an in particular refactoring, has traditionally focused on professional, and often object-oriented, programming languages, 
-Yet, other domains and languages also suffer from code smells in need of refactoring. 
-In this work, we explore recent research in three end-user domains and languages, spreadsheets in Microsoft Excel, web mashups in Yahoo!\ Pipes, and system designs in National Instruments' LabVIEW. 
-%Smell detection and refactoring research in these three languages share many commonalities, stemming from the fact that they are all dataflow languages.  
-Through exploring the commonalities and differences among the domains, we 1)~show how these end-user domains benefit from prior research in refactoring for object-oriented languages, 2)~discuss unique smell detection and refactoring opportunities for these domains and how they can translate to professional languages, and 3)~identify future opportunities for smell and refactoring research in these studied domains as well as other domains of end-user programming languages. 
+These end-user programmers write code to design hardware circuits, combine web information, and impact business decisions. 
+Software engineering research into refactoring has traditionally focused on professionally used object-oriented programming languages, 
+yet other domains and languages also suffer from code smells in need of refactoring. 
+
+In this work, we explore recent research in three end-user domains and languages, spreadsheets in Microsoft Excel, web mashups in Yahoo!\ Pipes, and system design in National Instruments' LabVIEW. 
+Through exploring the commonalities and differences among the domains, we
+1)~show how these end-user domains benefit from prior research on refactoring object-oriented languages,
+2)~discuss unique smell detection and refactoring opportunities for these domains and how they can translate to professional languages, and
+3)~identify future opportunities for smell and refactoring research in these studied domains as well as other end-user programming domains. 
 \end{abstract}
 
 
@@ -74,8 +77,7 @@ refactoring;
 
 \section{Introduction}
 The number of end-user programmers is said to greatly exceed the number of professional programmers. In 2001 there were an estimated 11 million end user programmers (15\% of the total American workforce), while the number of professional developers was estimated at 3 million for the same period~\cite{Scaf2005}. These end-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
-
-Similar to code written by professional developers, end-user artifacts may have a long life-span. In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people. This makes them, like source code artifacts, vulnerable to \emph{smells}. 
+Similar to code written by professional developers, end-user artifacts may have a long life-span, the average lifespan of a corporate spreadsheet being five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people. This makes them, like source code artifacts, vulnerable to \emph{smells}. 
 
 Smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}.
 Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly.
@@ -99,12 +101,10 @@ The contributions of this work are:
 \label{sec:background}
 
 
-Refactoring was first introduced as a systematic way to restructure source code and facilitate software evolution and maintenance~\cite{Opdyke:1992:ROF:169783, Griswold:1993:AAP:152388.152389}. In 1999, Martin Fowler introduced the concept of code smells for object-oriented (OO) languages~\cite{Fowl1999}. 
-%Refactoring, improving the internal composition of a software program without altering its functionality or output \todo{quote a definition}, has been a part of software engineering since at least 1989 \cite{arnold1989software}, but was popularized by Fowler's 1999 "Refactoring: Improving the design of existing programs" \cite{fowler1999refactoring}. 
-According to Fowler, code smells indicate suspicious or weak parts that the developer might want to change in order to improve readability and minimize the chance of future errors.
-``A code smell is a surface indication that usually corresponds to a deeper problem in the system,'' says Fowler. For professional programmers, refactoring code is usually motivated by noticing a code smell, which signals the opportunity for improvement.
+Refactoring was first introduced as a systematic way to restructure source code and facilitate software evolution and maintenance~\cite{Opdyke:1992:ROF:169783, Griswold:1993:AAP:152388.152389}. Martin Fowler later introduced the concept of code smells \cite{Fowl1999}. 
+For professional programmers, refactoring code is usually motivated by noticing a code smell, which signals the opportunity for improvement.
 
-The taxonomy of smells outlined in Fowler's text pertained exclusively to object-oriented code, and professional programming languages were focus  for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}.
+The taxonomy of smells outlined in Fowler's text pertained mostly to object-oriented code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}.
 Since 2011, however, refactoring and smell definitions have been adapted and extended to other 
 programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTSE2013}, Excel spreadsheets~\cite{Hermans2011, Hermans2012inter, hermans2014bumblebee}, and LabVIEW programs~\cite{chambers2013smell}, all of which are end-user programming domains. 
 %Further, these smells can be addressed using refactorings that, like the refactorings for professional programming languages, remove the smell while maintaining the code's behavior. 
