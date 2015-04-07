@@ -76,16 +76,26 @@ refactoring;
 \end{IEEEkeywords}
 
 \section{Introduction}
-The number of end-user programmers is said to greatly exceed the number of professional programmers. In 2001 there were an estimated 11 million end user programmers (15\% of the total American workforce), while the number of professional developers was estimated at 3 million for the same period~\cite{Scaf2005}. These end-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
-Similar to code written by professional developers, end-user artifacts may have a long life-span, the average lifespan of a corporate spreadsheet being five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people. This makes them, like source code artifacts, vulnerable to \emph{smells}. 
+End-user programmers are said to outnumber the amount of professional programmers three times over \cite{Scaf2005}.
+These end-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet.
+While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
+Similar to code written by professional developers, end-user artifacts may have a long life-span, the average lifespan of a corporate spreadsheet being five years~\cite{Hermans2011}.
+During this long lifespan, end-user artifacts are modified, often by different people.
+These properties make them, like source code artifacts, vulnerable to \emph{smells}. 
 
 Smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}.
-Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly.
+Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly \cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}.
 Alleviating those smells can be achieved with refactoring.
-%, which leads to the topic of this paper: \emph{what general concepts can we recognize over all types of end-user smell detection and refactoring approaches?}
 
-%love this addition! I just moved it a bit for better flow. 
-The applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is. Furthermore, studying the smells in a fresh context  provides new insight on how to use smells in software engineering and  even suggests new types of smells. This is what we study in this paper.
+Refactoring was first introduced as a systematic way to restructure source code and facilitate software evolution and maintenance~\cite{Opdyke:1992:ROF:169783, Griswold:1993:AAP:152388.152389}. Martin Fowler later introduced the concept of code smells \cite{Fowl1999}. 
+Refactoring code is often motivated by noticing a code smell, which signals the opportunity for improvement.
+
+The taxonomy of smells outlined in Fowler's text pertained mostly to object-oriented code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}.
+Since 2011, however, refactoring and smell definitions have been adapted and extended to other 
+programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTSE2013}, Excel spreadsheets~\cite{Hermans2011, Hermans2012inter, hermans2014bumblebee}, and LabVIEW programs~\cite{chambers2013smell}, all of which are end-user programming domains. 
+
+Considering the large number of end-user programmers, the longevity of their artifacts, and the impact of smells on understandability, errors, and performance, supporting end-user programmers in code smell detection and refactoring is valuable.
+The applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is. Furthermore, studying the smells and refactorings in a fresh context provides new insight on how to use smells in software engineering and  even suggests new types of smells. This is what we study in this paper.
 The contributions of this work are:
 
 \begin{itemize}
@@ -100,24 +110,7 @@ The contributions of this work are:
 \section{Background}
 \label{sec:background}
 
-
-Refactoring was first introduced as a systematic way to restructure source code and facilitate software evolution and maintenance~\cite{Opdyke:1992:ROF:169783, Griswold:1993:AAP:152388.152389}. Martin Fowler later introduced the concept of code smells \cite{Fowl1999}. 
-For professional programmers, refactoring code is usually motivated by noticing a code smell, which signals the opportunity for improvement.
-
-The taxonomy of smells outlined in Fowler's text pertained mostly to object-oriented code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}.
-Since 2011, however, refactoring and smell definitions have been adapted and extended to other 
-programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTSE2013}, Excel spreadsheets~\cite{Hermans2011, Hermans2012inter, hermans2014bumblebee}, and LabVIEW programs~\cite{chambers2013smell}, all of which are end-user programming domains. 
-%Further, these smells can be addressed using refactorings that, like the refactorings for professional programming languages, remove the smell while maintaining the code's behavior. 
-%Like source code produced by professional developers, programs made by end-users can also contain smells.
-
-%This is the same in end-user development, and as such we will first discuss the research on end-user development smells.
-More importantly, researchers have  found that code smells matter to end-user programmers.
-When presented with Yahoo!\ Pipes web mashups with and without smells, a significant majority of end-user programmers preferred the pipes without smells~\cite{StoleeTSE2013}.
-In a field study done with 10 spreadsheet users at an investment bank, users agreed smells could reveal actual errors in their spreadsheets\todo{~\cite{}}.
-When presenting LabVIEW users with information about code smells in their programs, all 13 participants were able to identify the problems and 12 were able to fix the problem~\cite{chambers2013smell}.
-Considering the large number of end-user programmers, the longevity of their artifacts, and the real impact of smells on understandability, errors, and performance, supporting end-user programmers in code smell detection and refactoring is valuable. 
-
-In this work, we explore past research in three end-user programming domains and languages: spreadsheets in Microsoft Excel, web mashups in Yahoo!\ Pipes, and visual system design in National Instruments' LabVIEW. Furthermore we identify future opportunities for smell and refactoring research in these and other end-user programing domains. Here, we briefly explore each language  before presenting the relevant code smells in  Section~\ref{sec:smells} and refactorings in Section~\ref{sec:refactoring}.
+Here, we briefly explore each end user domain before presenting the relevant code smells in  Section~\ref{sec:smells} and refactorings in Section~\ref{sec:refactoring}.
 
 \paragraph{Excel}
 
@@ -128,12 +121,13 @@ In this work, we explore past research in three end-user programming domains and
 \label{fig:spreadsheetexample}
 \end{figure}
 
-Spreadsheets are very commonly used in businesses, from inventory administration to educational applications and from scientific modeling to financial systems. Winston ~\cite{Wins2001} estimates that 90\% of all analysts in industry perform calculations in spreadsheets. Especially in the financial domain, spreadsheets are the way to perform modeling and programming. Panko~\cite{Pank2006} estimates that 95\% of U.S. firms, and 80\% in Europe, use spreadsheets in some form for financial reporting. 
+Spreadsheets are very commonly used in businesses, from inventory administration to educational applications and from scientific modeling to financial systems.
+Winston ~\cite{Wins2001} estimates that 90\% of all analysts in industry perform calculations in spreadsheets. 
+Microsoft Excel is by far the most used, and therefore most studied, spreadsheet program, but other implementations exists and are similar.
 
 In modern spreadsheet programs, a \textit{cell} can contain a single \textit{formula} which performs a calculation, and a table of cells is bundled in a \textit{worksheet}.
 A \textit{workbook} consist of a collection of worksheets.
-Formulas can reference other cells in the same or in a different worksheet.
-References to a different workbook are possible but less common.
+Formulas can reference other cells in the same or in different workbooks and worksheets.
 
 
 \paragraph{Yahoo!\ Pipes}
@@ -158,7 +152,7 @@ Abstraction is possible in Yahoo!\ Pipes through the use of a \emph{subpipe} mod
 \label{fig:labviewexample}
 \end{figure}
 
-LabVIEW is a proprietary, visual hardware system design environment that features the visual programming language ``G'' as one of its primary features.
+LabVIEW is a hardware system design environment that features the visual programming language ``G'' as one of its primary features.
 An example of a G program can be found in Figure \ref{fig:labviewexample}.
 G is a dataflow language which means a program is represented as a directed graph where data ``flows'' between nodes through their edges.
 As such the two most important primitives in G are the edges called \textit{wires} and nodes called \textit{virtual instruments}.
