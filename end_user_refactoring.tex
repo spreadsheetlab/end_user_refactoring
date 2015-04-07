@@ -73,10 +73,7 @@ refactoring;
 \end{IEEEkeywords}
 
 \section{Introduction}
-The number of end-user programmers is said to greatly exceed the number of professional programmers. ``The proportion of American end user workers reporting they \emph{do programming} has remained relatively constant, rising from around 10\% in 1989 to only around 15\% in 2001''~\cite{Scaf2005} This 15\% of 2001 totals to about 11 million end users, while the number of professional developers was estimated at 3 million for the same period~\cite{Scaf2005}.
-%These statistics seem a little dated... is there anything more recent?
-
-End-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
+The number of end-user programmers is said to greatly exceed the number of professional programmers. In 2001 there were an estimated 11 million end user programmers (15\% of the total American workforce), while the number of professional developers was estimated at 3 million for the same period~\cite{Scaf2005}. These end-user programmers perform a wide variety of tasks within their organizations, ranging from building or maintaining applications to simple data manipulation in a spreadsheet. While performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}.
 
 Similar to code written by professional developers, end-user artifacts may have a long life-span. In fact, a 2011 case study showed that spreadsheets have an average lifespan of 5 years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people. This makes them, like source code artifacts, vulnerable to \emph{smells}. 
 
@@ -518,12 +515,11 @@ Building off the discussion of domain-specific smells in Section~\ref{sec:smells
 Some work has been done on refactoring formulas inside a single cell of a spreadsheet. Badame and Dig \cite{badame2012refactoring} define the \textit{Guard Call} refactoring, which places a conditional check around a (sub)formula that can return an error, for example a check for a division by zero.
 
 Hermans and Dig \cite{hermans2014bumblebee} have followed up on this and define a more general approach by providing a way to transform formulas into other formulas, in a way that is very similar to how a regular expression or patterns works in some modern programming languages.
-To define a transformation rule one defines a formula to match and a formula to replace it with. While every formula can be provided, the power comes from, to use the regular expression terminology, ``capturing groups'' which can bind to a subformula, cell or range. For example, the transformation rule
-\[F_1/F_2 \leftrightarrow IF(F_2<>0,F_1/F_2,''undefined'')\]
- implements the previously mentioned \textit{Guard Call} \cite{badame2012refactoring} refactoring by transforming a formula into one which prevents division by zero.
- \todo{Should we remove the transformation rule discussion? Seems a bit too technical for the tone of the rest of the paper.}
- In this example $F$ can capture (bind to) any valid formula.
- With this approach it is possible to create a rule for all refactorings defined by Badame and Dig \cite{badame2012refactoring}, but also all refactorings as long as they do not require more intricate capturing groups.
+
+%To define a transformation rule one defines a formula to match and a formula to replace it with. While every formula can be provided, the power comes from, to use the regular expression terminology, ``capturing groups'' which can bind to a subformula, cell or range. For example, the transformation rule
+%\[F_1/F_2 \leftrightarrow IF(F_2<>0,F_1/F_2,''undefined'')\]
+% implements the previously mentioned \textit{Guard Call} \cite{badame2012refactoring} refactoring by transforming a formula into one which prevents division by zero. In this example $F$ can capture (bind to) any valid formula.
+ With this approach it is possible to create a rule for all in-formula refactorings defined by Badame and Dig \cite{badame2012refactoring}, but also other refactorings as long as they do not require more intricate capturing groups.
 
 \subsubsection{Yahoo!\ Pipes}
 \label{sec:yp:domainrefactor}
@@ -606,8 +602,14 @@ The threats to validity of this work inherit the threats to validity of the orig
 
 \section{Concluding Remarks}
 \label{sec:conclusions}
+This paper presents an overview of the work in smell detection and refactoring for end-user programming languages. More specifically, it combines work on Yahoo! Pipes, Excel and LabView. We explore commonalities between these works and identify opportunities for application of methods from these domains to others and to generic programming languages. The contributions of this work are:
 
-\newpage
+\begin{itemize}
+	\item Synthesis and catalog of object-oriented-inspired code smells  and refactoring in end-user programs
+	\item Discussion of how smells and refactoring in  end-user domains may translate to professional languages
+	\item Identification of future opportunities for smell detection and refactoring in end-user programming domains
+\end{itemize}
+
 \balance
 
 % Work that wasn't directly referenced but should still appear in the literature list
