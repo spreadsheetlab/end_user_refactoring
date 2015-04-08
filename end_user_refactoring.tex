@@ -133,11 +133,11 @@ Formulas can reference other cells in the same or in different workbooks and wor
 \paragraph{Yahoo!\ Pipes}
 A web mashup is a program that collects and combines information from various
 sources. 
-In  Yahoo!\ Pipes, the information comes from RSS feeds. Figure~\ref{fig:ypexample} shows an example Yahoo!\ Pipes program with five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. 
-Abstraction is possible in Yahoo!\ Pipes through the use of a \emph{subpipe} module, which allows a programmer to insert a different pipe as a subroutine, appearing like a standard module with a link to the source. 
+In  Yahoo!\ Pipes, the information comes from RSS feeds. Figure~\ref{fig:ypexample} shows an example Yahoo!\ Pipes program. The boxes represent modules connected by wires. 
+Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine, appearing like a standard module. 
 
 \begin{figure}
-\caption{Example of a program in Yahoo!\ Pipes}
+\caption{Example of a program in Yahoo!\ Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
 \centering
 \includegraphics[width=\columnwidth]{yp-1}
 \label{fig:ypexample}
@@ -580,9 +580,7 @@ They developed an Excel plugin called CheckCell which uses statistical analysis 
 Based on the research and results for smell detection and refactoring in end-user programming domains, there are many directions for future work in the domains studied, other end-user domains, and in professional languages. 
 
 \subsection{Future Opportunities in Other EUP Domains}
-End-user programming domains extend beyond spreadsheets, web mashups, and system designs. Stolee and Elbaum explore future opportunities for refactoring in educational programming languages (i.e., Scratch~\cite{scratch}, Alice~\cite{aliceIntro}, or Kodu~\cite{Stolee:2011:ECS:1953163.1953197}.) and web macros (e.g., CoScripter~\cite{coscripter}). Additional opportunities in educational languages exist in LEGO Mindstorms~\cite{lego}, which is based off the G language for LabVIEW. 
-
-Another end-user programming domain that could benefit from smell analysis and refactoring is mathematics languages. These include matlab, sage, or mathematica. \todo{more here}.  
+End-user programming domains extend beyond spreadsheets, web mashups, and system designs. Stolee and Elbaum explore future opportunities for refactoring in educational programming languages. Additional opportunities in educational languages exist in LEGO Mindstorms, which is based off the G language for LabVIEW.  Another end-user programming domain that could benefit from smell analysis and refactoring is mathematics languages. These include MATLAB, Sage, or Mathematica.
 
 
 \subsection{Future Opportunities in Professional Languages}
