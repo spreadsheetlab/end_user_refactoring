@@ -45,19 +45,22 @@
 \title{Smell Detection and Refactoring in End-User Programming Languages}
 %\title{Perspectives on End-User Refactoring: Past, Present, and Future}
 
-\author{\IEEEauthorblockN{Felienne Hermans, David Hoepelman}
+\author{\IEEEauthorblockN{David Hoepelman}
 \IEEEauthorblockA{Delft University of Technology\\
-Mekelweg 4\\
-2628 CD Delft, the Netherlands\\
-f.f.j.hermans@tudelft.nl}
-
+Delft, The Netherlands\\
+D.J.Hoepelman@student.tudelft.nl}
 
 \and
 \IEEEauthorblockN{Kathryn T. Stolee}
 \IEEEauthorblockA{Iowa State University\\
-209 Atanasoff Hall\\
-Ames, IA 50011-1041\\
+Ames, IA, USA\\
 kstolee@iastate.edu}
+
+\and
+\IEEEauthorblockN{Felienne Hermans}
+\IEEEauthorblockA{Delft University of Technology\\
+Delft, The Netherlands\\
+f.f.j.hermans@tudelft.nl}
 }
 
 \maketitle
@@ -65,14 +68,14 @@ kstolee@iastate.edu}
 
 \begin{abstract}
 In the workforce today, millions of people program without degrees or professional training in software development. 
-These end-user programmers write code to design hardware circuits, combine web information, and impact business decisions. 
+These end-user programmers write code to design hardware circuits, combine web information, and make business decisions. 
 Software engineering research into refactoring has traditionally focused on professionally used object-oriented programming languages, 
 yet other domains and languages also suffer from code smells in need of refactoring. 
 
 In this work, we explore recent research in three end-user domains and languages, spreadsheets in Microsoft Excel, web mashups in Yahoo!\ Pipes, and system design in National Instruments' LabVIEW. 
 Through exploring the commonalities and differences among the domains, we
 1)~show how these end-user domains benefit from prior research on refactoring object-oriented languages,
-2)~discuss unique smell detection and refactoring opportunities for these domains and how they can translate to professional languages, and
+2)~discuss unique smell detection and refactoring opportunities for these domains, and
 3)~identify future opportunities for smell and refactoring research in these studied domains as well as other end-user programming domains. 
 \end{abstract}
 
@@ -91,7 +94,7 @@ Similar to code written by professional developers, end-user artifacts may have 
 During this long lifespan, end-user artifacts are modified, often by different people.
 These properties make them, like source code artifacts, vulnerable to \emph{smells}. 
 
-Smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}.
+Smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{StoleeTSE2013} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}.
 Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly \cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}.
 Alleviating those smells can be achieved with refactoring.
 
@@ -100,7 +103,7 @@ Refactoring code is often motivated by noticing a code smell, which signals the 
 
 The taxonomy of smells outlined in Fowler's text pertained mostly to object-oriented code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}.
 Since 2011, however, refactoring and smell definitions have been adapted and extended to other 
-programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTSE2013}, Excel spreadsheets~\cite{Hermans2011, Hermans2012inter, hermans2014bumblebee}, and LabVIEW programs~\cite{chambers2013smell}, all of which are end-user programming domains. 
+programming language paradigms, including web mashups~\cite{StoleeTSE2013}, Excel spreadsheets~\cite{Hermans2011, Hermans2012inter, hermans2014bumblebee}, and LabVIEW programs~\cite{chambers2013smell}, all of which are end-user programming domains. 
 
 Considering the large number of end-user programmers, the longevity of their artifacts, and the impact of smells on understandability, errors, and performance, supporting end-user programmers in code smell detection and refactoring is valuable.
 The applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is. Furthermore, studying the smells and refactorings in a fresh context provides new insight on how to use smells in software engineering and  even suggests new types of smells. This is what we study in this paper.
@@ -110,7 +113,7 @@ The contributions of this work are:
 %	\item Synthesis of recent research in smell detection and refacotring for end-user programming languages
 %	\item Motivation for the study of smells and refactoring for end-user programming languages based on empirical evidence
 	\item Synthesis and catalog of object-oriented-inspired code smells  and refactoring in end-user programs
-	\item Discussion of how smells and refactoring in  end-user domains may translate to professional languages
+	\item Discussion of unique smell detection and refactoring opportunities in the end-user domains %Discussion of how smells and refactoring in  end-user domains may translate to professional languages
 	\item Identification of future opportunities for smell detection and refactoring in end-user programming domains
 \end{itemize}
 
@@ -171,9 +174,9 @@ Wires with no source VI are inputs and wires without a destination VI are output
 \section{Smells in end-user programs}
 \label{sec:smells}
 Research into end-user programming smells has had two approaches, which are not mutually exclusive.
-The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013, chambers2013smell}.
+The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,StoleeTSE2013, chambers2013smell}.
 The second approach is to define smells tailored to the end-user environment.
-This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~ \cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available artifacts \cite{Stolee2011,StoleeTSE2013}.
+This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~ \cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available artifacts \cite{StoleeTSE2013}.
 
 This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts using both the above described approaches and proposes future directions for smell detection in these domains. 
 
@@ -268,7 +271,7 @@ Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to 
 An example of this is the \emph{Long Method} smells, which translated the \emph{Multiple Operations} smells because formulas with a lot of operations are long and suffer from similar problems as long methods.
 
 \subsubsection{Yahoo!\ Pipes}
-Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
+Stolee and Elbaum~\cite{StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
 \emph{Duplicate Modules}, impacted nearly one-quarter of the pipes studied. 
  Overall, 81\% of the programs studied from the Yahoo!\ Pipes community had at least one smell. 
  
@@ -518,7 +521,7 @@ In particular, the smells related to duplication and poor construction (e.g., lo
 %\todo{Other data flow languages could benefit from \emph{normalize order of operations} to improve understandability (as it does with YP). }
 
 \subsection{Threats to Validity}
-The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact, badame2012refactoring}. In addition, we note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  
+The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact, badame2012refactoring}. In addition, we note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  
 
 \section{Concluding Remarks}
 \label{sec:conclusions}
