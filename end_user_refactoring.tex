@@ -492,20 +492,20 @@ Similarly to the research into smells in LabVIEW G programs, research into refac
 \todo{David - this needs to talk about all the * refactorings in the table}
 
 
-\section{Related Work}
-\label{sec:related_work}
-
-This paper builds upon the extensive body of work related to code smells and refactoring in the end-user programming domain~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact}. For an extensive overview in object-oriented research, we refer the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
-
-%\subsection{Smells based on user input}
-%\label{subsec:related_datasmells}
-%In end-user programming environments user input and logic are often more closely linked than they are in general purpose languages.
-%As such analyzing the input data as opposed to the logic can also be used to detect problems.
-
-Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but for most of their smells they look at  anomalies in the data and define these as smells.
-%Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
-In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a  more formalized approach which they label ``Data Debugging''.
-Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
+%\section{Related Work}
+%\label{sec:related_work}
+%
+%This paper builds upon the extensive body of work related to code smells and refactoring in the end-user programming domain~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact}. For an extensive overview in object-oriented research, we refer the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
+%
+%%\subsection{Smells based on user input}
+%%\label{subsec:related_datasmells}
+%%In end-user programming environments user input and logic are often more closely linked than they are in general purpose languages.
+%%As such analyzing the input data as opposed to the logic can also be used to detect problems.
+%
+%Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but for most of their smells they look at  anomalies in the data and define these as smells.
+%%Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
+%In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a  more formalized approach which they label ``Data Debugging''.
+%Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -517,6 +517,8 @@ End-user programming domains extend beyond spreadsheets, web mashups, and system
 
 In particular, the smells related to duplication and poor construction (e.g., long method, many parameters, dead code) are  prevalent in the three domains studied. These smells -- and their respective refactorings -- likely exist in other end-user programming domains, and likely hinder the understandability and maintainability of those programs. Worse even, these smells likely also lead to errors, and thus are worthy of our attention. 
 
+%\subsection{Related Work}
+%This paper builds upon the extensive body of work related to code smells and refactoring in the end-user programming domain~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact}. For an extensive overview in object-oriented research, we refer the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
 
 %\subsection{Future Opportunities in Professional Languages}
 %In end-user programming languages, it has been shown that code smells impact the understandability of
