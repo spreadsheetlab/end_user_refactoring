@@ -16,6 +16,12 @@
 \usepackage{booktabs}
 \usepackage{pbox}
 \renewcommand{\arraystretch}{1.2} 
+\usepackage{arydshln}
+%\renewcommand*\cmidrule{} % No middle lines
+%\renewcommand{\arraystretch}{1.5} % Additional spacing with no middle lines
+%\renewcommand*\cmidrule{\hdashline[1pt/2pt]}% Dashed middle lines
+\renewcommand*\cmidrule{\midrule[0.001em]} % Thin middle lines
+%\renewcommand*\cmidrule{\midrule} % Thick middle lines
 
 %Images
 \usepackage[pdftex]{graphicx}
@@ -29,8 +35,10 @@
 \displaywidowpenalty = 10000
 
 \newcommand{\todo}[1]{\textbf{TODO: #1}}
+\newcommand{\ignore}[1]{}
 
 \begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
@@ -214,56 +222,56 @@ Feature Envy
 	& Feature Envy \cite{Hermans2012inter}
 	& Feature Envy *
 	& ~~ 
-\\ \hline
+\\ \cmidrule
 Long Method
 	& Multiple operations \cite{Hermans2012intra}
 	& Long Module*
 	& Large Virtual Instrument *
-\\ \hline
+\\ \cmidrule
 Message Chain
 	& Long Calculation Chain \cite{Hermans2012intra}
 	& 
 	& 
-\\ \hline
+\\ \cmidrule
 Inappropriate Intimacy
 	& Inappropriate Intimacy \cite{Hermans2012inter}
 	& Inappropriate Intimacy *
 	& ~~ 
-\\ \hline
+\\ \cmidrule
 Lazy class or Middle Man
 	& Middle Man \cite{Hermans2012inter}
 	& Unnecessary Abstraction \cite{StoleeTSE2013}
 	& ~~ 
-\\ \hline
+\\ \cmidrule
 Many Parameters
 	& Multiple References \cite{Hermans2012intra}
 	& 
 	& Many Control Terminals *
-\\ \hline
+\\ \cmidrule
 Duplicate Code
 	& Duplicated Formulas \cite{Hermans2012intra}
-	& Duplicate Modules, Duplicate String or 
+	& Duplicate Modules, Duplicate String or
 	& Isomorphic Path *
-\\
-	& 
-	& Isomorphic Path \cite{StoleeTSE2013}
-	&
-\\ \hline
+\\ % Continuation
+& 
+& Isomorphic Path \cite{StoleeTSE2013}
+& 
+\\ \cmidrule
 Dead Code
 	& ~\ding{55}
 	& Disconnected or Dangling Modules \cite{StoleeTSE2013}
 	& Disconnected or Dangling Elements *
-\\ \hline
+\\ \cmidrule
 Unused Field
 	& ~\ding{55}
 	& Noisy Module \cite{StoleeTSE2013}
 	&
-\\\hline
+\\ \cmidrule
 No-op
 	& Redundant Operations *
 	& Unnecessary Module \cite{StoleeTSE2013}
 	& Redundant Operations \cite{chambers2013smell}
-\\ \hline
+\\ \cmidrule
 Use of Deprecated Interfaces
 	& Deprecated Functions *
 	& Deprecated Module or Invalid Source \cite{StoleeTSE2013}
@@ -272,7 +280,7 @@ Use of Deprecated Interfaces
 \multicolumn{4}{c}{} \\
 \multicolumn{4}{l}{\ding{55} : Not applicable due to the nature of the paradigm} \\
 \multicolumn{4}{l}{* : Proposed name, likely future opportunity not supported by prior work}\\
-\multicolumn{4}{l}{$\langle$blank$\rangle$ : Possible future opportunity, not discussed in this work} \\
+\multicolumn{4}{l}{$\langle$blank$\rangle$ : Not discussed in this work, possible future opportunity} \\
 \end{tabular}
 \end{table*}
 
@@ -409,7 +417,7 @@ If a block diagram contains a combination of nodes wired identically multiple ti
 %\end{table}
 
 \begin{table*}
-\caption{Code Refactoring in End-User Programs}
+\caption{Code Refactorings in End-User Development}
 \label{table:ooreflarge}
 \centering
 \sffamily
@@ -424,48 +432,46 @@ Remove Parameter
 	& Move References \cite{Hermans2012intraExt}
 	& Clean Up Module \cite{StoleeTSE2013} 
 	& Remove Terminal \cite{chambers2015impact}
-\\ 
+\\ \cmidrule
 Extract Method
 	& Extract Subformula \cite{Hermans2012intraExt,badame2012refactoring}
 	& Extract Local Subpipe \cite{StoleeTSE2013}
 	& Extract Virtual Instrument \cite{sui2008automated}
-\\
+\\ \cmidrule
 Inline Method
 	& Inline Formula *
 	& Push Down Module \cite{StoleeTSE2013}
 	& Inline Virtual Instrument *
-\\
+\\ \cmidrule
 Substitute Algorithm
 	& Replace Formula *
 	&  \pbox{4.5cm}{Merge Redundant Modules or Colapse Duplicate Path\cite{StoleeTSE2013} }
 	& Substitute Block Diagram *
-\\ 
+\\  \cmidrule
 Library Migration~\cite{Balaban:2005:RSC:1103845.1094832}
 	& Migrate Formulas \cite{hermans2014bumblebee}
 	& Replace Deprecated Modules \cite{StoleeTSE2013}
 	& 
-\\ 
+\\  \cmidrule
 Define named constant
 	& Extract Literal \cite{badame2012refactoring}
 	& Pull Up Module \cite{StoleeTSE2013}
 	& ~~
-\\
+\\ \cmidrule
 Remove dead code
 	& \ding{55}
 	& \pbox{4.5cm}{Remove  Disconnected or Dangling Modules \cite{StoleeTSE2013}}
 	& \pbox{4.5cm}{Remove Disconnected or Dangling Elements *}
-\\
+\\ \cmidrule
 Remove No-op
 	& Remove Redundant Operations *
 	& Remove Lazy Module \cite{StoleeTSE2013}
 	& Remove Redundant Operations \cite{chambers2015impact} \\
-\\ \bottomrule
+\bottomrule
 \multicolumn{4}{c}{} \\
 \multicolumn{4}{l}{\ding{55} : Not applicable due to the nature of the paradigm} \\
 \multicolumn{4}{l}{* : Proposed name, future opportunity not supported by prior work.}\\
-\multicolumn{4}{l}{$\langle$blank$\rangle$ : Possible future opportunity, not discussed in this work} \\
-\multicolumn{4}{l}{\pbox{15cm}{\todo{Merged Extract Method, Pull Up Method and Form Template Method because they are similar in OO so the differences are lost in the translations, ok?}}} \\
-\multicolumn{4}{l}{\pbox{15cm}{\todo{I don't know how I feel about the substitute algorithm refactoring. It always seems corny/bland to me, because it basically is "replace something bad with something better", at least when you translate it into other paradigms. Should we leave it in?}}} \\
+\multicolumn{4}{l}{$\langle$blank$\rangle$ : Possible future opportunity, not discussed in this work}
 \end{tabular}
 \end{table*}
 
