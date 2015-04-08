@@ -225,7 +225,7 @@ Many Parameters
 Duplicate Code
 	& Duplicated Formulas \cite{Hermans2012intra}
 	& Duplicate Modules, Duplicate String or
-	& Isomorphic Path *
+	& Multiple Array Copies \cite{chambers2013smell}
 \\ % Continuation
 & 
 & Isomorphic Path \cite{StoleeTSE2013}
@@ -280,7 +280,7 @@ Yahoo!\ can also \emph{deprecate modules}, which can create similar problems to 
 \subsubsection{LabVIEW}
 
 Current work on LabVIEW smells has been focused on smells with potential performance impacts.
-As most OO smells do not have a direct impact on performance, the equivalents of OO smells for LabVIEW have not yet been defined. \emph{Redundant Operations} is an exception, which acts like a no-op. \todo{David - is this true?}
+As most OO smells do not have a direct impact on performance, the equivalents of OO smells for LabVIEW have not yet been defined. \emph{Redundant Operations} is an exception, which acts like a no-op, or \emph{Multiple Array Copies}, which identifies redundant storage of the same data, similar to \emph{Duplicate Code}. 
 
 \subsection{Domain-Specific Smells}
 \label{sec:smells:domain}
@@ -348,8 +348,8 @@ We have identified some OO smells that have parallels in LabVIEW.
 
 A \emph{Large Virtual Instrument} would have similar problems to a \emph{Long Method} and could be divided, and like \emph{Many Parameters} make a method hard to understand \emph{Many Control Terminals} could increase the difficulty of understanding a VI.
 If a block diagram contains a combination of nodes wired identically multiple times, they are \emph{Duplicated Nodes} and should be extracted into their own VI. 
+A VI node that is \emph{Disconnected or Dangling} does not contribute to the program and could also be marked as smelly. 
 
-\todo{David - we need to either add a discussion on \emph{Disconnected or Dangling Elements} and \emph{Isomorphic Path}, or remove them from the table}
 
 \begin{table*}
 \caption{Code Refactorings in End-User Development}
