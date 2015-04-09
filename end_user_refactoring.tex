@@ -493,7 +493,11 @@ With \emph{Inappropriate Intimacy}, a new refactoring should be introduced that 
 \subsubsection{LabVIEW}
 
 Similarly to the research into smells in LabVIEW G programs, research into refactoring of G programs has also been driven by the desire for performance improvements. Refactorings which do not directly impact performance have only been theoretically explored for general dataflow languages \cite{sui2008automated}.
-\todo{David - this needs to talk about all the * refactorings in the table}
+
+We identify three concrete opportunities based on other domains.
+First of the counterpart to \emph{Extract Virtual Instrument} is \emph{Inline Virtual Instrument}, which is the refactoring that replaces a VI by its implementation.
+Secondly the dead code elimination refactorings from the Yahoo! Pipes domain are applicable to LabVIEW as both are dataflow languages.
+Lastly the equivalent to the \emph{Substitute Algorithm} refactoring would be the \emph{Substitute Block Diagram}
 
 
 %\section{Related Work}
