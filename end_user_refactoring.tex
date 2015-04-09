@@ -227,10 +227,11 @@ Duplicate Code
 	& Duplicate Modules, Duplicate String or
 % David - changed this back to Isomorphic Path, because Multiple array copies is something different
 % MAC is more like passing large arrays by value/on the stack and has nothing to do with code duplication
-	& Isomorphic Path *
+% Isomorphic paths however seems to exactly fit the duplicate code smell: a combination of identical nodes & wires present multiple times which can be extracted into its own VI
+	& Isomorphic Paths *
 \\ % Continuation
 & 
-& Isomorphic Path \cite{StoleeTSE2013}
+& Isomorphic Paths \cite{StoleeTSE2013}
 & 
 \\ \cmidrule
 Dead Code
@@ -350,7 +351,7 @@ As such inspiration could be drawn for smells that do not necessarily have an im
 We have identified some OO smells that have parallels in LabVIEW.
 
 A \emph{Large Virtual Instrument} would have similar problems to a \emph{Long Method} and could be divided, and like \emph{Many Parameters} make a method hard to understand \emph{Many Control Terminals} could increase the difficulty of understanding a VI.
-If a block diagram contains a combination of nodes wired identically multiple times, they are \emph{Duplicated Nodes} and should be extracted into their own VI. 
+If a block diagram contains a combination of nodes wired identically multiple times, these are \emph{Isomorphic Paths} and should be extracted into their own VI. 
 A VI node that is \emph{Disconnected or Dangling} does not contribute to the program and could also be marked as smelly. 
 
 
