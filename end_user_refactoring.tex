@@ -102,11 +102,12 @@ Refactoring was first introduced as a systematic way to restructure source code 
 Refactoring code is often motivated by noticing a code smell, which signals the opportunity for improvement.
 
 The taxonomy of smells outlined in Fowler's text pertained  to object-oriented (OO) code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}.
-Since 2011, however, refactoring and smell definitions have been adapted and extended to other 
-programming language paradigms, including web mashups~\cite{Stolee2011, StoleeTSE2013}, Excel spreadsheets~\cite{Hermans2011, Hermans2012inter, hermans2014bumblebee}, and LabVIEW programs~\cite{chambers2013smell}, all of which are end-user programming languages. 
+Like smell definitions refactorings have too been adapted and extended to other 
+end-user programming paradigms, including web mashups~\cite{Stolee2011, StoleeTSE2013}, Excel spreadsheets~\cite{Hermans2011, Hermans2012inter, hermans2014bumblebee}, and LabVIEW programs~\cite{chambers2013smell}.
 
-Considering the large number of end-user programmers, the longevity of their artifacts, and the impact of smells on understandability, errors, and performance, supporting end-user programmers in code smell detection and refactoring is valuable.
-The applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is. Furthermore, studying the smells and refactorings in a fresh context provides new insight on how to use smells in software engineering and  even suggests new types of smells.
+Considering the large number of end-user programmers, the longevity of their artifacts and the preference for non-smelly code, supporting end-user programmers in code smell detection and refactoring is valuable.
+The applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is.
+Furthermore, studying the smells and refactorings in a fresh context provides new insight on how to use smells in software engineering and  even suggests new types of smells.
 The contributions of this work are:
 
 \begin{itemize}
@@ -121,12 +122,12 @@ The contributions of this work are:
 \section{Background}
 \label{sec:background}
 
-Here, we briefly explore each end-user language targeted by prior refactoring research  before presenting the relevant code smells in  Section~\ref{sec:smells} and refactorings in Section~\ref{sec:refactoring}.
+In this section we briefly explore each end-user language targeted by prior refactoring research  before presenting the relevant code smells in  Section~\ref{sec:smells} and refactorings in Section~\ref{sec:refactoring}.
 
 \paragraph{Excel}
 
 \begin{figure}
-\caption{Microsoft Excel 2013 showing a spreadsheet}
+\caption{Microsoft Excel 2013 showing a spreadsheet. Column B and C shows the typical mix of data and calculation. The formula of the selected cell B17 is visible right above the spreadsheet.}
 \centering
 \includegraphics[width=\columnwidth]{excel-2}
 \label{fig:spreadsheetexample}
@@ -142,9 +143,7 @@ Formulas can reference other cells in the same or in different workbooks and wor
 
 
 \paragraph{Yahoo!\ Pipes}
-A web mashup is a program that collects and combines information from various
-web data sources. 
-In  Yahoo!\ Pipes, the information comes from RSS feeds. Figure~\ref{fig:ypexample} shows an example program. The boxes represent modules connected by wires. 
+Yahoo!\ Pipes is a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program. The boxes represent modules connected by wires. 
 Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine, appearing like a standard module. 
 
 \begin{figure}
@@ -163,10 +162,10 @@ Abstraction is possible with \emph{subpipe} modules, which allow a programmer to
 \label{fig:labviewexample}
 \end{figure}
 
-LabVIEW is a hardware system design environment that features the visual programming language ``G'' . 
+LabVIEW is a hardware system design environment that features the visual programming language \emph{G} . 
 An example of a G program can be found in Figure \ref{fig:labviewexample}.
-The G language is a visual, dataflow language where data ``flows'' between nodes through their edges.
-The two most important primitives in G are the edges  (\textit{wires}) and nodes  (\textit{virtual instruments} (VI)).
+The G language is a visual dataflow language where data \emph{flows} between nodes through their edges.
+The two most important primitives in G are the edges  (\textit{wires}) and nodes  (\textit{virtual instruments} or \emph{VI}).
 Virtual instruments are very similar to functions,  performing  operations on inputs and providing outputs.
 Wires with no source VI are inputs and wires without a destination VI are outputs. 
 
@@ -176,7 +175,7 @@ Wires with no source VI are inputs and wires without a destination VI are output
 Research into end-user language smells has had two approaches, which are not mutually exclusive.
 The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013, chambers2013smell}.
 The second approach is to define smells tailored to the end-user environment.
-This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~ \cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available artifacts \cite{Stolee2011,StoleeTSE2013}.
+This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~ \cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available repositories \cite{Stolee2011,StoleeTSE2013}.
 
 This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts using both the above described approaches and proposes future directions for smell detection in these domains. 
 
@@ -256,7 +255,7 @@ Use of Deprecated Interfaces
 \\ \bottomrule
 \multicolumn{4}{c}{} \\
 \multicolumn{4}{l}{\ding{55} : Not applicable due to the nature of the paradigm} \\
-\multicolumn{4}{l}{* : Proposed name, likely future opportunity not supported by prior work}\\
+\multicolumn{4}{l}{* : Proposed smell, likely future opportunity not supported by prior work}\\
 \multicolumn{4}{l}{$\langle$blank$\rangle$ : Not discussed in this work, possible future opportunity} \\
 \end{tabular}
 \end{table*}
@@ -265,13 +264,17 @@ Use of Deprecated Interfaces
 \label{sec:smells:oo}
  We summarize the OO smells present in  three end-user languages, Excel spreadsheets, Yahoo!\ Pipes mashups, and LabVIEW designs, in Table~\ref{table:oosmellslarge}.
  
- Overall, we observe a lot of similarities in the code smells studied. For example, the \emph{Duplicate Code} smell has been studied in two of the three languages. Some smells, like the \emph{Long Method} smell, have been studied in only one domain but are likely applicable in other domains, too (marked with *). These smells present opportunities for future research (see Section~\ref{subsec:futuresmells}).
+ Overall, we often observe similarities in the code smells studied. For example, the \emph{Duplicate Code} smell has been studied in two of the three languages.
+ Some smells, like the \emph{Long Method} smell, have been studied in only one domain but are likely applicable in other domains, these are marked with *.
+ These smells present opportunities for future research, detailed in  Section~\ref{subsec:futuresmells}.
+ 
+ In this section we will detail the application of OO smells on specific end-user languages.
  
 % A small number of smells are definitely not applicable (\ding{55}) because of differences in the domains. Spreadsheets, for example, cannot contain dead code because the user might still be interested in a piece of data even if it is not used anywhere else in the spreadsheet.
 
  \subsubsection{Excel}
 Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to transform nine of Fowlers smells.
-An example of this is the \emph{Long Method} smells, which translated the \emph{Multiple Operations} smells because formulas with a lot of operations are long and suffer from similar problems as long methods.
+An example of this is the \emph{Long Method} smells, which translated the \emph{Multiple Operations} smells because formulas with a large number of operations suffer from similar problems as long methods.
 
 \subsubsection{Yahoo!\ Pipes}
 Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
@@ -288,7 +291,8 @@ As most OO smells do not have a direct impact on performance, the equivalents of
 
 \subsection{Domain-Specific Smells}
 \label{sec:smells:domain}
-The end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain. For example, access to large repositories of programs can lead to smells that deviate from best practices in programming. In this section, we explore opportunities for new smells in end-user domains that extend beyond the OO-inspired smells in Section~\ref{sec:smells:oo}. 
+The end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain.
+In this section, we explore opportunities for new smells in end-user domains that extend beyond the OO-inspired smells in Section~\ref{sec:smells:oo}. 
 
 \subsubsection{Excel}
 
@@ -297,13 +301,12 @@ This leads to the definition of the \emph{Inconsistent Formula} smell, which occ
 Interestingly this smell is already detected by Microsoft Excel which warns the user about it.
 
 Another smell specific to spreadsheets is when a formula references an empty cell, which is often in error \cite{cunha2012towards}.
-This is comparable to a null pointer in a program, but because a spreadsheet contains both the input data and logic we can mark it as a smell.
+This is comparable to a null pointer in other languages and would be a runtime error, but because a spreadsheet contains both the input data and logic we can directly mark it as a smell.
 
 \subsubsection{Yahoo!\ Pipes}
 %Talk about smells unique to the domain
 By exploring a large subset of the Yahoo!\ Pipes repository, Stolee and Elbaum identified a smell based on the presence of broken data sources~\cite{StoleeTSE2013}.
-A reference to a broken data sources  is similar to opening a non-existing file.
-In Java, this would manifest as an error with a {\tt FileNotFound} exception at runtime.
+A reference to a broken data sources  is similar to opening a non-existing file, which would be a runtime exception or error in most professional languages.
 Such exceptions are not in the Yahoo!\ Pipes language, which is the reason to mark it as a smell. 
 %Talk about deriving smells from the community
 Similar exploration was used to  identify common programming practices, marking deviations from those practices as smells. 
@@ -320,7 +323,7 @@ Since G programs heavily rely on concurrency, they are susceptible to  concurren
 
 \subsection{Future Opportunities for Smell Detection}
 \label{subsec:futuresmells}
-There are several OO code smells in Table~\ref{fig:ypexample} that could apply to all three domains, such as \emph{Duplicate Code}, bur prior work in LabVIEW does not cover it. Here, we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains. 
+There are several OO code smells in Table~\ref{fig:ypexample} that could apply to all three domains, such as \emph{Duplicate Code}, but prior work in LabVIEW does not cover it. Here, we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains. 
 
 \subsubsection{Excel}
 Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is some future potential in the areas of redundancy and deprecation.
@@ -339,7 +342,7 @@ The \emph{Feature Envy} smell could  apply when introducing abstraction. For exa
 When a program uses too much abstraction relative to the size of the pipe, it could suffer from \emph{Inappropriate Intimacy} by depending too much on the implementation of the other class. In fact, in an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
 
 %long method
-A \emph{Long module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
+A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
 
 Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
 
@@ -418,7 +421,7 @@ Remove No-op
 \section{Refactoring end-user programs}
 \label{sec:refactoring}
 
-A way to solve smells is by refactoring, changing an artifact so that it no longer contains the smell without changing its behavior or output.
+The default way to solve smells is by refactoring: changing an artifact so that it no longer contains the smell without changing its behavior or output.
 As with the smells, many refactorings are inspired by the OO domain, while others are specific to the end-user domain. 
 
 \subsection{OO Refactorings}
@@ -427,19 +430,21 @@ Some of these come from Fowler's definitions while others are from past refactor
 
 \subsubsection{Excel}
 
-Hermans et al. \cite{Hermans2012intraExt} define refactorings corresponding to most of their smells, but most do not have a direct OO equivalent.
-One that was defined earlier by Badame and Dig \cite{badame2012refactoring} is the direct equivalent of \emph{Extract method} and is called \emph{Extract Row or Column} by Badame and \emph{Extra subformula} by Hermans.
-Because Hermans equates formulas to methods, refactorings that change the parameters of a method also have a direct equivalent in spreadsheet by changing the references in a formula. For example \emph{Remove Parameter} becomes \emph{Remove reference}.
+Hermans et al. \cite{Hermans2012intraExt} define refactorings corresponding to most of their smells.
+One that was defined earlier by Badame and Dig \cite{badame2012refactoring} is the direct equivalent of \emph{Extract Method} and is called \emph{Extract Row or Column} by Badame and \emph{Extra Subformula} by Hermans.
+Because Hermans equates formulas to methods, refactorings that change the parameters of a method also have a direct equivalent in spreadsheet by changing the references in a formula. For example \emph{Remove Parameter} becomes \emph{Remove Reference}.
  
 \subsubsection{Yahoo!\ Pipes}
 The refactorings studied in Yahoo!\ Pipes aim to make pipes smaller, less complex, more maintainable, and easier to understand~\cite{StoleeTSE2013}.
-Some of the refactorings translated easily from the OO domain. For example, removing dead code was as simple as \emph{Removing Disconnected, Dangling, or Swaying Modules} or removing parameters in \emph{Clean Up Module}~\cite{StoleeTSE2013}.
-The \emph{Extract Local Subpipe} refactoring involved extracting a connected set of modules into into a subpipe and thus is identical to the \emph{Extract Method} refactoring.
-Once the subpipe was created, all  parts of the program with the same pattern of connected modules were replaced with the subpipe module. 
+Some of the refactorings translate easily from the OO domain.
+For example, removing dead code was as simple as \emph{Removing Disconnected, Dangling, or Swaying Modules} or removing parameters in \emph{Clean Up Module}~\cite{StoleeTSE2013}.
+The \emph{Extract Local Subpipe} refactoring involves extracting a connected set of modules into into a subpipe and thus is identical to the \emph{Extract Method} refactoring.
+Once the subpipe has been created, all parts of the program with the same pattern of connected modules are replaced with the subpipe module. 
 
 \subsubsection{LabVIEW}
 
-While Chambers and Scaffidi have done some work on refactoring \cite{chambers2015impact}, few of their refactorings have a direct OO equivalent. \emph{Remove Redundant Operation} maps to G as removing a No-op.
+While Chambers and Scaffidi have done some work on refactoring \cite{chambers2015impact}, few of their refactorings have a direct OO equivalent.
+\emph{Remove Redundant Operation} maps to G as removing a No-op.
 However, Sui et. al \cite{sui2008automated} have done some work on refactoring general visual dataflow languages and defined some refactorings which are applicable to G.
 Most notably, their work defines the \textit{Extract Virtual Instrument} when applied to G.
 
@@ -449,7 +454,8 @@ Building off the discussion of domain-specific smells in Section~\ref{sec:smells
 
 \subsubsection{Excel}
 
-Some work has been done on refactoring formulas inside a single cell of a spreadsheet. Badame and Dig \cite{badame2012refactoring} define the \textit{Guard Call} refactoring, which places a conditional check around a (sub)formula that can return an error, for example a check for a division by zero.
+Some work has been done on refactoring formulas inside a single cell of a spreadsheet.
+Badame and Dig \cite{badame2012refactoring} define the \textit{Guard Call} refactoring, which places a conditional check around a (sub)formula that can return an error, for example a check for a division by zero.
 
 Hermans and Dig \cite{hermans2014bumblebee} have followed up on this and define a generalized way to transform formulas into other formulas, in a way that is very similar to how a regular expression or patterns works in some modern programming languages.
 
@@ -457,16 +463,18 @@ Hermans and Dig \cite{hermans2014bumblebee} have followed up on this and define 
 \label{sec:yp:domainrefactor}
 %Opportunities for domain-specific refactorings stem from the domain-specific code smells. 
 %For example, b
-When a program used a syntax that was different from the community standard, as detected by the \emph{Non-conforming Module Orderings} smell, the \emph{Normalize Order of Operations} refactoring could be applied to change this. The end-user programmers preferred the standardized version \cite{StoleeTSE2013}. 
+When a program uses a syntax that is different from the community standard, as detected by the \emph{Non-conforming Module Orderings} smell, the \emph{Normalize Order of Operations} refactoring can be applied to change this, because end-user programmers preferred the standardized version \cite{StoleeTSE2013}. 
 
 \subsubsection{LabVIEW}
 
 Chambers and Scaffidi \cite{chambers2015impact} have defined transformations for most of their performance smells, but not all are refactorings because most change the program behavior.
-However, some refactorings which only slightly change program behavior were effective. For example introducing a 1ms pause inside a loop without a pause decreased execution time by 37\%.
+However, some refactorings which only slightly change program behavior were effective.
+For example introducing a 1ms pause inside a loop without a pause decreased execution time by 37\% because the loop did no longer constantly occupy the processor.
 
 \subsection{Future Opportunities for Refactoring}
 
-Future opportunities for refactoring research are abound in these domains. We will discuss a few of these.
+Future opportunities for refactoring research are abound in these domains.
+We will discuss the most promising of these.
 
 \subsubsection{Excel}
 
@@ -482,9 +490,10 @@ The \emph{Remove Redundant Operations} refactoring could be adapted from other d
 
 
 \subsubsection{Yahoo!\ Pipes}
-Handling the smells identified in future work in Section~\ref{sec:smells:future:yp} involves small modifications on existing refactorings or new refactorings. For a small modification, the \emph{Long Module} smell can be addressed with \emph{Extract Local Subpipe}. 
+
+Most OO refactorings only require a small modifications to be applicable to Yahoo!\ Pipes, like the \emph{Long Module} smell can be addressed with the  \emph{Extract Local Subpipe} refactoring which is very similar to the \emph{Extract Method} refactoring.
 Addressing \emph{Feature Envy} may be possible in some cases by using \emph{Collapse Duplicate Path} when the subpipes are connected to modules that form similar paths in the pipe.
-With \emph{Inappropriate Intimacy}, a new refactoring should be introduced that is the reverse of \emph{Extract Local Subpipe}, which would inline the subpipe logic. 
+With \emph{Inappropriate Intimacy}, a refactoring should be introduced that is the reverse of \emph{Extract Local Subpipe}, which would inline the subpipe logic similar to \emph{Inline Method}.
  %However, in the general case, refactoring this smell may not be feasible. 
 
 % Removed this because it is already slightly adressed in Domain-specific refactorings - David
@@ -529,9 +538,14 @@ In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a  more forma
 Based on the research and results for smell detection and refactoring in end-user programming domains, there are many directions for future work in the domains studied and other end-user domains.
 
 \subsection{Future Opportunities in Other Domains}
-End-user programming domains extend beyond spreadsheets, web mashups, and system designs. Stolee and Elbaum explore future opportunities for refactoring in educational programming languages~\cite{StoleeTSE2013}. Additional opportunities in educational languages exist in LEGO Mindstorms, which is based off the G language for LabVIEW, or in MAX/MSP, which are visual programming languages for music and multimedia.  Another end-user programming domain that could benefit from smell analysis and refactoring is mathematics languages. These include MATLAB (e.g., the Simulink language), Sage, or Mathematica.
+End-user programming domains extend beyond spreadsheets, web mashups, and system designs.
+Stolee and Elbaum explore future opportunities for refactoring in educational programming languages~\cite{StoleeTSE2013}.
+Additional opportunities in educational languages exist in LEGO Mindstorms, which is based off the G language for LabVIEW, or in MAX/MSP, which are visual programming languages for music and multimedia.
+Other end-user programming domains that could benefit from smell analysis and refactoring are mathematical environments like MATLAB, Sage, and Mathematica.
 
-In particular, the smells related to duplication and poor construction (e.g., long method, many parameters, dead code) are  prevalent in the three domains studied. These smells -- and their respective refactorings -- likely exist in other end-user programming domains, and likely hinder the understandability and maintainability of those programs. Worse even, these smells likely also lead to errors, and thus are worthy of our attention. 
+In particular, the smells related to duplication and poor construction like \emph{Long Method}, \emph{Many Parameters} and \emph{Dead Code} are prevalent in the three domains studied.
+These smells -- and their respective refactorings -- likely exist in other end-user programming domains, and likely hinder the understandability and maintainability of those programs.
+Worse even, these smells could lead to errors, and thus these smells are worthy of our attention. 
 
 %\subsection{Related Work}
 %This paper builds upon the extensive body of work related to code smells and refactoring in the end-user programming domain~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact}. For an extensive overview in object-oriented research, we refer the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
