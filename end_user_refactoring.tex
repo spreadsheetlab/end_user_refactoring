@@ -225,7 +225,9 @@ Many Parameters
 Duplicate Code
 	& Duplicated Formulas \cite{Hermans2012intra}
 	& Duplicate Modules, Duplicate String or
-	& Multiple Array Copies \cite{chambers2013smell}
+% David - changed this back to Isomorphic Path, because Multiple array copies is something different
+% MAC is more like passing large arrays by value/on the stack and has nothing to do with code duplication
+	& Isomorphic Path *
 \\ % Continuation
 & 
 & Isomorphic Path \cite{StoleeTSE2013}
@@ -280,7 +282,8 @@ Yahoo!\ can also \emph{deprecate modules}, which can create similar problems to 
 \subsubsection{LabVIEW}
 
 Current work on LabVIEW smells has been focused on smells with potential performance impacts.
-As most OO smells do not have a direct impact on performance, the equivalents of OO smells for LabVIEW have not yet been defined. \emph{Redundant Operations} is an exception, which acts like a no-op, or \emph{Multiple Array Copies}, which identifies redundant storage of the same data, similar to \emph{Duplicate Code}. 
+As most OO smells do not have a direct impact on performance, the equivalents of OO smells for LabVIEW have not yet been defined.
+\emph{Redundant Operations} is an exception, and is similar to a statement with no effect, a \emph{No-op}.
 
 \subsection{Domain-Specific Smells}
 \label{sec:smells:domain}
