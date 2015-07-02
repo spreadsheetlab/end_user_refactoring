@@ -1,4 +1,4 @@
-\documentclass[10pt,conference,compsocconf]{IEEEtran}
+\documentclass{sig-alternate}
 
 %Deadline: April 8, 2015
 %Call for papers: http://www.computer.org/web/computingnow/swcfp6
@@ -24,8 +24,7 @@
 %\renewcommand*\cmidrule{\midrule} % Thick middle lines
 
 %Images
-\usepackage[pdftex]{graphicx}
-\graphicspath{ {}{img/} }
+%\usepackage[pdftex]{graphicx}
 \DeclareGraphicsExtensions{.pdf,.jpg,.png}
 
 \hyphenation{second-ly ap-pen-dix}
@@ -38,30 +37,17 @@
 \newcommand{\ignore}[1]{}
 
 \begin{document}
-\bstctlcite{IEEEexample:BSTcontrol}
+%\bstctlcite{IEEEexample:BSTcontrol}
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Smell Detection and Refactoring in End-User Programming Languages}
+\title{A Framework for End-User Smells and Refactorings, and an Application to Lego Mindstroms}
 %\title{Perspectives on End-User Refactoring: Past, Present, and Future}
 
-\author{\IEEEauthorblockN{David Hoepelman}
-\IEEEauthorblockA{Delft University of Technology\\
-Delft, The Netherlands\\
-D.J.Hoepelman@student.tudelft.nl}
+\numberofauthors{3}
+\author{Felienne Hermans, Katryn Stolee, David Hoepelman}
 
-\and
-\IEEEauthorblockN{Kathryn T. Stolee}
-\IEEEauthorblockA{Iowa State University\\
-Ames, IA, USA\\
-kstolee@iastate.edu}
 
-\and
-\IEEEauthorblockN{Felienne Hermans}
-\IEEEauthorblockA{Delft University of Technology\\
-Delft, The Netherlands\\
-f.f.j.hermans@tudelft.nl}
-}
 
 \maketitle
 
@@ -79,12 +65,6 @@ Through exploring the commonalities and differences among the domains, we
 3)~identify future opportunities for smell detection and refactoring research in these studied domains as well as other end-user programming domains. 
 \end{abstract}
 
-
-\begin{IEEEkeywords}
-code smells;
-end-user programming;
-refactoring;
-\end{IEEEkeywords}
 
 \section{Introduction}
 End-user programmers are said to outnumber  professional programmers three times over \cite{Scaf2005}.
@@ -129,7 +109,7 @@ In this section we briefly explore each end-user language targeted by prior refa
 \begin{figure}
 \caption{Microsoft Excel 2013 showing a spreadsheet. Column B and C shows the typical mix of data and calculation. The formula of the selected cell B17 is visible right above the spreadsheet.}
 \centering
-\includegraphics[width=\columnwidth]{excel-2}
+\includegraphics[width=\columnwidth]{img/excel-2}
 \label{fig:spreadsheetexample}
 \end{figure}
 
@@ -149,7 +129,7 @@ Abstraction is possible with \emph{subpipe} modules, which allow a programmer to
 \begin{figure}
 \caption{Example of a program in Yahoo!\ Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
 \centering
-\includegraphics[width=\columnwidth]{yp-1}
+\includegraphics[width=\columnwidth]{img/yp-1}
 \label{fig:ypexample}
 \end{figure}
 
@@ -158,7 +138,7 @@ Abstraction is possible with \emph{subpipe} modules, which allow a programmer to
 \begin{figure}
 \caption{Example of a G program from the LabVIEW manual. This program takes samples from sensors and show their Time Domain Sequence and DC-Centered Spectrum.}
 \centering
-\includegraphics[width=\columnwidth]{labview-1}
+\includegraphics[width=\columnwidth]{img/labview-1}
 \label{fig:labviewexample}
 \end{figure}
 
