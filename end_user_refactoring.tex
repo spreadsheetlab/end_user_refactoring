@@ -34,6 +34,10 @@
 \displaywidowpenalty = 10000
 
 \newcommand{\todo}[1]{\textbf{TODO: #1}}
+\newcommand{\ms}{LEGO MINDSTORMS EV3}
+\newcommand{\mbs}{\textsc{my blocks}}
+\newcommand{\mb}{\textsc{my block}}
+
 \newcommand{\ignore}[1]{}
 
 \begin{document}
@@ -41,11 +45,11 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{A Framework for End-User Smells and Refactorings, and an Application to Lego Mindstroms}
+\title{A Framework for End-User Smells and Refactorings, and an Application to \ms}
 %\title{Perspectives on End-User Refactoring: Past, Present, and Future}
 
 \numberofauthors{3}
-\author{Felienne Hermans, Katryn Stolee, David Hoepelman}
+\author{David Hoepelman, Katryn Stolee, Felienne Hermans}
 
 
 
@@ -484,9 +488,44 @@ With \emph{Inappropriate Intimacy}, a refactoring should be introduced that is t
 Similarly to the research into smells in LabVIEW G programs, research into refactoring of G programs has also been driven by the desire for performance improvements. Refactorings which do not directly impact performance have only been theoretically explored for general dataflow languages \cite{sui2008automated}.
 
 We identify three concrete opportunities based on other domains.
-First of the counterpart to \emph{Extract Virtual Instrument} is \emph{Inline Virtual Instrument}, which is the refactoring that replaces a VI by its implementation.
-Secondly the dead code elimination refactorings from the Yahoo! Pipes domain are applicable to LabVIEW as both are dataflow languages.
-Lastly the equivalent to the \emph{Substitute Algorithm} refactoring would be the \emph{Substitute Block Diagram}
+First of the counterpart to \emph{Extract Virtual Instrument} is \emph{Inline Virtual Instrument}, which is the refactoring that replaces a VI by its implementation. Secondly the dead code elimination refactorings from the Yahoo! Pipes domain are applicable to LabVIEW as both are dataflow languages. Lastly the equivalent to the \emph{Substitute Algorithm} refactoring would be the \emph{Substitute Block Diagram}
+
+\section{Evaluation}
+In the aboce section, we have defined a framework for end-user smells and refactorings. In order to evaluate this framework, we will apply it to a new domain: \ms software. 
+
+\begin{figure}
+\caption{The interface of \ms~showing a simple line following program.}
+\centering
+\includegraphics[width=\columnwidth]{img/ms}
+\label{fig:ms}
+\end{figure}
+
+\subsection{\ms}
+\ms is the third iteration of the LEGO MINDSTORMS robotics line. It consists of a number of sensors, four motors and a ARM 9 ``intelligent brick''. The robotics kit comes with a control software package, which allows for visual programming of the brick. The software supports several basic constructs common to programming, including loops and conditionals, but also more advanced features like parallel execution. Figure \ref{fig:ms} shows the user interface of the \ms~software with a program that makes the robot follow a black line, by steering left is the sensor value is too low and right if it is too high. 
+
+In addition to the programming concepts described above, users have the ability to define `\mbs~' which basically are subroutines. \mbs~ may have up to 9 different input and one output parameter. \mbs~ cannot be created from scratch; they can only be created by selecting blocks in an existing program and creating a new block for them, together with a call to the newly created block, an action extremely similar to `extract method' present in most modern IDEs. \todo{can programs share the \mbs, have to look into that}
+
+\subsection{Smells and refactorings in \ms }
+In this subsection we describe how the smells would apply to \ms programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In \ms~ programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes, VIs in LabView and worksheets in spreadsheets. Based on this translation, we investigate whether OO smells could occur in \ms~programs too. 
+
+\begin{description}
+\item[Feature envy] While all defined variables within \ms~ are global, they can be written in a certain \mb~ but read in a different one. If in a given \mb~ many variables are read that have read written somewhere else, this might be an occurrence of the feature envy smell. 
+\item[Long method] If a \mb~ grows very large, it will no longer be easy to understand, diminishing the added value.
+\item[Inappropriate Intimacy] As described above, variables might be read in one \mb~but written somewhere else. If there are two \mbs~sharing multiple variables this way, it might be better to combine them.
+\item[Lazy Class] If a \mb~ is very small, for example, consisting of just one block, they do not add a lot of value, while making the program harder to understand, as a user has to navigate to the \mb~ to see what its function is.
+\item[Message Chain] Because \mbs~can have both input and output parameters, it is possible that they created a message chain in which values are continuously passed until they are used, while they could have been passed outside of the \mbs~.
+\item[Many Parameters] \mbs~ can have 9 different parameters, which could be considered too much for easy understandability.
+\item[Duplicate Code] If the same, or very similar combinations of blocks occur, this would be the duplicate code smell.
+\item[Dead Code] It is possible for programming blocks to be disconnected, but the interface clearly indicates this by making them gray. However, unused \mbs~ can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large.
+\item[Unused Field] As explained above, \mbs~can define parameters. However, the user is not forced to use them, hence it is possible to define more parameters than used.
+\item[No-op] It is possible to combine blocks in such a fashion that they do not actually contribute to the functionality of the program. For example, it a user stops the same motor twice, the second stop will be a no-op.
+\item[Use of Deprecated Interfaces] This is a smell that does not apply, as, to date, there is only one version of the \ms~software and no blocks have been depreciated.
+\end{description}
+
+\subsection{Study setup}
+One of the authors of this paper runs a robotics club for kids where kids aged 8 to 13 program robots every week. Their programs have been collected as dataset for this paper. More specifically, we focus on two different projects within this set, RoboCup and Sumo. We have 3 different RoboCup projects, and 6 different Sumo programs, each with at least 5 different versions. Table \todo{todo} shows an overview of the \ms~programs under study.
+
+\subsection{Results}
 
 \section{Related Work}
 
