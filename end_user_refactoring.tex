@@ -361,7 +361,7 @@ In addition to the programming concepts described above, users have the ability 
 In this subsection we describe how the smells would apply to \ms programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In \ms~ programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes, VIs in LabView and worksheets in spreadsheets. Based on this translation, we investigate whether OO smells could occur in \ms~programs too. 
 
 \begin{description}
-\item[Feature envy] While all defined variables within \ms~ are global, they can be written in a certain \mb~ but read in a different one. If in a given \mb~ many variables are read that have read written somewhere else, this might be an occurrence of the feature envy smell. 
+\item[Feature envy] While all defined variables within \ms~ are global, they can be written in a certain \mb~ but read in a different one. If in a given \mb~ many variables are read that have been written somewhere else, this might be an occurrence of the feature envy smell. 
 \item[Long method] If a \mb~ grows very large, it will no longer be easy to understand, diminishing the added value.
 \item[Inappropriate Intimacy] As described above, variables might be read in one \mb~but written somewhere else. If there are two \mbs~sharing multiple variables this way, it might be better to combine them.
 \item[Lazy Class] If a \mb~ is very small, for example, consisting of just one block, they do not add a lot of value, while making the program harder to understand, as a user has to navigate to the \mb~ to see what its function is.
@@ -375,33 +375,71 @@ In this subsection we describe how the smells would apply to \ms programs. As co
 \end{description}
 
 \subsection{Study setup}
-One of the authors of this paper runs a robotics club for kids where kids aged 8 to 13 program robots every week. Their programs have been collected as dataset for this paper. More specifically, we focus on two different projects within this set, RoboCup and Sumo. We have 3 different RoboCup projects, and 6 different Sumo programs, each with at least 5 different versions. Table \todo{todo} shows an overview of the \ms~programs under study.
+One of the authors of this paper runs a robotics club for kids where kids aged 8 to 13 program robots every week. Their programs have been collected as dataset for this paper. More specifically, we focus on two different projects within this set, RoboCup and Sumo. We have 3 different RoboCup projects, and 6 different Sumo programs. Table \todo{todo} shows an overview of the \ms~programs under study. 
 
-\subsection{Results}
+
+
+\subsection{Findings}
+When investigating the programs, we found that they indeed sometimes suffered from smells. Table \ref{tab:lego-smells} presents an overview of the smells.
+
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{tab:lego}
+\begin{tabular}{lllllll}
+Program                                                & 1   & 2  & 3   & 4   & 5   & 6   \\
+\begin{tabular}[c]{@{}l@{}}Smell\\   Name\end{tabular} &     &    &     &     &     &     \\
+Feature Envy                                           & \ding{51} &  & \ding{51} & \ding{51} &   &   \\
+Long method                                            &   &  &   &   & \ding{51} &   \\
+Inappropriate Intimacy                                 &   &  &   &   &   &   \\
+Lazy Class                                             & \ding{51} &  & \ding{51} & \ding{51} &   & \ding{51} \\
+Message Chain                                          &   &  &   &   &   &   \\
+Many Parameters                                        &   &  &   &   &   &   \\
+Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} \\
+Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   \\
+Unused Field                                           &   &  &   & \ding{51} &   &   \\
+No-op                                                  &   &  & \ding{51} &   &   &  
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Lazy Class}
+Many of the \mbs~were relatively small, consisting of two or three blocks, or even 1 in some cases. You could say this is smelly, as understanding the \mb requires clicking it and that might not be worth it for small \mbs~. However, the \ms~interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a block. 
+
+
+\begin{figure}
+\caption{Compare these two blocks, the first one expresses exactly what the robot must do, but the second one expresses the intent (`weg' means flee). By using the \mb, even with one block, the program gets easier to read.}
+\centering
+\includegraphics[width=3cm]{img/weg}
+\label{fig:weg}
+\end{figure}
+
+
+\subsubsection{Dead Code}
+We found a number of programs with \mbs~ no longer connected to the main program. This might be caused by the fact that EV3 interface does not help users in understanding what blocks are used. In the project properties screen, as shown in Figure \ref{fig:overview}
+
+
+\begin{figure}
+\caption{The project properties screen for the Sumo program 1, showing the three \mbs~, but not indicating the \mb~ `draaien' is currently not called from the main program.}
+\centering
+\includegraphics[width=\columnwidth]{img/overview}
+\label{fig:overview}
+\end{figure}
 
 \section{Related Work}
 
-For an extensive overview of refactoring in professional languages, we refer the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
+\label{sec:related_work}
+This paper builds upon the extensive body of work related to code smells and refactoring in the end-user programming domain~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact}. For an extensive overview in object-oriented research, we refer the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
 
-In end-user programming, input data and logic are often more closely linked than they are in general purpose languages.
-This allows smells to be defined by characteristics of the input data.
-Cunha et. al \cite{cunha2012towards} define several smells based on user input data.
-In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a  more formalized approach which they label ``Data Debugging'', which uses statistical analysis to find values with a high impact on the results of a spreadsheet.
+\subsection{Smells based on user input}
+\label{subsec:related_datasmells}
+In end-user programming environments user input and logic are often more closely linked than they are in general purpose languages.
+As such analyzing the input data as opposed to the logic can also be used to detect problems.
 
-%\section{Related Work}
-%\label{sec:related_work}
-%
-%This paper builds upon the extensive body of work related to code smells and refactoring in the end-user programming domain~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact}. For an extensive overview in object-oriented research, we refer the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
-%
-%%\subsection{Smells based on user input}
-%%\label{subsec:related_datasmells}
-%%In end-user programming environments user input and logic are often more closely linked than they are in general purpose languages.
-%%As such analyzing the input data as opposed to the logic can also be used to detect problems.
-%
-%Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but for most of their smells they look at  anomalies in the data and define these as smells.
-%%Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
-%In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a  more formalized approach which they label ``Data Debugging''.
-%Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
+Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but for most of their smells they look at  anomalies in the data and define these as smells.
+Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
+In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a  more formalized approach which they label ``Data Debugging''.
+Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
 
 \section{Discussion}
 \label{sec:discussion}
