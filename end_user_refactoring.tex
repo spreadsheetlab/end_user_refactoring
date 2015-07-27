@@ -374,49 +374,55 @@ In this subsection we describe how the smells would apply to \ms programs. As co
 \item[Use of Deprecated Interfaces] This is a smell that does not apply, as, to date, there is only one version of the \ms~software and no blocks have been depreciated.
 \end{description}
 
-\subsection{Study setup}
-One of the authors of this paper runs a robotics club for kids where kids aged 8 to 13 program robots every week. Their programs have been collected as dataset for this paper. More specifically, we focus on two different projects within this set, RoboCup and Sumo. We have 3 different RoboCup projects, and 6 different Sumo programs. Table \todo{todo} shows an overview of the \ms~programs under study. 
-
-
+\subsection{Study context}
+One of the authors of this paper runs a robotics club for kids where kids aged 8 to 13 program robots every week. Their programs have been collected as dataset for this paper. More specifically, we focus on two different projects within this set, RoboCup and Sumo. These two types of programs related to two different \ms~competitions: Sumo is a simple robot game in which robots have to `sumo wrestle' each other: the robot that gets pushed out of the circular competition area first loses\footnote{\url{http://www.sugobot.com/}}. The Robocup programs were made to participate in the RoboCup Junior Rescue challenge\footnote{\url{http://rcj.robocup.org/rescue.html}}, where robots have to first navigate part of the field by following a line and then look for a soda can and push it out of the field.
 
 \subsection{Findings}
-When investigating the programs, we found that they indeed sometimes suffered from smells. Table \ref{tab:lego-smells} presents an overview of the smells.
+When investigating the programs, we found that they indeed sometimes suffered from smells. Table \ref{tab:robotica} presents an overview of the smells.
+
+\subsubsection{Duplicate Code}
+The most common smell we found in the nine programs is the Duplicate Code smell, which six out of nine program suffer from.
+
+\subsubsection{Dead Code}
+The second most common smell is Dead Code. In five out of nine programs we found \mbs~ no longer connected to the main program. This can pose a problem, as the EV3 environment compiles and transfers all programs and \mbs~to the brick, causing the memory to be full quite quickly.
+
+Looking at the \ms~interface, it is not that surprising that users forget about disconnected \mbs. The interface does not help users in understanding what blocks are used. If we look at the project properties screen, shown in Figure \ref{fig:overview}, one can see that there is no information about which \mb~is used where. Even worse, we can delete connected \mbs without getting a warning, after which the program no longer compiles.
 
 \begin{table}[]
 \centering
-\caption{My caption}
-\label{tab:lego}
-\begin{tabular}{lllllll}
-Program                                                & 1   & 2  & 3   & 4   & 5   & 6   \\
-\begin{tabular}[c]{@{}l@{}}Smell\\   Name\end{tabular} &     &    &     &     &     &     \\
-Feature Envy                                           & \ding{51} &  & \ding{51} & \ding{51} &   &   \\
-Long method                                            &   &  &   &   & \ding{51} &   \\
-Inappropriate Intimacy                                 &   &  &   &   &   &   \\
-Lazy Class                                             & \ding{51} &  & \ding{51} & \ding{51} &   & \ding{51} \\
-Message Chain                                          &   &  &   &   &   &   \\
-Many Parameters                                        &   &  &   &   &   &   \\
-Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} \\
-Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   \\
-Unused Field                                           &   &  &   & \ding{51} &   &   \\
-No-op                                                  &   &  & \ding{51} &   &   &  
+
+\caption{Overview of the nine \ms~programs and the smells they exhibit}
+\label{tab:robotica}
+\sffamily
+\begin{tabular}{l|llllll|lll}
+Program & S1  & S2 & S3  & S4  & S5  & S6  & R1  & R2  & R3  \\
+\hline
+Smell Name  &   &  &   &   &   &   &   &   &   \\
+Feature Envy                                           & \ding{51} &  & \ding{51} & \ding{51} &   &   &   &   &   \\
+Long method                                            &   &  &   &   & \ding{51} &   &   &   &   \\
+Inappr. Intimacy                                 &   &  &   &   &   &   &   &   &   \\
+Lazy Class                                             & \ding{51} &  & \ding{51} & \ding{51} &   & \ding{51} &   &   &   \\
+Message Chain                                          &   &  &   &   &   &   &   &   &   \\
+Many Parameters                                        &   &  &   &   &   &   &   &   &   \\
+Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
+Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   & \ding{51} & \ding{51} &   \\
+Unused Field                                           &   &  &   & \ding{51} &   &   &   &   &   \\
+No-op                                                  &   &  & \ding{51} &   &   &   &   &   &  
 \end{tabular}
 \end{table}
 
-
 \subsubsection{Lazy Class}
-Many of the \mbs~were relatively small, consisting of two or three blocks, or even 1 in some cases. You could say this is smelly, as understanding the \mb requires clicking it and that might not be worth it for small \mbs~. However, the \ms~interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a block. 
+Lazy classes, which we counted as \mbs~having three or fewer blocks in them, are also common. Many of `lazy \mbs'~were relatively small, consisting of two or three blocks, or even 1 in some cases. You could say this is smelly, as understanding the \mb~ requires clicking it and that might not be worth it for small \mbs~. However, the \ms~interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a block. As an example, consider the two blocks shown in Figure 5, where the above a regular block moving a motor, and the second is a call to a \mb~with the same functionality. The first one just expresses what the robot must do, but the second one expresses the intent (`weg' meaning flee). By using the \mb, even with one block, the program gets easier to read.
 
 
 \begin{figure}
-\caption{Compare these two blocks, the first one expresses exactly what the robot must do, but the second one expresses the intent (`weg' means flee). By using the \mb, even with one block, the program gets easier to read.}
+\caption{Two blocks representing the same functionality, one in a regular block and one using a \mb.}
 \centering
 \includegraphics[width=3cm]{img/weg}
 \label{fig:weg}
 \end{figure}
 
 
-\subsubsection{Dead Code}
-We found a number of programs with \mbs~ no longer connected to the main program. This might be caused by the fact that EV3 interface does not help users in understanding what blocks are used. In the project properties screen, as shown in Figure \ref{fig:overview}
 
 
 \begin{figure}
