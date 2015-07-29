@@ -45,7 +45,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{A Framework for End-User Smells, and an Application to \ms}
+\title{A Catalog of End-User Smells, and an Application to \ms}
 %\title{Perspectives on End-User Refactoring: Past, Present, and Future}
 
 \numberofauthors{3}
@@ -59,9 +59,9 @@
 \begin{abstract}
 In the workforce today, millions of people program without degrees or professional training in software development. 
 These end-user programmers write code to design hardware circuits, combine web information, and make business decisions. 
-Software engineering research into refactoring has traditionally focused on professionally used object-oriented programming languages, 
-yet other domains and languages also suffer from code smells in need of refactoring. 
+Software engineering research into refactoring has traditionally focused on professionally used object-oriented programming languages, yet other domains and languages also suffer from code smells in need of refactoring. 
 
+\todo{Update this}
 In this work, we explore recent research in three end-user domains and languages, spreadsheets in Microsoft Excel, web mashups in Yahoo!\ Pipes, and system design in National Instruments' LabVIEW. 
 Through exploring the commonalities and differences among the domains, we
 1)~show how these end-user domains benefit from prior research on refactoring object-oriented languages,
@@ -78,9 +78,7 @@ Similar to code written by professional developers, end-user artifacts may have 
 During this long lifespan, end-user artifacts are modified, often by different people.
 These properties make them, like source code artifacts, vulnerable to \emph{smells}. 
 
-Smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} and performance smells in LabVIEW code \cite{chambers2013smell}.
-Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly \cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}.
-Alleviating those smells can be achieved with refactoring.
+Smells in end-user programming have been a topic of research over the past few years. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and  Excel spreadsheets \cite{Hermans2012inter} Experiments in all these areas have shown that end-user programmers understand smells and often prefer versions of their code that are non-smelly \cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}. Alleviating those smells can be achieved with refactoring.
 
 Refactoring was first introduced as a systematic way to restructure source code and facilitate software evolution and maintenance. Martin Fowler later introduced the concept of code smells \cite{Fowl1999}. 
 Refactoring code is often motivated by noticing a code smell, which signals the opportunity for improvement.
@@ -138,22 +136,6 @@ Abstraction is possible with \emph{subpipe} modules, which allow a programmer to
 \end{figure}
 
 
-\paragraph{LabVIEW}
-\begin{figure}
-\caption{Example of a G program from the LabVIEW manual. This program takes samples from sensors and show their Time Domain Sequence and DC-Centered Spectrum.}
-\centering
-\includegraphics[width=\columnwidth]{img/labview-1}
-\label{fig:labviewexample}
-\end{figure}
-
-LabVIEW is a hardware system design environment that features the visual programming language \emph{G} . 
-An example of a G program can be found in Figure \ref{fig:labviewexample}.
-The G language is a visual dataflow language where data \emph{flows} between nodes through their edges.
-The two most important primitives in G are the edges  (\textit{wires}) and nodes  (\textit{virtual instruments} or \emph{VI}).
-Virtual instruments are very similar to functions,  performing  operations on inputs and providing outputs.
-Wires with no source VI are inputs and wires without a destination VI are outputs. 
-
-
 \section{Smells in end-user programs}
 \label{sec:smells}
 Research into end-user language smells has had two approaches, which are not mutually exclusive.
@@ -173,69 +155,53 @@ This section provides an overview of different smells that researchers have foun
 \textbf{OO Smell}
 	& \textbf{Excel}
 	& \textbf{Yahoo!\ Pipes}
-	& \textbf{LabVIEW}
 \\ \midrule
 Feature Envy
 	& Feature Envy \cite{Hermans2012inter}
 	& Feature Envy *
-	& ~~ 
 \\ \cmidrule
 Long Method
 	& Multiple Operations \cite{Hermans2012intra}
 	& Long Module *
-	& Large Virtual Instrument *
 \\ \cmidrule
 Message Chain
 	& Long Calculation Chain \cite{Hermans2012intra}
-	& 
 	& 
 \\ \cmidrule
 Inappropriate Intimacy
 	& Inappropriate Intimacy \cite{Hermans2012inter}
 	& Inappropriate Intimacy *
-	& ~~ 
 \\ \cmidrule
 Lazy class or Middle Man
 	& Middle Man \cite{Hermans2012inter}
 	& Unnecessary Abstraction \cite{StoleeTSE2013}
-	& ~~ 
 \\ \cmidrule
 Many Parameters
 	& Multiple References \cite{Hermans2012intra}
 	& 
-	& Many Control Terminals *
 \\ \cmidrule
 Duplicate Code
 	& Duplicated Formulas \cite{Hermans2012intra}
 	& Duplicate Modules, Duplicate String or
-% David - changed this back to Isomorphic Path, because Multiple array copies is something different
-% MAC is more like passing large arrays by value/on the stack and has nothing to do with code duplication
-% Isomorphic paths however seems to exactly fit the duplicate code smell: a combination of identical nodes & wires present multiple times which can be extracted into its own VI
-	& Isomorphic Paths *
 \\ % Continuation
 & 
 & Isomorphic Paths \cite{StoleeTSE2013}
-& 
 \\ \cmidrule
 Dead Code
 	& ~\ding{55}
 	& Disconnected or Dangling Modules \cite{StoleeTSE2013}
-	& Disconnected or Dangling Elements *
 \\ \cmidrule
 Unused Field
 	& ~\ding{55}
 	& Noisy Module \cite{StoleeTSE2013}
-	&
 \\ \cmidrule
 No-op
 	& Redundant Operations *
 	& Unnecessary Module \cite{StoleeTSE2013}
-	& Redundant Operations \cite{chambers2013smell}
 \\ \cmidrule
 Use of Deprecated Interfaces
 	& Deprecated Functions *
 	& Deprecated Module or Invalid Source \cite{StoleeTSE2013}
-	&
 \\ \bottomrule
 \multicolumn{4}{c}{} \\
 \multicolumn{4}{l}{\ding{55} : Not applicable due to the nature of the paradigm} \\
@@ -246,11 +212,9 @@ Use of Deprecated Interfaces
 
 \subsection{OO Smells in End-User Programs}
 \label{sec:smells:oo}
- We summarize the OO smells present in  three end-user languages, Excel spreadsheets, Yahoo!\ Pipes mashups, and LabVIEW designs, in Table~\ref{table:oosmellslarge}.
+ We summarize the OO smells present in two end-user languages, Excel spreadsheets and Yahoo!\ Pipes mashups, in Table~\ref{table:oosmellslarge}.
  
- Overall, we often observe similarities in the code smells studied. For example, the \emph{Duplicate Code} smell has been studied in two of the three languages.
- Some smells, like the \emph{Long Method} smell, have been studied in only one domain but are likely applicable in other domains, these are marked with *.
- These smells present opportunities for future research, detailed in  Section~\ref{subsec:futuresmells}.
+ Overall, we often observe similarities in the code smells studied. For example, the \emph{Duplicate Code} smell has been studied in both languages.  Some smells, like the \emph{Long Method} smell, have been studied in only one domain but are likely applicable in the other domain, these are marked with *.  These smells present opportunities for future research, detailed in Section~\ref{subsec:futuresmells}.
  
  In this section we will detail the application of OO smells on specific end-user languages.
  
@@ -267,83 +231,10 @@ Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup 
  
 Yahoo!\ can also \emph{deprecate modules}, which can create similar problems to using deprecated or old versions of interfaces.
 
-\subsubsection{LabVIEW}
-
-Current work on LabVIEW smells has been focused on smells with potential performance impacts.
-As most OO smells do not have a direct impact on performance, the equivalents of OO smells for LabVIEW have not yet been defined.
-\emph{Redundant Operations} is an exception, and is similar to a statement with no effect, a \emph{No-op}.
-
-\subsection{Domain-Specific Smells}
-\label{sec:smells:domain}
-The end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain.
-In this section, we explore opportunities for new smells in end-user domains that extend beyond the OO-inspired smells in Section~\ref{sec:smells:oo}. 
-
-\subsubsection{Excel}
-
-In spreadsheets data is often processed by having each record in a row and having a column with identical formulas to perform some calculation.
-This leads to the definition of the \emph{Inconsistent Formula} smell, which occurs if a single, or small number, of cells contain a different formula while its neighbors or other cells in the row or column contain an identical formula.
-Interestingly this smell is already detected by Microsoft Excel which warns the user about it.
-
-Another smell specific to spreadsheets is when a formula references an empty cell, which is often in error \cite{cunha2012towards}.
-This is comparable to a null pointer in other languages and would be a runtime error, but because a spreadsheet contains both the input data and logic we can directly mark it as a smell.
-
-\subsubsection{Yahoo!\ Pipes}
-%Talk about smells unique to the domain
-By exploring a large subset of the Yahoo!\ Pipes repository, Stolee and Elbaum identified a smell based on the presence of broken data sources~\cite{StoleeTSE2013}.
-A reference to a broken data sources  is similar to opening a non-existing file, which would be a runtime exception or error in most professional languages.
-Such exceptions are not in the Yahoo!\ Pipes language, which is the reason to mark it as a smell. 
-%Talk about deriving smells from the community
-Similar exploration was used to  identify common programming practices, marking deviations from those practices as smells. 
-This is similar to identifying  smells  as anti-patterns  and could be extended to any language. 
-
-
-\subsubsection{LabVIEW}
-
-G programs are often run in an embedded or real-time environment, and as such are very susceptible to performance problems. This motivated Chambers and Scaffidi \cite{chambers2013smell} to G smells with potential performance implications and implement heuristics to identify these smells.
-An example of this is the ``\textit{Sequence instead of State machine}'' smell which is a smell because the G compiler can better optimize state machines.
-
-Since G programs heavily rely on concurrency, they are susceptible to  concurrency-related problems programs such as non-reentrant VI's.
-
-
-\subsection{Future Opportunities for Smell Detection}
-\label{subsec:futuresmells}
-There are several OO code smells in Table~\ref{fig:ypexample} that could apply to all three domains, such as \emph{Duplicate Code}, but prior work in LabVIEW does not cover it. Here, we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains. 
-
-\subsubsection{Excel}
-Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is some future potential in the areas of redundancy and deprecation.
-
-Currently all research in smells and spreadsheets has focused on Microsoft Excel.
-However, other spreadsheet software exists and operates on the same principles.
-Thus there is an opportunity to confirm that the identified smells apply in other spreadsheet software.
-
-\subsubsection{Yahoo!\ Pipes}
-\label{sec:smells:future:yp}
-%Many of the smells studied in Excel and LabVIEW could apply to Yahoo!\ Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
-%uses methods of another class excessively - envy
-The \emph{Feature Envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
-
-%depends on implementation of another class too much - intimacy
-When a program uses too much abstraction relative to the size of the pipe, it could suffer from \emph{Inappropriate Intimacy} by depending too much on the implementation of the other class. In fact, in an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
-
-%long method
-A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
-
-Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
-
-\subsubsection{LabVIEW}
-
-Research into smells for LabVIEW has focused mostly on performance problems, while traditionally research into code smells and refactorings has focused on maintainability and code quality.
-
-As such inspiration could be drawn for smells that do not necessarily have an impact on performance.
-We have identified some OO smells that have parallels in LabVIEW.
-
-A \emph{Large Virtual Instrument} would have similar problems to a \emph{Long Method} and could be divided, and like \emph{Many Parameters} make a method hard to understand \emph{Many Control Terminals} could increase the difficulty of understanding a VI.
-If a block diagram contains a combination of nodes wired identically multiple times, these are \emph{Isomorphic Paths} and should be extracted into their own VI. 
-A VI node that is \emph{Disconnected or Dangling} does not contribute to the program and could also be marked as smelly. 
 
 
 \section{Application}
-In the aboce section, we have defined a framework for end-user smells and refactorings. In order to evaluate this framework, we will apply it to a new domain: \ms software. 
+In the above section, we have destilled a catalog of end-user smells from previous work on end-user smells. In order to demonstrate the applicability of our catalog, we apply it to a new domain: \ms software. 
 
 \begin{figure}
 \caption{The interface of \ms~showing a simple line following program.}
@@ -358,7 +249,7 @@ In the aboce section, we have defined a framework for end-user smells and refact
 In addition to the programming concepts described above, users have the ability to define `\mbs~' which basically are subroutines. \mbs~ may have up to 9 different input and one output parameter. \mbs~ cannot be created from scratch; they can only be created by selecting blocks in an existing program and creating a new block for them, together with a call to the newly created block, an action extremely similar to `extract method' present in most modern IDEs. \todo{can programs share the \mbs, have to look into that}
 
 \subsection{Smells and refactorings in \ms }
-In this subsection we describe how the smells would apply to \ms programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In \ms~ programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes, VIs in LabView and worksheets in spreadsheets. Based on this translation, we investigate whether OO smells could occur in \ms~programs too. 
+In this subsection we describe how the smells would apply to \ms programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In \ms~ programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes and worksheets in spreadsheets. Based on this translation, we investigate whether OO smells could occur in \ms~programs too. 
 
 \begin{description}
 \item[Feature envy] While all defined variables within \ms~ are global, they can be written in a certain \mb~ but read in a different one. If in a given \mb~ many variables are read that have been written somewhere else, this might be an occurrence of the feature envy smell. 
@@ -483,6 +374,57 @@ In addition, we note that the authors of this work have pioneered smell detectio
 \section{Concluding Remarks}
 \label{sec:conclusions}
 This paper presents an overview of the work in smell detection and refactoring for end-user programming languages. More specifically, it synthesizes work on Yahoo!\ Pipes, Excel and LabView. We explore commonalities between these works and identify opportunities for application to other end-user programming domains. As we move forward, we see many opportunities to explore additional smells and refactorings in the domains studied, in other end-user programming domains, and even in extending the findings to professional languages. 
+
+\section{Future Work}
+\subsection{Domain-Specific Smells}
+\label{sec:smells:domain}
+The end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain.
+In this section, we explore opportunities for new smells in end-user domains that extend beyond the OO-inspired smells in Section~\ref{sec:smells:oo}. 
+
+\subsubsection{Excel}
+
+In spreadsheets data is often processed by having each record in a row and having a column with identical formulas to perform some calculation.
+This leads to the definition of the \emph{Inconsistent Formula} smell, which occurs if a single, or small number, of cells contain a different formula while its neighbors or other cells in the row or column contain an identical formula.
+Interestingly this smell is already detected by Microsoft Excel which warns the user about it.
+
+Another smell specific to spreadsheets is when a formula references an empty cell, which is often in error \cite{cunha2012towards}.
+This is comparable to a null pointer in other languages and would be a runtime error, but because a spreadsheet contains both the input data and logic we can directly mark it as a smell.
+
+\subsubsection{Yahoo!\ Pipes}
+%Talk about smells unique to the domain
+By exploring a large subset of the Yahoo!\ Pipes repository, Stolee and Elbaum identified a smell based on the presence of broken data sources~\cite{StoleeTSE2013}.
+A reference to a broken data sources  is similar to opening a non-existing file, which would be a runtime exception or error in most professional languages.
+Such exceptions are not in the Yahoo!\ Pipes language, which is the reason to mark it as a smell. 
+%Talk about deriving smells from the community
+Similar exploration was used to  identify common programming practices, marking deviations from those practices as smells. 
+This is similar to identifying  smells  as anti-patterns  and could be extended to any language. 
+
+
+\subsection{Future Opportunities for Smell Detection}
+\label{subsec:futuresmells}
+There are several OO code smells in Table~\ref{fig:ypexample} that could apply to the other domain too, such as \emph{Message Chain}, but prior work on Yahoo! Pipes does not cover it. Here, we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains. 
+
+\subsubsection{Excel}
+Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is some future potential in the areas of redundancy and deprecation.
+
+Currently all research in smells and spreadsheets has focused on Microsoft Excel.
+However, other spreadsheet software exists and operates on the same principles.
+Thus there is an opportunity to confirm that the identified smells apply in other spreadsheet software.
+
+\subsubsection{Yahoo!\ Pipes}
+\label{sec:smells:future:yp}
+%Many of the smells studied in Excel and LabVIEW could apply to Yahoo!\ Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
+%uses methods of another class excessively - envy
+The \emph{Feature Envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
+
+%depends on implementation of another class too much - intimacy
+When a program uses too much abstraction relative to the size of the pipe, it could suffer from \emph{Inappropriate Intimacy} by depending too much on the implementation of the other class. In fact, in an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
+
+%long method
+A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
+
+Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
+
 
 \balance
 
