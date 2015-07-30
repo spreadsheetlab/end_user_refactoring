@@ -45,7 +45,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{A Catalog of End-User Smells, and an Application to \ms}
+\title{A Catalog of OO-inspired End-User Smells, \\and an Application to \ms~and Kodu}
 %\title{Perspectives on End-User Refactoring: Past, Present, and Future}
 
 \numberofauthors{3}
@@ -207,8 +207,11 @@ Use of Deprecated Interfaces
 \multicolumn{4}{l}{\ding{55} : Not applicable due to the nature of the paradigm} \\
 \multicolumn{4}{l}{* : Proposed smell, likely future opportunity not supported by prior work}\\
 \multicolumn{4}{l}{$\langle$blank$\rangle$ : Not discussed in this work, possible future opportunity} \\
+\multicolumn{4}{l}{\todo{fill all empty spots, they should either be explicitly NA or possible}} \\
 \end{tabular}
 \end{table*}
+
+
 
 \subsection{OO Smells in End-User Programs}
 \label{sec:smells:oo}
@@ -230,6 +233,33 @@ Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup 
  Overall, 81\% of the programs studied from the Yahoo!\ Pipes community had at least one smell. 
  
 Yahoo!\ can also \emph{deprecate modules}, which can create similar problems to using deprecated or old versions of interfaces.
+
+\subsection{Future Opportunities for Smell Detection}
+\label{subsec:futuresmells}
+Although not all OO smells have been studied in both domains, this does not mean they are not applicable, just that they have not been studies before. This is indicated in Table \ref{table:oosmellslarge} with a *. For example, Feature Envy is not discussed in previous work on Yahoo! Pipes, but could apply when \todo{Katie, how exactly?}. Similarly, redundant operations could occur in Excel, in fact, they do. A formula like SUM(A1+A2+A3), that we have seen in practice, exhibits the No-Op smell. While the occurrence of these smells falls outside of the scope of the current work, in this section we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains, thus addressing all *'s in Table \ref{table:oosmellslarge}.
+
+\subsubsection{Excel}
+Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is some future potential in the areas of redundancy and deprecation.
+
+Currently all research in smells and spreadsheets has focused on Microsoft Excel.
+However, other spreadsheet software exists and operates on the same principles.
+Thus there is an opportunity to confirm that the identified smells apply in other spreadsheet software.
+
+\subsubsection{Yahoo!\ Pipes}
+\label{sec:smells:future:yp}
+%Many of the smells studied in Excel and LabVIEW could apply to Yahoo!\ Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
+%uses methods of another class excessively - envy
+The \emph{Feature Envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
+
+%depends on implementation of another class too much - intimacy
+When a program uses too much abstraction relative to the size of the pipe, it could suffer from \emph{Inappropriate Intimacy} by depending too much on the implementation of the other class. In fact, in an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
+
+%long method
+A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
+
+Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
+
+
 
 
 
@@ -279,28 +309,30 @@ The second most common smell is Dead Code. In five out of nine programs we found
 
 Looking at the \ms~interface, it is not that surprising that users forget about disconnected \mbs. The interface does not help users in understanding what blocks are used. If we look at the project properties screen, shown in Figure \ref{fig:overview}, one can see that there is no information about which \mb~is used where. Even worse, we can delete connected \mbs without getting a warning, after which the program no longer compiles.
 
-\begin{table}[]
+\begin{table*}[]
 \centering
 
-\caption{Overview of the nine \ms~programs and the smells they exhibit}
+\caption{Overview of the seventeen \ms~programs and the smells they exhibit}
 \label{tab:robotica}
 \sffamily
-\begin{tabular}{l|llllll|lll}
-Program & S1  & S2 & S3  & S4  & S5  & S6  & R1  & R2  & R3  \\
-\hline
-Smell Name  &   &  &   &   &   &   &   &   &   \\
-Feature Envy                                           & \ding{51} &  & \ding{51} & \ding{51} &   &   &   &   &   \\
-Long method                                            &   &  &   &   & \ding{51} &   &   &   &   \\
-Inappr. Intimacy                                 &   &  &   &   &   &   &   &   &   \\
-Lazy Class                                             & \ding{51} &  & \ding{51} & \ding{51} &   & \ding{51} &   &   &   \\
-Message Chain                                          &   &  &   &   &   &   &   &   &   \\
-Many Parameters                                        &   &  &   &   &   &   &   &   &   \\
-Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   & \ding{51} & \ding{51} &   \\
-Unused Field                                           &   &  &   & \ding{51} &   &   &   &   &   \\
-No-op                                                  &   &  & \ding{51} &   &   &   &   &   &  
+\begin{tabular}{llllll|lll|lllllllll}
+Name & L1  & L2 & L3  & L4  & L5  & L6  & L7  & L8  & L9  & L10 & L11 & L12 & L13 & L14 & L15 & L16 & L17 \\
+Feature Envy                                           & \ding{51} &  & \ding{51} & \ding{51} &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+Long method                                            &   &  &   &   & \ding{51} &   &   &   &   & \ding{51} &   &   &   & \ding{51} &   &   & \ding{51}   \\
+Inappropriate Intimacy                                 &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+Lazy Class                                             & \ding{51} &  & \ding{51} & \ding{51} &   & \ding{51} &   &   &   &   &   &   &   &   &   &   &   \\
+Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+Many Parameters                                        &   &  &   &   &   &   &   &   &   &   &   & \ding{51} &   &   &   &   &   \\
+Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} &   & \ding{51} &   &   & \ding{51} & \ding{51} \\
+Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   & \ding{51} & \ding{51} &   &   &   &   &   & \ding{51} &   &   & \ding{51} \\
+Unused Field                                           &   &  &   & \ding{51} &   &   &   &   &   &   &   &   &   & \ding{51} &   &   &   \\
+No-op                                                  &   &  & \ding{51} &   &   &   &   &   &   &   &   &   &   & \ding{51} &   &   &  
 \end{tabular}
-\end{table}
+\end{table*}
+
+
+
+
 
 \subsubsection{Lazy Class}
 Lazy classes, which we counted as \mbs~having three or fewer blocks in them, are also common. Many of `lazy \mbs'~were relatively small, consisting of two or three blocks, or even 1 in some cases. You could say this is smelly, as understanding the \mb~ requires clicking it and that might not be worth it for small \mbs~. However, the \ms~interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a block. As an example, consider the two blocks shown in Figure 5, where the above a regular block moving a motor, and the second is a call to a \mb~with the same functionality. The first one just expresses what the robot must do, but the second one expresses the intent (`weg' meaning flee). By using the \mb, even with one block, the program gets easier to read.
@@ -399,36 +431,8 @@ Such exceptions are not in the Yahoo!\ Pipes language, which is the reason to ma
 Similar exploration was used to  identify common programming practices, marking deviations from those practices as smells. 
 This is similar to identifying  smells  as anti-patterns  and could be extended to any language. 
 
-
-\subsection{Future Opportunities for Smell Detection}
-\label{subsec:futuresmells}
-There are several OO code smells in Table~\ref{fig:ypexample} that could apply to the other domain too, such as \emph{Message Chain}, but prior work on Yahoo! Pipes does not cover it. Here, we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains. 
-
-\subsubsection{Excel}
-Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is some future potential in the areas of redundancy and deprecation.
-
-Currently all research in smells and spreadsheets has focused on Microsoft Excel.
-However, other spreadsheet software exists and operates on the same principles.
-Thus there is an opportunity to confirm that the identified smells apply in other spreadsheet software.
-
-\subsubsection{Yahoo!\ Pipes}
-\label{sec:smells:future:yp}
-%Many of the smells studied in Excel and LabVIEW could apply to Yahoo!\ Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
-%uses methods of another class excessively - envy
-The \emph{Feature Envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
-
-%depends on implementation of another class too much - intimacy
-When a program uses too much abstraction relative to the size of the pipe, it could suffer from \emph{Inappropriate Intimacy} by depending too much on the implementation of the other class. In fact, in an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
-
-%long method
-A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
-
-Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
-
-
 \balance
 
-% Work that wasn't directly referenced but should still appear in the literature list
 \section*{Acknowledgements}
 This work is supported in part by  NSF SHF-EAGER-1446932 and the Harpole-Pentair endowment at Iowa State University.
 
