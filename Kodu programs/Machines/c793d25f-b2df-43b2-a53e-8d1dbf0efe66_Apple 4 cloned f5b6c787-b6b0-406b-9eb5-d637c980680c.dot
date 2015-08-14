@@ -1,0 +1,4 @@
+digraph state {
+node [shape = circle];
+s -> 1[ label = "" ];
+}

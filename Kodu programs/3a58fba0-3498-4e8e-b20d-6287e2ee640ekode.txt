@@ -1,0 +1,267 @@
+Content\Xml\Levels\Downloads\3a58fba0-3498-4e8e-b20d-6287e2ee640e.Xml
+KK 30 Coins v04
+KoduUser
+8/18/2010 1:57:54 PM
+
+Cycle 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.leftstick -- actuator.turn modifier.slowly 
+        3    sensor.gamepad filter.abutton -- actuator.jump modifier.angle.high 
+        4    sensor.bumpers filter.coin -- actuator.score modifier.scorebucket.color.red modifier.001point 
+        5    sensor.bumpers filter.coin -- actuator.vanish modifier.it 
+        6    sensor.scored filter.scorebucket.color.red filter.020points filter.010points -- actuator.victory 
+        7    sensor.always -- actuator.score modifier.scorebucket.color.blue modifier.100points modifier.100points modifier.100points modifier.once 
+        8    sensor.timer filter.01second -- actuator.unscore modifier.001point modifier.scorebucket.color.blue 
+        9    sensor.scored filter.scorebucket.color.blue filter.001point -- actuator.gameover 
+        10    sensor.bumpers filter.pushpad -- actuator.score modifier.scorebucket.color.blue modifier.050points modifier.010points 
+
+Tree 1
+
+Tree 5
+
+Tree 6
+
+Tree 3
+
+Tree 7
+
+Tree 8
+
+Tree 9
+
+Tree 10
+
+Tree 4
+
+Tree 11
+
+Tree 12
+
+Tree 13
+
+Tree 14
+
+Cannon 2
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Cannon 6
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Cannon 7
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Cannon 3
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Cannon 8
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Coin 2
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Cannon 1
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Cannon 9
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Coin 1
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 3
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 4
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 5
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 6
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 7
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 8
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 9
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 10
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 11
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 12
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 30
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 13
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 14
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 15
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 16
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 17
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 18
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 19
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 20
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 21
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 22
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 23
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 24
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 25
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 26
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 27
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 28
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Coin 29
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish modifier.me 
+        2    sensor.bumpers filter.fastbot -- actuator.score modifier.scorebucket.color.red modifier.001point 
+
+Cannon 4
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Cannon 5
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Cannon 10
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.missilehit filter.fastbot -- actuator.boom modifier.me 
+
+Push Pad 1
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish 
+
+Push Pad 2
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish 
+
+Push Pad 3
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish 
+
+Push Pad 4
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish 
+
+Push Pad 6
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish 
+
+Push Pad 5
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.vanish 

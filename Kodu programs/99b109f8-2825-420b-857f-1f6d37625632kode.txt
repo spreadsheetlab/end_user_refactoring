@@ -1,0 +1,90 @@
+Content\Xml\Levels\Downloads\99b109f8-2825-420b-857f-1f6d37625632.Xml
+mariocart rip-offkk v05
+KoduUser
+8/18/2010 2:02:32 PM
+
+Cycle 1
+    Page  1
+        1    sensor.gamepad filter.abutton -- actuator.shoot2 modifier.projectile.blip modifier.payloadzap modifier.grey 
+        2    sensor.missilehit filter.me -- actuator.zap modifier.me modifier.once 
+        3    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        4    sensor.gamepad filter.bbutton -- actuator.shoot2 modifier.projectile.missile modifier.red modifier.once modifier.trackingnone 
+        5    sensor.missilehit -- actuator.zap modifier.it 
+        6    sensor.terrain filter.terrain -- actuator.victory 
+        7    sensor.always -- actuator.camera.followme 
+
+Cannon 1
+    Page  1
+        1    sensor.eyes filter.anybot -- actuator.shoot2 modifier.projectile.blip modifier.once 
+        2    sensor.eyes filter.me filter.anybot -- actuator.turn modifier.turntoward modifier.quickly modifier.quickly modifier.quickly 
+        3    sensor.missilehit -- actuator.say 
+
+Cycle 2
+    Page  1
+        1    sensor.eyes filter.blue -- actuator.shoot2 modifier.projectile.blip modifier.once modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        3    sensor.terrain filter.terrain -- actuator.gameover 
+        4    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.blip modifier.payloadzap 
+        5    sensor.eyes filter.anybot -- actuator.shoot2 modifier.projectile.blip modifier.once modifier.payloadzap 
+
+Kodu 1
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.missile 
+        2    sensor.missilehit -- actuator.zap 
+        3    sensor.always -- actuator.movement selector.followwaypoints 
+        4    sensor.terrain filter.terrain -- actuator.gameover 
+
+Tree 1
+    Page  1
+        1    sensor.eyes -- 
+
+Apple 1
+
+Apple 3
+
+Apple 2
+
+Castle 1
+    Page  1
+        1    sensor.eyes filter.anybot -- actuator.shoot2 modifier.projectile.missile modifier.trackinghoming 
+
+Tree 1
+
+Tree 2
+
+Tree 4
+
+Tree 5
+
+Tree 6
+
+Tree 7
+
+Tree 8
+
+Tree 9
+
+Tree 10
+
+Tree 11
+
+Tree 12
+
+Tree 13
+
+Tree 14
+
+Tree 15
+
+Tree 16
+
+Tree 17
+
+Tree 18
+
+Tree 3
+
+Cycle 3
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.eyes filter.anybot -- actuator.shoot2 modifier.projectile.blip modifier.yellow modifier.once 

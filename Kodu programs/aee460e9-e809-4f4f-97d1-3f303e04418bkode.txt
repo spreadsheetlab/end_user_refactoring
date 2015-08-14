@@ -1,0 +1,141 @@
+Content\Xml\Levels\Downloads\aee460e9-e809-4f4f-97d1-3f303e04418b.Xml
+sea battle
+Administrator
+8/18/2010 1:54:16 PM
+
+Ship 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.blip modifier.colorrandom 
+        3    sensor.gamepad filter.lefttrigger_analog -- actuator.shoot2 modifier.projectile.missile 
+        4    sensor.gamepad filter.bbutton -- actuator.heal modifier.050points 
+        5    sensor.health filter.000point -- actuator.gameover 
+        6    sensor.scored filter.100points filter.100points filter.100points filter.100points filter.scorebucket.color.black -- actuator.victory 
+
+Ship 5 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 6 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 7 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 8 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 9 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 10 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 11 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 12 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 13 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 3 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Cannon 3
+    Page  1
+        1    sensor.eyes filter.floatbot -- actuator.shoot2 modifier.projectile.missile 
+
+Cannon 4
+    Page  1
+        1    sensor.eyes filter.floatbot -- actuator.shoot2 modifier.projectile.missile 
+
+Ship 16 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 14 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 19 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 20 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 21 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 23 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 25 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 26 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 29 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 
+
+Ship 30 cloned aa508929-238c-47aa-a4fa-5d35bf7c2abc
+    Page  1
+        1    sensor.eyes filter.floatbot filter.Black -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.020points modifier.scorebucket.color.black 
+        3    sensor.always -- 

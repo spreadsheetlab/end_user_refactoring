@@ -1,0 +1,75 @@
+Content\Xml\Levels\Downloads\c9d5fbfb-eec3-4278-944e-2b46564ab731.Xml
+obstacle survival jj v01
+KoduUser
+8/19/2010 10:01:56 AM
+
+Kodu 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement 
+        2    sensor.gamepad filter.abutton -- actuator.jump modifier.angle.high 
+        3    sensor.health filter.000point -- actuator.gameover 
+        4    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.missile 
+        5    sensor.always -- actuator.score modifier.020points modifier.020points modifier.020points modifier.once modifier.scorebucket.color.green 
+        6    sensor.timer filter.01second -- actuator.unscore modifier.001point modifier.scorebucket.color.green 
+        7    sensor.scored filter.scorebucket.color.green filter.001point -- actuator.gameover 
+        8    sensor.bumpers filter.fruit -- actuator.eat 
+        9     tab sensor.always -- actuator.heal modifier.100points 
+
+Cloud 1
+    Page  1
+        1    sensor.scored filter.scorebucket.color.white filter.scorebelow filter.004points -- 
+        2     tab sensor.timer filter.02seconds -- actuator.make modifier.creatable.af0484f9-8387-4bd6-9b41-d6aa36ff5a94 
+        3     tab  tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.white 
+        4    sensor.scored filter.scorebucket.color.black filter.scorebelow filter.004points -- 
+        5     tab sensor.timer filter.03seconds -- actuator.make modifier.creatable.3882c56d-04a4-4de2-881f-dcd4cee3e729 
+        6     tab  tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.black 
+        7    sensor.scored filter.scorebucket.color.blue filter.scorebelow filter.003points -- 
+        8     tab sensor.timer filter.04seconds -- actuator.make modifier.creatable.5d69a7e0-3144-4e2c-a424-a84034b15d13 
+        9     tab  tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.blue 
+
+Cannon 1
+    Page  1
+        1    sensor.ears filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+        2    sensor.ears filter.bokubot -- actuator.movement selector.wander 
+        3    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.yellow 
+
+Cannon 2
+    Page  1
+        1    sensor.ears filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+        2    sensor.ears filter.bokubot -- actuator.movement selector.wander 
+        3    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.yellow 
+
+Cannon 3
+    Page  1
+        1    sensor.ears filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+        2    sensor.ears filter.bokubot -- actuator.movement selector.wander 
+        3    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.yellow 
+
+Cannon 4
+    Page  1
+        1    sensor.ears filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+        2    sensor.ears filter.bokubot -- actuator.movement selector.wander 
+        3    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.yellow 
+
+Cannon 5
+    Page  1
+        1    sensor.ears filter.bokubot -- actuator.movement selector.wander 
+        2    sensor.ears filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+        3    sensor.health filter.000point -- actuator.score modifier.scorebucket.color.yellow modifier.001point 
+
+Cannon 6
+    Page  1
+        1    sensor.ears filter.bokubot -- actuator.movement selector.wander 
+        2    sensor.ears filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+        3    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.yellow 
+        4    sensor.scored filter.scorebucket.color.yellow filter.005points filter.002points -- actuator.victory 
+
+Cannon 7
+    Page  1
+        1    sensor.ears filter.bokubot -- actuator.movement selector.wander 
+        2    sensor.ears filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+        3    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.yellow 
+
+Apple 1
+
+Apple 2
