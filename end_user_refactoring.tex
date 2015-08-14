@@ -397,6 +397,7 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs. We
 \item[Feature envy] All global variables, such as game scores, can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell. 
 \item[Inappropriate Intimacy] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy). If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
 \item[Lazy Class] If a character has no programming, it could be an instance of the lazy smell. 
+%Characters with no programming are different than objects. Characters can have movement whereas objects cannot. 
 \item[Long method] A page with many, many rules may be difficult to understand. Some programming could potentially move to other pages or other characters. 
 \item[Many Parameters] A game can have 37 different global scores. Games that use many of these could be unnecessarily smelly. 
 \item[Message Chain] It is possible for a character to create a chain of switches between pages without any logic on the page other than the jump. This would create a long and unnecessary message chain. 
