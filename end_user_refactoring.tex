@@ -398,16 +398,51 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs. We
 \item[Inappropriate Intimacy] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy). If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
 \item[Lazy Class] If a character has no programming, it could be an instance of the lazy smell. 
 %Characters with no programming are different than objects. Characters can have movement whereas objects cannot. 
-\item[Long method] A page with many, many rules may be difficult to understand. Some programming could potentially move to other pages or other characters. 
+\item[Long method] A page with many, many rules may be difficult to understand. Some programming could potentially move to other pages or other characters. We counted long methods as those with more than five rules. 
 \item[Many Parameters] A game can have 37 different global scores. Games that use many of these could be unnecessarily smelly. 
 \item[Message Chain] It is possible for a character to create a chain of switches between pages without any logic on the page other than the jump. This would create a long and unnecessary message chain. 
-\item[No-op] Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck in that state. 
+\item[No-op] Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck in that state. Alternatively, rules with 'when' clauses but no 'do' clauses do not perform any actions. 
 \item[Unused Field] A global variable that is written to but not read is an instance of the the unused field smell. 
 \item[Use of Deprecated Interfaces] Some language features and bots may exist in early versions of Kodu but not be available in future versions. use of these deprecated entities may cause unexpected behavior when running an old program in a new environment and be smelly. 
 
 %\todo{emailed scoy at Microsoft about this}
 \end{description}
 
+
+
+\begin{table*}[]
+\centering
+
+\caption{Size in terms of the different number of characters and rules used in the 17 Kodu programs, and the smells they exhibit}
+\label{tab:koduanalysis}
+\sffamily
+\begin{tabular}{l | lllllllllllllllll}
+Name & K1  & K2 & K3  & K4  & K5  & K6  & K7  & K8  & K9  & K10 & K11 & K12 & K13 & K14 & K15 & K16 & K17 \\
+\hline
+Actors        & 6&13&38&21&61&60&85&26&26&60&42&43&47&30&5&15&27\\
+Tiles        	& 90&58&244&150&120&418&535&140&65&170&230&229&71&159&54&88&103\\
+Rules 	&21&17&60&28&31&96&93&29&20&120&58&63&22&35&14&18&23\\
+Pages 	&4&60&42&9&7&10&26&19&18&60&47&6&22&11&23&19&1\\
+HCI Actors & 1&2&1&1&2&1&1&1&1&1&1&1&1&0&2&1&1\\
+%\hline
+%Total        & 20 & 11 & 17 & 26 & 28 & 18 & 35 & 50 & 17 & 12 & 9 & 10 & 33 & 54 & 7 & 17 & 149\\
+\hline
+\hline
+Feature Envy                                         &   &  & \ding{51}  &   &   &   &   &   &   & \ding{51}  &   &   &   &   &   &   &   \\
+Long method                                        &  &  \ding{51} &  &   & \ding{51}  &\ding{51}   &\ding{51}   &   & \ding{51}  &\ding{51}   &   & \ding{51}  & \ding{51}  &\ding{51}   &   & \ding{51}  & \ding{51}    \\
+Inappropriate Intimacy                            &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   \\
+Lazy Class                                             &   & \ding{51} & \ding{51}  & \ding{51}  & \ding{51}  &\ding{51}   &\ding{51}   &\ding{51}   &\ding{51}   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &  \ding{51} &\ding{51}   \\
+Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+Many Parameters                                        &   & \ding{51} & \ding{51}  &   &   & \ding{51}  &   &   & \ding{51}  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   \\
+Duplicate Code                                        &   &  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   &   & \ding{51}  &   &   &   & \ding{51}  &   \\
+Dead Code                                              &   &  &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   &   &   &   \\
+Unused Field                                           &   &  &  \ding{51} &   &   &   &   &   & \ding{51}  &   &   & \ding{51}  &   &   & \ding{51}  &   &   \\
+No-op                                                  &   & \ding{51} &   &   &   &   &   &   &   & \ding{51}  &   & \ding{51}  & \ding{51}  & \ding{51}  &   &   &\ding{51}   \\
+\hline
+Total Smells & 0 & 4 & 5 & 1 & 2 & 4 & 3 & 2 & 5 & 4 & 1 & 5 & 5 & 4 & 3 & 5 & 3 \\
+
+\end{tabular}
+\end{table*}
 
 
 \subsubsection{Study Context}
