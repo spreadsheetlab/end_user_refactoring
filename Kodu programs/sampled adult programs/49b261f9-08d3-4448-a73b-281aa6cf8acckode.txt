@@ -1,0 +1,28 @@
+Content\Xml\Levels\Downloads\49b261f9-08d3-4448-a73b-281aa6cf8acc.Xml
+apple:The game
+koolguru
+7/29/2010 11:19:42 PM
+
+Tree 1
+    Page  1
+        1    sensor.always -- actuator.sound modifier.environ.arena.any 
+
+Cycle 1
+    Page  1
+        1    sensor.gamepad filter.player1 filter.leftstick -- actuator.movement selector.forward modifier.quickly 
+        2    sensor.gamepad filter.player1 filter.abutton -- actuator.shoot2 modifier.once modifier.projectile.missile 
+        3    sensor.gamepad filter.xbutton filter.player1 -- actuator.launch modifier.objectrock 
+        4    sensor.always -- actuator.camera.followme 
+        5    sensor.got filter.fruit -- actuator.score 
+        6    sensor.scored filter.020points -- actuator.victory 
+        7    sensor.gamepad filter.player1 filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.blip 
+        8    sensor.got filter.fruit -- actuator.score modifier.020points 
+
+Apple 1
+    Page  1
+        1    sensor.bumpers -- actuator.score modifier.020points 
+        2    sensor.scored filter.020points -- actuator.victory 
+
+Kodu 1
+    Page  1
+        1    sensor.eyes filter.anything -- actuator.shoot2 modifier.projectile.blip 

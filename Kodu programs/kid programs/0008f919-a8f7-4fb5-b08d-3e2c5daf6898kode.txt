@@ -1,0 +1,48 @@
+Content\Xml\Levels\Downloads\0008f919-a8f7-4fb5-b08d-3e2c5daf6898.Xml
+the maze v01
+KoduUser
+8/18/2010 2:07:21 PM
+
+Factory 1
+    Page  1
+        1    sensor.timer filter.10seconds filter.05seconds -- actuator.make modifier.creatable.ca2951c3-0243-4629-87f9-22433c6407c2 
+
+Sputnik 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        2    sensor.gamepad filter.bbutton -- actuator.shoot2 modifier.projectile.blip modifier.orange 
+        3    sensor.gamepad filter.xbutton -- actuator.shoot2 modifier.projectile.missile modifier.orange 
+        4    sensor.gamepad filter.abutton -- actuator.launch 
+
+Saucer 1
+    Page  1
+        1    sensor.eyes filter.sputnik filter.faraway -- actuator.movement selector.towardclosest 
+        2    sensor.eyes filter.Black filter.closeby -- actuator.shoot2 modifier.projectile.missile 
+        3    sensor.timer filter.30seconds -- actuator.boom 
+
+Rock 1
+    Page  1
+        1    sensor.eyes filter.not filter.factory -- actuator.victory 
+
+Balloon 1
+    Page  1
+        1    sensor.timer filter.20seconds -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.eyes filter.sputnik -- actuator.movement selector.towardclosest 
+        2    sensor.eyes filter.sputnik filter.closeby -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.timer filter.01second -- actuator.make modifier.creatable.bbe4df0e-1f7f-4669-b42f-b869a634d1e4 
+        2    sensor.timer filter.04seconds -- actuator.switchtask modifier.taskd 
+    Page  4
+        1    sensor.ears filter.factory -- actuator.movement selector.towardclosest 
+        2    sensor.eyes filter.closeby filter.factory -- actuator.switchtask modifier.taska 
+
+Jet 1
+    Page  1
+        1    sensor.timer filter.20seconds -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.eyes filter.sputnik filter.faraway -- actuator.movement selector.towardclosest 
+        2    sensor.timer filter.01second -- actuator.launch modifier.creatable.1ba1dc0e-f98c-4234-b9c2-94d9e68474b4 
+        3    sensor.timer filter.04seconds -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.ears filter.factory -- actuator.movement selector.towardclosest 

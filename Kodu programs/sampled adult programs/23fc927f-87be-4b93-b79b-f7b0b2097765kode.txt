@@ -1,0 +1,118 @@
+Content\Xml\Levels\Downloads\23fc927f-87be-4b93-b79b-f7b0b2097765.Xml
+Small island v02
+RogueDarkJedi
+8/9/2009 1:10:08 PM
+
+Cloud 1
+
+Cloud 2
+
+Cloud 3
+
+Cloud 4
+
+Cloud 5
+
+Cloud 6
+
+Cloud 7
+
+Cloud 8
+
+Cloud 9
+
+Cloud 10
+
+Cloud 11
+
+Cloud 12
+
+Cloud 13
+
+Cloud 14
+
+Tree 1
+    Page  1
+        1    sensor.eyes filter.bokubot filter.faraway -- actuator.say 
+
+Tree 2
+
+Tree 3
+
+Tree 4
+
+Factory 1
+    Page  1
+        1    sensor.eyes filter.anything filter.closeby -- actuator.make modifier.objectstar modifier.colorrandom modifier.once 
+        2    sensor.terrain filter.terrain -- actuator.sound modifier.event.explode.any 
+        3    sensor.always -- actuator.say modifier.once modifier.colorrandom 
+        4    sensor.got filter.not -- actuator.express modifier.expressangry modifier.expressswear 
+        5    sensor.bumpers filter.anything -- actuator.zap modifier.me modifier.once 
+        6    sensor.always -- actuator.open 
+        7    sensor.eyes filter.expresscrazy -- actuator.boom modifier.me 
+
+Ship 1
+
+Castle 1
+
+Sub 1
+    Page  1
+        1    sensor.bumpers filter.swimfish -- actuator.movement selector.avoidall modifier.quickly 
+        2    sensor.always -- actuator.movement selector.wander modifier.slowly 
+        3    sensor.bumpers filter.anything -- actuator.movement selector.avoidall modifier.quickly 
+
+Kodu 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander modifier.quickly 
+        2    sensor.bumpers filter.anything -- actuator.movement selector.avoidall modifier.quickly 
+        3    sensor.always -- actuator.express modifier.expresshappy modifier.expresshearts 
+
+Turtle 1
+
+Fish 1
+    Page  1
+        1    sensor.bumpers filter.subbot -- actuator.movement selector.awayfromall modifier.quickly 
+        2    sensor.always -- actuator.movement selector.wander modifier.quickly 
+        3    sensor.held -- actuator.express modifier.expresshappy 
+
+Hut 1
+
+Ship 2
+    Page  1
+        1    sensor.water -- actuator.movement selector.wander modifier.slowly 
+        2    sensor.bumpers filter.floatbot -- actuator.movement selector.awayfromall modifier.slowly 
+        3    sensor.bumpers filter.turtle -- actuator.movement selector.awayfromall modifier.slowly 
+
+Jet 1
+
+Balloon 1
+
+Rock 1
+
+Rock 2
+
+Rock 3
+
+Rock 4
+
+Rock 5
+
+Blimp 1
+    Page  1
+        1    sensor.bumpers filter.balloonbot -- actuator.movement selector.avoidall modifier.quickly 
+        2    sensor.always -- actuator.movement selector.wander modifier.quickly 
+
+Kodu 2
+    Page  1
+        1    sensor.eyes filter.green filter.closeby filter.expresshappy -- actuator.movement selector.circle modifier.quickly modifier.quickly modifier.quickly modifier.distance.far 
+        2    sensor.eyes filter.bokubot -- actuator.express modifier.expresshappy modifier.expresshearts 
+        3    sensor.bumpers filter.bokubot -- actuator.glow modifier.red modifier.once 
+        4    sensor.bumpers filter.bokubot -- actuator.express modifier.expressangry modifier.expressswear modifier.once 
+        5    sensor.eyes filter.bokubot -- actuator.movement selector.towardclosest modifier.slowly 
+
+Kodu 3
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.jump modifier.angle.high modifier.once 
+        2    sensor.bumpers filter.bokubot -- actuator.glow modifier.once 
+        3    sensor.bumpers filter.bokubot -- actuator.express modifier.expressangry modifier.expressswear modifier.once 
+        4    sensor.eyes filter.bokubot -- actuator.movement selector.towardclosest modifier.quickly 

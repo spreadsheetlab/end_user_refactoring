@@ -1,0 +1,64 @@
+Content\Xml\Levels\Downloads\b13c0dce-313e-41ca-9ac3-4740a8780806.Xml
+An Awesome race
+KoduUser
+8/19/2010 9:57:08 AM
+
+Kodu 1
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.victory 
+
+Jet 1
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.grab modifier.it 
+        2    sensor.got filter.fastbot -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.xbutton -- actuator.shoot2 modifier.projectile.blip modifier.payloadzap modifier.colorrandom 
+        3    sensor.terrain filter.terrain -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.got filter.fastbot -- actuator.drop 
+
+Ship 1
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.grab modifier.it 
+        2    sensor.got filter.fastbot -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        2    sensor.gamepad filter.xbutton -- actuator.shoot2 modifier.payloadzap modifier.projectile.blip modifier.colorrandom 
+        3    sensor.terrain filter.terrain -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.terrain filter.terrain -- actuator.drop 
+
+Ship 2
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.boom modifier.it 
+        2    sensor.bumpers filter.fastbot -- actuator.gameover 
+
+Mine 1
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.boom modifier.it 
+        2    sensor.bumpers filter.fastbot -- actuator.gameover 
+
+Mine 2
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.boom modifier.it 
+        2    sensor.bumpers filter.fastbot -- actuator.gameover 
+
+Cycle 2
+    Page  1
+        1    sensor.gamepad filter.leftstick filter.player1 -- actuator.movement modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.abutton filter.player1 -- actuator.jump modifier.angle.high modifier.angle.high modifier.angle.high 
+        3    sensor.gamepad filter.xbutton filter.player1 -- actuator.shoot2 modifier.projectile.blip modifier.colorrandom 
+        4    sensor.gamepad filter.bbutton -- actuator.shoot2 modifier.projectile.missile modifier.trackinghoming modifier.payloadzap modifier.colorrandom 
+
+Cannon 1
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip modifier.colorrandom 
+
+Stick 1
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.missile modifier.trackinghoming modifier.payloadzap 
+
+Tree 1
+    Page  1
+        1    sensor.timer filter.10seconds -- actuator.make modifier.objectfruit modifier.red 

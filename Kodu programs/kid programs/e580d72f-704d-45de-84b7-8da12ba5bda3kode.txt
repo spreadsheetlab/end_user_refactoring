@@ -1,0 +1,100 @@
+Content\Xml\Levels\Downloads\e580d72f-704d-45de-84b7-8da12ba5bda3.Xml
+ ace racers
+Administrator
+8/17/2010 3:59:09 PM
+
+Cycle 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.rightstick -- actuator.turn modifier.quickly modifier.quickly modifier.quickly 
+        3    sensor.gamepad filter.bbutton -- actuator.shoot2 modifier.projectile.blip modifier.colorrandom 
+        4    sensor.bumpers filter.castle -- actuator.victory 
+        5    sensor.gamepad filter.abutton -- actuator.jump modifier.angle.high modifier.angle.high modifier.angle.high 
+
+Cycle 3
+    Page  1
+        1    sensor.bumpers filter.castle -- actuator.victory 
+        2    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly modifier.red 
+
+Cycle 2
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly modifier.red 
+        2    sensor.bumpers filter.castle -- actuator.victory 
+
+Castle 1
+
+Mine 1
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 2
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 4
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 3
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 8
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 5
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 6
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 7
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 9
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 10
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 11
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 12
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 13
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 16
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 18
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 15
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 17
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 14
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 
+
+Mine 19
+    Page  1
+        1    sensor.bumpers filter.me -- actuator.boom modifier.it 

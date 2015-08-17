@@ -1,0 +1,59 @@
+Content\Xml\Levels\Downloads\88c54bab-00be-41ea-9b2b-94510c17cf1f.Xml
+KKRACING v05
+Administrator
+8/18/2010 1:44:34 PM
+
+Factory 1
+
+Cycle 1
+    Page  1
+        1    sensor.bumpers filter.factory -- actuator.victory 
+        2    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly modifier.white 
+
+Cycle 2
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.rightstick -- actuator.turn modifier.quickly modifier.quickly 
+        3    sensor.gamepad filter.bbutton -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        4    sensor.bumpers filter.factory -- actuator.score modifier.001point modifier.000point 
+        5    sensor.bumpers filter.factory -- actuator.switchtask modifier.taskb 
+        6    sensor.scored filter.003points -- actuator.victory 
+    Page  2
+        1    sensor.scored filter.001point -- actuator.reset 
+        2    sensor.scored filter.002points -- actuator.reset 
+        3    sensor.scored filter.003points -- actuator.victory 
+
+Cycle 3
+    Page  1
+        1    sensor.bumpers filter.factory -- actuator.victory 
+        2    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly modifier.white 
+
+Balloon 1
+    Page  1
+        1    sensor.eyes filter.red filter.fastbot -- actuator.shoot2 modifier.projectile.blip modifier.white 
+
+Balloon 2
+    Page  1
+        1    sensor.eyes filter.fastbot filter.white filter.countfew -- actuator.shoot2 modifier.projectile.blip modifier.red modifier.payloadzap 
+        2    sensor.eyes filter.fastbot filter.red -- actuator.shoot2 modifier.projectile.blip modifier.red modifier.payloadzap 
+
+Balloon 3
+    Page  1
+        1    sensor.eyes filter.fastbot filter.red -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.eyes filter.fastbot filter.white -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+
+Tree 1
+
+Tree 2
+
+Tree 7
+
+Tree 8
+
+Tree 3
+
+Tree 4
+
+Tree 5
+
+Tree 6
