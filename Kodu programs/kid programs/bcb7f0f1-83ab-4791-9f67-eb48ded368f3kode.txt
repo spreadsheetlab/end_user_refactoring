@@ -1,0 +1,21 @@
+Content\Xml\Levels\Downloads\bcb7f0f1-83ab-4791-9f67-eb48ded368f3.Xml
+Vlad bjh
+Administrator
+8/18/2010 1:56:11 PM
+
+Cycle 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.slowly 
+        2    sensor.gamepad filter.bbutton -- actuator.jump 
+
+Tree 1
+
+Tree 1
+
+Tree 1
+
+Tree 1
+
+Castle 1
+    Page  1
+        1    sensor.bumpers filter.fastbot -- actuator.victory 

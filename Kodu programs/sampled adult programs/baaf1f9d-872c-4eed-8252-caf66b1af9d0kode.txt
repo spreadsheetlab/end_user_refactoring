@@ -1,0 +1,326 @@
+Content\Xml\Levels\Downloads\baaf1f9d-872c-4eed-8252-caf66b1af9d0.Xml
+Castle Crashers BETA
+killzone4236
+9/19/2009 6:03:37 PM
+
+Turtle 1
+    Page  1
+        1    sensor.always -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.gamepad filter.leftstick filter.player1 -- actuator.movement 
+        2    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.blip modifier.green 
+        3    sensor.always -- actuator.camera.followme 
+        4    sensor.health filter.000point -- actuator.gameover 
+        5    sensor.bumpers filter.anything filter.Black -- actuator.damage modifier.it modifier.005points modifier.once 
+        6    sensor.missilehit filter.anything -- actuator.damage modifier.001point modifier.it 
+        7    sensor.gamepad filter.abutton -- actuator.make modifier.once modifier.creatable.97f9636a-a2dc-415b-bc2b-4ac035019954 
+        8    sensor.always -- actuator.sound modifier.mu_action 
+        9    sensor.scored filter.scoreabove filter.005points filter.004points filter.scorebucket.color.white -- actuator.switchtask modifier.taskc 
+        10    sensor.missilehit filter.tree filter.Grey -- actuator.boom modifier.it 
+    Page  3
+        1    sensor.gamepad filter.leftstick filter.player1 -- actuator.movement 
+        2    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.blip modifier.green 
+        3    sensor.always -- actuator.camera.followme 
+        4    sensor.health filter.000point -- actuator.gameover 
+        5    sensor.bumpers filter.anything filter.Black -- actuator.damage modifier.it modifier.005points modifier.once 
+        6    sensor.missilehit filter.anything -- actuator.damage modifier.001point modifier.it 
+        7    sensor.gamepad filter.abutton -- actuator.make modifier.once modifier.creatable.97f9636a-a2dc-415b-bc2b-4ac035019954 
+        8    sensor.always -- actuator.sound modifier.mu_action 
+        9    sensor.missilehit filter.anything -- actuator.damage modifier.005points modifier.it modifier.once 
+        10    sensor.always -- actuator.say modifier.once 
+        11    sensor.always -- actuator.heal modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.random modifier.once 
+        12    sensor.missilehit filter.tree filter.Grey -- actuator.boom modifier.it 
+    Page  4
+        1    sensor.gamepad filter.leftstick filter.player1 -- actuator.movement 
+        2    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.blip modifier.green 
+        3    sensor.always -- actuator.camera.followme 
+        4    sensor.health filter.000point -- actuator.gameover 
+        5    sensor.bumpers filter.anything filter.Black -- actuator.damage modifier.it modifier.005points modifier.once 
+        6    sensor.missilehit filter.anything -- actuator.damage modifier.001point modifier.it 
+        7    sensor.gamepad filter.abutton -- actuator.make modifier.once modifier.creatable.97f9636a-a2dc-415b-bc2b-4ac035019954 
+        8    sensor.always -- actuator.sound modifier.mu_action 
+        9    sensor.missilehit filter.anything -- actuator.damage modifier.020points 
+        10    sensor.always -- actuator.say modifier.once 
+        11    sensor.always -- actuator.heal modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.100points modifier.random modifier.once 
+        12    sensor.missilehit filter.tree filter.Grey -- actuator.boom modifier.it 
+
+Turtle 2
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.white modifier.slowly modifier.slowly modifier.slowly 
+        2    sensor.timer filter.quartersecond filter.quartersecond -- actuator.pop 
+
+Turtle 3
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.black modifier.slowly modifier.slowly 
+        2    sensor.timer filter.05seconds -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.timer filter.04seconds -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.green 
+        2    sensor.terrain filter.terrain -- actuator.vanish 
+
+Turtle 4
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.black modifier.slowly modifier.slowly 
+        2    sensor.timer filter.05seconds -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.timer filter.04seconds -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.green 
+        2    sensor.terrain filter.terrain -- actuator.vanish 
+
+Turtle 5
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.black modifier.slowly modifier.slowly 
+        2    sensor.timer filter.05seconds -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.timer filter.04seconds -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.green 
+        2    sensor.terrain filter.terrain -- actuator.vanish 
+
+Turtle 6
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.black modifier.slowly modifier.slowly 
+        2    sensor.timer filter.05seconds -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.timer filter.04seconds -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.green 
+        2    sensor.terrain filter.terrain -- actuator.vanish 
+
+Push Pad 1
+    Page  1
+        1    sensor.always -- actuator.say 
+        2    sensor.scored filter.003points filter.scorebucket.color.purple -- actuator.victory modifier.player.1 
+        3    sensor.always -- actuator.express modifier.expressswear 
+
+Hut 1
+    Page  1
+        1    sensor.always -- actuator.pop 
+
+Hut 2
+    Page  1
+        1    sensor.always -- actuator.pop 
+
+Hut 3
+    Page  1
+        1    sensor.always -- actuator.pop 
+
+Sputnik 1
+    Page  1
+        1    sensor.eyes filter.turtle filter.green -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.purple 
+
+Sputnik 3
+    Page  1
+        1    sensor.eyes filter.turtle filter.green -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.purple 
+
+Sputnik 2
+    Page  1
+        1    sensor.eyes filter.turtle filter.green -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.purple 
+        2    sensor.timer -- 
+
+Push Pad 1
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        3    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 
+        4    sensor.health filter.000point -- actuator.score modifier.002points modifier.scorebucket.color.white modifier.once 
+
+Push Pad 2
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.002points modifier.scorebucket.color.white modifier.once 
+        3    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        4    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 
+
+Push Pad 3
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.002points modifier.scorebucket.color.white modifier.once 
+        3    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        4    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 
+
+Tree 1
+
+Tree 2
+
+Tree 3
+
+Turtle 7
+    Page  1
+        1    sensor.always -- actuator.say 
+        2    sensor.always -- actuator.movement modifier.constraint.immobile 
+
+Turtle 8
+    Page  1
+        1    sensor.always -- actuator.pop 
+
+Turtle 9
+    Page  1
+        1    sensor.always -- actuator.pop 
+
+Turtle 10
+    Page  1
+        1    sensor.always -- actuator.pop 
+
+Turtle 11
+    Page  1
+        1    sensor.always -- actuator.pop 
+
+Push Pad 1
+    Page  1
+        1    sensor.always -- actuator.pop 
+
+Push Pad 2
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.002points modifier.scorebucket.color.white modifier.once 
+        3    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        4    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 
+
+Push Pad 4
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.002points modifier.scorebucket.color.white modifier.once 
+        3    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        4    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 
+
+Mine 1
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        3    sensor.health filter.000point -- actuator.score modifier.005points modifier.scorebucket.color.white modifier.once 
+        4    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 
+
+Mine 2
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.003points modifier.scorebucket.color.white modifier.once 
+        3    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        4    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 
+
+Mine 3
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        3    sensor.health filter.000point -- actuator.score modifier.003points modifier.scorebucket.color.white modifier.once 
+        4    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 
+
+Tree 11
+
+Tree 7
+
+Tree 5
+
+Tree 8
+
+Tree 4
+    Page  1
+        1    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.purple modifier.once 
+
+Tree 6
+
+Tree 10
+
+Tree 13
+
+Tree 9
+    Page  1
+        1    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.purple modifier.once 
+
+Tree 16
+
+Tree 15
+
+Tree 14
+    Page  1
+        1    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.purple modifier.once 
+
+Tree 17
+    Page  1
+        1    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.purple modifier.once 
+
+Tree 20
+
+Tree 19
+
+Tree 18
+
+Tree 27
+
+Tree 28
+
+Tree 29
+
+Tree 30
+
+Tree 31
+
+Tree 32
+
+Tree 33
+
+Tree 34
+
+Tree 35
+
+Tree 36
+
+Tree 37
+
+Tree 38
+
+Tree 39
+
+Tree 40
+
+Tree 41
+
+Tree 12
+
+Stick 1
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+
+Stick 2
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+
+Tree 21
+
+Tree 24
+
+Tree 25
+
+Tree 26
+
+Tree 42
+
+Tree 23
+
+Tree 22
+
+Tree 43
+
+Tree 44
+
+Stick 3
+    Page  1
+        1    sensor.eyes filter.turtle filter.green -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.timer filter.04seconds filter.random -- actuator.launch modifier.angle.low modifier.angle.low modifier.angle.low modifier.creatable.f70ac34a-c849-4701-abac-b2691a53b7eb modifier.strongly 
+        2    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+
+Push Pad 2
+    Page  1
+        1    sensor.eyes filter.turtle -- actuator.shoot2 modifier.projectile.blip 
+        2    sensor.health filter.000point -- actuator.score modifier.002points modifier.scorebucket.color.white modifier.once 
+        3    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        4    sensor.eyes filter.turtle -- actuator.movement selector.avoidall 

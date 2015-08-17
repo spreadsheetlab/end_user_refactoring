@@ -1,0 +1,21 @@
+Actor = Fish 2, Rules = 12
+Actor = Sub 1, Rules = 2
+Actor = Turtle 1, Rules = 3
+Actor = Castle 2, Rules = 0
+Actor = Fish 7, Rules = 12
+Actor = Castle 1, Rules = 0
+Actor = Fish 3, Rules = 12
+Actor = Fish 1, Rules = 12
+Actor = Castle 4, Rules = 0
+Actor = Fish 5, Rules = 12
+Actor = Fish 4, Rules = 12
+Actor = Fish 8, Rules = 12
+Actor = Tree 1, Rules = 0
+Actor = Castle 3, Rules = 0
+Actor = Fish 9, Rules = 12
+Actor = Fish 6, Rules = 12
+Number of Actors = 16
+Number of BlankActors = 5
+Number of Rules = 113
+Rules Per Actor (all) = 7.06
+Rules Per Actor (populated) = 10.27

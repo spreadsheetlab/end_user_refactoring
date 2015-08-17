@@ -1,0 +1,76 @@
+Content\Xml\Levels\Downloads\ba50a707-6216-4483-a9bb-e52f6f9ca5d2.Xml
+race to whatever kk
+KoduUser
+8/18/2010 2:14:51 PM
+
+Cycle 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip modifier.once modifier.colorrandom 
+
+Cycle 2
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip modifier.once 
+
+Cycle 3
+    Page  1
+        1    sensor.gamepad filter.player1 filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.player1 filter.abutton -- actuator.jump modifier.angle.high 
+        3    sensor.gamepad filter.player1 filter.xbutton -- actuator.shoot2 modifier.projectile.blip modifier.colorrandom 
+        4    sensor.gamepad filter.player1 filter.bbutton -- actuator.launch modifier.creatable.68b3de1e-996f-4db8-a8b5-42a12ee70913 modifier.strongly modifier.once modifier.angle.high 
+        5    sensor.missilehit filter.fastbot -- actuator.score modifier.100points modifier.050points modifier.scorebucket.color.green 
+        6    sensor.terrain filter.terrain -- 
+        7     tab sensor.scored filter.scorebucket.color.purple filter.001point -- actuator.unscore modifier.001point modifier.scorebucket.color.purple 
+        8     tab  tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.grey 
+        9    sensor.scored filter.scorebucket.color.grey filter.003points -- actuator.victory modifier.player.1 modifier.purple 
+        10    sensor.terrain filter.terrain -- 
+        11     tab sensor.scored filter.scorebucket.color.purple filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.purple 
+        12    sensor.always -- actuator.camera.firstperson 
+        13    sensor.bumpers filter.coin -- actuator.eat modifier.it 
+        14    sensor.bumpers filter.coin -- actuator.score modifier.050points modifier.scorebucket.color.green 
+
+Cycle 5
+    Page  1
+        1    sensor.gamepad filter.player2 filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.player2 filter.abutton -- actuator.jump modifier.angle.high 
+        3    sensor.gamepad filter.player2 filter.xbutton -- actuator.shoot2 modifier.projectile.blip modifier.colorrandom 
+        4    sensor.gamepad filter.player2 filter.bbutton -- actuator.launch modifier.creatable.68b3de1e-996f-4db8-a8b5-42a12ee70913 modifier.strongly modifier.angle.high modifier.once 
+        5    sensor.missilehit filter.fastbot -- actuator.score modifier.100points modifier.050points modifier.scorebucket.color.yellow 
+        6    sensor.terrain filter.terrain -- 
+        7     tab sensor.scored filter.scorebucket.color.red filter.001point -- actuator.unscore modifier.001point modifier.scorebucket.color.red 
+        8     tab  tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.orange 
+        9    sensor.scored filter.scorebucket.color.orange filter.003points -- actuator.victory modifier.player.2 modifier.red 
+        10    sensor.terrain filter.terrain -- 
+        11     tab sensor.scored filter.scorebucket.color.red filter.000point -- actuator.score modifier.001point modifier.scorebucket.color.red 
+        12    sensor.bumpers filter.coin -- actuator.eat modifier.it 
+        13    sensor.bumpers filter.coin -- actuator.score modifier.050points modifier.scorebucket.color.yellow 
+
+Coin 1
+
+Kodu 1
+    Page  1
+        1    sensor.eyes filter.fastbot filter.purple -- actuator.express modifier.expresshappy 
+        2    sensor.eyes filter.fastbot filter.red -- actuator.express modifier.expresshappy 
+        3    sensor.eyes filter.fastbot filter.white -- actuator.express modifier.expressangry modifier.expressswear 
+        4    sensor.eyes filter.fastbot filter.green -- actuator.express modifier.expressangry modifier.expressswear 
+
+Coin 3 cloned 52a28219-abe6-457b-a2c1-aad21efd06ea
+    Page  1
+        1    sensor.always -- 
+
+Coin 4 cloned 52a28219-abe6-457b-a2c1-aad21efd06ea
+    Page  1
+        1    sensor.always -- 
+
+Coin 5 cloned 52a28219-abe6-457b-a2c1-aad21efd06ea
+    Page  1
+        1    sensor.always -- 
+
+Coin 6 cloned 52a28219-abe6-457b-a2c1-aad21efd06ea
+    Page  1
+        1    sensor.always -- 
+
+Coin 7 cloned 52a28219-abe6-457b-a2c1-aad21efd06ea
+    Page  1
+        1    sensor.always -- 

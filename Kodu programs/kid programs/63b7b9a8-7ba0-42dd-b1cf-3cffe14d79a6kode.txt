@@ -1,0 +1,150 @@
+Content\Xml\Levels\Downloads\63b7b9a8-7ba0-42dd-b1cf-3cffe14d79a6.Xml
+Treasure Collector
+KoduUser
+8/18/2010 2:06:05 PM
+
+Cycle 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.rightstick -- actuator.camera.followme 
+        3    sensor.gamepad filter.abutton -- actuator.jump modifier.angle.high 
+        4    sensor.gamepad filter.bbutton -- actuator.shoot2 modifier.projectile.blip modifier.forward modifier.colorrandom 
+        5    sensor.bumpers filter.coin -- actuator.score modifier.005points 
+        6     tab sensor.bumpers filter.coin -- actuator.vanish modifier.it 
+        7    sensor.timer filter.60seconds filter.60seconds filter.60seconds filter.60seconds filter.60seconds -- actuator.gameover 
+        8    sensor.scored filter.100points filter.100points filter.050points -- actuator.victory modifier.purple 
+        9    sensor.bumpers filter.star -- actuator.score modifier.010points 
+        10     tab sensor.bumpers filter.star -- actuator.vanish modifier.it 
+
+Coin 2 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 3 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 5 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Fish 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.purple modifier.slowly 
+
+Fish 2
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.red modifier.slowly 
+
+Fish 3
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.blue 
+
+Fish 4
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.orange 
+
+Tree 1
+
+Tree 1
+
+Tree 1
+
+Star 1
+
+Tree 1
+
+Tree 2
+
+Tree 3
+
+Tree 2
+
+Tree 3
+
+Star 2
+
+Tree 2
+
+Tree 3
+
+Star 6
+
+Star 7
+
+Star 5
+
+Star 8
+
+Cannon 12 cloned 37b783d7-7284-4eee-b480-d7fa4d28d3c2
+    Page  1
+        1    sensor.eyes filter.fastbot -- actuator.shoot2 modifier.projectile.blip modifier.yellow 
+        2    sensor.missilehit -- actuator.boom modifier.me 
+        3     tab sensor.always -- actuator.score modifier.005points 
+        4    sensor.always -- 
+    Page  2
+        1    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+    Page 11
+        1    sensor.always -- 
+    Page 12
+        1    sensor.always -- 
+
+Star 3
+
+Star 4
+
+Tree 4
+
+Tree 5
+
+Tree 6
+
+Coin 6 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 7 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 9 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 10 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 11 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 12 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 13 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 14 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Castle 3 cloned 3b652432-52c2-4b51-b5ce-e85c2734c9c8
+
+Coin 15 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 16 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 17 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 18 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 19 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 20 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Coin 21 cloned 76424ae2-c116-4e3c-ae07-71166495ddfd
+
+Star 9
+
+Castle 4 cloned b242bd4d-e614-4083-9338-7b28b8228532
+
+Castle 5 cloned b242bd4d-e614-4083-9338-7b28b8228532
+
+Castle 6 cloned 3b652432-52c2-4b51-b5ce-e85c2734c9c8
+
+Castle 7 cloned 3b652432-52c2-4b51-b5ce-e85c2734c9c8
+
+Tree 5
+
+Tree 7
+
+Tree 2
+
+Tree 3
+
+Tree 8
+
+Tree 9

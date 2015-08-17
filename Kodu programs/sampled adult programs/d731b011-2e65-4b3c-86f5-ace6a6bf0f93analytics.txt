@@ -1,0 +1,68 @@
+Actor = Push Pad 13, Rules = 1
+Actor = Push Pad 38, Rules = 1
+Actor = Push Pad 35, Rules = 1
+Actor = Apple 5, Rules = 6
+Actor = Apple 11, Rules = 6
+Actor = Star 12, Rules = 1
+Actor = Light 2, Rules = 0
+Actor = Apple 4, Rules = 6
+Actor = Apple 6, Rules = 6
+Actor = Apple 9, Rules = 6
+Actor = Apple 12, Rules = 6
+Actor = Push Pad 18, Rules = 1
+Actor = Apple 8, Rules = 6
+Actor = Push Pad 31, Rules = 1
+Actor = Push Pad 32, Rules = 1
+Actor = Push Pad 25, Rules = 1
+Actor = Apple 10, Rules = 6
+Actor = Push Pad 6, Rules = 1
+Actor = Push Pad 16, Rules = 1
+Actor = Apple 16, Rules = 6
+Actor = Push Pad 30, Rules = 1
+Actor = Apple 13, Rules = 6
+Actor = Push Pad 37, Rules = 1
+Actor = Push Pad 11, Rules = 1
+Actor = Push Pad 29, Rules = 1
+Actor = Star 6, Rules = 1
+Actor = Push Pad 14, Rules = 1
+Actor = Push Pad 8, Rules = 1
+Actor = Star 15, Rules = 1
+Actor = Push Pad 10, Rules = 1
+Actor = Push Pad 19, Rules = 1
+Actor = Push Pad 24, Rules = 1
+Actor = Push Pad 12, Rules = 1
+Actor = Apple 7, Rules = 6
+Actor = Star 4, Rules = 1
+Actor = Push Pad 20, Rules = 1
+Actor = Star 14, Rules = 1
+Actor = Push Pad 34, Rules = 1
+Actor = Kodu 5, Rules = 6
+Actor = Push Pad 27, Rules = 1
+Actor = Push Pad 2, Rules = 1
+Actor = Push Pad 4, Rules = 1
+Actor = Push Pad 23, Rules = 1
+Actor = Push Pad 15, Rules = 1
+Actor = Push Pad 26, Rules = 1
+Actor = Push Pad 9, Rules = 1
+Actor = Push Pad 7, Rules = 1
+Actor = Push Pad 28, Rules = 1
+Actor = Star 10, Rules = 1
+Actor = Push Pad 17, Rules = 1
+Actor = Push Pad 33, Rules = 1
+Actor = Light 3, Rules = 1
+Actor = Light 1, Rules = 0
+Actor = Push Pad 21, Rules = 1
+Actor = Push Pad 39, Rules = 1
+Actor = Star 7, Rules = 1
+Actor = Push Pad 22, Rules = 1
+Actor = Push Pad 36, Rules = 1
+Actor = Star 3, Rules = 1
+Actor = Push Pad 3, Rules = 1
+Actor = Push Pad 5, Rules = 14
+Actor = Apple 14, Rules = 6
+Actor = Apple 15, Rules = 6
+Number of Actors = 63
+Number of BlankActors = 2
+Number of Rules = 144
+Rules Per Actor (all) = 2.29
+Rules Per Actor (populated) = 2.36

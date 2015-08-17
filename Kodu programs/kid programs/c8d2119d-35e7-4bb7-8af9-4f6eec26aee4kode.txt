@@ -1,0 +1,158 @@
+Content\Xml\Levels\Downloads\c8d2119d-35e7-4bb7-8af9-4f6eec26aee4.Xml
+ManyWorlds JJ By YL v01
+Administrator
+8/19/2010 10:17:54 AM
+
+Flyfish 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.yellow modifier.quickly 
+        2    sensor.always -- actuator.shoot2 modifier.projectile.blip modifier.forward 
+        3    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.letter.b 
+
+Tree 1
+
+Tree 1
+
+Tree 2
+
+Tree 3
+
+Apple 2
+
+Kodu 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        2    sensor.gamepad filter.abutton -- actuator.shoot2 modifier.projectile.blip modifier.forward 
+        3    sensor.bumpers filter.yellow filter.fruit -- actuator.eat modifier.it 
+        4     tab sensor.always -- actuator.switchtask modifier.taskb 
+        5    sensor.health filter.000point -- actuator.gameover 
+        6    sensor.scored filter.020points filter.scorebucket.color.orange -- actuator.victory 
+    Page  2
+        1    sensor.always -- actuator.glow modifier.yellow 
+        2    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        3    sensor.gamepad filter.abutton -- actuator.shoot2 modifier.projectile.missile modifier.forward 
+        4    sensor.bumpers filter.yellow filter.fruit -- actuator.eat modifier.it 
+        5     tab sensor.always -- actuator.switchtask modifier.taskb 
+        6    sensor.health filter.000point -- actuator.gameover 
+        7    sensor.timer filter.20seconds -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.bumpers filter.orange -- actuator.shoot2 
+
+Apple 1
+
+Castle 1
+
+Castle 2
+    Page  1
+        1    sensor.always -- actuator.say 
+
+Castle 3
+
+Castle 4
+
+Castle 5
+
+Kodu 2
+
+Flyfish 2
+
+Blimp 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.white modifier.slowly 
+        2    sensor.health filter.000point -- actuator.score modifier.scorebucket.letter.a modifier.001point 
+
+Flyfish 3
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.red modifier.quickly 
+        2    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.letter.b 
+
+Rock 1
+
+Rock 3
+
+Rock 2
+
+Rock 5
+
+Rock 4
+
+Cycle 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.purple modifier.quickly 
+        2    sensor.always -- actuator.shoot2 modifier.projectile.blip modifier.forward 
+        3    sensor.always -- actuator.say 
+        4    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.letter.c 
+
+Cycle 2
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.green modifier.quickly 
+        2    sensor.always -- actuator.shoot2 modifier.projectile.missile modifier.forward 
+        3    sensor.health filter.000point -- actuator.score modifier.001point modifier.scorebucket.letter.c 
+
+Cycle 3
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.yellow modifier.quickly 
+        2    sensor.always -- actuator.shoot2 modifier.projectile.missile modifier.forward 
+        3    sensor.health filter.000point -- actuator.score modifier.scorebucket.letter.c modifier.001point 
+
+Tree 2
+
+Tree 1
+
+Tree 3
+
+Tree 2
+
+Tree 4
+
+Tree 5
+
+Tree 6
+
+Cloud 1
+    Page  1
+        1    sensor.timer filter.05seconds -- actuator.make modifier.creatable.104ece7e-1333-4d8f-a54f-fb8d1bb4f2bc 
+        2     tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.blue 
+
+Cloud 2
+    Page  1
+        1    sensor.timer filter.10seconds -- actuator.make modifier.creatable.b5667032-24cb-45f1-91b4-2770c18cc7ba 
+        2     tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.purple 
+        3    sensor.scored filter.005points filter.scorebucket.color.purple -- actuator.gameover 
+        4    sensor.scored filter.010points filter.scorebucket.color.blue -- actuator.gameover 
+
+Tree 8
+    Page  1
+        1    sensor.timer filter.10seconds -- actuator.make modifier.objectfruit modifier.yellow 
+
+Tree 9
+    Page  1
+        1    sensor.timer filter.10seconds -- actuator.make modifier.objectfruit modifier.yellow 
+
+Tree 12
+    Page  1
+        1    sensor.timer filter.10seconds -- actuator.make modifier.objectfruit modifier.yellow 
+
+Tree 7
+    Page  1
+        1    sensor.timer filter.10seconds -- actuator.make modifier.objectfruit modifier.yellow 
+
+Tree 10
+    Page  1
+        1    sensor.timer filter.10seconds -- actuator.make modifier.creatable.7af8c5e2-4174-4006-84e8-ab30617e5bbb modifier.yellow 
+
+Tree 11
+    Page  1
+        1    sensor.timer filter.10seconds -- actuator.make modifier.objectfruit modifier.yellow 
+
+Stick 1
+    Page  1
+        1    sensor.scored filter.scorebucket.letter.a filter.001point -- actuator.vanish 
+
+Stick 2
+    Page  1
+        1    sensor.scored filter.scorebucket.letter.b filter.002points -- actuator.vanish 
+
+Stick 3
+    Page  1
+        1    sensor.scored filter.scorebucket.letter.c filter.003points -- actuator.vanish 

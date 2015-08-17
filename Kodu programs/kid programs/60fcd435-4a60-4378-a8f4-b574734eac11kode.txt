@@ -1,0 +1,188 @@
+Content\Xml\Levels\Downloads\60fcd435-4a60-4378-a8f4-b574734eac11.Xml
+kodu
+KoduUser
+8/18/2010 1:57:06 PM
+
+Tree 1
+
+Tree 2
+
+Tree 3
+
+Tree 4
+
+Tree 5
+
+Tree 6
+
+Tree 1
+
+Tree 1
+
+Rock 1
+
+Turtle 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.orange 
+
+Kodu 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement selector.forward modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.leftstick -- actuator.turn modifier.quickly modifier.quickly modifier.quickly 
+        3    sensor.gamepad filter.abutton -- actuator.jump modifier.angle.high modifier.angle.high modifier.angle.high 
+        4    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.blip modifier.colorrandom 
+        5    sensor.bumpers filter.coin -- actuator.score modifier.001point modifier.once 
+        6    sensor.bumpers filter.star -- actuator.score modifier.050points modifier.once 
+        7    sensor.bumpers filter.castle -- actuator.victory 
+        8    sensor.gamepad filter.bbutton -- actuator.camera.followme 
+        9    sensor.bumpers filter.tree -- actuator.switchtask modifier.taskb 
+        10    sensor.gamepad filter.xbutton -- actuator.launch modifier.creatable.c13f789b-c419-41d1-937b-ecf59d5b3c2b 
+        11    sensor.bumpers filter.heart -- actuator.heal modifier.100points 
+        12     tab sensor.always -- actuator.eat 
+        13    sensor.gamepad filter.ybutton -- actuator.camera.firstperson 
+    Page  2
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.blip modifier.colorrandom 
+        3    sensor.gamepad filter.ybutton -- actuator.jump 
+        4    sensor.health filter.050points -- actuator.heal modifier.050points 
+        5    sensor.timer filter.10seconds -- actuator.switchtask modifier.taska 
+
+Star 1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+
+Sputnik 3 cloned 9d5c7a3c-26fb-4112-a116-94503eda22ca
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints 
+        2    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.blip modifier.black modifier.once 
+        3    sensor.health filter.000point -- actuator.score modifier.005points 
+        4    sensor.always -- 
+
+Coin 9
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish 
+
+Castle 1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.victory 
+
+Coin 13
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish 
+
+Coin 14
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish 
+
+Coin 4
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish 
+
+Coin 16
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish 
+
+Coin 18
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish 
+
+Coin 17
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish 
+
+Apple 4
+
+Apple 14
+
+Cannon 4 cloned a94c8eeb-b5b9-4fed-9826-22b8de97dcbc
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.once 
+        2    sensor.always -- actuator.movement selector.followwaypoints 
+        3    sensor.always -- 
+
+Factory 1
+    Page  1
+        1    sensor.timer filter.05seconds filter.random filter.10seconds -- actuator.make modifier.creatable.9d5c7a3c-26fb-4112-a116-94503eda22ca 
+        2    sensor.timer filter.10seconds filter.random filter.10seconds filter.05seconds -- actuator.make modifier.creatable.a94c8eeb-b5b9-4fed-9826-22b8de97dcbc 
+
+Stick 2
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.blip modifier.once 
+
+Stick 3
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.blip modifier.once 
+
+Balloon 1
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+
+Balloon 2
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile 
+
+Hut 1
+    Page  1
+        1    sensor.timer filter.03seconds filter.random filter.05seconds -- actuator.make modifier.creatable.9d5c7a3c-26fb-4112-a116-94503eda22ca 
+
+Factory 2
+    Page  1
+        1    sensor.timer filter.02seconds -- actuator.make modifier.creatable.9d5c7a3c-26fb-4112-a116-94503eda22ca 
+
+Tree 7
+
+Tree 8
+
+Heart 2
+
+Heart 3
+
+Coin 2 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 3 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 5 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 6 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 7 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 8 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 10 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 11 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 12 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 
+
+Coin 15 cloned 60bd06c9-27f0-454a-a493-4a835dd31f64
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.Black -- actuator.vanish modifier.me 
+        2    sensor.always -- 

@@ -1,0 +1,94 @@
+Content\Xml\Levels\Downloads\6fd87d24-929a-4e9b-9599-43e64546f4eb.Xml
+Mount Madness v01
+iTheDishwasheri
+4/9/2010 2:19:56 PM
+
+Jet 1
+    Page  1
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly modifier.constraint.northsouth 
+        2    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.blip modifier.west modifier.black modifier.once 
+        3    sensor.gamepad filter.lefttrigger_analog -- actuator.shoot2 modifier.projectile.missile modifier.west modifier.black modifier.trackingnone 
+        4    sensor.bumpers filter.saucer -- actuator.unscore modifier.005points modifier.scorebucket.color.red 
+        5    sensor.bumpers filter.saucer -- actuator.boom modifier.it 
+        6    sensor.missilehit -- actuator.sound modifier.event.explode.any 
+        7    sensor.missilehit -- actuator.score modifier.scorebucket.color.green modifier.001point 
+        8    sensor.keyboard filter.Dkey -- actuator.movement modifier.quickly modifier.quickly modifier.quickly modifier.north 
+        9    sensor.keyboard filter.Akey -- actuator.movement modifier.quickly modifier.quickly modifier.quickly modifier.south 
+        10    sensor.keyboard filter.Fkey -- actuator.shoot2 modifier.projectile.blip modifier.yellow 
+
+Wisp 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly modifier.black 
+        2    sensor.timer filter.03seconds -- actuator.make modifier.creatable.7112e72c-68b6-45ff-a36a-461aee68d414 
+        3    sensor.scored filter.scorebucket.color.green filter.020points filter.005points -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.black modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.make modifier.creatable.7112e72c-68b6-45ff-a36a-461aee68d414 
+        3    sensor.timer filter.02seconds -- actuator.make modifier.creatable.7112e72c-68b6-45ff-a36a-461aee68d414 
+        4    sensor.scored filter.scorebucket.color.green filter.050points -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.black modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.make modifier.creatable.7112e72c-68b6-45ff-a36a-461aee68d414 
+        3    sensor.timer filter.02seconds -- actuator.make modifier.creatable.7112e72c-68b6-45ff-a36a-461aee68d414 
+        4    sensor.timer filter.01second -- actuator.make modifier.creatable.7112e72c-68b6-45ff-a36a-461aee68d414 
+
+Rock 1
+    Page  1
+        1    sensor.timer filter.quartersecond -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- actuator.score modifier.100points modifier.scorebucket.color.red modifier.once 
+        3    sensor.always -- actuator.score modifier.100points modifier.scorebucket.color.black modifier.once 
+    Page  2
+        1    sensor.scored filter.000point filter.scorebucket.color.red -- actuator.gameover 
+        2    sensor.scored filter.000point filter.scorebucket.color.black -- actuator.gameover 
+
+Rock 2
+    Page  1
+        1    sensor.always -- actuator.sound modifier.drivinga 
+        2    sensor.scored filter.020points filter.005points filter.scorebucket.color.green -- actuator.stopsound modifier.any 
+        3    sensor.scored filter.020points filter.005points filter.scorebucket.color.green -- actuator.switchtask modifier.taskb 
+        4    sensor.scored filter.020points filter.005points filter.scorebucket.color.green -- 
+    Page  2
+        1    sensor.always -- actuator.sound modifier.drivingb 
+        2    sensor.scored filter.050points filter.scorebucket.color.green -- actuator.stopsound modifier.any 
+        3    sensor.scored filter.050points filter.scorebucket.color.green -- actuator.switchtask modifier.taskc 
+        4    sensor.scored filter.050points filter.scorebucket.color.green -- 
+        5    sensor.always -- actuator.say modifier.once 
+    Page  3
+        1    sensor.always -- actuator.sound modifier.drivingc 
+        2    sensor.scored filter.050points filter.020points filter.005points filter.scorebucket.color.green -- actuator.stopsound modifier.any 
+        3    sensor.scored filter.050points filter.020points filter.005points filter.scorebucket.color.green -- actuator.switchtask modifier.taskd 
+        4    sensor.scored filter.050points filter.020points filter.005points filter.scorebucket.color.green -- 
+        5    sensor.always -- actuator.say modifier.once 
+    Page  4
+        1    sensor.always -- actuator.say modifier.once 
+        2    sensor.always -- actuator.victory 
+
+Cloud 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.white modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.04seconds -- actuator.shoot2 modifier.projectile.blip modifier.white modifier.down 
+
+Cloud 5
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.white modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.shoot2 modifier.projectile.blip modifier.white modifier.down 
+
+Cloud 6
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.white modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.shoot2 modifier.projectile.blip modifier.white modifier.down 
+
+Cloud 2
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.white modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.02seconds -- actuator.shoot2 modifier.projectile.blip modifier.white modifier.down 
+
+Cloud 3
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.white modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.05seconds -- actuator.shoot2 modifier.projectile.blip modifier.white modifier.down 
+
+Cloud 4
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.white modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.01second -- actuator.shoot2 modifier.projectile.blip modifier.white modifier.down 
