@@ -37,6 +37,7 @@
 \newcommand{\ms}{LEGO MINDSTORMS EV3}
 \newcommand{\mbs}{\textsc{my blocks}}
 \newcommand{\mb}{\textsc{my block}}
+\newcommand{\horiz}{\hspace{2.1pt}}
 
 \newcommand{\ignore}[1]{}
 
@@ -157,7 +158,7 @@ This can be done by interviewing experienced end-users to see which smells they 
 This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts using both the above described approaches and proposes future directions for smell detection in these domains. 
 
 \begin{table*}
-\caption{Code Smells in End-User Programs
+\caption{Catalog of Code Smells in End-User Programs
 \label{table:oosmellslarge}}
 \centering
 \sffamily
@@ -323,6 +324,7 @@ Looking at the EV3 programming interface, it is not that surprising that users f
 \caption{Size in terms of the different number of blocks used in the seventeen \ms~programs, and the smells they exhibit}
 \label{tab:robotica}
 \sffamily
+\begin{small}
 \begin{tabular}{l|lllll|lll|lllllllll}
 Name & L1  & L2 & L3  & L4  & L5  & L6  & L7  & L8  & L9  & L10 & L11 & L12 & L13 & L14 & L15 & L16 & L17 \\
 \hline
@@ -350,6 +352,7 @@ Unused Field                                           &   &  &   & \ding{51} & 
 No-op                                                  &   &  & \ding{51} &   &   &   &   &   &   &   &   &   &   & \ding{51} &   &   &  \\
 
 \end{tabular}
+\end{small}
 \end{table*}
 
 
@@ -413,32 +416,64 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs. We
 \caption{Size in terms of the different number of characters and rules used in the 17 Kodu programs, and the smells they exhibit}
 \label{tab:koduanalysis}
 \sffamily
-\begin{tabular}{l | lllllllllllllllll}
-Name & K1  & K2 & K3  & K4  & K5  & K6  & K7  & K8  & K9  & K10 & K11 & K12 & K13 & K14 & K15 & K16 & K17 \\
+\begin{small}
+\begin{tabular}{l | r@{\horiz }r@{\horiz }r@{ \horiz}r@{ \horiz}r@{\horiz }r@{ \horiz}r@{\horiz }r@{\horiz }r@{ \horiz}r@{ \horiz}r@{ \horiz}r@{\horiz }r@{\horiz }r@{ \horiz}r@{\horiz }r@{ \horiz}r@{\horiz } | r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r}
+Name & K1  & K2 & K3  & K4  & K5  & K6  & K7  & K8  & K9  & K10 & K11 & K12 & K13 & K14 & K15 & K16 & K17 & K18 & K19 & K20 & K21 & K22 & K23 & K24 & K25 & K26 & K27\\
 \hline
-Actors        & 6&17&39&21&62&60&85&26&26&60&42&45&57&36&5&15&28\\
-Pages 		&11&7&26&19&18&47&82&19&10&60&41&31&10&9&6&7&7\\
-Rules 		&21&17&60&28&31&96&93&29&20&120&58&63&22&35&14&18&23\\
+Actors        & 6&17&39&21&62&60&85&26&26&60&42&45&57&36&5&15&28
+&28&10&2&16&18&76&75&63&4&76
+\\
+Pages 		&11&7&26&19&18&47&82&19&10&60&41&31&10&9&6&7&7
+&34&16&2&39&18&9&50&90&8&78
+\\
+Rules 		&21&17&60&28&31&96&93&29&20&120&58&63&22&35&14&18&23
+&114&54&3&113&27&30&122&144&32&372
+\\
 %Tiles        	& 90&64&252&150&121&418&535&141&66&227&230&244&81&159&54&90&103\\
-HCI Actors & 1&2&1&1&2&1&1&1&1&1&1&1&1&0&2&1&1\\
+HCI Actors & 1&2&1&1&2&1&1&1&1&1&1&1&1&0&2&1&1
+& 5 & 1 & 0 & 0 & 1 & 1 & 1 & 37 & 0 & 2
+\\
 %\hline
 %Total        & 20 & 11 & 17 & 26 & 28 & 18 & 35 & 50 & 17 & 12 & 9 & 10 & 33 & 54 & 7 & 17 & 149\\
 \hline
 \hline
-Feature Envy                                         &   &  & \ding{51}  &   &   &   &   &   &   & \ding{51}  &   &   &   &   &   &   &   \\
-Long method                                        &  &  &  &   &   &\ding{51}   & &   & &   &   & \ding{51}  & \ding{51}  &   &   &   &    \\
-Inappropriate Intimacy                            &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   \\
-Lazy Class                                             &   & \ding{51} & \ding{51}  & \ding{51}  & \ding{51}  &\ding{51}   &\ding{51}   &\ding{51}   &\ding{51}   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &  \ding{51} &\ding{51}   \\
-Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
-Many Parameters                                        &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
-Duplicate Code                                        &   &  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   &   & \ding{51}  &\ding{51}   & \ding{51}  &   & \ding{51}  &   \\
-Dead Code                                              &   &  &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   &   &   &   \\
-Unused Field                                           &   &  &  \ding{51} &   &   &   &   &   & \ding{51}  &   &   & \ding{51}  &   &   & \ding{51}  &   &   \\
-No-op                                                  &   & \ding{51} &   &   &   &   &   &   &   & \ding{51}  &   & \ding{51}  & \ding{51}  & \ding{51}  &   &   &\ding{51}   \\
+Feature Envy                                         &   &  & \ding{51}  &   &   &   &   &   &   & \ding{51}  &   &   &   &   &   &   &   
+&  &  \ding{51}& & & & & \ding{51} & \ding{51} & & \ding{51}
+\\
+Long method                                        &  &  &  &   &   &\ding{51}   & &   & &   &   & \ding{51}  & \ding{51}  &   &   &   &    
+&  \ding{51}& \ding{51} & & & & & \ding{51} & & & \ding{51}
+\\
+Inapprop. Int.                            &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   
+& & & & & & & & & &
+\\
+Lazy Class                                             &   & \ding{51} & \ding{51}  & \ding{51}  & \ding{51}  &\ding{51}   &\ding{51}   &\ding{51}   &\ding{51}   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &  \ding{51} &\ding{51}   
+& \ding{51} & & \ding{51} & \ding{51} & &  \ding{51}&  \ding{51}&  \ding{51}& & \ding{51}
+\\
+Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   
+& & & & & & & \ding{51} & & &
+\\
+Many Params                                        &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   
+& \ding{51} &  \ding{51}& & & & & \ding{51} & \ding{51} & & \ding{51}
+\\
+Duplicate Code                                        &   &  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   &   & \ding{51}  &\ding{51}   & \ding{51}  &   & \ding{51}  &   
+& \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & & \ding{51} & \ding{51} & & \ding{51}
+\\
+Dead Code                                              &   &  &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   &   &   &   
+& & & & & & & \ding{51} & \ding{51} & &
+\\
+Unused Field                                           &   &  &  \ding{51} &   &   &   &   &   & \ding{51}  &   &   & \ding{51}  &   &   & \ding{51}  &   &   
+&  \ding{51}& & & & & & & \ding{51} & & \ding{51}
+\\
+No-op                                                  &   & \ding{51} &   &   &   &   &   &   &   & \ding{51}  &   & \ding{51}  & \ding{51}  & \ding{51}  &   &   &\ding{51}   
+& & \ding{51} & \ding{51} & & & &  \ding{51}&  \ding{51}& & \ding{51}
+\\
 \hline
-Total Smells & 0 & 2 & 4 & 1 & 1 & 3 & 2 & 2 & 3 & 2 & 1 & 5 & 5 & 3 & 2 & 3 & 2 \\
+Total Smells & 0 & 2 & 4 & 1 & 1 & 3 & 2 & 2 & 3 & 2 & 1 & 5 & 5 & 3 & 2 & 3 & 2 
+& 5&5 &3 &2 &1 &1 &8 &7 &0 &7
+\\
 
 \end{tabular}
+\end{small}
 \end{table*}
 
 
@@ -571,6 +606,8 @@ The threats to validity of this work inherit the threats to validity of the orig
 The three domains studied in this paper all happen to be dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains (e.g., Scratch is OO-based). 
 
 In addition, we note that the authors of this work have pioneered smell detection and refactoring research in spreadsheets and Yahoo!\ Pipes, but are not involved with LabVIEW. Thus, the opportunities for future work in this area may not be complete.  
+
+\todo{In Kodu, smells vs. design decisions}
 
 \section{Concluding Remarks}
 \label{sec:conclusions}
