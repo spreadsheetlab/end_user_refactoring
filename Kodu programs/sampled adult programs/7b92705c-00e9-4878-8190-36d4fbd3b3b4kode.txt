@@ -1,0 +1,188 @@
+Content\Xml\Levels\Downloads\7b92705c-00e9-4878-8190-36d4fbd3b3b4.Xml
+Ze Fishtank v01
+StaticXLSF
+5/24/2010 2:30:00 PM
+
+Fish 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Castle 1
+
+Tree 1
+
+Castle 2
+
+Castle 4
+
+Castle 3
+
+Fish 2
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Fish 3
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Fish 4
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Fish 5
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Fish 6
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Fish 7
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Fish 8
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Fish 9
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        3    sensor.bumpers filter.swimfish -- actuator.switchtask modifier.taskc 
+        4    sensor.timer filter.20seconds filter.random filter.60seconds filter.60seconds -- actuator.switchtask modifier.taskd 
+    Page  2
+        1    sensor.ears filter.fruit -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly 
+        2    sensor.bumpers filter.fruit -- actuator.eat modifier.it 
+        3    sensor.bumpers filter.fruit -- actuator.switchtask modifier.taska 
+        4    sensor.ears filter.fruit filter.not -- actuator.switchtask modifier.taska 
+    Page  3
+        1    sensor.ears filter.swimfish filter.closeby -- actuator.movement selector.avoidall modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.switchtask modifier.taska 
+    Page  4
+        1    sensor.ears filter.fruit -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second filter.random filter.20seconds -- actuator.switchtask modifier.taska 
+
+Turtle 1
+    Page  1
+        1    sensor.timer filter.02seconds filter.random filter.10seconds -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.movement selector.wander modifier.slowly modifier.slowly modifier.slowly 
+        2    sensor.timer filter.05seconds -- actuator.switchtask modifier.taska 
+
+Sub 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.wander 
+        2    sensor.timer filter.03seconds filter.random filter.20seconds -- actuator.launch modifier.objectfruit modifier.down 
