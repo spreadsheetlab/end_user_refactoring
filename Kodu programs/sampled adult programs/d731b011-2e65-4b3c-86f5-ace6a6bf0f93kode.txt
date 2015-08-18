@@ -1,0 +1,364 @@
+Content\Xml\Levels\Downloads\d731b011-2e65-4b3c-86f5-ace6a6bf0f93.Xml
+Tedanoo v25
+Ryan
+4/4/2010 5:30:48 PM
+
+Light 1
+
+Light 2
+
+Light 3
+    Page  1
+        1    sensor.eyes filter.turtle filter.closeby -- 
+
+Star 3 cloned 77f1e4cd-2e33-4d5c-8c3c-66d208925fa8
+    Page  1
+        1    sensor.always -- actuator.glow modifier.green 
+
+Star 4 cloned 77f1e4cd-2e33-4d5c-8c3c-66d208925fa8
+    Page  1
+        1    sensor.always -- actuator.glow modifier.green 
+
+Star 6 cloned 77f1e4cd-2e33-4d5c-8c3c-66d208925fa8
+    Page  1
+        1    sensor.always -- actuator.glow modifier.green 
+
+Star 7 cloned 77f1e4cd-2e33-4d5c-8c3c-66d208925fa8
+    Page  1
+        1    sensor.always -- actuator.glow modifier.green 
+
+Star 10 cloned 77f1e4cd-2e33-4d5c-8c3c-66d208925fa8
+    Page  1
+        1    sensor.always -- actuator.glow modifier.green 
+
+Apple 4 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 5 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 6 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 7 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 8 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 9 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 10 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 11 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 12 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 13 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Kodu 5
+    Page  1
+        1    sensor.bumpers filter.turtle -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.score modifier.scorebucket.letter.b modifier.010points modifier.once 
+        2    sensor.always -- actuator.turn modifier.turnleft 
+        3    sensor.timer filter.random filter.quartersecond filter.quartersecond -- actuator.launch 
+        4    sensor.always -- actuator.glow modifier.yellow 
+        5    sensor.timer filter.03seconds -- actuator.victory 
+
+Star 12 cloned 77f1e4cd-2e33-4d5c-8c3c-66d208925fa8
+    Page  1
+        1    sensor.always -- actuator.glow modifier.green 
+
+Star 14 cloned 77f1e4cd-2e33-4d5c-8c3c-66d208925fa8
+    Page  1
+        1    sensor.always -- actuator.glow modifier.green 
+
+Star 15 cloned 77f1e4cd-2e33-4d5c-8c3c-66d208925fa8
+    Page  1
+        1    sensor.always -- actuator.glow modifier.green 
+
+Apple 15 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 16 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Apple 14 cloned 69b7f121-b91f-4ca3-9318-ac6f971d68ba
+    Page  1
+        1    sensor.ears filter.turtle filter.closeby -- actuator.switchtask modifier.taskb 
+        2    sensor.always -- 
+    Page  2
+        1    sensor.always -- actuator.make modifier.creatable.01b65f29-7460-424c-9a2e-9c516b31ae9f 
+        2    sensor.always -- actuator.vanish 
+        3    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Push Pad 5
+    Page  1
+        1    sensor.timer filter.random filter.10seconds -- actuator.switchtask modifier.taskb 
+        2    sensor.health filter.000point -- actuator.make 
+        3    sensor.timer filter.random filter.03seconds -- actuator.say 
+        4    sensor.scored filter.scorebucket.letter.e filter.001point -- actuator.vanish 
+        5    sensor.always -- 
+    Page  2
+        1    sensor.eyes filter.turtle -- actuator.movement selector.towardclosest 
+        2    sensor.ears filter.turtle filter.closeby filter.not -- actuator.vanish 
+        3    sensor.bumpers filter.turtle -- actuator.damage modifier.010points modifier.005points 
+        4    sensor.bumpers filter.turtle -- actuator.boom modifier.me 
+        5    sensor.always -- actuator.movement selector.wander 
+        6    sensor.health filter.000point -- actuator.make 
+        7    sensor.scored filter.scorebucket.letter.e filter.001point -- actuator.vanish 
+        8    sensor.always -- 
+    Page  3
+        1    sensor.always -- 
+
+Push Pad 20
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 2
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 23
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 24
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 3
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 25
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 26
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 27
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 28
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 29
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 30
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 4
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 6
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 7
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 8
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 9
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 31
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 32
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 33
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 34
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 35
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 10
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 15
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 36
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 37
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 11
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 12
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 13
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 14
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 18
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 16
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 38
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 17
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 19
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 21
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 22
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 
+
+Push Pad 39
+    Page  1
+        1    sensor.gamepad filter.ybutton filter.player1 -- actuator.movement selector.followwaypoints modifier.white 

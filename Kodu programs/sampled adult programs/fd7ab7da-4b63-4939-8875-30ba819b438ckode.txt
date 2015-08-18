@@ -1,0 +1,606 @@
+Content\Xml\Levels\Downloads\fd7ab7da-4b63-4939-8875-30ba819b438c.Xml
+Sunny Mountain v05
+Tomajko
+5/5/2010 10:57:12 AM
+
+Cannon 1
+    Page  1
+        1    sensor.always -- actuator.glow modifier.glowoff 
+        2    sensor.always -- actuator.movement selector.wander modifier.slowly modifier.slowly modifier.slowly 
+        3    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.switchtask modifier.taskb 
+        4    sensor.health filter.000point -- actuator.make modifier.creatable.aeb7ec39-b564-4aa3-966d-2b6fda264bd1 modifier.once 
+    Page  2
+        1    sensor.always -- actuator.glow modifier.blue modifier.once 
+        2    sensor.eyes filter.bokubot filter.red filter.faraway -- actuator.switchtask modifier.taska 
+        3    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.movement selector.towardclosest modifier.quickly modifier.quickly modifier.quickly 
+        4    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.shoot2 modifier.projectile.missile modifier.trackinghoming 
+        5    sensor.bumpers filter.bokubot -- actuator.damage modifier.010points modifier.it 
+        6    sensor.bumpers filter.bokubot -- actuator.zap modifier.it modifier.once 
+        7    sensor.bumpers filter.bokubot -- actuator.launch modifier.strongly modifier.strongly modifier.strongly modifier.angle.low modifier.angle.low modifier.angle.low 
+        8    sensor.health filter.000point -- actuator.make modifier.creatable.aeb7ec39-b564-4aa3-966d-2b6fda264bd1 modifier.once 
+        9    sensor.health filter.000point -- actuator.boom modifier.me 
+        10    sensor.always -- actuator.movement modifier.constraint.immobile 
+
+Coin 3 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 4 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Star 2 cloned 0454bd61-4b81-443b-922c-e649c4db4dba
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- 
+        2     tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.orange modifier.once 
+        3     tab sensor.always -- actuator.sound modifier.event.arcade.win modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 2 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 6 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 9 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 10 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 11 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 12 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 13 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Tree 4
+
+Stick 4
+    Page  1
+        1    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.shoot2 modifier.projectile.blip modifier.purple 
+        2    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.turn modifier.turntoward 
+        3    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.glow modifier.blue modifier.once 
+        4    sensor.eyes filter.not -- actuator.glow modifier.glowoff modifier.once 
+        5    sensor.health filter.000point -- actuator.make modifier.creatable.aeb7ec39-b564-4aa3-966d-2b6fda264bd1 modifier.once 
+
+Kodu 2
+    Page  1
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.eyes filter.red filter.bokubot filter.closeby -- actuator.say modifier.once 
+        3    sensor.scored filter.scorebucket.color.white filter.001point -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.scored filter.scorebucket.color.white filter.002points -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.always -- actuator.camera.followme 
+        2    sensor.always -- actuator.say 
+        3    sensor.always -- actuator.movement modifier.constraint.immobile 
+        4    sensor.timer filter.10seconds filter.01second -- actuator.switchtask modifier.taskd 
+    Page  4
+        1    sensor.always -- actuator.camera.ignoreme 
+        2    sensor.always -- actuator.movement modifier.constraint.immobile 
+        3    sensor.always -- actuator.make modifier.creatable.0de72461-8d0e-42c1-b3a9-831c49159e25 modifier.once 
+        4    sensor.timer filter.10seconds -- actuator.switchtask modifier.taske 
+    Page  5
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.ears filter.red filter.bokubot filter.closeby -- actuator.say modifier.once 
+
+Coin 16 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Saucer 1
+    Page  1
+        1    sensor.eyes filter.stickboy filter.not -- 
+        2     tab sensor.always -- actuator.make modifier.creatable.0de72461-8d0e-42c1-b3a9-831c49159e25 modifier.once 
+        3     tab sensor.always -- actuator.vanish modifier.me modifier.once 
+
+Wisp 1
+    Page  1
+        1    sensor.always -- actuator.glow modifier.yellow 
+
+Light 2
+
+Coin 20 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 18 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Star 3 cloned 0454bd61-4b81-443b-922c-e649c4db4dba
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- 
+        2     tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.orange modifier.once 
+        3     tab sensor.always -- actuator.sound modifier.event.arcade.win modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Star 5 cloned 0454bd61-4b81-443b-922c-e649c4db4dba
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- 
+        2     tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.orange modifier.once 
+        3     tab sensor.always -- actuator.sound modifier.event.arcade.win modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 22 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 23 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 24 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 29 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 30 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 31 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 32 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 33 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 34 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 28 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 27 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 35 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 26 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 25 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 5 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Tree 3
+
+Flyfish 1
+    Page  1
+        1    sensor.always -- actuator.movement selector.followwaypoints 
+        2    sensor.ears filter.bokubot filter.red filter.closeby -- 
+        3     tab sensor.always -- actuator.say modifier.once 
+        4     tab sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        5    sensor.bumpers filter.red filter.bokubot -- 
+        6     tab sensor.always -- actuator.score modifier.scorebucket.color.white modifier.001point modifier.once 
+        7     tab sensor.always -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.say modifier.once 
+        2    sensor.terrain filter.terrain filter.not -- actuator.say 
+        3    sensor.ears filter.bokubot filter.red filter.not -- 
+        4     tab sensor.always -- actuator.unscore modifier.scorebucket.color.white modifier.001point modifier.once 
+        5     tab sensor.always -- actuator.switchtask modifier.taskc 
+        6    sensor.eyes filter.orange filter.bokubot filter.closeby -- 
+        7     tab sensor.always -- actuator.score modifier.scorebucket.color.white modifier.001point modifier.once 
+        8     tab sensor.always -- actuator.vanish modifier.me 
+    Page  3
+        1    sensor.always -- actuator.say 
+        2    sensor.bumpers filter.red filter.bokubot -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.white modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.switchtask modifier.taskd 
+    Page  4
+        1    sensor.always -- actuator.say 
+        2    sensor.terrain filter.terrain -- 
+        3     tab sensor.always -- actuator.unscore modifier.scorebucket.color.white modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.switchtask modifier.taske 
+    Page  5
+        1    sensor.always -- actuator.say modifier.once 
+        2    sensor.timer filter.02seconds -- actuator.switchtask modifier.taska 
+
+Coin 41 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 36 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 37 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 42 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 39 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 40 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 38 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 43 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 14 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 44 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 45 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 46 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 47 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 48 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 49 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 50 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Coin 51 cloned aeb7ec39-b564-4aa3-966d-2b6fda264bd1
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- actuator.heal modifier.002points modifier.it modifier.once 
+        2    sensor.bumpers filter.bokubot filter.red -- 
+        3     tab sensor.always -- actuator.score modifier.scorebucket.color.yellow modifier.001point modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Saucer 2
+    Page  1
+        1    sensor.eyes filter.red filter.bokubot filter.not -- 
+        2     tab sensor.always -- actuator.make modifier.creatable.252a01c5-ec2a-41c7-93f1-16ccad98ffd3 modifier.once 
+        3     tab sensor.gamepad filter.lefttrigger_analog -- actuator.make modifier.creatable.252a01c5-ec2a-41c7-93f1-16ccad98ffd3 modifier.once 
+
+Tree 9
+
+Tree 6
+
+Tree 7
+
+Hut 1
+
+Tree 1
+
+Star 6 cloned 0454bd61-4b81-443b-922c-e649c4db4dba
+    Page  1
+        1    sensor.bumpers filter.bokubot filter.red -- 
+        2     tab sensor.always -- actuator.score modifier.001point modifier.scorebucket.color.orange modifier.once 
+        3     tab sensor.always -- actuator.sound modifier.event.arcade.win modifier.once 
+        4     tab sensor.always -- actuator.vanish modifier.me 
+        5    sensor.always -- 
+
+Kodu 3
+    Page  1
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.eyes filter.bokubot filter.closeby -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.eyes filter.bokubot filter.closeby -- actuator.say modifier.once 
+        3    sensor.gamepad filter.bbutton -- actuator.switchtask modifier.taskc 
+    Page  3
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.always -- actuator.say modifier.once 
+        3    sensor.always -- actuator.switchtask modifier.taskd 
+    Page  4
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.eyes filter.bokubot filter.closeby -- actuator.say modifier.once 
+
+Apple 4 cloned afa0fd79-bc60-4bf0-b6c0-4a3a635b2014
+    Page  1
+        1    sensor.bumpers filter.red filter.bokubot -- actuator.score modifier.scorebucket.letter.a modifier.001point modifier.once 
+        2    sensor.bumpers filter.red filter.bokubot -- actuator.sound modifier.event.misc.pop modifier.once 
+        3    sensor.bumpers filter.red filter.bokubot -- actuator.vanish modifier.me 
+        4    sensor.always -- 
+
+Apple 2 cloned afa0fd79-bc60-4bf0-b6c0-4a3a635b2014
+    Page  1
+        1    sensor.bumpers filter.red filter.bokubot -- actuator.score modifier.scorebucket.letter.a modifier.001point modifier.once 
+        2    sensor.bumpers filter.red filter.bokubot -- actuator.sound modifier.event.misc.pop modifier.once 
+        3    sensor.bumpers filter.red filter.bokubot -- actuator.vanish modifier.me 
+        4    sensor.always -- 
+
+Apple 3 cloned afa0fd79-bc60-4bf0-b6c0-4a3a635b2014
+    Page  1
+        1    sensor.bumpers filter.red filter.bokubot -- actuator.score modifier.scorebucket.letter.a modifier.001point modifier.once 
+        2    sensor.bumpers filter.red filter.bokubot -- actuator.sound modifier.event.misc.pop modifier.once 
+        3    sensor.bumpers filter.red filter.bokubot -- actuator.vanish modifier.me 
+        4    sensor.always -- 
+
+Light 3
+
+Coin 7
+    Page  1
+        1    sensor.scored filter.scorebucket.color.white filter.000point -- 
+        2     tab sensor.always -- actuator.stopsound modifier.mu_brightdowntempo 
+        3     tab sensor.always -- actuator.sound modifier.mu_kodu 
+        4    sensor.scored filter.scorebucket.color.white filter.001point -- 
+        5     tab sensor.always -- actuator.stopsound modifier.mu_kodu 
+        6     tab sensor.always -- actuator.sound modifier.mu_brightdowntempo 
+        7    sensor.scored filter.scorebucket.color.white filter.002points -- 
+        8     tab sensor.always -- actuator.stopsound modifier.mu_brightdowntempo 
+        9     tab sensor.always -- actuator.sound modifier.mu_kodu 
+
+Tree 2
+
+Stick 8 cloned a277e681-39b7-4554-a95a-f69dd2908a34
+    Page  1
+        1    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.shoot2 modifier.projectile.blip modifier.purple 
+        2    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.turn modifier.turntoward 
+        3    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.glow modifier.blue modifier.once 
+        4    sensor.eyes filter.bokubot filter.red filter.not -- actuator.glow modifier.glowoff modifier.once 
+        5    sensor.health filter.000point -- actuator.make modifier.creatable.aeb7ec39-b564-4aa3-966d-2b6fda264bd1 modifier.once 
+        6    sensor.always -- 
+
+Stick 6 cloned a277e681-39b7-4554-a95a-f69dd2908a34
+    Page  1
+        1    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.shoot2 modifier.projectile.blip modifier.purple 
+        2    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.turn modifier.turntoward 
+        3    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.glow modifier.blue modifier.once 
+        4    sensor.eyes filter.bokubot filter.red filter.not -- actuator.glow modifier.glowoff modifier.once 
+        5    sensor.health filter.000point -- actuator.make modifier.creatable.aeb7ec39-b564-4aa3-966d-2b6fda264bd1 modifier.once 
+        6    sensor.always -- 
+
+Stick 2 cloned a277e681-39b7-4554-a95a-f69dd2908a34
+    Page  1
+        1    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.shoot2 modifier.projectile.blip modifier.purple 
+        2    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.turn modifier.turntoward 
+        3    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.glow modifier.blue modifier.once 
+        4    sensor.eyes filter.bokubot filter.red filter.not -- actuator.glow modifier.glowoff modifier.once 
+        5    sensor.health filter.000point -- actuator.make modifier.creatable.aeb7ec39-b564-4aa3-966d-2b6fda264bd1 modifier.once 
+        6    sensor.always -- 
+
+Stick 3 cloned a277e681-39b7-4554-a95a-f69dd2908a34
+    Page  1
+        1    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.shoot2 modifier.projectile.blip modifier.purple 
+        2    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.turn modifier.turntoward 
+        3    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.glow modifier.blue modifier.once 
+        4    sensor.eyes filter.bokubot filter.red filter.not -- actuator.glow modifier.glowoff modifier.once 
+        5    sensor.health filter.000point -- actuator.make modifier.creatable.aeb7ec39-b564-4aa3-966d-2b6fda264bd1 modifier.once 
+        6    sensor.always -- 
+
+Stick 1 cloned a277e681-39b7-4554-a95a-f69dd2908a34
+    Page  1
+        1    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.shoot2 modifier.projectile.blip modifier.purple 
+        2    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.turn modifier.turntoward 
+        3    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.glow modifier.blue modifier.once 
+        4    sensor.eyes filter.bokubot filter.red filter.not -- actuator.glow modifier.glowoff modifier.once 
+        5    sensor.health filter.000point -- actuator.make modifier.creatable.aeb7ec39-b564-4aa3-966d-2b6fda264bd1 modifier.once 
+        6    sensor.always -- 
+
+Sputnik 6
+    Page  1
+        1    sensor.eyes filter.bokubot filter.red filter.closeby -- actuator.movement selector.towardclosest 
+        2    sensor.eyes filter.bokubot filter.red filter.closeby -- 
+        3    sensor.bumpers filter.bokubot filter.red -- actuator.damage modifier.005points modifier.it modifier.once 
+        4    sensor.bumpers filter.bokubot filter.red -- actuator.vanish modifier.me modifier.once 
+        5    sensor.ears filter.bokubot filter.red filter.closeby -- actuator.glow modifier.blue modifier.once 
