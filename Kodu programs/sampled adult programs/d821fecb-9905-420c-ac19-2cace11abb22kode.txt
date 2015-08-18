@@ -1,0 +1,52 @@
+Content\Xml\Levels\Downloads\d821fecb-9905-420c-ac19-2cace11abb22.Xml
+race v01
+Rock2
+3/29/2010 5:28:37 AM
+
+Flyfish 2
+    Page  1
+        1    sensor.timer filter.05seconds filter.04seconds -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second -- actuator.say modifier.once 
+        3    sensor.timer filter.03seconds -- actuator.say modifier.once 
+        4    sensor.timer filter.04seconds filter.quartersecond filter.quartersecond -- actuator.say modifier.once 
+        5    sensor.timer filter.05seconds filter.01second -- actuator.say modifier.once 
+        6    sensor.timer filter.05seconds filter.03seconds -- actuator.say modifier.once 
+    Page  2
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.say 
+
+Flyfish 3
+    Page  1
+        1    sensor.timer filter.05seconds filter.04seconds -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second -- actuator.say modifier.once 
+        3    sensor.timer filter.03seconds -- actuator.say modifier.once 
+        4    sensor.timer filter.04seconds filter.quartersecond filter.quartersecond -- actuator.say modifier.once 
+        5    sensor.timer filter.05seconds filter.01second -- actuator.say modifier.once 
+        6    sensor.timer filter.05seconds filter.03seconds -- actuator.say modifier.once 
+    Page  2
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.say 
+
+Flyfish 4
+    Page  1
+        1    sensor.timer filter.05seconds filter.04seconds -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second -- actuator.say modifier.once 
+        3    sensor.timer filter.03seconds -- actuator.say modifier.once 
+        4    sensor.timer filter.04seconds filter.quartersecond filter.quartersecond -- actuator.say modifier.once 
+        5    sensor.timer filter.05seconds filter.01second -- actuator.say modifier.once 
+        6    sensor.timer filter.05seconds filter.03seconds -- actuator.say modifier.once 
+    Page  2
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.say 
+
+Flyfish 1
+    Page  1
+        1    sensor.timer filter.05seconds filter.04seconds -- actuator.switchtask modifier.taskb 
+        2    sensor.timer filter.01second -- actuator.say modifier.once 
+        3    sensor.timer filter.03seconds -- actuator.say modifier.once 
+        4    sensor.timer filter.04seconds filter.quartersecond filter.quartersecond -- actuator.say modifier.once 
+        5    sensor.timer filter.05seconds filter.01second -- actuator.say modifier.once 
+        6    sensor.timer filter.05seconds filter.03seconds -- actuator.say modifier.once 
+    Page  2
+        1    sensor.always -- actuator.movement selector.followwaypoints modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.03seconds -- actuator.say 

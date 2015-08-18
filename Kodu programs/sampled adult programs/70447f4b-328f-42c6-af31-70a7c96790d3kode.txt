@@ -1,0 +1,13 @@
+Content\Xml\Levels\Downloads\70447f4b-328f-42c6-af31-70a7c96790d3.Xml
+Blimps and Jets
+Paul
+3/2/2010 11:25:38 AM
+
+Jet 1
+    Page  1
+        1    sensor.bumpers filter.windblimp -- actuator.score modifier.002points 
+        2    sensor.bumpers filter.windblimp -- actuator.switchtask modifier.taskb 
+    Page  2
+        1    sensor.health -- 
+
+Blimp 1

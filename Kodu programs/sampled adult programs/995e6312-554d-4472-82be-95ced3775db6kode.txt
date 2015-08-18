@@ -1,0 +1,195 @@
+Content\Xml\Levels\Downloads\995e6312-554d-4472-82be-95ced3775db6.Xml
+safe house v10
+g atkinson183
+6/7/2010 10:15:09 AM
+
+Kodu 1
+    Page  1
+        1    sensor.scored filter.005points -- actuator.gameover 
+        2    sensor.always -- actuator.score modifier.100points modifier.once 
+        3    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        4    sensor.gamepad filter.righttrigger_analog -- actuator.shoot2 modifier.projectile.missile 
+        5    sensor.gamepad filter.lefttrigger_analog -- actuator.movement modifier.quickly 
+        6    sensor.bumpers filter.hut -- actuator.victory 
+
+Hut 1
+
+Tree 1
+
+Tree 2
+
+Tree 4
+
+Tree 5
+
+Tree 6
+
+Tree 7
+
+Tree 8
+
+Tree 9
+
+Tree 10
+
+Tree 11
+
+Tree 12
+
+Tree 13
+
+Tree 14
+
+Tree 15
+
+Tree 16
+
+Tree 17
+
+Tree 18
+
+Tree 19
+
+Tree 20
+
+Tree 22
+
+Tree 23
+
+Tree 24
+
+Tree 25
+
+Tree 26
+
+Tree 27
+
+Tree 28
+
+Tree 29
+
+Tree 31
+
+Tree 32
+
+Tree 36
+
+Tree 37
+
+Tree 38
+
+Tree 39
+
+Tree 40
+
+Tree 41
+
+Tree 42
+
+Tree 43
+
+Tree 44
+
+Tree 47
+
+Tree 48
+
+Tree 49
+
+Tree 53
+
+Tree 54
+
+Tree 55
+
+Tree 56
+
+Tree 57
+
+Tree 58
+
+Tree 59
+
+Tree 60
+
+Tree 61
+
+Tree 62
+
+Tree 63
+
+Tree 64
+
+Tree 65
+
+Tree 66
+
+Tree 67
+
+Tree 68
+
+Tree 69
+
+Tree 70
+
+Tree 71
+
+Tree 72
+
+Tree 73
+
+Tree 74
+
+Tree 75
+
+Tree 76
+
+Tree 77
+
+Cycle 7
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.wander 
+        3    sensor.missilehit filter.bokubot -- actuator.unscore modifier.005points 
+
+Cycle 1
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.wander 
+        3    sensor.missilehit filter.bokubot -- actuator.unscore modifier.005points 
+
+Cycle 2
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.wander 
+        3    sensor.missilehit filter.bokubot -- actuator.unscore modifier.005points 
+
+Cycle 3
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.wander 
+        3    sensor.missilehit filter.bokubot -- actuator.unscore modifier.005points 
+
+Cycle 4
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.wander 
+        3    sensor.missilehit filter.bokubot -- actuator.unscore modifier.005points 
+
+Cycle 5
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.wander 
+        3    sensor.missilehit filter.bokubot -- actuator.unscore modifier.005points 
+
+Cycle 6
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.wander 
+        3    sensor.missilehit filter.bokubot -- actuator.unscore modifier.005points 
+
+Cycle 8
+    Page  1
+        1    sensor.eyes filter.bokubot -- actuator.shoot2 modifier.projectile.missile modifier.payloadzap 
+        2    sensor.always -- actuator.movement selector.wander 
+        3    sensor.missilehit filter.bokubot -- actuator.unscore modifier.005points 

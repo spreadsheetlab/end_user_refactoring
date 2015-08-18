@@ -416,27 +416,27 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs. We
 \begin{tabular}{l | lllllllllllllllll}
 Name & K1  & K2 & K3  & K4  & K5  & K6  & K7  & K8  & K9  & K10 & K11 & K12 & K13 & K14 & K15 & K16 & K17 \\
 \hline
-Actors        & 6&13&38&21&61&60&85&26&26&60&42&43&47&30&5&15&27\\
-Tiles        	& 90&58&244&150&120&418&535&140&65&170&230&229&71&159&54&88&103\\
-Rules 	&21&17&60&28&31&96&93&29&20&120&58&63&22&35&14&18&23\\
-Pages 	&4&60&42&9&7&10&26&19&18&60&47&6&22&11&23&19&1\\
+Actors        & 6&17&39&21&62&60&85&26&26&60&42&45&57&36&5&15&28\\
+Pages 		&11&7&26&19&18&47&82&19&10&60&41&31&10&9&6&7&7\\
+Rules 		&21&17&60&28&31&96&93&29&20&120&58&63&22&35&14&18&23\\
+%Tiles        	& 90&64&252&150&121&418&535&141&66&227&230&244&81&159&54&90&103\\
 HCI Actors & 1&2&1&1&2&1&1&1&1&1&1&1&1&0&2&1&1\\
 %\hline
 %Total        & 20 & 11 & 17 & 26 & 28 & 18 & 35 & 50 & 17 & 12 & 9 & 10 & 33 & 54 & 7 & 17 & 149\\
 \hline
 \hline
 Feature Envy                                         &   &  & \ding{51}  &   &   &   &   &   &   & \ding{51}  &   &   &   &   &   &   &   \\
-Long method                                        &  &  \ding{51} &  &   & \ding{51}  &\ding{51}   &\ding{51}   &   & \ding{51}  &\ding{51}   &   & \ding{51}  & \ding{51}  &\ding{51}   &   & \ding{51}  & \ding{51}    \\
+Long method                                        &  &  &  &   &   &\ding{51}   & &   & &   &   & \ding{51}  & \ding{51}  &   &   &   &    \\
 Inappropriate Intimacy                            &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   \\
 Lazy Class                                             &   & \ding{51} & \ding{51}  & \ding{51}  & \ding{51}  &\ding{51}   &\ding{51}   &\ding{51}   &\ding{51}   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &  \ding{51} &\ding{51}   \\
 Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
-Many Parameters                                        &   & \ding{51} & \ding{51}  &   &   & \ding{51}  &   &   & \ding{51}  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   \\
-Duplicate Code                                        &   &  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   &   & \ding{51}  &   &   &   & \ding{51}  &   \\
+Many Parameters                                        &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+Duplicate Code                                        &   &  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   &   & \ding{51}  &\ding{51}   & \ding{51}  &   & \ding{51}  &   \\
 Dead Code                                              &   &  &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   &   &   &   \\
 Unused Field                                           &   &  &  \ding{51} &   &   &   &   &   & \ding{51}  &   &   & \ding{51}  &   &   & \ding{51}  &   &   \\
 No-op                                                  &   & \ding{51} &   &   &   &   &   &   &   & \ding{51}  &   & \ding{51}  & \ding{51}  & \ding{51}  &   &   &\ding{51}   \\
 \hline
-Total Smells & 0 & 4 & 5 & 1 & 2 & 4 & 3 & 2 & 5 & 4 & 1 & 5 & 5 & 4 & 3 & 5 & 3 \\
+Total Smells & 0 & 2 & 4 & 1 & 1 & 3 & 2 & 2 & 3 & 2 & 1 & 5 & 5 & 3 & 2 & 3 & 2 \\
 
 \end{tabular}
 \end{table*}
@@ -447,6 +447,14 @@ To determine if Kodu programs indeed suffer form the above defined smells, we ha
 We ran a workshop that introduced children to Kodu Game Lab in a series of three 3-hour sessions.  To recruit participants, we advertised the Kodu workshop using a mailing list of parents interested in Kodu.  Twenty-seven children (9 girls) between the ages of 9 and 12 volunteered to participate, with parental consent.
 
 \subsubsection{Findings}
+
+=======
+Analysis parameters:
+\begin{itemize}
+\item Long Method needs to have 10 or more rules
+\item Many parameters needs 4 or more score buckets
+\end{itemize}
+
 
 \subsubsection{Summary}
 

@@ -1,0 +1,208 @@
+Content\Xml\Levels\Downloads\025220e3-5ef5-43c0-9547-1f8036ec4759.Xml
+Mega RPG (unfinished)
+King Wut
+8/21/2009 8:29:20 AM
+
+Wisp 1
+    Page  1
+        1    sensor.bumpers filter.terracannon -- actuator.say 
+        2    sensor.bumpers filter.sputnik -- actuator.say 
+        3    sensor.bumpers filter.drum -- actuator.say 
+        4    sensor.bumpers filter.turtle -- actuator.say 
+        5    sensor.gamepad filter.leftstick -- actuator.movement 
+        6    sensor.bumpers filter.anything -- actuator.vanish modifier.me 
+        7    sensor.terrain filter.terrain -- actuator.reset 
+        8    sensor.always -- actuator.say 
+
+Sputnik 1
+    Page  1
+        1    sensor.always -- actuator.say 
+        2    sensor.bumpers filter.wisp filter.Grey -- actuator.switchtask modifier.taskb 
+        3    sensor.always -- actuator.movement modifier.constraint.immobile 
+    Page  2
+        1    sensor.always -- actuator.color modifier.blue 
+        2    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        3    sensor.gamepad filter.abutton -- actuator.shoot2 modifier.projectile.blip 
+        4    sensor.gamepad filter.righttrigger_analog -- actuator.switchtask modifier.taskc 
+        5    sensor.bumpers filter.coin -- actuator.score modifier.005points modifier.scorebucket.color.yellow 
+        6    sensor.always -- actuator.glow modifier.glowoff 
+        7    sensor.terrain filter.terrain -- actuator.heal modifier.100points modifier.once 
+    Page  3
+        1    sensor.always -- actuator.glow modifier.colorrandom 
+        2    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly modifier.quickly modifier.quickly 
+        3    sensor.gamepad filter.abutton -- actuator.shoot2 modifier.projectile.blip 
+        4    sensor.timer filter.01second -- actuator.heal modifier.002points 
+        5    sensor.timer filter.10seconds -- actuator.switchtask modifier.taskb 
+        6    sensor.always -- actuator.say 
+
+Cannon 1
+    Page  1
+        1    sensor.always -- actuator.say 
+        2    sensor.bumpers filter.wisp filter.Grey -- actuator.switchtask modifier.taskb 
+        3    sensor.always -- actuator.movement modifier.constraint.immobile 
+    Page  2
+        1    sensor.always -- actuator.color modifier.red 
+        2    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        3    sensor.gamepad filter.abutton -- actuator.launch modifier.creatable.ea1dce64-5788-424b-9ef5-68234922f2a4 modifier.angle.low modifier.angle.low modifier.angle.low modifier.weakly 
+        4    sensor.gamepad filter.abutton -- actuator.switchtask modifier.taskc 
+        5    sensor.gamepad filter.righttrigger_analog -- actuator.switchtask modifier.taskd 
+        6    sensor.bumpers filter.coin -- actuator.score modifier.005points modifier.scorebucket.color.yellow 
+        7    sensor.always -- actuator.glow modifier.glowoff 
+        8    sensor.terrain filter.terrain -- actuator.heal modifier.100points modifier.once 
+    Page  3
+        1    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        2    sensor.timer filter.quartersecond filter.quartersecond filter.quartersecond -- actuator.switchtask modifier.taskb 
+    Page  4
+        1    sensor.always -- actuator.glow modifier.red 
+        2    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        3    sensor.gamepad filter.abutton -- actuator.launch modifier.angle.low modifier.angle.low modifier.angle.low modifier.weakly modifier.creatable.e3090c92-59de-41f0-aecf-64ceb519a54c 
+        4    sensor.gamepad filter.abutton -- actuator.switchtask modifier.taske 
+        5    sensor.timer filter.01second -- actuator.damage modifier.001point 
+        6    sensor.gamepad filter.righttrigger_analog -- actuator.switchtask modifier.taskb 
+    Page  5
+        1    sensor.always -- actuator.glow modifier.red 
+        2    sensor.gamepad filter.leftstick -- actuator.movement 
+        3    sensor.timer filter.quartersecond filter.quartersecond -- actuator.switchtask modifier.taskd 
+        4    sensor.always -- actuator.damage modifier.001point modifier.once 
+
+Turtle 1
+    Page  1
+        1    sensor.always -- actuator.say 
+        2    sensor.bumpers filter.wisp filter.Grey -- actuator.switchtask modifier.taskb 
+        3    sensor.always -- actuator.movement modifier.constraint.immobile 
+        4    sensor.terrain filter.terrain -- actuator.heal modifier.100points modifier.once 
+    Page  2
+        1    sensor.always -- actuator.color modifier.black 
+        2    sensor.always -- actuator.glow modifier.glowoff 
+        3    sensor.gamepad filter.leftstick -- actuator.movement modifier.quickly 
+        4    sensor.gamepad filter.abutton -- actuator.launch modifier.creatable.a3b9e7ce-4b03-4682-8399-77e976fc1e2b modifier.weakly modifier.angle.low modifier.angle.low 
+        5    sensor.gamepad filter.abutton -- actuator.switchtask modifier.taskc 
+        6    sensor.gamepad filter.righttrigger_analog -- actuator.switchtask modifier.taskd 
+        7    sensor.bumpers filter.coin -- actuator.score modifier.005points modifier.scorebucket.color.yellow 
+        8    sensor.terrain filter.terrain -- actuator.heal modifier.100points modifier.once 
+    Page  3
+        1    sensor.gamepad filter.leftstick -- actuator.movement 
+        2    sensor.timer filter.quartersecond filter.quartersecond -- actuator.switchtask modifier.taskb 
+    Page  4
+        1    sensor.always -- actuator.glow modifier.grey 
+        2    sensor.always -- actuator.color modifier.grey 
+        3    sensor.bumpers filter.anything -- actuator.switchtask modifier.taskb 
+        4    sensor.gamepad filter.leftstick -- actuator.movement modifier.slowly modifier.slowly 
+        5    sensor.gamepad filter.righttrigger_analog -- actuator.switchtask modifier.taskb 
+
+Drum 1
+    Page  1
+        1    sensor.always -- actuator.say 
+        2    sensor.bumpers filter.wisp -- actuator.switchtask modifier.taskb 
+        3    sensor.always -- actuator.movement modifier.constraint.immobile 
+    Page  2
+        1    sensor.always -- actuator.color modifier.green 
+        2    sensor.gamepad filter.leftstick -- actuator.movement 
+        3    sensor.gamepad filter.abutton -- actuator.launch modifier.creatable.eb4e2562-29c9-43a0-9982-487c5cbb524b 
+        4    sensor.gamepad filter.abutton -- actuator.switchtask modifier.taskc 
+        5    sensor.gamepad filter.righttrigger_analog -- actuator.switchtask modifier.taskd 
+        6    sensor.gamepad filter.ybutton -- actuator.launch modifier.creatable.7310053e-2f60-4237-845d-23044a5522e7 modifier.up modifier.strongly modifier.strongly modifier.strongly 
+        7    sensor.gamepad filter.ybutton -- actuator.switchtask modifier.taske 
+        8    sensor.bumpers filter.heart -- actuator.heal modifier.010points modifier.me 
+        9    sensor.bumpers filter.heart -- actuator.vanish modifier.it 
+        10    sensor.bumpers filter.coin -- actuator.score modifier.005points modifier.scorebucket.color.yellow 
+        11    sensor.terrain filter.terrain -- actuator.heal modifier.100points modifier.once 
+    Page  3
+        1    sensor.timer filter.quartersecond filter.quartersecond -- actuator.switchtask modifier.taskb 
+        2    sensor.gamepad filter.leftstick -- actuator.movement 
+    Page  4
+        1    sensor.always -- actuator.turn modifier.turnright modifier.quickly modifier.quickly modifier.quickly 
+        2    sensor.timer filter.quartersecond -- actuator.launch modifier.creatable.eb4e2562-29c9-43a0-9982-487c5cbb524b 
+        3    sensor.timer filter.02seconds filter.quartersecond filter.quartersecond -- actuator.switchtask modifier.taskb 
+        4    sensor.timer filter.quartersecond -- actuator.color modifier.colorrandom 
+    Page  5
+        1    sensor.gamepad filter.leftstick -- actuator.movement 
+        2    sensor.timer filter.01second -- actuator.switchtask modifier.taskb 
+
+Tree 1
+    Page  1
+        1    sensor.eyes filter.not filter.fastbot filter.Black -- actuator.make modifier.creatable.36bec0b6-b24a-4dff-882e-22df0ea4b11b 
+        2    sensor.health filter.000point -- actuator.make modifier.creatable.9132c9e7-bc8c-44c0-9ec6-fc52b38d567d 
+
+Tree 2
+    Page  1
+        1    sensor.eyes filter.not filter.fastbot filter.Grey -- actuator.make modifier.creatable.36bec0b6-b24a-4dff-882e-22df0ea4b11b modifier.grey 
+
+Stick 1
+    Page  1
+        1    sensor.always -- actuator.say 
+
+Stick 2
+    Page  1
+        1    sensor.bumpers filter.anybot -- actuator.say modifier.once 
+        2    sensor.always -- actuator.say 
+
+Stick 6
+    Page  1
+        1    sensor.bumpers filter.anybot -- actuator.say modifier.once 
+        2    sensor.always -- actuator.say 
+
+Stick 5
+    Page  1
+        1    sensor.bumpers filter.anybot -- actuator.say modifier.once 
+        2    sensor.always -- actuator.say 
+
+Stick 4
+    Page  1
+        1    sensor.bumpers filter.anybot -- actuator.say modifier.once 
+        2    sensor.always -- actuator.say 
+
+Stick 3
+    Page  1
+        1    sensor.bumpers filter.anybot -- actuator.say modifier.once 
+        2    sensor.always -- actuator.say 
+
+Stick 7
+    Page  1
+        1    sensor.bumpers filter.anybot -- actuator.say modifier.once 
+        2    sensor.always -- actuator.say 
+
+Stick 8
+    Page  1
+        1    sensor.bumpers filter.anybot -- actuator.say modifier.once 
+        2    sensor.always -- actuator.say 
+
+Hut 1
+
+Hut 2
+
+Factory 1
+
+Hut 3
+
+Hut 4
+
+Hut 6
+
+Hut 5
+
+Stick 9
+    Page  1
+        1    sensor.always -- actuator.say 
+
+Kodu 1
+    Page  1
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+
+Kodu 2
+    Page  1
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.bumpers filter.anybot -- actuator.say modifier.once 
+
+Kodu 3
+    Page  1
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+
+Kodu 5
+    Page  1
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+
+Kodu 4
+    Page  1
+        1    sensor.always -- actuator.movement modifier.constraint.immobile 
+        2    sensor.eyes filter.anybot filter.closeby -- actuator.say 
