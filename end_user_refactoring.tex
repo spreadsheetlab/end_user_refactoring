@@ -268,10 +268,11 @@ In Section~\ref{sec:smells}, we distill a catalog of end-user smells from previo
 In addition to the programming concepts described above, users have the possibility to define `\mbs' which basically are subroutines. \mbs~may have up to 9 different input and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and creating a new block for them, together with a call to the newly created block, an action extremely similar to `extract method' present in most modern IDEs. 
 
 \subsubsection{Smells  in \ms}
-In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In EV3 programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes and worksheets in spreadsheets. Based on this translation, we investigate which of the smells in our catalog could apply to EV3 programs too. 
+In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In EV3 programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes and worksheets in spreadsheets. Based on this translation, we investigate which of the smells in our catalog could apply to EV3 programs too. \todo{in what order should we present the smells? I think alphabetical makes more sense than no ordering?}
 
 \begin{description}
 \item[Dead Code] It is possible for programming blocks to be disconnected, but the interface clearly indicates this by making them gray \todo{added picture here?}. However, unused \mbs~can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large.
+\item[Deprecated Interfaces] This is a smell that does not apply, as, to date, there is only one version of the EV3 software and no blocks have been depreciated.
 \item[Duplicate Code] When the same, or very similar combinations of blocks occur, this would be the duplicate code smell.
 \item[Feature envy] While all defined variables within EV3 programs are global, they can be written in a certain \mb~but read in a different one. If, in a given \mb~many variables are read that have been written somewhere else, this might be an occurrence of the feature envy smell. 
 \item[Inappropriate Intimacy] Variables might be read in one \mb~but written somewhere else. If there are two \mbs~sharing multiple variables this way, it might be better to combine them.
@@ -281,7 +282,7 @@ In this subsection we describe how the smells in our OO-inspired catalog apply t
 \item[Message Chain] Because \mbs~can have both input and output parameters, it is possible that they created a message chain in which values are continuously passed until they are used, while they could have been passed outside of the \mbs~.
 \item[No-op] It is possible to combine blocks in such a fashion that they do not actually contribute to the functionality of the program. For example, it a user stops the same motor twice, the second stop will be a no-op.
 \item[Unused Field] As explained above, \mbs~can define parameters. However, the user is not forced to use them, hence it is possible to define more parameters than used.
-\item[Use of Deprecated Interfaces] This is a smell that does not apply, as, to date, there is only one version of the EV3 software and no blocks have been depreciated.
+
 \end{description}
 
 
@@ -321,7 +322,7 @@ Looking at the EV3 programming interface, it is not that surprising that users f
 \begin{table*}[]
 \centering
 
-\caption{Size in terms of the different number of blocks used in the seventeen \ms~programs, and the smells they exhibit}
+\caption{Size in terms of the different number of blocks used in the seventeen \ms~programs, and the smells they exhibit \todo{deprecated interfaces?}}
 \label{tab:robotica}
 \sffamily
 \begin{small}
@@ -340,17 +341,17 @@ MyBlocks     & 3  & 0  & 3  & 2  & 3  & 2  & 2  & 4  & 0  & 1  & 0 & 1  & 0  & 4
 Total        & 20 & 11 & 17 & 26 & 28 & 18 & 35 & 50 & 17 & 12 & 9 & 10 & 33 & 54 & 7 & 17 & 149\\
 \hline
 \hline
+Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   & \ding{51} & \ding{51} &   &   &   &   &   & \ding{51} &   &   & \ding{51} \\
+Deprecated                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} &   & \ding{51} &   &   & \ding{51} & \ding{51} \\
 Feature Envy                                           & \ding{51} &  & \ding{51} & \ding{51} &   &   &   &   &   &   &   &   &   &   &   &   &   \\
-Long method                                            &   &  &   &   & \ding{51} &   &   &   &   & \ding{51} &   &   &   & \ding{51} &   &   & \ding{51}   \\
 Inappropriate Intimacy                                 &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
 Lazy Class                                             & \ding{51} &  & \ding{51} & \ding{51} &   & \ding{51} &   &   &   &   &   &   &   &   &   &   &   \\
-Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+Long method                                            &   &  &   &   & \ding{51} &   &   &   &   & \ding{51} &   &   &   & \ding{51} &   &   & \ding{51}   \\
 Many Parameters                                        &   &  &   &   &   &   &   &   &   &   &   & \ding{51} &   &   &   &   &   \\
-Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} &   & \ding{51} &   &   & \ding{51} & \ding{51} \\
-Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   & \ding{51} & \ding{51} &   &   &   &   &   & \ding{51} &   &   & \ding{51} \\
-Unused Field                                           &   &  &   & \ding{51} &   &   &   &   &   &   &   &   &   & \ding{51} &   &   &   \\
+Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
 No-op                                                  &   &  & \ding{51} &   &   &   &   &   &   &   &   &   &   & \ding{51} &   &   &  \\
-
+Unused Field                                           &   &  &   & \ding{51} &   &   &   &   &   &   &   &   &   & \ding{51} &   &   &   \\
 \end{tabular}
 \end{small}
 \end{table*}
@@ -395,7 +396,8 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs. We
 
 \begin{description}
 \item[Dead Code] If there exists a page with programming such that there is no explicit path of control flow from Page~1 to it, it is unreachable and therefore dead. 
-\item[Duplicate Code] Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same sensor and filter but different actuators could be consolidated using the indent feature and thus are smelly. 
+\item[Deprecated Interfaces] Some language features and bots may exist in early versions of Kodu but not be available in future versions. use of these deprecated entities may cause unexpected behavior when running an old program in a new environment and be smelly. 
+\item[Duplicate Code] Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same \emph{when} clauses (i.e., sensor and filter) but different actions could be consolidated using the indent feature and thus are smelly. 
 \item[Feature envy] All global variables, such as game scores, can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell. 
 \item[Inappropriate Intimacy] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy). If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
 \item[Lazy Class] If a character has no programming, it could be an instance of the lazy smell. 
@@ -405,7 +407,6 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs. We
 \item[Message Chain] It is possible for a character to create a chain of switches between pages without any logic on the page other than the jump. This would create a long and unnecessary message chain. 
 \item[No-op] Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck in that state. Alternatively, rules with 'when' clauses but no 'do' clauses do not perform any actions. 
 \item[Unused Field] A global variable that is written to but not read is an instance of the the unused field smell. 
-\item[Use of Deprecated Interfaces] Some language features and bots may exist in early versions of Kodu but not be available in future versions. use of these deprecated entities may cause unexpected behavior when running an old program in a new environment and be smelly. 
 
 %\todo{emailed scoy at Microsoft about this}
 \end{description}
@@ -422,7 +423,7 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs. We
 \begin{tabular}{l | r@{\horiz }r@{\horiz }r@{ \horiz}r@{ \horiz}r@{\horiz }r@{ \horiz}r@{\horiz }r@{\horiz }r@{ \horiz}r@{ \horiz}r@{ \horiz}r@{\horiz }r@{\horiz }r@{ \horiz}r@{\horiz }r@{ \horiz}r@{\horiz } | r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r@{\horiz }r}
 Name & K1  & K2 & K3  & K4  & K5  & K6  & K7  & K8  & K9  & K10 & K11 & K12 & K13 & K14 & K15 & K16 & K17 & K18 & K19 & K20 & K21 & K22 & K23 & K24 & K25 & K26 & K27\\
 \hline
-Actors        & 6&17&39&21&62&60&85&26&26&60&42&45&57&36&5&15&28
+Characters        & 6&17&39&21&62&60&85&26&26&60&42&45&57&36&5&15&28
 &28&10&2&16&18&76&75&63&4&76
 \\
 Pages 		&11&7&26&19&18&47&82&19&10&60&41&31&10&9&6&7&7
@@ -439,11 +440,17 @@ HCI Actors & 1&2&1&1&2&1&1&1&1&1&1&1&1&0&2&1&1
 %Total        & 20 & 11 & 17 & 26 & 28 & 18 & 35 & 50 & 17 & 12 & 9 & 10 & 33 & 54 & 7 & 17 & 149\\
 \hline
 \hline
+Dead Code                                              &   &  &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   &   &   &   
+& & & & & & & \ding{51} & \ding{51} & &
+\\
+Deprecated                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   
+& & & & & & &  & & & 
+\\
+Duplicate Code                                        &   &  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   &   & \ding{51}  &\ding{51}   & \ding{51}  &   & \ding{51}  &   
+& \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & & \ding{51} & \ding{51} & & \ding{51}
+\\
 Feature Envy                                         &   &  & \ding{51}  &   &   &   &   &   &   & \ding{51}  &   &   &   &   &   &   &   
 &  &  \ding{51}& & & & & \ding{51} & \ding{51} & & \ding{51}
-\\
-Long method                                        &  &  &  &   &   &\ding{51}   & &   & &   &   & \ding{51}  & \ding{51}  &   &   &   &    
-&  \ding{51}& \ding{51} & & & & & \ding{51} & & & \ding{51}
 \\
 Inapprop. Int.                            &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   
 & & & & & & & & & &
@@ -451,23 +458,20 @@ Inapprop. Int.                            &   &  &   &   &   &   &   &   &   &  
 Lazy Class                                             &   & \ding{51} & \ding{51}  & \ding{51}  & \ding{51}  &\ding{51}   &\ding{51}   &\ding{51}   &\ding{51}   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &  \ding{51} &\ding{51}   
 & \ding{51} & & \ding{51} & \ding{51} & &  \ding{51}&  \ding{51}&  \ding{51}& & \ding{51}
 \\
-Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   
-& & & & & & & \ding{51} & & &
+Long method                                        &  &  &  &   &   &\ding{51}   & &   & &   &   & \ding{51}  & \ding{51}  &   &   &   &    
+&  \ding{51}& \ding{51} & & & & & \ding{51} & & & \ding{51}
 \\
 Many Params                                        &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   
 & \ding{51} &  \ding{51}& & & & & \ding{51} & \ding{51} & & \ding{51}
 \\
-Duplicate Code                                        &   &  & \ding{51}  &   &   & \ding{51}  & \ding{51}  & \ding{51}  & \ding{51}  &   &   & \ding{51}  &\ding{51}   & \ding{51}  &   & \ding{51}  &   
-& \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & & \ding{51} & \ding{51} & & \ding{51}
-\\
-Dead Code                                              &   &  &   &   &   &   &   &   &   &   &   &   &  \ding{51} &   &   &   &   
-& & & & & & & \ding{51} & \ding{51} & &
-\\
-Unused Field                                           &   &  &  \ding{51} &   &   &   &   &   & \ding{51}  &   &   & \ding{51}  &   &   & \ding{51}  &   &   
-&  \ding{51}& & & & & & & \ding{51} & & \ding{51}
+Message Chain                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   
+& & & & & & & \ding{51} & & &
 \\
 No-op                                                  &   & \ding{51} &   &   &   &   &   &   &   & \ding{51}  &   & \ding{51}  & \ding{51}  & \ding{51}  &   &   &\ding{51}   
 & & \ding{51} & \ding{51} & & & &  \ding{51}&  \ding{51}& & \ding{51}
+\\
+Unused Field                                           &   &  &  \ding{51} &   &   &   &   &   & \ding{51}  &   &   & \ding{51}  &   &   & \ding{51}  &   &   
+&  \ding{51}& & & & & & & \ding{51} & & \ding{51}
 \\
 \hline
 Total Smells & 0 & 2 & 4 & 1 & 1 & 3 & 2 & 2 & 3 & 2 & 1 & 5 & 5 & 3 & 2 & 3 & 2 
@@ -481,28 +485,41 @@ Total Smells & 0 & 2 & 4 & 1 & 1 & 3 & 2 & 2 & 3 & 2 & 1 & 5 & 5 & 3 & 2 & 3 & 2
 
 \subsubsection{Study Context}
 To determine if Kodu programs indeed suffer form the above defined smells, we have gathered  programs from two data sources. 
-We ran a workshop that introduced children to Kodu Game Lab in a series of three 3-hour sessions.  To recruit participants, we advertised the Kodu workshop using a mailing list of parents interested in Kodu.  Twenty-seven children (9 girls) between the ages of 9 and 12 volunteered to participate, with parental consent.
+For the first data source, we ran a workshop at the Microsoft FUSE lab that introduced children to Kodu Game Lab in a series of three 3-hour sessions.  To recruit participants, we advertised the Kodu workshop using a mailing list of parents interested in Kodu.  
+Children between the ages of 9 and 12 volunteered to participate, with parental consent. We collected 17 programs created during the workshop for analysis. 
+For the second data source, we randomly sampled 10 programs from the public Xbox Live community. No demographic information was collected about the users. 
+
+The programs were analyzed by hand by one of the authors. Table~\ref{tab:koduanalysis} presents the 17 programs created by children (K1 \dots K17), 10 programs created by the Xbox Live community (K18 \dots K27), and the smells found in each. The \emph{Characters} row defines how many characters and actors are in the program, \emph{Pages} defines how many pages of programming are used by the characters, \emph{Rules} counts all the rules on all the pages, and \emph{HCI Actors} counts the number of actors in the program that are controllable by the Xbox controller, mouse or keyboard. 
+To count the number of instances of the \emph{long method}, a smell was counted when the page had 10 or more rules. For the  \emph{many parameters} smell, the use of four or more game scores. These thresholds were determined by the authors as 10 rules cannot be viewed on a screen screen without scrolling and only a couple games used more than three game scores. 
 
 \subsubsection{Findings}
+On average, the programs from children had 2.6 smells each and the programs from the community had 3.9 smells each, though we note that the programs from the community tend to be larger (e.g., an average of 101 rules vs. 42 rules). 
+
+\subsubsection{Lazy class}
+The lazy class smell was the most common, appearing in 79\% of the Kodu programs. This smell is intended to capture when a character is placed in the world but has no programming, and thus no behavior. In some cases, this may not be a smell at all, such as when characters are used as decorations in the world (e.g., trees and rocks). In others, it could be similar to an object that is created but that has no behavior. 
+
+\subsubsection{Duplicate Code}
+This smell was present in 61\% of the programs. All instances were that of duplicate \emph{when} clauses within a page, and there were no instances of identical rules on a page or identical pages within the same character. 
+
+\subsection{Summary}
+Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the various smells in the Kodu and EV3 programs. 
 
 
-Analysis parameters:
-\begin{itemize}
-\item Long Method needs to have 10 or more rules
-\item Many parameters needs 4 or more score buckets
-\end{itemize}
 
 \begin{table}
-\caption{Summary of Smells Across EV3 and Kodu Programs \label{tab:smell summary}}
+\caption{Summary of Smells Across EV3 and Kodu Programs \label{tab:smellsummary}}
 \begin{center}
 \begin{tabular}{l | r r}
-&Kodu&EV3\\ \hlineFeature Envy&22\%&18\%\\Long method&25\%&24\%\\Inappropriate Intimacy&4\%&0\%\\Lazy Class&79\%&24\%\\Message Chain&4\%&0\%\\Many Parameters&36\%&6\%\\Duplicate Code&61\%&65\%\\Dead Code&11\%&41\%\\Unused Field&25\%&12\%\\No-op&41\%&12\%\\
+&EV3&Kodu\\ \hline
+Dead Code&41\%&11\%\\
+Deprecated Interfaces & & 0\%\\
+Duplicate Code&65\%&61\%\\
+Feature Envy&18\%&22\%\\Inappropriate Intimacy&0\%&4\%\\Lazy Class&24\%&79\%\\
+Long method&24\%&25\%\\Many Parameters&6\%&36\%\\
+Message Chain&0\%&4\%\\No-op&12\%&41\%\\Unused Field&12\%&25\%\\
 \end{tabular}
 \end{center}
 \end{table}
-
-\subsubsection{Summary}
-
 \section{Future Opportunities for Smell Detection}
 \label{sec:beyond}
 
