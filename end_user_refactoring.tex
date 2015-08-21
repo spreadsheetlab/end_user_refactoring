@@ -496,15 +496,16 @@ The programs were analyzed by hand by one of the authors. Table~\ref{tab:koduana
 To count the number of instances of the \emph{long method}, a smell was counted when the page had 10 or more rules. For the  \emph{many parameters} smell, the use of four or more game scores. These thresholds were determined by the authors as 10 rules cannot be viewed on a screen screen without scrolling and only a couple games used more than three game scores. 
 
 \subsubsection{Findings}
-On average, the programs from children had 2.3 smells each and the programs from the community had 3.5 smells each, though we note that the programs from the community tend to be larger (e.g., an average of 101 rules vs. 42 rules). Next, we discuss the three most common smells found in the Kodu programs, appearing in 40\% or more of the sample. The remaining smells appear in 25\% or fewer programs. 
+On average, the programs from children had 2.3 smells each and the programs from the community had 3.5 smells each, though we note that the programs from the community tend to be larger (e.g., an average of 101 rules vs. 42 rules). All smells appeared in at least one of the sampled programs except for deprecated code. In a conversation with the lead Kodu developer, we learned that none of the language features that have been deployed to the public were later deprecated. 
+Next, we discuss the three most common smells found in the Kodu programs, appearing in 40\% or more of the sample. The remaining smells appear in 25\% or fewer programs. 
 
-\subsubsection{Lazy class}
+\paragraph{Lazy class}
 The lazy class smell was the most common, appearing in 79\% of the Kodu programs. This smell is intended to capture when a character is placed in the world but has no programming, and thus no behavior. In some cases, this may not be a smell at all, such as when characters are used as decorations in the world (e.g., trees and rocks). In others, it could be similar to an object that is created but that has no behavior. 
 
-\subsubsection{Duplicate Code}
+\paragraph{Duplicate Code}
 This smell was present in 61\% of the programs. All instances were that of duplicate \emph{when} clauses within a page, and there were no instances of identical rules on a page or identical pages within the same character. The prevalence of this feature shows a missed opportunity for consolidating the code. 
 
-\subsubsection{No-op}
+\paragraph{No-op}
 The next most-common smell is the no-op, present in 41\% of the programs. All instances of this smell were rules without \emph{do} clauses, rather than jumping to pages without logic. This is probably the product of the rapid cycling between testing and developing observed in Kodu development~\cite{Stolee:2011:ECS:1953163.1953197}; since the clauses have no actionable logic, keeping them in the code does not impact the semantics of the program. 
 
 \subsection{Summary}
@@ -512,6 +513,8 @@ Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the var
 
 As with code written by other end-user programmers~\cite{StoleeTSE2013}, duplication smells are prevalent in EV3 and Kodu programs, affecting over 60\% of the samples in both languages. Dead code is more frequently found in EV3 and lazy classes are more common in Kodu. Long methods are found in approximately 25\% of the programs in both languages, and \todo{Y\% of the Excel programs}, showing that this smell, too, is common across languages. Feature envy was also prevalent across both languages, appearing in 18\% and 22\% of the EV3 and Kodu programs, respectively. 
 
+
+\todo{Can Table~\ref{} be updated to include columns for YP and Excel? I could get 
 
 \begin{table}
 \caption{Summary of Smells Across EV3 and Kodu Programs \label{tab:smellsummary}}
@@ -528,6 +531,8 @@ Any smell & 88\% & 93\%
 \end{tabular}
 \end{center}
 \end{table}
+
+
 \section{Future Opportunities for Smell Detection}
 \label{sec:beyond}
 
@@ -652,7 +657,7 @@ The current work gives rise to more research, for example \todo{future work}
 \balance
 
 \section*{Acknowledgements}
-Special thanks to Stephen Coy for his help with Kodu. This work is supported in part by  NSF SHF-EAGER-1446932 and the Harpole-Pentair endowment at Iowa State University.
+Special thanks to Stephen Coy for his insights into the Kodu language. This work is supported in part by  NSF SHF-EAGER-1446932 and the Harpole-Pentair endowment at Iowa State University.
 
 
 \bibliographystyle{IEEEtran}
