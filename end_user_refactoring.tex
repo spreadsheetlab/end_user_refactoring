@@ -54,11 +54,11 @@
 \author{
 % 1st. author
 \alignauthor
-David Hoepelman\\
+Felienne Hermans\\
        \affaddr{Delft University of Technology}\\
        \affaddr{Mekelweg 4}\\
        \affaddr{Delft, the Netherlands}\\
-       \email{D.J.Hoepelman@tudelft.nl}
+       \email{f.f.j.hermans@tudelft.nl}
 \alignauthor
 Kathryn T. Stolee\\
        \affaddr{Department of Computer Science}\\
@@ -66,11 +66,11 @@ Kathryn T. Stolee\\
        \affaddr{Ames, IA, U.S.A.}\\
        \email{kstolee@iastate.edu}
 \alignauthor
-Felienne Hermans\\
+David Hoepelman\\
        \affaddr{Delft University of Technology}\\
        \affaddr{Mekelweg 4}\\
        \affaddr{Delft, the Netherlands}\\
-       \email{f.f.j.hermans@tudelft.nl}
+       \email{D.J.Hoepelman@tudelft.nl}
 }
 %\author{David Hoepelman, Katryn Stolee, Felienne Hermans}
 
@@ -135,6 +135,8 @@ Formulas can reference other cells in the same or in different workbooks and wor
 \noindent \textbf{Yahoo!\ Pipes:}
 Yahoo!\ Pipes is a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appears in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{Fetch Feed} modules) to the output at the bottom (i.e., \emph{Pipe Output}). Various manipulations of the data are possible along the  way, such as concatenating RSS feeds (e.g., \emph{Union} modules), sorting  or filtering based on various criteria, or truncating the list (e.g., \emph{Truncate} modules). 
 Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine. These subpipes appear like a standard module but when clicked, open a the abstracted pipe in an editor. 
+
+\todo{Talk about how YP is being deprecated}
 
 \begin{figure}
 \caption{Example of a program in Yahoo!\ Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
@@ -304,7 +306,7 @@ In Section~\ref{sec:smells}, we distill a catalog of end-user smells from previo
 In addition to the programming concepts described above, users have the possibility to define `\mbs' which basically are subroutines. \mbs~may have up to 9 different input and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and creating a new block for them, together with a call to the newly created block, an action extremely similar to `extract method' present in most modern IDEs. 
 
 \subsubsection{Smells  in \ms}
-In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In EV3 programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes and worksheets in spreadsheets. Based on this translation, we investigate which of the smells in our catalog could apply to EV3 programs too. \todo{in what order should we present the smells? I think alphabetical makes more sense than no ordering?}
+In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In EV3 programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes and worksheets in spreadsheets. Based on this translation, we investigate which of the smells in our catalog could apply to EV3 programs too. 
 
 \begin{description}
 \item[Dead Code] It is possible for programming blocks to be disconnected, but the interface clearly indicates this by making them gray \todo{added picture here?}. However, unused \mbs~can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large.
@@ -392,7 +394,7 @@ Total        & 20 & 11 & 17 & 26 & 28 & 18 & 35 & 50 & 17 & 12 & 9 & 10 & 33 & 5
 \hline
 \hline
 Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   & \ding{51} & \ding{51} &   &   &   &   &   & \ding{51} &   &   & \ding{51} \\
-Deprecated                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
+Deprecated                                          & --  & -- &  -- &--   &--   & --  & --  & --  &  -- & --  & --  & --  &  -- & --  & --  & --  & --  \\
 Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} &   & \ding{51} &   &   & \ding{51} & \ding{51} \\
 Feature Envy                                           & \ding{51} &  & \ding{51} & \ding{51} &   &   &   &   &   &   &   &   &   &   &   &   &   \\
 Inappropriate Intimacy                                 &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
@@ -569,7 +571,7 @@ As with code written by other end-user programmers~\cite{StoleeTSE2013}, duplica
 \begin{tabular}{l | r r}
 &EV3&Kodu\\ \hline
 Dead Code&41\%&11\%\\
-Deprecated Interfaces & & 0\%\\
+Deprecated Interfaces & -- & 0\%\\
 Duplicate Code&65\%&61\%\\
 Feature Envy&18\%&22\%\\
 Inappropriate Intimacy&0\%&4\%\\
@@ -584,7 +586,7 @@ Any smell & 88\% & 93\%
 \end{center}
 \end{table}
 
-\section{Beyond OO}
+\section{Beyond OO Smells}
 \label{sec:beyond}
 
 \label{sec:smells:domain}
@@ -610,7 +612,7 @@ This is similar to identifying  smells  as anti-patterns  and could be extended 
 \subsection{EV3}
 \todo{Katie, please check if the following makes (enough) sense without knowing EV3, I am too deep in to be able to judge}
 \subsubsection{Wrong motor or sensor mapping}
-The \ms~programming language differs significantly from the other end-user domains, as EV3 programmers work with both software and hardware. While programming, users need to configure motor blocks to the right port, for example the blocks in Figure \ref{fig:dup_ev3} are controlling motors A and D. This means that, when a user has the wrong mental model of what motor is connected to what port, the program will not function as wanted. It appears users run into this issue too, as some of the programs we saw comment blocks where the mapping was described \todo{if room add example}.
+The \ms~programming language differs significantly from the other end-user domains, as EV3 programmers work with both software and hardware. While programming, users need to configure motor blocks to the right port, for example the blocks in Figure \ref{fig:dup_ev3} are controlling motors A and D. This means that, when a user has the wrong mental model of what motor is connected to what port, the program will not function as wanted. It appears users run into this issue too, as some of the programs we saw comment blocks where the mapping was described, in an effort to ensure proper mapping \todo{if room add example}.
 
 %Not sure if we should add this, but I have the rule in class that you can only raise your hand to ask a question if you have checked the mapping. And it still goed wrong often. 
 
@@ -621,6 +623,12 @@ The EV3 language is a visual language without an auto-layouting function, this m
 
 
 \subsection{Kodu}
+
+	\subsubsection{Visual smell}
+	 - does not fit on the screen
+	 
+	\subsubsection{Lack of Comments}
+	 - YP has no comments, not encouraged in interface
 
 \section{Related Work}
 
