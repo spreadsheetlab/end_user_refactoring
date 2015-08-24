@@ -133,8 +133,8 @@ Formulas can reference other cells in the same or in different workbooks and wor
 
 
 \noindent \textbf{Yahoo!\ Pipes:}
-Yahoo!\ Pipes is a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program. The boxes represent modules connected by wires. 
-Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine, appearing like a standard module. 
+Yahoo!\ Pipes is a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appears in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{Fetch Feed} modules) to the output at the bottom (i.e., \emph{Pipe Output}). Various manipulations of the data are possible along the  way, such as concatenating RSS feeds (e.g., \emph{Union} modules), sorting  or filtering based on various criteria, or truncating the list (e.g., \emph{Truncate} modules). 
+Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine. These subpipes appear like a standard module but when clicked, open a the abstracted pipe in an editor. 
 
 \begin{figure}
 \caption{Example of a program in Yahoo!\ Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
