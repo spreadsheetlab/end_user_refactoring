@@ -597,6 +597,8 @@ The EV3 language is a visual language without an auto-layouting function, this m
 	in the programming language and development environment, often making it difficult to understand another's work or maintain old code. 
 
 
+	\subsubsection{Programming Organization smell}
+	Communities of programmers often have standards for how to structure program code. These \emph{population-based} smells~\cite{StoleeTSE2013} can be uncovered by exploring programs written by the community. In Kodu, often the rules that map a character's behavior to user input from a gamepad, keyboard or mouse are at the top of a page and the remaining logic is at the bottom. Deviating from this structure can lead to programs that are more difficult to understand when shared. 
 
 \subsection{Domain-Specific Smells}
 Each end-user domain has unique characteristics that create opportunities for defining domain-specific smells. In Yahoo Pipes, prior work has explored the presence of broken or deprecated data sources as a smell unique to the domain~\cite{StoleeTSE2013}. In Excel, prior work has \todo{explain a domain-specific smell}. Here, we explore smells in EV3 and Kodu that are unique to their languages and environments. 
@@ -628,6 +630,7 @@ The event-driven language in Kodu allows a user to write conflicting outcomes fo
 (2) When hear turtle : do unscore 1 red
 \end{verbatim}
 \noindent The \emph{do} clauses are in conflict, both scoring and unscoring the red score by 1, and hence the outcome is the same. Flagging conflicting rules during development would help alert users to this smell. 
+
 
 \paragraph{Lost Character smell}
 The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
