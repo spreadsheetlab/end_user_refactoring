@@ -408,7 +408,7 @@ To summarize, we again observe that smells stemming from OO are applicable to en
 \subsection{Kodu}
 Microsoft Research's Kodu is a visual programming language~\cite{kodugrammar} and environment that allows users to create, play, and share their own video games. 
 It is available for download on the Xbox and PC and is heavily inspired by robotics, and the context of programming in it and its language both show this. 
-Users can program each character or object (e.g., a kodu, cycle, apple, tree; we use character and object interchangeably) individually, and the programming defines how to interact with the world. Each object has 12 pages that can be programmed, analogous to methods in an OO language, where the current page defines the current behavior of the object. 
+Users add characters, objects and land to the world and can program each character or object (e.g., a kodu, cycle, apple, tree; we use character and object interchangeably) individually. The programming defines how to interact with the world, treating each character or object as an autonomous agent. Each object has 12 pages that can be programmed, analogous to methods in an OO language, where the current page defines the current behavior of the object. 
 The object's behavior can change by switching between pages to modify state and control flow. 
 Each page contains a set of rules, and each rule is in the form of a condition and an action, which form a when~--~do clause. The \emph{when} is defined by a sensor (e.g., see, hear, gamepad input) and filters (e.g., apple, gamepad A button). The \emph{do} is defined by an actuator (e.g., movement, shoot) and modifiers (e.g., missile, toward). All the rules on a page are evaluated in a single frame, from top to bottom. 
 Despite its unique language, Kodu  can be used to express many basic concepts in computer science, such as variables, boolean logic and conditional control flow~\cite{Stolee:2011:ECS:1953163.1953197}. 
@@ -545,7 +545,7 @@ Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the var
 
 As with code written by other end-user programmers~\cite{StoleeTSE2013}, \emph{duplicate code} is prevalent in EV3 and Kodu programs, affecting over 60\% of the samples in both languages. The other two smells that were studied in Excel and Yahoo Pipes, \emph{lazy class} and \emph{long method}, are present in at least 24\% of the studied EV3 and Kodu programs, illustrating commonality across all end-user programming domains. 
 
-\emph{Dead code} is more frequently found in EV3 and lazy classes are more common in Kodu. \emph{Feature envy} was also prevalent across both languages, appearing in 18\% and 22\% of the EV3 and Kodu programs, respectively. The \emph{no-op} smell is present in 41\% of the Kodu programs. 
+\emph{Dead code} is more frequently found in EV3 and \emph{lazy class} smells are more common in Kodu. The \emph{no-op} smell is present in 41\% of the Kodu programs, which is similar in spirit to the 41\% of EV3 programs with \emph{dead code}. \emph{Feature envy} was also prevalent across both languages, appearing in 18\% and 22\% of the EV3 and Kodu programs, respectively. 
 
 
 \begin{table}
@@ -616,9 +616,21 @@ Hence a smell unique to the EV3 domain is a wrong mapping between the robot in r
 
 
 \subsubsection{Kodu}
-The Kodu environment involves creating a world and inserting characters and objects into that world where each character or object has the potential to be programmed. The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	 
+The Kodu environment involves designing games, programming games, and playing games. This, paired with the unique event-driven language, creates unique opportunities for domain-specific Kodu smells. 
+
+% 
 
 
+\paragraph{Conflicting Outcomes smell}
+The event-driven language in Kodu allows a user to write conflicting outcomes for the same trigger, that is, with the same \emph{when} clause, to write conflicting \emph{do} clauses. For example, consider the following two Kodu rules:
+\begin{verbatim}
+(1) When hear turtle : do score 1 red
+(2) When hear turtle : do unscore 1 red
+\end{verbatim}
+\noindent The \emph{do} clauses are in conflict, both scoring and unscoring the red score by 1, and hence the outcome is the same. Flagging conflicting rules during development would help alert users to this smell. 
+
+\paragraph{Lost Character smell}
+The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
 
 \section{Related Work}
 
