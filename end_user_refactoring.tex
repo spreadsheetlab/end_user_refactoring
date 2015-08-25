@@ -394,7 +394,7 @@ Total        & 20 & 11 & 17 & 26 & 28 & 18 & 35 & 50 & 17 & 12 & 9 & 10 & 33 & 5
 \hline
 \hline
 Dead Code                                              & \ding{51} &  & \ding{51} & \ding{51} &   &   & \ding{51} & \ding{51} &   &   &   &   &   & \ding{51} &   &   & \ding{51} \\
-Deprecated                                          & --  & -- &  -- &--   &--   & --  & --  & --  &  -- & --  & --  & --  &  -- & --  & --  & --  & --  \\
+Deprecated                                          &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
 Duplicate Code                                         &   &  &   & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} &   & \ding{51} &   &   & \ding{51} & \ding{51} \\
 Feature Envy                                           & \ding{51} &  & \ding{51} & \ding{51} &   &   &   &   &   &   &   &   &   &   &   &   &   \\
 Inappropriate Intimacy                                 &   &  &   &   &   &   &   &   &   &   &   &   &   &   &   &   &   \\
@@ -571,7 +571,7 @@ As with code written by other end-user programmers~\cite{StoleeTSE2013}, duplica
 \begin{tabular}{l | r r}
 &EV3&Kodu\\ \hline
 Dead Code&41\%&11\%\\
-Deprecated Interfaces & -- & 0\%\\
+Deprecated Interfaces & 0\% & 0\%\\
 Duplicate Code&65\%&61\%\\
 Feature Envy&18\%&22\%\\
 Inappropriate Intimacy&0\%&4\%\\
@@ -592,43 +592,49 @@ Any smell & 88\% & 93\%
 \label{sec:smells:domain}
 The end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain. Here, we explore opportunities for new smells in end-user domains that extend beyond the OO-inspired smells in Section~\ref{sec:smells}. 
 
-\subsection{Excel}
-In spreadsheets, data is often processed by having each record in a row and having a column with identical formulas to perform some calculation.
-This leads to the definition of the \emph{Inconsistent Formula} smell, which occurs if a single, or small number, of cells contain a different formula while its neighbors or other cells in the row or column contain an identical formula.
-Interestingly this smell is already detected by Microsoft Excel which warns the user about it.
-
-Another smell specific to spreadsheets is when a formula references an empty cell, which is often in error \cite{cunha2012towards}.
-This is comparable to a null pointer in other languages and would be a runtime error, but because a spreadsheet contains both the input data and logic we can directly mark it as a smell.
-
-\subsection{Yahoo!\ Pipes}
-%Talk about smells unique to the domain
-By exploring a large subset of the Yahoo!\ Pipes repository, Stolee and Elbaum identified a smell based on the presence of broken data sources~\cite{StoleeTSE2013}.
-A reference to a broken data sources  is similar to opening a non-existing file, which would be a runtime exception or error in most professional languages.
-Such exceptions are not in the Yahoo!\ Pipes language, which is the reason to mark it as a smell. 
-%Talk about deriving smells from the community
-Similar exploration was used to  identify common programming practices, marking deviations from those practices as smells. 
-This is similar to identifying  smells  as anti-patterns  and could be extended to any language. 
-
-\subsection{EV3}
-\todo{Katie, please check if the following makes (enough) sense without knowing EV3, I am too deep in to be able to judge}
-\subsubsection{Wrong motor or sensor mapping}
-The \ms~programming language differs significantly from the other end-user domains, as EV3 programmers work with both software and hardware. While programming, users need to configure motor blocks to the right port, for example the blocks in Figure \ref{fig:dup_ev3} are controlling motors A and D. This means that, when a user has the wrong mental model of what motor is connected to what port, the program will not function as wanted. It appears users run into this issue too, as some of the programs we saw comment blocks where the mapping was described, in an effort to ensure proper mapping \todo{if room add example}.
-
-%Not sure if we should add this, but I have the rule in class that you can only raise your hand to ask a question if you have checked the mapping. And it still goed wrong often. 
-
-Hence a smell unique to the EV3 domain is a wrong mapping between the robot in reality and the motor and sensor blocks. 
+\subsection{End-User Programming Smells}
+Many smells beyond the OO language exist in several of the domains studied. 
 
 \subsubsection{Layout smells}
 The EV3 language is a visual language without an auto-layouting function, this means that, when users are making changes to their programs, often the layout can get messy. This also happens when a user creates a \mb, blocks that have been moved to the \mb~ are replaced by a call to the newly created \mb, but other than that the layout remains unchanged. So if a big \mb~is created the program will now have a big gap, making the program harder to read \todo{if room show example}. This, and other layout smells too are unique to visual languages where the layout is not modified by the environment.
 
 
-\subsection{Kodu}
 
 	\subsubsection{Visual smell}
-	 - does not fit on the screen
-	 
+	\todo{need to differentiate clearly from layout smell}
+	Visual languages, which end-user programming languages often are, can suffer from a visual smell in which the entire program does not fit on the screen and thus is difficult to comprehend. The threshold for the presence of this smell is clearly dependent on screen size, but nonetheless, it can have an impact on program maintainability~\cite{StoleeTSE2013}. 
+	This is similar to the \emph{long method} smell in Kodu, the \emph{duplicate code} smell in Yahoo!\ Pipes (named \emph{Isomorphic Paths}), or \todo{Felienne: add relevant smells in EV3 and Excel}. 
+	
+	One way to deal with this kind of visual smell is through abstraction. The  Yahoo!\ Pipes language provides this through the subpipe module, EV3 through MyBlocks, and \todo{Excel?}.  Including subpages or being able to collapse rules on a page would facilitate this in Kodu but support for that is currently not available. 
+
+
 	\subsubsection{Lack of Comments}
-	 - YP has no comments, not encouraged in interface
+	The lack of comments in a program can make it difficult to understand. Kodu and Yahoo!\ Pipes both suffer form a lack of comments
+	in the programming language and development environment, often making it difficult to understand another's work or maintain old code. 
+
+
+
+\subsection{Domain-Specific Smells}
+Each end-user domain has unique characteristics that create opportunities for defining domain-specific smells. In Yahoo!\ Pipes, prior work has explored the presence of broken or deprecated data sources as a smell unique to the domain~\cite{StoleeTSE2013}. In Excel, prior work has \todo{explain a domain-specific smell}. Here, we explore smells in EV3 and Kodu that are unique to their languages and environments. 
+
+
+\subsubsection{EV3}
+%\subsubsection{Hardware/Software Interface Smells}
+The \ms~programming language differs significantly from the other end-user domains, as EV3 programmers work with both software and hardware. While programming, users need to configure motor blocks to the right port, for example the blocks in Figure \ref{fig:dup_ev3} are controlling motors A and D. This means that, when a user has the wrong mental model of what motor is connected to what port, the program will not function as wanted. It appears users run into this issue too, as some of the programs we saw comment blocks where the mapping was described, in an effort to ensure proper mapping \todo{if room add example}.
+
+Hence a smell unique to the EV3 domain is a wrong mapping between the robot in reality and the motor and sensor blocks. 
+
+
+
+%Not sure if we should add this, but I have the rule in class that you can only raise your hand to ask a question if you have checked the mapping. And it still goed wrong often. 
+
+
+
+
+\subsection{Kodu}
+The Kodu environment involves creating a world and inserting characters and objects into that world where each character or object has the potential to be programmed. The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects or an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	 
+
+
 
 \section{Related Work}
 
