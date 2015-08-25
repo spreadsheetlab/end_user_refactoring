@@ -625,21 +625,15 @@ The EV3 language is a visual language without an auto-layouting function, this m
 \section{Related Work}
 
 \label{sec:related_work}
-This paper builds upon the extensive body of work related to code smells and refactoring in the end-user programming domain~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, chambers2013smell, chambers2015impact}. For an extensive overview in object-oriented research, we refer the reader to the work of Mens and Tourw\'{e} \cite{mens2004survey}.
+Related to the current research are efforts on code smells within traditional languages, starting with the work of Fowler\cite{Fowl1999}. His book gives an overview of code smells and corresponding refactorings. Recent efforts focused on the automatic identification of code smells by means of metrics. Marinescu~\cite{Mari2001} for instance, uses metrics to identify \emph{suspect} classes, those classes that might have design flaws. Lanza and Marinescu~\cite{Lanz06} explain this methodology in more detail. Alves \emph{et al.}~\cite{Alves2010} focus on a strategy to obtain thresholds for metrics from a benchmark. Olbrich \emph{et al.} furthermore investigates the changes in smells over time, and discusses their impact~\cite{Olbr2009}.
 
-\subsection{Smells based on user input}
-\label{subsec:related_datasmells}
-In end-user programming environments user input and logic are often more closely linked than they are in general purpose languages.
-As such analyzing the input data as opposed to the logic can also be used to detect problems.
+Within end-user programming, this paper builds upon two lines of related work. Firstly, the work of Stolee and Elbaum that studied smells~\cite{StoleeTSE2013} and refactorings~\cite{Stolee2011}. They designed a number of smells by transforming known OO smells to the domain of Yahoo! Pipes. The second direction is the work by Hermans \emph{et al.} that also took OO smells as an inspiration from a number of smells~\cite{Hermans2012intra, Hermans2012inter}. Subsequently they described corresponding refactorings~\cite{Hermans2012intraExt} and a tool that applies refactorings~\cite{hermans2014bumblebee}. This final work builds upon previous work by Badame and Dig that described the first spreadsheet refactoring tool RefBook~\cite{badame2012refactoring}.
 
-Cunha et. al \cite{cunha2012towards} claim to define code smells for spreadsheet, but for most of their smells they look at  anomalies in the data and define these as smells.
-Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations.
-In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a  more formalized approach which they label ``Data Debugging''.
-Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
+In end-user programming environments, user input and logic are often more closely linked than they are in general purpose languages, and as such analyzing the input data as opposed to the logic can also be used as a means of \emph{smell detection}. This is a direction that has been spplied to spreadsheets. Cunha et. al \cite{cunha2012towards} for example look at anomalies in the data and define these as smells. Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations. In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a more formalized approach which they label ``Data Debugging''. Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
 
+In addition two above described work on Yahoo! Pipes and spreadsheets, there is previous smells work on other end-user environments too, like performance smells in LabView, a visual language for system-design~\cite{chambers2013smell, chambers2015impact}. 
 
-
-
+Finally, there is some, albeit limited, work on detecting code smells in educational languages. \todo{Katie, do you know of more?} Chatley and Timbul describe Kenya, a simple programming language for educational purposes, which they have integrated into the Eclipse environment~\cite{Chatley2005}. They built features that allow the detection of `bad style' in programs to be detected and reported as code is written, concentrating on encouraging students to program like they were taught in class. This work might indicate that smell detection can be useful for education, but the authors unfortunately did not perform an evaluation of the usefulness of this approach.
 
 \section{Discussion}
 \label{sec:discussion}
