@@ -111,7 +111,7 @@ In EV3 and Kodu, the smells that we most commonly find are small abstractions (l
 
 \section{Background}
 \label{sec:background}
-In this section we briefly explore the two end-user languages targeted by prior smell research, before presenting the relevant end-user code smells in Section~\ref{sec:smells}.
+In this section we briefly introduce the two end-user languages targeted by prior smell research, before presenting the relevant end-user code smells in Section~\ref{sec:smells}.
 
 
 
@@ -123,7 +123,7 @@ In this section we briefly explore the two end-user languages targeted by prior 
 %file: fin_accounts from Euses / financial
 \end{figure}
 
-\paragraph{Excel} Spreadsheets are very commonly used in businesses, from inventory administration to educational applications and from scientific modeling to financial systems.
+\subsection{Excel} Spreadsheets are very commonly used in businesses, from inventory administration to educational applications and from scientific modeling to financial systems.
 Winston ~\cite{Wins2001} estimates that 90\% of all analysts in industry perform calculations in spreadsheets. 
 Microsoft Excel is by far the most used, and therefore most studied, spreadsheet program, but other implementations exists and are similar.
 
@@ -132,14 +132,14 @@ A \textit{workbook} consist of a collection of worksheets.
 Formulas can reference other cells in the same or in different workbooks and worksheets.
 
 
-\paragraph{Yahoo Pipes}
-Yahoo Pipes was\footnote{We use the past tense as the Yahoo Pipes environment has been discontinued as of September 30, 2015.} a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appears in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{Fetch Feed} modules) to the output at the bottom (i.e., \emph{Pipe Output}). The wires connect the output of a module with either the input or a field of another module. 
+\subsection{Yahoo Pipes}
+Yahoo Pipes was\footnote{We use the past tense as the Yahoo Pipes environment has been discontinued as of September 30, 2015.} a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appears in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{fetch feed} modules) to the output at the bottom (i.e., \emph{pipe output}). The wires connect the output of a module with either the input or a field of another module. 
 
-Various manipulations of the data are possible along the  way, such as concatenating RSS feeds (e.g., \emph{Union} modules), sorting  or filtering based on various criteria, or truncating the list (e.g., \emph{Truncate} modules). 
+Various manipulations of the data are possible along the  way, such as concatenating RSS feeds (e.g., \emph{union} modules), sorting  or filtering based on various criteria, or truncating the list (e.g., \emph{truncate} modules). 
 Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine. These subpipes appear like a standard module but when clicked, open a the abstracted pipe in an editor. 
 
 \begin{figure}
-\caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
+\caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{fetch feed} module, feeding to a \emph{union} module that concatenates the feeds, a \emph{truncate} module that limits the number of items to 15 prior to the final \emph{pipe output}. }
 \centering
 \includegraphics[width=\columnwidth]{img/yp-1}
 \label{fig:ypexample}
@@ -155,13 +155,10 @@ This can be done by interviewing experienced end-users to see which smells they 
 
 
 This section provides an overview of different OO-inspired smells that researchers have found to be applicable to end-user artifacts. 
- We catalog the OO smells present in two end-user languages, Excel spreadsheets and Yahoo Pipes mashups, in Table~\ref{table:oosmellslarge}.
- Overall, we often observe similarities in the code smells studied. For example, the \emph{Duplicate Code}, \emph{Lazy Class}, and \emph{Long Method} smells  have been studied in both languages. 
-% \todo{is this a fair assesment?}
-We note that the absence of an entry in Table~\ref{table:oosmellslarge} does not mean the absence of the smell in that language, it simply means such smells have not been studied. 
-For example, \emph{many parameters} is not discussed in previous work on Yahoo Pipes, but could apply when a pipe module receives many field values via wire from other modules. 
-Similarly, \emph{no-op} could occur in Excel when a formula like SUM(A1+A2+A3), which we have seen in practice, is present. Here, the SUM function does not add anything because it is expecting a list of values. Next, we describe some of the studied smells in these two domains. 
-\todo{clean up the subsections that follow}
+ We catalog the OO smells present in two end-user languages, Excel spreadsheets and Yahoo Pipes mashups, in Table~\ref{table:oosmellslarge}, as identified in prior work~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra, Hermans2012inter}.
+ Overall, we often observe similarities in the code smells studied. Specifically, the \emph{duplicate code}, \emph{lazy class}, and \emph{long method} smells  have been studied in both languages. 
+Next, we briefly explore some of the studied smells in these two domains.  \todo{verify that each smell is discussed at least once for Excel or YP. We want to give the reader a little review on the essence of each smell before mapping to the new domains}
+%\todo{clean up the subsections that follow}
 %While the occurrence of these smells falls outside of the scope of the current work, in this section we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains, thus addressing the empty places in Table \ref{table:oosmellslarge}.
 
 
@@ -179,6 +176,11 @@ Similarly, \emph{no-op} could occur in Excel when a formula like SUM(A1+A2+A3), 
 Dead Code
 	& %~\ding{55}
 	& Unnecessary Module \cite{StoleeTSE2013}
+\\ \cmidrule
+Deprecated Interfaces
+	& %Deprecated Functions *
+	& Deprecated Module or Invalid Source \cite{StoleeTSE2013}
+
 \\ \cmidrule
 Duplicate Code
 	& Duplicated Formulas \cite{Hermans2012intra}
@@ -218,10 +220,6 @@ No-op
 Unused Field
 	& %~\ding{55}
 	& Noisy Module : Empty Field \cite{StoleeTSE2013}
-\\ \cmidrule
-Use of Deprecated Interfaces
-	& %Deprecated Functions *
-	& Deprecated Module or Invalid Source \cite{StoleeTSE2013}
 \\ \bottomrule
 %\multicolumn{4}{c}{} \\
 %\multicolumn{4}{l}{\ding{55} : Not applicable due to the nature of the paradigm} \\
@@ -234,29 +232,24 @@ Use of Deprecated Interfaces
 
  \subsection{Excel}
 Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to transform nine of Fowlers smells.
-An example of this is the \emph{Long Method} smell, which translates to the \emph{Multiple Operations} smell because formulas with a large number of operations suffer from similar problems as long methods. In an industrial case study with 10 spreadsheet users, the smells were found understandable by users, and with the smells errors in real-life spreadsheets were found.
-
-Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is future potential in the areas of redundancy and deprecation. The \emph{Dead code} smell
-
-Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
+An example of this is the \emph{long method} smell, which translates to the \emph{multiple operations} smell because formulas with a large number of operations suffer from similar problems as long methods. In an industrial case study with 10 spreadsheet users, the smells were found understandable by users, and with the smells errors in real-life spreadsheets were found.
+\todo{mention feature envy}
+\todo{mention inappropriate intimacy}
+\todo{mention many parameters}
+\todo{mention message chain}
 
 \subsection{Yahoo Pipes}
-Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
-\emph{Duplicate Modules}, impacted nearly one-quarter of the pipes studied. 
- Overall, 81\% of the programs studied from the Yahoo Pipes community had at least one smell. 
+Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{duplicate strings}, an instance of Fowler's \emph{duplicate code} smell. 
+\emph{duplicate modules}, impacted nearly one-quarter of the pipes studied. 
+% Overall, 81\% of the programs studied from the Yahoo Pipes community had at least one smell. 
  
-Yahoo Pipes can also \emph{deprecate modules}, which can create similar problems to using deprecated or old versions of interfaces.
+\emph{Dead code} can appear in Yahoo Pipes when a module is not connected to the rest of the pipe. A  \emph{deprecate module} occurs when a program uses a module that has been deprecated in the API. A \emph{lazy class} or \emph{no-op} smell occurs when data flows through an entire pipe or a module, respectively, but is not manipulated. The \emph{unused field} smell occurs when blank fields are left in modules, specifically when those blanks are supposed to contain data sources. 
 
-The \emph{Feature Envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
-
-%depends on implementation of another class too much - intimacy
-When a program uses too much abstraction relative to the size of the pipe, it could suffer from \emph{Inappropriate Intimacy} by depending too much on the implementation of the other class. In fact, in an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
-
-%long method
-A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
-
-Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
-
+\subsection{Summary}
+The absence of an entry in Table~\ref{table:oosmellslarge} does not mean the absence of the smell in that language, it simply means such smells have not been studied. While measuring the occurrence of these smells falls outside the scope of the current work, we speculate
+that some of these unstudied smells may be applicable. 
+For example, \emph{many parameters} is not discussed in previous work on Yahoo Pipes, but could apply when a pipe module receives many field values via wire from other modules. 
+Similarly, \emph{no-op} could occur in Excel when a formula like SUM(A1+A2+A3), which we have seen in practice, is present. Here, the SUM function does not add anything because it is expecting a list of values. 
 
 
 \begin{figure} [ht]
@@ -272,7 +265,7 @@ Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell i
 
 %Other end-user programming domains that could benefit from smell analysis and refactoring are mathematical environments like MATLAB, Sage, and Mathematica.
 
-%In particular, the smells related to duplication and poor construction like \emph{Long Method}, \emph{Many Parameters} and \emph{Dead Code} are prevalent in the four domains studied.
+%In particular, the smells related to duplication and poor construction like \emph{long method}, \emph{Many Parameters} and \emph{Dead Code} are prevalent in the four domains studied.
 %These smells -- and their respective refactorings -- likely exist in other end-user programming domains, and likely hinder the understandability and maintainability of those programs. Worse even, these smells could lead to errors, and thus these smells are worthy of our attention. 
 
 %\subsection{Future Opportunities in Professional Languages}
@@ -591,8 +584,8 @@ The EV3 language is a visual language without an auto-layouting function, this m
 
 	\subsubsection{Lack of Visual Abstraction smell}
 	\todo{need to differentiate clearly from layout smell}
-	Visual languages, which end-user programming languages often are, can suffer from a visual smell in which the entire program does not fit on the screen and thus is difficult to comprehend. The threshold for the presence of this smell is clearly dependent on screen size, but nonetheless, it can have an impact on program maintainability~\cite{StoleeTSE2013}. 
-	This is similar to the \emph{long method} smell in Kodu, the \emph{duplicate code} smell in Yahoo Pipes (named \emph{Isomorphic Paths}), or \todo{Felienne: add relevant smells in EV3 and Excel}. 
+	Visual languages can suffer from a visual lack of abstraction smell in which the entire program does not fit on the screen and thus is difficult to comprehend. The threshold for the presence of this smell is clearly dependent on screen size, but nonetheless, it can have an impact on program maintainability~\cite{StoleeTSE2013}. 
+	This is similar to the \emph{long method} smell in Kodu, the \emph{duplicate code} smell in Yahoo Pipes (named \emph{isomorphic paths}), or \todo{Felienne: add relevant smells in EV3 and Excel}. 
 	
 	One way to deal with this kind of visual smell is through abstraction. The  Yahoo Pipes language provides this through the subpipe module, EV3 through MyBlocks, and \todo{Excel?}.  Including subpages or being able to collapse rules on a page would facilitate this in Kodu but support for that is currently not available. 
 
@@ -652,7 +645,10 @@ Based on the research and results for smell detection in end-user programming do
 \subsection{Threats to Validity}
 The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, badame2012refactoring} on end-user refactoring in spreadsheets and Yahoo Pipes.
 
-The three domains studied in this paper all happen to be dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains (e.g., Scratch is OO-based). \todo{katie, would you say Kodu is dataflow based too?}
+Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
+
+
+The three domains studied in this paper all happen to be dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains (e.g., Scratch is OO-based). \todo{katie, would you say Kodu is dataflow based too?} \todo{no, Kodu is an event-driven language}
 
 
 \todo{In Kodu, smells vs. design decisions}
@@ -823,7 +819,7 @@ Yahoo Pipes is a popular web mashup language and environment with which RSS feed
 Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine, appearing like a standard module. 
 
 \begin{figure}
-\caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
+\caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{fetch feed} module, feeding to a \emph{union} module that concatenates the feeds, a \emph{truncate} module that limits the number of items to 15 prior to the final \emph{pipe output}. }
 \centering
 \includegraphics[width=\columnwidth]{img/yp-1}
 \label{fig:ypexample}
@@ -910,11 +906,11 @@ Use of Deprecated Interfaces
 %\subsection{OO Smells in End-User Programs}
 %\label{sec:smells:oo}
  We summarize the OO smells present in two end-user languages, Excel spreadsheets and Yahoo Pipes mashups, in Table~\ref{table:oosmellslarge}.
- Overall, we often observe similarities in the code smells studied. For example, the \emph{Duplicate Code}, \emph{Lazy Class}, and \emph{Long Method} smells  have been studied in both languages. 
+ Overall, we often observe similarities in the code smells studied. For example, the \emph{duplicate code}, \emph{lazy class}, and \emph{long method} smells  have been studied in both languages. 
 % \todo{is this a fair assesment?}
 We note that the absence of an entry in Table~\ref{table:oosmellslarge} does not mean the absence of the smell in that language, it simply means such smells have not been studied. We speculate on a few of these opportunities in Section~\ref{subsec:futuresmells}. 
 
-% Some smells, like the \emph{Long Method} smell, have been studied in only one domain but are likely applicable in the other domain, these are marked with *.  These smells present opportunities for future research, detailed in Section~\ref{subsec:futuresmells}.
+% Some smells, like the \emph{long method} smell, have been studied in only one domain but are likely applicable in the other domain, these are marked with *.  These smells present opportunities for future research, detailed in Section~\ref{subsec:futuresmells}.
  
 % In this section we will detail the application of OO smells on specific end-user languages.
  
@@ -922,11 +918,11 @@ We note that the absence of an entry in Table~\ref{table:oosmellslarge} does not
 
  \subsection{Excel}
 Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to transform nine of Fowlers smells.
-An example of this is the \emph{Long Method} smell, which translates to the \emph{Multiple Operations} smell because formulas with a large number of operations suffer from similar problems as long methods. In an industrial case study with 10 spreadsheet users, the smells were found understandable by users, and with the smells errors in real-life spreadsheets were found.
+An example of this is the \emph{long method} smell, which translates to the \emph{multiple operations} smell because formulas with a large number of operations suffer from similar problems as long methods. In an industrial case study with 10 spreadsheet users, the smells were found understandable by users, and with the smells errors in real-life spreadsheets were found.
 
 \subsection{Yahoo Pipes}
-Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
-\emph{Duplicate Modules}, impacted nearly one-quarter of the pipes studied. 
+Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{duplicate strings}, an instance of Fowler's \emph{duplicate code} smell. 
+\emph{duplicate modules}, impacted nearly one-quarter of the pipes studied. 
  Overall, 81\% of the programs studied from the Yahoo Pipes community had at least one smell. 
  
 Yahoo can also \emph{deprecate modules}, which can create similar problems to using deprecated or old versions of interfaces.
@@ -944,7 +940,7 @@ Yahoo can also \emph{deprecate modules}, which can create similar problems to us
 Although not all OO smells have been studied in both domains, indicated by empty places in Table \ref{table:oosmellslarge}, this does not mean they do not apply. For example, Feature Envy is not discussed in previous work on Yahoo Pipes, but could apply when \todo{Katie, how exactly?}. Similarly, redundant operations could occur in Excel, in fact, they do. A formula like SUM(A1+A2+A3), which we have seen in practice, exhibits the No-Op smell, as the SUM function does not add anything. While the occurrence of these smells falls outside of the scope of the current work, in this section we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains, thus addressing the empty places in Table \ref{table:oosmellslarge}.
 
 \subsubsection{Excel}
-Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is future potential in the areas of redundancy and deprecation. The \emph{Dead code} smell
+Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is future potential in the areas of redundancy and deprecation. The \emph{dead code} smell
 
 Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
 
@@ -952,15 +948,15 @@ Furthermore, research in smells and spreadsheets has focused on Microsoft Excel.
 \label{sec:smells:future:yp}
 %Many of the smells studied in Excel and LabVIEW could apply to Yahoo Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
 %uses methods of another class excessively - envy
-The \emph{Feature Envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
+The \emph{feature envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
 
 %depends on implementation of another class too much - intimacy
-When a program uses too much abstraction relative to the size of the pipe, it could suffer from \emph{Inappropriate Intimacy} by depending too much on the implementation of the other class. In fact, in an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
+When a program uses too much abstraction relative to the size of the pipe, it could suffer from \emph{inappropriate Intimacy} by depending too much on the implementation of the other class. In fact, in an empirical evaluation, programmers often preferred pipes without subpipe modules because they were easier to understand~\cite{StoleeTSE2013}. 
 
 %long method
-A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
+A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{fetch feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
 
-Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
+Drawing inspiration from the domain-specific \emph{inconsistent formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
 
 
 %\subsubsection{Other Domains}
@@ -968,7 +964,7 @@ Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell i
 
 %Other end-user programming domains that could benefit from smell analysis and refactoring are mathematical environments like MATLAB, Sage, and Mathematica.
 
-%In particular, the smells related to duplication and poor construction like \emph{Long Method}, \emph{Many Parameters} and \emph{Dead Code} are prevalent in the four domains studied.
+%In particular, the smells related to duplication and poor construction like \emph{long method}, \emph{Many Parameters} and \emph{Dead Code} are prevalent in the four domains studied.
 %These smells -- and their respective refactorings -- likely exist in other end-user programming domains, and likely hinder the understandability and maintainability of those programs. Worse even, these smells could lead to errors, and thus these smells are worthy of our attention. 
 
 %\subsection{Future Opportunities in Professional Languages}
