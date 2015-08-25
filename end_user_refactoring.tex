@@ -81,7 +81,7 @@ David Hoepelman\\
 In the workforce today, millions of people program without degrees or professional training in software development. 
 These end-user programmers perform a variety of tasks, from combining web information to building models to support business decisions. Software engineering research into code smells has traditionally focused on professionally used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
 
-In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo!\ Pipes. Based on existing OO-smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
+In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo Pipes. Based on existing OO-smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
 
 We demonstrate the broad applicability of the catalog by applying it to two end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that indeed OO inspired smells occur in both end-user languages, most commonly we find that small abstractions, duplication and dead code are common. We conclude the paper by proposing new end-users smell, moving beyond the OO paradigm. 
 \end{abstract}
@@ -94,13 +94,13 @@ These end-user programmers perform a wide variety of tasks within their organiza
 Similar to code written by professional developers, end-user artifacts may have a long life-span, the average lifespan of a corporate spreadsheet being five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people.
 These properties make them, like source code artifacts, vulnerable to \emph{smells}. 
 
-The taxonomy of smells outlined in Fowler's text pertained to object-oriented (OO) code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}, but in the past few years, research has also been done into smells in end-user programming. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and Excel spreadsheets \cite{Hermans2012inter}. Experiments in end-user areas have shown that end-user programmers understand smells, and often prefer versions of their code that are non-smelly \cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}. 
+The taxonomy of smells outlined in Fowler's text pertained to object-oriented (OO) code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}, but in the past few years, research has also been done into smells in end-user programming. Most notable are structural smells in Yahoo Pipes web mashups~\cite{Stolee2011} and Excel spreadsheets \cite{Hermans2012inter}. Experiments in end-user areas have shown that end-user programmers understand smells, and often prefer versions of their code that are non-smelly \cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}. 
 
 % Related is also the work by Chambers and Scaffidi who study performance smells in LabView programming~\cite{chambers2013smell}.
 
 In this paper we combine the two end-user smell approaches and obverse that many of the OO smells are applicable in both domains, either they have been already studied, or they could be. This led us to the introduction of a generically applicable, OO-inspired end-user smells. To demonstrate the broad applicability of the catalog, we applied it to two new end-user domains aimed at education: \ms~and Kodu. The results of the application show that OO inspired smells from our catalog in fact occur in both end-user languages, underlining the power of the code smells concept: they also apply on visual languages aimed at education, which are quite different from the textual languages aimed at professional developers that the concept was initially designed for. 
 
-In EV3 and Kodu, the smells that we most commonly find are small abstractions (lazy class), duplication and dead code. In addition to the application of OO smells to the two new domains, we also move beyond the OO paradigm and hypothesize on domain specific smells for our four studied end-user languages: Excel, Yahoo! Pipes, EV3 and Kodu. The contributions of this work are as follows:
+In EV3 and Kodu, the smells that we most commonly find are small abstractions (lazy class), duplication and dead code. In addition to the application of OO smells to the two new domains, we also move beyond the OO paradigm and hypothesize on domain specific smells for our four studied end-user languages: Excel, Yahoo Pipes, EV3 and Kodu. The contributions of this work are as follows:
 
 \begin{itemize}
 	\item Synthesis and catalog of object-oriented-inspired code smells in end-user programs
@@ -123,7 +123,7 @@ In this section we briefly explore the two end-user languages targeted by prior 
 %file: fin_accounts from Euses / financial
 \end{figure}
 
-\noindent \textbf{Excel:} Spreadsheets are very commonly used in businesses, from inventory administration to educational applications and from scientific modeling to financial systems.
+\paragraph{Excel} Spreadsheets are very commonly used in businesses, from inventory administration to educational applications and from scientific modeling to financial systems.
 Winston ~\cite{Wins2001} estimates that 90\% of all analysts in industry perform calculations in spreadsheets. 
 Microsoft Excel is by far the most used, and therefore most studied, spreadsheet program, but other implementations exists and are similar.
 
@@ -132,14 +132,14 @@ A \textit{workbook} consist of a collection of worksheets.
 Formulas can reference other cells in the same or in different workbooks and worksheets.
 
 
-\noindent \textbf{Yahoo!\ Pipes:}
-Yahoo!\ Pipes is a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appears in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{Fetch Feed} modules) to the output at the bottom (i.e., \emph{Pipe Output}). Various manipulations of the data are possible along the  way, such as concatenating RSS feeds (e.g., \emph{Union} modules), sorting  or filtering based on various criteria, or truncating the list (e.g., \emph{Truncate} modules). 
+\paragraph{Yahoo Pipes}
+Yahoo Pipes was\footnote{We use the past tense as the Yahoo Pipes environment has been discontinued as of September 30, 2015.} a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appears in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{Fetch Feed} modules) to the output at the bottom (i.e., \emph{Pipe Output}). The wires connect the output of a module with either the input or a field of another module. 
+
+Various manipulations of the data are possible along the  way, such as concatenating RSS feeds (e.g., \emph{Union} modules), sorting  or filtering based on various criteria, or truncating the list (e.g., \emph{Truncate} modules). 
 Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine. These subpipes appear like a standard module but when clicked, open a the abstracted pipe in an editor. 
 
-\todo{Talk about how YP is being deprecated}
-
 \begin{figure}
-\caption{Example of a program in Yahoo!\ Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
+\caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
 \centering
 \includegraphics[width=\columnwidth]{img/yp-1}
 \label{fig:ypexample}
@@ -153,7 +153,17 @@ The first approach is to take existing smells for OO programming languages, usua
 The second approach is to define smells tailored to the end-user environment.
 This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available repositories \cite{Stolee2011,StoleeTSE2013,Hermans2012intra}.
 
-This section provides an overview of different smells that researchers have found to be applicable to end-user artifacts using both the above described approaches and proposes future directions for smell detection in these domains. 
+
+This section provides an overview of different OO-inspired smells that researchers have found to be applicable to end-user artifacts. 
+ We summarize the OO smells present in two end-user languages, Excel spreadsheets and Yahoo Pipes mashups, in Table~\ref{table:oosmellslarge}.
+ Overall, we often observe similarities in the code smells studied. For example, the \emph{Duplicate Code}, \emph{Lazy Class}, and \emph{Long Method} smells  have been studied in both languages. 
+% \todo{is this a fair assesment?}
+We note that the absence of an entry in Table~\ref{table:oosmellslarge} does not mean the absence of the smell in that language, it simply means such smells have not been studied. 
+For example, \emph{many parameters} is not discussed in previous work on Yahoo Pipes, but could apply when a pipe module receives many field values via wire from other modules. 
+Similarly, \emph{no-op} could occur in Excel when a formula like SUM(A1+A2+A3), which we have seen in practice, is present. Here, the SUM function does not add anything because it is expecting a list of values. Next, we describe some of the studied smells in these two domains. 
+\todo{clean up the subsections that follow}
+%While the occurrence of these smells falls outside of the scope of the current work, in this section we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains, thus addressing the empty places in Table \ref{table:oosmellslarge}.
+
 
 \begin{table*}
 \caption{Catalog of Code Smells in End-User Programs
@@ -164,7 +174,7 @@ This section provides an overview of different smells that researchers have foun
 \toprule
 \textbf{OO Smell}
 	& \textbf{Excel}
-	& \textbf{Yahoo!\ Pipes}
+	& \textbf{Yahoo Pipes}
 \\ \midrule
 Dead Code
 	& %~\ding{55}
@@ -222,52 +232,21 @@ Use of Deprecated Interfaces
 \end{table*}
 
 
-
-%\subsection{OO Smells in End-User Programs}
-%\label{sec:smells:oo}
- We summarize the OO smells present in two end-user languages, Excel spreadsheets and Yahoo!\ Pipes mashups, in Table~\ref{table:oosmellslarge}.
- Overall, we often observe similarities in the code smells studied. For example, the \emph{Duplicate Code}, \emph{Lazy Class}, and \emph{Long Method} smells  have been studied in both languages. 
-% \todo{is this a fair assesment?}
-We note that the absence of an entry in Table~\ref{table:oosmellslarge} does not mean the absence of the smell in that language, it simply means such smells have not been studied. We speculate on a few of these opportunities in Section~\ref{subsec:futuresmells}. 
-
-% Some smells, like the \emph{Long Method} smell, have been studied in only one domain but are likely applicable in the other domain, these are marked with *.  These smells present opportunities for future research, detailed in Section~\ref{subsec:futuresmells}.
- 
-% In this section we will detail the application of OO smells on specific end-user languages.
- 
-% A small number of smells are definitely not applicable (\ding{55}) because of differences in the domains. Spreadsheets, for example, cannot contain dead code because the user might still be interested in a piece of data even if it is not used anywhere else in the spreadsheet.
-
  \subsection{Excel}
 Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to transform nine of Fowlers smells.
 An example of this is the \emph{Long Method} smell, which translates to the \emph{Multiple Operations} smell because formulas with a large number of operations suffer from similar problems as long methods. In an industrial case study with 10 spreadsheet users, the smells were found understandable by users, and with the smells errors in real-life spreadsheets were found.
 
-\subsection{Yahoo!\ Pipes}
-Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
-\emph{Duplicate Modules}, impacted nearly one-quarter of the pipes studied. 
- Overall, 81\% of the programs studied from the Yahoo!\ Pipes community had at least one smell. 
- 
-Yahoo!\ can also \emph{deprecate modules}, which can create similar problems to using deprecated or old versions of interfaces.
-
-
-\begin{figure} [ht]
-\caption{The interface of \ms~showing a simple line following program.}
-\centering
-\includegraphics[width=\columnwidth]{img/ms}
-\label{fig:ms}
-\end{figure}
-
-\subsection{Further Applications of OO smells}
-\label{subsec:futuresmells}
-Although not all OO smells have been studied in both domains, indicated by empty places in Table \ref{table:oosmellslarge}, this does not mean they do not apply. For example, Feature Envy is not discussed in previous work on Yahoo! Pipes, but could apply when \todo{Katie, how exactly?}. Similarly, redundant operations could occur in Excel, in fact, they do. A formula like SUM(A1+A2+A3), which we have seen in practice, exhibits the No-Op smell, as the SUM function does not add anything. While the occurrence of these smells falls outside of the scope of the current work, in this section we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains, thus addressing the empty places in Table \ref{table:oosmellslarge}.
-
-\subsubsection{Excel}
 Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is future potential in the areas of redundancy and deprecation. The \emph{Dead code} smell
 
 Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
 
-\subsubsection{Yahoo!\ Pipes}
-\label{sec:smells:future:yp}
-%Many of the smells studied in Excel and LabVIEW could apply to Yahoo!\ Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
-%uses methods of another class excessively - envy
+\subsection{Yahoo Pipes}
+Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
+\emph{Duplicate Modules}, impacted nearly one-quarter of the pipes studied. 
+ Overall, 81\% of the programs studied from the Yahoo Pipes community had at least one smell. 
+ 
+Yahoo Pipes can also \emph{deprecate modules}, which can create similar problems to using deprecated or old versions of interfaces.
+
 The \emph{Feature Envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
 
 %depends on implementation of another class too much - intimacy
@@ -277,6 +256,15 @@ When a program uses too much abstraction relative to the size of the pipe, it co
 A \emph{Long Module} smell could apply when a module has a large number of fields. For example, the \emph{Fetch Feed} module, as in Figure~\ref{fig:ypexample}, can hold one or more URLs. When the number of URLs makes the method so big it does not fit on the screen, this would likely impact the understandability of the pipe. 
 
 Drawing inspiration from the domain-specific \emph{Inconsistent Formula} smell in Excel, identifying program patterns that are close, but not exactly the same, could identify missed opportunities for abstraction or errors in the mashup structure. 
+
+
+
+\begin{figure} [ht]
+\caption{The interface of \ms~showing a simple line following program.}
+\centering
+\includegraphics[width=\columnwidth]{img/ms}
+\label{fig:ms}
+\end{figure}
 
 
 %\subsubsection{Other Domains}
@@ -306,7 +294,7 @@ In Section~\ref{sec:smells}, we distill a catalog of end-user smells from previo
 In addition to the programming concepts described above, users have the possibility to define `\mbs' which basically are subroutines. \mbs~may have up to 9 different input and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and creating a new block for them, together with a call to the newly created block, an action extremely similar to `extract method' present in most modern IDEs. 
 
 \subsubsection{Smells  in \ms}
-In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In EV3 programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes and worksheets in spreadsheets. Based on this translation, we investigate which of the smells in our catalog could apply to EV3 programs too. 
+In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In EV3 programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo Pipes and worksheets in spreadsheets. Based on this translation, we investigate which of the smells in our catalog could apply to EV3 programs too. 
 
 \begin{description}
 \item[Dead Code] It is possible for programming blocks to be disconnected, but the interface clearly indicates this by making them gray \todo{added picture here?}. However, unused \mbs~can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large.
@@ -447,7 +435,7 @@ The programming in Figure~\ref{fig:Kodu} applies to the first page in this chara
 
 
 \subsubsection{Smells in Kodu}
-We describe how the smells in our OO-inspired catalog apply to Kodu programs. We define a loose mapping of the OO concepts to the end-user language. We consider pages of programming as analogous to methods or classes, similar to how modules are treated in Yahoo!\ Pipes, worksheets in spreadsheets and \mbs~in \ms. 
+We describe how the smells in our OO-inspired catalog apply to Kodu programs. We define a loose mapping of the OO concepts to the end-user language. We consider pages of programming as analogous to methods or classes, similar to how modules are treated in Yahoo Pipes, worksheets in spreadsheets and \mbs~in \ms. 
 
 \begin{description}
 \item[Dead Code] If there exists a page with programming such that there is no explicit path of control flow from Page~1 to it, it is unreachable and therefore dead. 
@@ -560,7 +548,7 @@ This smell was present in 61\% of the programs. All instances were that of dupli
 The next most-common smell is the no-op, present in 41\% of the programs. All instances of this smell were rules without \emph{do} clauses, rather than jumping to pages without logic. This is probably the product of the rapid cycling between testing and developing observed in Kodu development~\cite{Stolee:2011:ECS:1953163.1953197}; since the clauses have no actionable logic, keeping them in the code does not impact the semantics of the program. 
 
 \subsection{Summary}
-Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the various smells in the  EV3 and Kodu programs. Overall, 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. Coupled with the 81\% of Yahoo!\ Pipes programs~\cite{StoleeTSE2013} and \todo{X\% of Excel programs} that were previously found to be smelly, this provides further evidence of the prevalence of smells in end-user programs. 
+Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the various smells in the  EV3 and Kodu programs. Overall, 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. Coupled with the 81\% of Yahoo Pipes programs~\cite{StoleeTSE2013} and \todo{X\% of Excel programs} that were previously found to be smelly, this provides further evidence of the prevalence of smells in end-user programs. 
 
 As with code written by other end-user programmers~\cite{StoleeTSE2013}, duplication smells are prevalent in EV3 and Kodu programs, affecting over 60\% of the samples in both languages. Dead code is more frequently found in EV3 and lazy classes are more common in Kodu. Long methods are found in approximately 25\% of the programs in both languages, and \todo{Y\% of the Excel programs}, showing that this smell, too, is common across languages. Feature envy was also prevalent across both languages, appearing in 18\% and 22\% of the EV3 and Kodu programs, respectively. 
 
@@ -598,24 +586,25 @@ Many smells beyond the OO language exist in several of the domains studied.
 \subsubsection{Layout smells}
 The EV3 language is a visual language without an auto-layouting function, this means that, when users are making changes to their programs, often the layout can get messy. This also happens when a user creates a \mb, blocks that have been moved to the \mb~ are replaced by a call to the newly created \mb, but other than that the layout remains unchanged. So if a big \mb~is created the program will now have a big gap, making the program harder to read \todo{if room show example}. This, and other layout smells too are unique to visual languages where the layout is not modified by the environment.
 
+\todo{connect this to at least one other language}
 
 
-	\subsubsection{Visual smell}
+	\subsubsection{Lack of Visual Abstraction smell}
 	\todo{need to differentiate clearly from layout smell}
 	Visual languages, which end-user programming languages often are, can suffer from a visual smell in which the entire program does not fit on the screen and thus is difficult to comprehend. The threshold for the presence of this smell is clearly dependent on screen size, but nonetheless, it can have an impact on program maintainability~\cite{StoleeTSE2013}. 
-	This is similar to the \emph{long method} smell in Kodu, the \emph{duplicate code} smell in Yahoo!\ Pipes (named \emph{Isomorphic Paths}), or \todo{Felienne: add relevant smells in EV3 and Excel}. 
+	This is similar to the \emph{long method} smell in Kodu, the \emph{duplicate code} smell in Yahoo Pipes (named \emph{Isomorphic Paths}), or \todo{Felienne: add relevant smells in EV3 and Excel}. 
 	
-	One way to deal with this kind of visual smell is through abstraction. The  Yahoo!\ Pipes language provides this through the subpipe module, EV3 through MyBlocks, and \todo{Excel?}.  Including subpages or being able to collapse rules on a page would facilitate this in Kodu but support for that is currently not available. 
+	One way to deal with this kind of visual smell is through abstraction. The  Yahoo Pipes language provides this through the subpipe module, EV3 through MyBlocks, and \todo{Excel?}.  Including subpages or being able to collapse rules on a page would facilitate this in Kodu but support for that is currently not available. 
 
 
-	\subsubsection{Lack of Comments}
-	The lack of comments in a program can make it difficult to understand. Kodu and Yahoo!\ Pipes both suffer form a lack of comments
+	\subsubsection{Lack of Comments smell}
+	The lack of comments in a program can make it difficult to understand. Kodu and Yahoo Pipes both suffer form a lack of comments
 	in the programming language and development environment, often making it difficult to understand another's work or maintain old code. 
 
 
 
 \subsection{Domain-Specific Smells}
-Each end-user domain has unique characteristics that create opportunities for defining domain-specific smells. In Yahoo!\ Pipes, prior work has explored the presence of broken or deprecated data sources as a smell unique to the domain~\cite{StoleeTSE2013}. In Excel, prior work has \todo{explain a domain-specific smell}. Here, we explore smells in EV3 and Kodu that are unique to their languages and environments. 
+Each end-user domain has unique characteristics that create opportunities for defining domain-specific smells. In Yahoo Pipes, prior work has explored the presence of broken or deprecated data sources as a smell unique to the domain~\cite{StoleeTSE2013}. In Excel, prior work has \todo{explain a domain-specific smell}. Here, we explore smells in EV3 and Kodu that are unique to their languages and environments. 
 
 
 \subsubsection{EV3}
@@ -631,8 +620,8 @@ Hence a smell unique to the EV3 domain is a wrong mapping between the robot in r
 
 
 
-\subsection{Kodu}
-The Kodu environment involves creating a world and inserting characters and objects into that world where each character or object has the potential to be programmed. The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects or an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	 
+\subsubsection{Kodu}
+The Kodu environment involves creating a world and inserting characters and objects into that world where each character or object has the potential to be programmed. The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	 
 
 
 
@@ -641,11 +630,11 @@ The Kodu environment involves creating a world and inserting characters and obje
 \label{sec:related_work}
 Related to the current research are efforts on code smells within traditional languages, starting with the work of Fowler\cite{Fowl1999}. His book gives an overview of code smells and corresponding refactorings. Recent efforts focused on the automatic identification of code smells by means of metrics. Marinescu~\cite{Mari2001} for instance, uses metrics to identify \emph{suspect} classes, those classes that might have design flaws. Lanza and Marinescu~\cite{Lanz06} explain this methodology in more detail. Alves \emph{et al.}~\cite{Alves2010} focus on a strategy to obtain thresholds for metrics from a benchmark. Olbrich \emph{et al.} furthermore investigates the changes in smells over time, and discusses their impact~\cite{Olbr2009}.
 
-Within end-user programming, this paper builds upon two lines of related work. Firstly, the work of Stolee and Elbaum that studied smells~\cite{StoleeTSE2013} and refactorings~\cite{Stolee2011}. They designed a number of smells by transforming known OO smells to the domain of Yahoo! Pipes. The second direction is the work by Hermans \emph{et al.} that also took OO smells as an inspiration from a number of smells~\cite{Hermans2012intra, Hermans2012inter}. Subsequently they described corresponding refactorings~\cite{Hermans2012intraExt} and a tool that applies refactorings~\cite{hermans2014bumblebee}. This final work builds upon previous work by Badame and Dig that described the first spreadsheet refactoring tool RefBook~\cite{badame2012refactoring}.
+Within end-user programming, this paper builds upon two lines of related work. Firstly, the work of Stolee and Elbaum that studied smells~\cite{StoleeTSE2013} and refactorings~\cite{Stolee2011}. They designed a number of smells by transforming known OO smells to the domain of Yahoo Pipes. The second direction is the work by Hermans \emph{et al.} that also took OO smells as an inspiration from a number of smells~\cite{Hermans2012intra, Hermans2012inter}. Subsequently they described corresponding refactorings~\cite{Hermans2012intraExt} and a tool that applies refactorings~\cite{hermans2014bumblebee}. This final work builds upon previous work by Badame and Dig that described the first spreadsheet refactoring tool RefBook~\cite{badame2012refactoring}.
 
 In end-user programming environments, user input and logic are often more closely linked than they are in general purpose languages, and as such analyzing the input data as opposed to the logic can also be used as a means of \emph{smell detection}. This is a direction that has been spplied to spreadsheets. Cunha et. al \cite{cunha2012towards} for example look at anomalies in the data and define these as smells. Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations. In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a more formalized approach which they label ``Data Debugging''. Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
 
-In addition two above described work on Yahoo! Pipes and spreadsheets, there is previous smells work on other end-user environments too, like performance smells in LabView, a visual language for system-design~\cite{chambers2013smell, chambers2015impact}. 
+In addition two above described work on Yahoo Pipes and spreadsheets, there is previous smells work on other end-user environments too, like performance smells in LabView, a visual language for system-design~\cite{chambers2013smell, chambers2015impact}. 
 
 Finally, there is some, albeit limited, work on detecting code smells in educational languages. \todo{Katie, do you know of more?} Chatley and Timbul describe Kenya, a simple programming language for educational purposes, which they have integrated into the Eclipse environment~\cite{Chatley2005}. They built features that allow the detection of `bad style' in programs to be detected and reported as code is written, concentrating on encouraging students to program like they were taught in class. This work might indicate that smell detection can be useful for education, but the authors unfortunately did not perform an evaluation of the usefulness of this approach.
 
@@ -661,7 +650,7 @@ Based on the research and results for smell detection in end-user programming do
 
 
 \subsection{Threats to Validity}
-The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, badame2012refactoring} on end-user refactoring in spreadsheets and Yahoo! Pipes.
+The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, badame2012refactoring} on end-user refactoring in spreadsheets and Yahoo Pipes.
 
 The three domains studied in this paper all happen to be dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains (e.g., Scratch is OO-based). \todo{katie, would you say Kodu is dataflow based too?}
 
@@ -670,7 +659,7 @@ The three domains studied in this paper all happen to be dataflow languages, and
 
 \section{Concluding Remarks}
 \label{sec:conclusions}
-This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo!\ Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and small abstractions, duplicate code and dead code occur in these educational languages too, while being of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This shows the applicability of these smells, and also warrants further research into issues end-users encounter while programming. The contributions of this paper are:
+This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and small abstractions, duplicate code and dead code occur in these educational languages too, while being of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This shows the applicability of these smells, and also warrants further research into issues end-users encounter while programming. The contributions of this paper are:
 
 \begin{itemize}
 	\item A catalog of object-oriented-inspired code smells in end-user programs (Section \ref{sec:smells})
@@ -778,7 +767,7 @@ Felienne Hermans\\
 In the workforce today, millions of people program without degrees or professional training in software development. 
 These end-user programmers perform a variety of tasks, from combining web information to building models to support business decisions. Software engineering research into code smells has traditionally focused on professionally used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
 
-In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo!\ Pipes. Based on existing OO-smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
+In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo Pipes. Based on existing OO-smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
 
 We demonstrate the broad applicability of the catalog by applying it to two end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that indeed OO inspired smells occur in both end-user languages, most commonly we find that small abstractions, duplication and dead code are common. We conclude the paper by proposing new end-users smell, moving beyond the OO paradigm. 
 \end{abstract}
@@ -791,13 +780,13 @@ These end-user programmers perform a wide variety of tasks within their organiza
 Similar to code written by professional developers, end-user artifacts may have a long life-span, the average lifespan of a corporate spreadsheet being five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people.
 These properties make them, like source code artifacts, vulnerable to \emph{smells}. 
 
-The taxonomy of smells outlined in Fowler's text pertained to object-oriented (OO) code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}, but in the past few years, research has also been done into smells in end-user programming. Most notable are structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and Excel spreadsheets \cite{Hermans2012inter}. Experiments in end-user areas have shown that end-user programmers understand smells, and often prefer versions of their code that are non-smelly \cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}. 
+The taxonomy of smells outlined in Fowler's text pertained to object-oriented (OO) code, and professional programming languages were the focus for at least the first decade of refactoring and code smell research~\cite{Mens:2004:SSR:972215.972286}, but in the past few years, research has also been done into smells in end-user programming. Most notable are structural smells in Yahoo Pipes web mashups~\cite{Stolee2011} and Excel spreadsheets \cite{Hermans2012inter}. Experiments in end-user areas have shown that end-user programmers understand smells, and often prefer versions of their code that are non-smelly \cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}. 
 
 % Related is also the work by Chambers and Scaffidi who study performance smells in LabView programming~\cite{chambers2013smell}.
 
 In this paper we combine the two end-user smell approaches and obverse that many of the OO smells are applicable in both domains, either they have been already studied, or they could be. This led us to the introduction of a generically applicable, OO-inspired end-user smells. To demonstrate the broad applicability of the catalog, we applied it to two new end-user domains aimed at education: \ms~and Kodu. The results of the application show that OO inspired smells from our catalog in fact occur in both end-user languages, underlining the power of the code smells concept: they also apply on visual languages aimed at education, which are quite different from the textual languages aimed at professional developers that the concept was initially designed for. 
 
-In EV3 and Kodu, the smells that we most commonly find are small abstractions (lazy class), duplication and dead code. In addition to the application of OO smells to the two new domains, we also move beyond the OO paradigm and hypothesize on domain specific smells for our four studied end-user languages: Excel, Yahoo! Pipes, EV3 and Kodu. The contributions of this work are as follows:
+In EV3 and Kodu, the smells that we most commonly find are small abstractions (lazy class), duplication and dead code. In addition to the application of OO smells to the two new domains, we also move beyond the OO paradigm and hypothesize on domain specific smells for our four studied end-user languages: Excel, Yahoo Pipes, EV3 and Kodu. The contributions of this work are as follows:
 
 \begin{itemize}
 	\item Synthesis and catalog of object-oriented-inspired code smells in end-user programs
@@ -829,12 +818,12 @@ A \textit{workbook} consist of a collection of worksheets.
 Formulas can reference other cells in the same or in different workbooks and worksheets.
 
 
-\noindent \textbf{Yahoo!\ Pipes:}
-Yahoo!\ Pipes is a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program. The boxes represent modules connected by wires. 
+\noindent \textbf{Yahoo Pipes:}
+Yahoo Pipes is a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program. The boxes represent modules connected by wires. 
 Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine, appearing like a standard module. 
 
 \begin{figure}
-\caption{Example of a program in Yahoo!\ Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
+\caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{Fetch Feed} module, feeding to a \emph{Union} module that concatenates the feeds, a \emph{Truncate} module that limits the number of items to 15 prior to the final \emph{Pipe Output}. }
 \centering
 \includegraphics[width=\columnwidth]{img/yp-1}
 \label{fig:ypexample}
@@ -859,7 +848,7 @@ This section provides an overview of different smells that researchers have foun
 \toprule
 \textbf{OO Smell}
 	& \textbf{Excel}
-	& \textbf{Yahoo!\ Pipes}
+	& \textbf{Yahoo Pipes}
 \\ \midrule
 Dead Code
 	& %~\ding{55}
@@ -920,7 +909,7 @@ Use of Deprecated Interfaces
 
 %\subsection{OO Smells in End-User Programs}
 %\label{sec:smells:oo}
- We summarize the OO smells present in two end-user languages, Excel spreadsheets and Yahoo!\ Pipes mashups, in Table~\ref{table:oosmellslarge}.
+ We summarize the OO smells present in two end-user languages, Excel spreadsheets and Yahoo Pipes mashups, in Table~\ref{table:oosmellslarge}.
  Overall, we often observe similarities in the code smells studied. For example, the \emph{Duplicate Code}, \emph{Lazy Class}, and \emph{Long Method} smells  have been studied in both languages. 
 % \todo{is this a fair assesment?}
 We note that the absence of an entry in Table~\ref{table:oosmellslarge} does not mean the absence of the smell in that language, it simply means such smells have not been studied. We speculate on a few of these opportunities in Section~\ref{subsec:futuresmells}. 
@@ -935,12 +924,12 @@ We note that the absence of an entry in Table~\ref{table:oosmellslarge} does not
 Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to transform nine of Fowlers smells.
 An example of this is the \emph{Long Method} smell, which translates to the \emph{Multiple Operations} smell because formulas with a large number of operations suffer from similar problems as long methods. In an industrial case study with 10 spreadsheet users, the smells were found understandable by users, and with the smells errors in real-life spreadsheets were found.
 
-\subsection{Yahoo!\ Pipes}
-Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo!\ Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
+\subsection{Yahoo Pipes}
+Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{Duplicate Strings}, an instance of Fowler's \emph{Duplicate Code} smell. 
 \emph{Duplicate Modules}, impacted nearly one-quarter of the pipes studied. 
- Overall, 81\% of the programs studied from the Yahoo!\ Pipes community had at least one smell. 
+ Overall, 81\% of the programs studied from the Yahoo Pipes community had at least one smell. 
  
-Yahoo!\ can also \emph{deprecate modules}, which can create similar problems to using deprecated or old versions of interfaces.
+Yahoo can also \emph{deprecate modules}, which can create similar problems to using deprecated or old versions of interfaces.
 
 
 \begin{figure} [ht]
@@ -952,16 +941,16 @@ Yahoo!\ can also \emph{deprecate modules}, which can create similar problems to 
 
 \subsection{Further Applications of OO smells}
 \label{subsec:futuresmells}
-Although not all OO smells have been studied in both domains, indicated by empty places in Table \ref{table:oosmellslarge}, this does not mean they do not apply. For example, Feature Envy is not discussed in previous work on Yahoo! Pipes, but could apply when \todo{Katie, how exactly?}. Similarly, redundant operations could occur in Excel, in fact, they do. A formula like SUM(A1+A2+A3), which we have seen in practice, exhibits the No-Op smell, as the SUM function does not add anything. While the occurrence of these smells falls outside of the scope of the current work, in this section we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains, thus addressing the empty places in Table \ref{table:oosmellslarge}.
+Although not all OO smells have been studied in both domains, indicated by empty places in Table \ref{table:oosmellslarge}, this does not mean they do not apply. For example, Feature Envy is not discussed in previous work on Yahoo Pipes, but could apply when \todo{Katie, how exactly?}. Similarly, redundant operations could occur in Excel, in fact, they do. A formula like SUM(A1+A2+A3), which we have seen in practice, exhibits the No-Op smell, as the SUM function does not add anything. While the occurrence of these smells falls outside of the scope of the current work, in this section we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains, thus addressing the empty places in Table \ref{table:oosmellslarge}.
 
 \subsubsection{Excel}
 Most of the smells studied in other end-user domains have been studied in Excel spreadsheets, but there is future potential in the areas of redundancy and deprecation. The \emph{Dead code} smell
 
 Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
 
-\subsubsection{Yahoo!\ Pipes}
+\subsubsection{Yahoo Pipes}
 \label{sec:smells:future:yp}
-%Many of the smells studied in Excel and LabVIEW could apply to Yahoo!\ Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
+%Many of the smells studied in Excel and LabVIEW could apply to Yahoo Pipes, and in particular, \emph{Feature Envy} and \emph{Inappropriate Intimacy}. 
 %uses methods of another class excessively - envy
 The \emph{Feature Envy} smell could  apply when introducing abstraction. For example, if a pipe has several instances of the same subpipe module, this could be excessive use of another class. 
 
@@ -1001,7 +990,7 @@ In Section~\ref{sec:smells}, we distill a catalog of end-user smells from previo
 In addition to the programming concepts described above, users have the possibility to define `\mbs' which basically are subroutines. \mbs~may have up to 9 different input and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and creating a new block for them, together with a call to the newly created block, an action extremely similar to `extract method' present in most modern IDEs. 
 
 \subsubsection{Smells  in \ms}
-In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In EV3 programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo! Pipes and worksheets in spreadsheets. Based on this translation, we investigate which of the smells in our catalog could apply to EV3 programs too. \todo{in what order should we present the smells? I think alphabetical makes more sense than no ordering?}
+In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question to be able to translate the smells. In EV3 programming, there are  \emph{\mbs~} that contain a number of blocks, can be used multiple times and can use input and output. As such they resemble methods in source code, modules in Yahoo Pipes and worksheets in spreadsheets. Based on this translation, we investigate which of the smells in our catalog could apply to EV3 programs too. \todo{in what order should we present the smells? I think alphabetical makes more sense than no ordering?}
 
 \begin{description}
 \item[Dead Code] It is possible for programming blocks to be disconnected, but the interface clearly indicates this by making them gray \todo{added picture here?}. However, unused \mbs~can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large.
@@ -1142,7 +1131,7 @@ The programming in Figure~\ref{fig:Kodu} applies to the first page in this chara
 
 
 \subsubsection{Smells in Kodu}
-We describe how the smells in our OO-inspired catalog apply to Kodu programs. We define a loose mapping of the OO concepts to the end-user language. We consider pages of programming as analogous to methods or classes, similar to how modules are treated in Yahoo!\ Pipes, worksheets in spreadsheets and \mbs~in \ms. 
+We describe how the smells in our OO-inspired catalog apply to Kodu programs. We define a loose mapping of the OO concepts to the end-user language. We consider pages of programming as analogous to methods or classes, similar to how modules are treated in Yahoo Pipes, worksheets in spreadsheets and \mbs~in \ms. 
 
 \begin{description}
 \item[Dead Code] If there exists a page with programming such that there is no explicit path of control flow from Page~1 to it, it is unreachable and therefore dead. 
@@ -1255,7 +1244,7 @@ This smell was present in 61\% of the programs. All instances were that of dupli
 The next most-common smell is the no-op, present in 41\% of the programs. All instances of this smell were rules without \emph{do} clauses, rather than jumping to pages without logic. This is probably the product of the rapid cycling between testing and developing observed in Kodu development~\cite{Stolee:2011:ECS:1953163.1953197}; since the clauses have no actionable logic, keeping them in the code does not impact the semantics of the program. 
 
 \subsection{Summary}
-Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the various smells in the  EV3 and Kodu programs. Overall, 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. Coupled with the 81\% of Yahoo!\ Pipes programs~\cite{StoleeTSE2013} and \todo{X\% of Excel programs} that were previously found to be smelly, this provides further evidence of the prevalence of smells in end-user programs. 
+Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the various smells in the  EV3 and Kodu programs. Overall, 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. Coupled with the 81\% of Yahoo Pipes programs~\cite{StoleeTSE2013} and \todo{X\% of Excel programs} that were previously found to be smelly, this provides further evidence of the prevalence of smells in end-user programs. 
 
 As with code written by other end-user programmers~\cite{StoleeTSE2013}, duplication smells are prevalent in EV3 and Kodu programs, affecting over 60\% of the samples in both languages. Dead code is more frequently found in EV3 and lazy classes are more common in Kodu. Long methods are found in approximately 25\% of the programs in both languages, and \todo{Y\% of the Excel programs}, showing that this smell, too, is common across languages. Feature envy was also prevalent across both languages, appearing in 18\% and 22\% of the EV3 and Kodu programs, respectively. 
 
@@ -1295,11 +1284,11 @@ Interestingly this smell is already detected by Microsoft Excel which warns the 
 Another smell specific to spreadsheets is when a formula references an empty cell, which is often in error \cite{cunha2012towards}.
 This is comparable to a null pointer in other languages and would be a runtime error, but because a spreadsheet contains both the input data and logic we can directly mark it as a smell.
 
-\subsection{Yahoo!\ Pipes}
+\subsection{Yahoo Pipes}
 %Talk about smells unique to the domain
-By exploring a large subset of the Yahoo!\ Pipes repository, Stolee and Elbaum identified a smell based on the presence of broken data sources~\cite{StoleeTSE2013}.
+By exploring a large subset of the Yahoo Pipes repository, Stolee and Elbaum identified a smell based on the presence of broken data sources~\cite{StoleeTSE2013}.
 A reference to a broken data sources  is similar to opening a non-existing file, which would be a runtime exception or error in most professional languages.
-Such exceptions are not in the Yahoo!\ Pipes language, which is the reason to mark it as a smell. 
+Such exceptions are not in the Yahoo Pipes language, which is the reason to mark it as a smell. 
 %Talk about deriving smells from the community
 Similar exploration was used to  identify common programming practices, marking deviations from those practices as smells. 
 This is similar to identifying  smells  as anti-patterns  and could be extended to any language. 
@@ -1347,7 +1336,7 @@ Based on the research and results for smell detection in end-user programming do
 
 
 \subsection{Threats to Validity}
-The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, badame2012refactoring} on end-user refactoring in spreadsheets and Yahoo! Pipes.
+The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, badame2012refactoring} on end-user refactoring in spreadsheets and Yahoo Pipes.
 
 The three domains studied in this paper all happen to be dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains (e.g., Scratch is OO-based). \todo{katie, would you say Kodu is dataflow based too?}
 
@@ -1356,7 +1345,7 @@ The three domains studied in this paper all happen to be dataflow languages, and
 
 \section{Concluding Remarks}
 \label{sec:conclusions}
-This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo!\ Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and small abstractions, duplicate code and dead code occur in these educational languages too, while being of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This shows the applicability of these smells, and also warrants further research into issues end-users encounter while programming. The contributions of this paper are:
+This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and small abstractions, duplicate code and dead code occur in these educational languages too, while being of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This shows the applicability of these smells, and also warrants further research into issues end-users encounter while programming. The contributions of this paper are:
 
 \begin{itemize}
 	\item A catalog of object-oriented-inspired code smells in end-user programs (Section \ref{sec:smells})
