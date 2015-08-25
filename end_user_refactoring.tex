@@ -355,7 +355,7 @@ Looking at the EV3 programming interface, it is not that surprising that users f
 \begin{table*}[]
 \centering
 
-\caption{Size in terms of the different number of blocks used in the seventeen \ms~programs, and the smells they exhibit \todo{deprecated interfaces?}}
+\caption{Size in terms of the different number of blocks used in the seventeen \ms~programs, and the smells they exhibit}
 \label{tab:robotica}
 \sffamily
 \begin{small}
@@ -543,7 +543,9 @@ The next most-common smell is the no-op, present in 41\% of the programs. All in
 \subsection{Summary}
 Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the various smells in the  EV3 and Kodu programs. Overall, 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. Coupled with the 81\% of Yahoo Pipes programs~\cite{StoleeTSE2013} and \todo{X\% of Excel programs} that were previously found to be smelly, this provides further evidence of the prevalence of smells in end-user programs. 
 
-As with code written by other end-user programmers~\cite{StoleeTSE2013}, duplication smells are prevalent in EV3 and Kodu programs, affecting over 60\% of the samples in both languages. Dead code is more frequently found in EV3 and lazy classes are more common in Kodu. Long methods are found in approximately 25\% of the programs in both languages, and \todo{Y\% of the Excel programs}, showing that this smell, too, is common across languages. Feature envy was also prevalent across both languages, appearing in 18\% and 22\% of the EV3 and Kodu programs, respectively. 
+As with code written by other end-user programmers~\cite{StoleeTSE2013}, \emph{duplicate code} is prevalent in EV3 and Kodu programs, affecting over 60\% of the samples in both languages. The other two smells that were studied in Excel and Yahoo Pipes, \emph{lazy class} and \emph{long method}, are present in at least 24\% of the studied EV3 and Kodu programs, illustrating commonality across all end-user programming domains. 
+
+\emph{Dead code} is more frequently found in EV3 and lazy classes are more common in Kodu. \emph{Feature envy} was also prevalent across both languages, appearing in 18\% and 22\% of the EV3 and Kodu programs, respectively. The \emph{no-op} smell is present in 41\% of the Kodu programs. 
 
 
 \begin{table}
