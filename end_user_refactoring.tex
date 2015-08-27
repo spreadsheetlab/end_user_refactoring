@@ -78,7 +78,7 @@ In the workforce today, millions of people program without degrees or profession
 These end-user programmers perform a variety of tasks, from combining web information to building models to support business decisions. Software engineering research into code smells has traditionally focused on professionally used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
 
 In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo Pipes. Based on existing OO-smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
-We demonstrate the broad applicability of the catalog by mapping the smells to two additional end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that  OO inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication and dead code smells, with the duplication smells being present in nearly 2/3 of programs in each language. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the OO paradigm. 
+We demonstrate the broad applicability of the catalog by mapping the smells to two additional end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that  OO inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication, and dead code smells, with the duplication smells being present in nearly 2/3 of programs in each language. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the OO paradigm. 
 \end{abstract}
 
 
@@ -94,17 +94,17 @@ The taxonomy of smells outlined in Fowler's text pertained to object-oriented (O
 
 % Related is also the work by Chambers and Scaffidi who study performance smells in LabView programming~\cite{chambers2013smell}.
 
-In this paper we combine the two end-user smell approaches and obverse that many of the OO smells are applicable in both domains, either they have been already studied, or there is clear opportunity to do so. This led us to the introduction of a generically applicable, OO-inspired end-user smells. To demonstrate the broad applicability of the catalog, we applied it to two new end-user domains aimed at education: \ms~and Microsoft's Kodu. The results of the application show that OO inspired smells in our catalog in fact occur in both end-user languages: 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. This underlines the power of the code smells concept: they are applicable to visual languages aimed at education, which are quite different from the textual languages aimed at professional developers that the concept was initially designed for. 
+In this paper we combine the two end-user smell approaches and observe that many of the OO smells are applicable in both domains, either they have been already studied, or there is clear opportunity to do so. This led us to the introduction of a generically applicable, OO-inspired end-user smells. To demonstrate the broad applicability of the catalog, we applied it to two new end-user domains aimed at education: \ms~and Microsoft's Kodu. The results of the application show that OO inspired smells in our catalog in fact occur in both end-user languages: 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. This underlines the power of the code smells concept: they are applicable to visual languages aimed at education, which are quite different from the textual languages aimed at professional developers that the concept was initially designed for. 
 
-In EV3 and Kodu, the smells that we most commonly find are small abstractions (lazy class), duplication and dead code illustrating commonality across all end-user programming domains
-  
-In addition applying the OO smells to the two new domains, we also move beyond \todo{move feels a bit informal to me, is there an alternative?} the OO paradigm and hypothesize on domain specific smells for our four studied end-user languages: Excel, Yahoo Pipes, EV3 and Kodu. The contributions of this work are as follows:
+In EV3 and Kodu, the smells that we most commonly find are small abstractions (lazy class), duplication, and dead code illustrating commonality across all end-user programming domains. The contributions of this work are as follows:
 
 \begin{itemize}
 	\item Synthesis and catalog of object-oriented-inspired code smells in end-user programs
-	\item Application of the catalog to two new end-user domains focused on education: \ms~and Kodu
-	\item Identification of future opportunities for domain-specific, non OO-inspired smell detection in end-user programming domains
+	\item Application of the catalog to two additional end-user domains focused on education: \ms~and Kodu
+	\item Identification of future opportunities for domain-specific, non-OO-inspired smell detection in end-user programming domains
 \end{itemize}
+
+The rest of this paper is organized as follows. Section~\ref{sec:background} provides background on the two previously studied domains, Excel spreadsheets and Yahoo Pipes mashups. The synthesized catalog of smells is presented in Section~\ref{sec:smells}. We apply the catalog to \ms~and Kodu in Section~\ref{sec:application} by defining each smell in each domain and measuring the presence of smells in corpuses of programs created by children and the community for each language. We explore opportunities for new, non-OO smells in end-user domains in Section~\ref{sec:beyond}, which is followed by related work in Section~\ref{sec:related_work}, threats to validity in Section~\ref{sec:threats} and a conclusion in Section~\ref{sec:conclusions}. 
 
 \section{Background}
 \label{sec:background}
@@ -645,16 +645,17 @@ and educational benefits~\cite{Fowler:2011:KGL:2159365.2159398, Touretzky:2013:A
 There is some, albeit limited, work on detecting code smells in educational languages. Chatley and Timbul describe Kenya, a simple programming language for educational purposes, which they have integrated into the Eclipse environment~\cite{Chatley2005}. They built features that allow the detection of `bad style' in programs to be detected and reported as code is written, concentrating on encouraging students to program like they were taught in class. This work might indicate that smell detection can be useful for education, but the authors unfortunately did not perform an evaluation of the usefulness of this approach.
 
 
-\section{Discussion}
-\label{sec:discussion}
+%\section{Discussion}
+%\label{sec:discussion}
+%
+%Based on the research and results for smell detection in end-user programming domains, there are many directions for future work in the domains studied and other end-user domains.
+%
+%
 
-Based on the research and results for smell detection in end-user programming domains, there are many directions for future work in the domains studied and other end-user domains.
 
 
-
-
-
-\subsection{Threats to Validity}
+\section{Threats to Validity}
+\label{sec:threats}
 The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, badame2012refactoring} on end-user refactoring in spreadsheets and Yahoo Pipes.
 
 Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
@@ -665,7 +666,7 @@ The three domains studied in this paper all happen to be dataflow languages, and
 
 \todo{In Kodu, smells vs. design decisions}
 
-\section{Concluding Remarks}
+\section{Conclusion}
 \label{sec:conclusions}
 This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and small abstractions, duplicate code and dead code occur in these educational languages too, while being of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This shows the applicability of these smells, and also warrants further research into issues end-users encounter while programming. The contributions of this paper are:
 
