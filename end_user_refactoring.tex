@@ -35,6 +35,7 @@
 \newcommand{\mbs}{\textsc{my blocks}}
 \newcommand{\mb}{\textsc{my block}}
 \newcommand{\horiz}{\hspace{2.1pt}}
+\renewcommand{\topfraction}{.9}
 
 \newcommand{\ignore}[1]{}
 
@@ -119,13 +120,15 @@ A \textit{workbook} consist of a collection of worksheets.
 Formulas can reference other cells in the same or in different workbooks and worksheets.
 
 
+
 \subsection{Yahoo Pipes}
 Yahoo Pipes was\footnote{We use the past tense as the Yahoo Pipes environment has been discontinued as of September 30, 2015.} a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appears in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{fetch feed} modules) to the output at the bottom (i.e., \emph{pipe output}). The wires connect the output of a module with either the input or a field of another module. 
 
 Various manipulations of the data are possible along the  way, such as concatenating RSS feeds (e.g., \emph{union} modules), sorting  or filtering based on various criteria, or truncating the list (e.g., \emph{truncate} modules). 
 Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine. These subpipes appear like a standard module but when clicked, open a the abstracted pipe in an editor. 
 
-\begin{figure}
+
+\begin{figure}[htb]
 \caption{Microsoft Excel 2013 showing a spreadsheet. Columns B and C show the typical mix of data and calculation. The formula of the selected cell B13 is visible right above the spreadsheet.}
 \centering
 \includegraphics[width=\columnwidth]{img/excel-2}
@@ -133,7 +136,7 @@ Abstraction is possible with \emph{subpipe} modules, which allow a programmer to
 %file: fin_accounts from Euses / financial
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!tb]
 \caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{fetch feed} module, feeding to a \emph{union} module that concatenates the feeds, a \emph{truncate} module that limits the number of items to 15 prior to the final \emph{pipe output}. }
 \centering
 \includegraphics[width=\columnwidth]{img/yp-1}
