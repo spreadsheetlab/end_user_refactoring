@@ -112,7 +112,7 @@ The rest of this paper is organized as follows. Section~\ref{sec:background} pro
 In this section we briefly introduce the two end-user languages targeted by prior smell research, before presenting the relevant end-user code smells in Section~\ref{sec:smells}.
 
 \subsection{Excel} Spreadsheets are very commonly used in businesses, from inventory administration to educational applications and from scientific modeling to financial systems.
-Winston ~\cite{Wins2001} estimates that 90\% of all analysts in industry perform calculations in spreadsheets. 
+Winston~\cite{Wins2001} estimates that 90\% of all analysts in industry perform calculations in spreadsheets. 
 Microsoft Excel is by far the most used, and therefore most studied, spreadsheet program, but other implementations exists and are similar.
 
 In modern spreadsheet programs, a \textit{cell} can contain a single \textit{formula} which performs a calculation, and a table of cells is bundled in a \textit{worksheet}; an example is shown in Figure~\ref{fig:spreadsheetexample}. 
@@ -122,10 +122,10 @@ Formulas can reference other cells in the same or in different workbooks and wor
 
 
 \subsection{Yahoo Pipes}
-Yahoo Pipes was\footnote{We use the past tense as the Yahoo Pipes environment has been discontinued as of September 30, 2015.} a popular web mashup language and environment with which RSS feed information can be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appears in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{fetch feed} modules) to the output at the bottom (i.e., \emph{pipe output}). The wires connect the output of a module with either the input or a field of another module. 
+Yahoo Pipes was\footnote{We use the past tense as the Yahoo Pipes environment has been discontinued as of September 30, 2015.} a popular web mashup language and environment with which RSS feed information could be collected and combined from various sources.  Figure~\ref{fig:ypexample} shows an example program as it appeared in the Pipes Editor. The boxes represent modules connected by wires and data flows from the data sources at the top  (e.g., \emph{fetch feed} modules) to the output at the bottom (i.e., \emph{pipe output}). The wires connect the output of a module with either the input or a field of another module. 
 
 Various manipulations of the data are possible along the  way, such as concatenating RSS feeds (e.g., \emph{union} modules), sorting  or filtering based on various criteria, or truncating the list (e.g., \emph{truncate} modules). 
-Abstraction is possible with \emph{subpipe} modules, which allow a programmer to insert a different pipe as a subroutine. These subpipes appear like a standard module but when clicked, open a the abstracted pipe in an editor. 
+Abstraction was possible with \emph{subpipe} modules, which allowed a programmer to insert a different pipe as a subroutine. These subpipes appeared like a standard module but when clicked, opened the abstracted pipe in an editor. 
 
 
 \begin{figure}[htb]
@@ -227,21 +227,23 @@ Unused Field
 
 
  \subsection{Excel}
-Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to transform nine of Fowlers smells.
-An example of this is the \emph{long method} smell, which translates to the \emph{multiple operations} smel, since formulas with a large number of operations suffer from similar problems as long methods in terms of understandability and similarly the \emph{many parameters} smells applies to spreadsheet formulas that refer to a large number of other cells or ranges. The above two smells occur at the formula level, but smells at the worksheet level occur too. For example like \emph{feature envy} where a given formula mainly uses cells located on a different worksheet, like =('Required Funds'!B9/'Required Funds'!C9/12) + ('Required Funds'!B10/'Required Funds'!C10/12) + ('Required Funds'!B11/'Required Funds'!C11/12), taken from the clienttemplate.xlsx spreadsheet from the EUSES corpus~\cite{fisher2005euses}. As this formula refers to cells from the Required Funds worksheets, it would fit there better. Similarly, two worksheets can have formulas that refer to each other heavily, introducing the \emph{inappropriate intimacy} smells. The \emph{message chain} smell occurs within spreadsheets if long chains of connecting formulas are constructed, hindering understandability as the entire chain has to be traced. In an study on the above mentioned EUSES corpus, 42\% of spreadsheets were found to be smelly~\cite{Hermans2012intra}.
+Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to adapt nine of Fowler's smells~\cite{Fowl1999} to the spreadsheet domain.
+An example of this is the \emph{long method} smell, which translates to the \emph{multiple operations} smell, since formulas with a large number of operations suffer from similar problems as long methods in terms of understandability and similarly the \emph{many parameters} smell applies to spreadsheet formulas that refer to a large number of other cells or ranges. 
+
+The above two smells occur at the formula level, but smells at the worksheet level occur too. For example, the \emph{feature envy} smell occurs where a given formula mainly uses cells located on a different worksheet, such as: \begin{quote} \begin{small}{\tt =('Required Funds'!B9/'Required Funds'!C9/12) + ('Required Funds'!B10/'Required Funds'!C10/12) + ('Required Funds'!B11/'Required Funds'!C11/12)}, \end{small}\end{quote} which is taken from the clienttemplate.xlsx spreadsheet from the EUSES corpus~\cite{fisher2005euses}. As this formula refers to cells from the {\tt Required Funds} worksheets, it would fit there better. Similarly, two worksheets can have formulas that refer to each other heavily, introducing the \emph{inappropriate intimacy} smells. The \emph{message chain} smell occurs within spreadsheets if long chains of connecting formulas are constructed, hindering understandability as the entire chain has to be traced. In an study on the above mentioned EUSES corpus, 42\% of spreadsheets were found to be smelly~\cite{Hermans2012intra}.
 
 \subsection{Yahoo Pipes}
 Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{duplicate strings}, an instance of Fowler's \emph{duplicate code} smell. 
-\emph{duplicate modules}, impacted nearly one-quarter of the pipes studied. 
+A similar smell, \emph{duplicate modules}, impacted nearly one-quarter of the pipes studied. 
 % Overall, 81\% of the programs studied from the Yahoo Pipes community had at least one smell. 
  
-\emph{Dead code} can appear in Yahoo Pipes when a module is not connected to the rest of the pipe. A  \emph{deprecate module} occurs when a program uses a module that has been deprecated in the API. A \emph{lazy class} or \emph{no-op} smell occurs when data flows through an entire pipe or a module, respectively, but is not manipulated. The \emph{unused field} smell occurs when blank fields are left in modules, specifically when those blanks are supposed to contain data sources. 
+\emph{Dead code} can appear in Yahoo Pipes when a module is not connected to the rest of the pipe. A  \emph{deprecate module} occurs when a program uses a module that has been deprecated in the API. A \emph{lazy class} or \emph{no-op} smell occurs when data flows through an entire pipe or a module, respectively, but is not manipulated. The \emph{unused field} smell occurs when blank fields are left in modules, specifically when those blanks are supposed to contain data sources. Considering the smells in Table~\ref{table:oosmellslarge}, 81\% of over 8,000 programs were found to be smelly~\cite{Stolee2011,StoleeTSE2013}.
 
 \subsection{Summary}
 In both the Excel and the Yahoo! Pipes work, OO inspired smells were applied to end-user languages. Some of the smells have been already studied in both domains, while others have not. However, the absence of an entry in Table~\ref{table:oosmellslarge} does not mean the absence of the smell in that language, it simply means such smells have not been studied. While measuring the occurrence of these smells falls outside the scope of the current work, we speculate
 that some of these unstudied smells may be applicable. 
 For example, \emph{many parameters} is not discussed in previous work on Yahoo Pipes, but could apply when a pipe module receives many field values via wire from other modules. 
-Similarly, \emph{no-op} could occur in Excel in a formula like SUM(A1+A2+A3). Here, the SUM function does not add anything because it is only sums one value: the result of the addition. 
+Similarly, \emph{no-op} could occur in Excel in a formula like {\tt SUM(A1+A2+A3)}. Here, the {\tt SUM} function does not add anything because it is only sums one value: the result of the addition. 
 
 
 \begin{figure} [ht]
@@ -271,9 +273,10 @@ Similarly, \emph{no-op} could occur in Excel in a formula like SUM(A1+A2+A3). He
 
 \section{Application}
 \label{sec:application}
-In Section~\ref{sec:smells}, we cataloged end-user smells from previous work. In order to demonstrate the applicability of our catalog, we apply it to two new domains: \ms~software (EV3 for short) and  Kodu. 
+In Section~\ref{sec:smells}, we cataloged OO-inspired end-user smells from previous work. In order to demonstrate the applicability of our catalog, we apply it to two new domains: \ms~software (EV3 for short) and  Kodu. 
 
 \subsection{\ms}
+\label{sec:lego}
 EV3 is the third iteration of the LEGO MINDSTORMS robotics line. It consists of a number of sensors, four motors and an ARM 9 ``intelligent brick''. The robotics kit comes with a control software package, which allows for visual programming of the brick, based on LabView\footnote{\url{http://www.ni.com/labview/}}. The software supports several basic constructs common to programming, including loops and conditionals, but also more advanced features like parallel execution. Figure \ref{fig:ms} shows the user interface of the EV3 software with a program that makes a robot follow a black line by steering left if the sensor value is below the threshold of 7 and right if the value is above, and in parallel writes the sensor value to the screen. This program demonstrates some of the basic EV3 programming concepts including parallel execution, loops and switches. Blocks have to be connected by wires, like the two coming from the `Play button' that acts as the starting point, to be executed. 
 
 In addition to the programming concepts described above, users have the possibility to define `\mbs' which basically are subroutines. \mbs~may have up to 9 different input and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and clicking `my block builder'. This puts the selected blocks in a new \mb~ and replaces the blocks with a call to the newly created \mb, an action very functionality to `extract method' present in most modern IDEs. 
