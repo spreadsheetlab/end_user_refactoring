@@ -157,9 +157,8 @@ This can be done by interviewing experienced end-users to see which smells they 
 This section provides an overview of different OO-inspired smells that researchers have found to be applicable to end-user artifacts. 
  We catalog the OO smells present in two end-user languages, Excel spreadsheets and Yahoo Pipes mashups, in Table~\ref{table:oosmellslarge}, as identified in prior work~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra, Hermans2012inter}.
  Overall, we often observe similarities in the code smells studied. Specifically, the \emph{duplicate code}, \emph{lazy class}, and \emph{long method} smells  have been studied in both languages. 
-Next, we briefly explore some of the studied smells in these two domains.  \todo{verify that each smell is discussed at least once for Excel or YP. We want to give the reader a little review on the essence of each smell before mapping to the new domains}
-%\todo{clean up the subsections that follow}
-%While the occurrence of these smells falls outside of the scope of the current work, in this section we discuss the potential of generalizing some of the OO and domain-specific smell definitions to additional domains, thus addressing the empty places in Table \ref{table:oosmellslarge}.
+Next, we briefly explore some of the studied smells in these two domains. 
+
 
 
 \begin{table*}
@@ -232,11 +231,7 @@ Unused Field
 
  \subsection{Excel}
 Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to transform nine of Fowlers smells.
-An example of this is the \emph{long method} smell, which translates to the \emph{multiple operations} smell because formulas with a large number of operations suffer from similar problems as long methods. In an industrial case study with 10 spreadsheet users, the smells were found understandable by users, and with the smells errors in real-life spreadsheets were found.
-\todo{mention feature envy}
-\todo{mention inappropriate intimacy}
-\todo{mention many parameters}
-\todo{mention message chain}
+An example of this is the \emph{long method} smell, which translates to the \emph{multiple operations} smel, since formulas with a large number of operations suffer from similar problems as long methods in terms of understandability and similarly the \emph{many parameters} smells applies to spreadsheet formulas that refer to a large number of other cells or ranges. The above two smells occur at the formula level, but smells at the worksheet level occur too. For example like \emph{feature envy} where a given formula mainly uses cells located on a different worksheet, like =('Required Funds'!B9/'Required Funds'!C9/12) + ('Required Funds'!B10/'Required Funds'!C10/12) + ('Required Funds'!B11/'Required Funds'!C11/12), taken from the clienttemplate.xlsx spreadsheet from the EUSES corpus~\cite{fisher2005euses}. As this formula refers to cells from the Required Funds worksheets, it would fit there better. Similarly, two worksheets can have formulas that refer to each other heavily, introducing the \emph{inappropriate intimacy} smells. The \emph{message chain} smell occurs within spreadsheets if long chains of connecting formulas are constructed, hindering understandability as the entire chain has to be traced. In an study on the above mentioned EUSES corpus, 42\% of spreadsheets were found to be smelly~\cite{Hermans2012intra}.
 
 \subsection{Yahoo Pipes}
 Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{duplicate strings}, an instance of Fowler's \emph{duplicate code} smell. 
