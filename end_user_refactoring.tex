@@ -586,15 +586,15 @@ Any smell & 88\% & 93\%
 \label{sec:beyond}
 
 \label{sec:smells:domain}
-The end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain. Here, we explore opportunities for new smells in end-user domains that extend beyond the OO-inspired smells in Section~\ref{sec:smells}. 
+In the previous sections we have looked at OO smells in end-user programming languages. However, end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain. Hence in this section we explore opportunities for new smells in end-user domains that extend beyond the OO-inspired smells in Section~\ref{sec:smells}. 
 
 \subsection{End-User Programming Smells}
-Many smells beyond the OO language exist in several of the domains studied. 
+%Many smells beyond the OO language exist in several of the domains studied. 
 
 \subsubsection{Layout smells}
 The EV3 and Yahoo Pipes languages are visual and involve connecting boxes with wires, making it easy to create an unwieldily structure. EV3 is especially problematic as it lacks an auto-layouting function.
 
-A special case where this happens is when a user creates a \mb. Remember that \mbs~can only be created with an `extract method' operation. If this operation is called, all selected are moved to the newly created \mb, and are replaced by one block that is a call to this new \mb. Other than that, the layout remains unchanged. So if a big \mb~is created, the program will now have a big gap, making the program harder to read \todo{if room show example}. This, and other layout smells too are unique to visual languages and can impede understandability. 
+A special case where layout issues arise is when a user creates a \mb. Remember that \mbs~can only be created with an `extract method' operation. If this operation is called, all selected are moved to the newly created \mb, and are replaced by one block that is a call to this new \mb. Other than that, the layout remains unchanged. So if a big \mb~is created, the program will now have a big gap, making the program harder to read. This, and other layout smells too are unique to visual languages and can impede understandability. 
 
 %Katie just realized this is true of ALL LANGUAGES EVERYWHERE, since most don't fit on whatever screen. Oops. 
 %\subsubsection{Lack of Visual Abstraction smell}
@@ -605,23 +605,18 @@ A special case where this happens is when a user creates a \mb. Remember that \m
 %One way to deal with this kind of visual smell is through abstraction. The Yahoo Pipes language provides this through the subpipe module, EV3 through MyBlocks, and Excel through worksheets.  Including subpages or being able to collapse rules on a page would facilitate this in Kodu but support for that is currently not available. 
 
 
-\subsubsection{Lack of Comments smell}
-The lack of comments in a program can make it difficult to understand. Kodu and Yahoo Pipes both suffer form a lack of comments in the programming language and development environment, often making it difficult to understand another's work or maintain old code. 
-
+\subsubsection{Lack of Comments smell} \todo{I do not think this is a very strong `smell', I'd propose to drop it}
+The lack of comments in a program can make it difficult to understand. Kodu and Yahoo Pipes both do not have a commenting feature in the programming language and development environment, often making it difficult to understand another's work or maintain old code. 
 
 \subsubsection{Programming Organization smell}
-Communities of programmers often have standards for how to structure program code. These \emph{population-based} smells were first introduced for Yahoo Pipes~\cite{StoleeTSE2013} and can be uncovered by exploring programs written by the community. In Kodu, often the rules that map a character's behavior to user input from a gamepad, keyboard or mouse are at the top of a page and the remaining logic is at the bottom. Deviating from this structure can lead to programs that are more difficult to understand when shared. 
+Communities of programmers often have standards for how to structure program code. These \emph{population-based} smells were first introduced for Yahoo Pipes~\cite{StoleeTSE2013} and can be uncovered by exploring programs written by the community. In Kodu, often the rules that map a character's behavior to user input from a gamepad, keyboard or mouse are at the top of a page and the remaining logic is at the bottom. Deviating from this structure can lead to programs that are more difficult to understand when shared. In spreadsheets, there have been attempts to define programming standards\footnote{\url{www.fast-standard.org/}}, if such a standard is common within a company, a deviation could be considered smelly as well.
 
 \subsection{Domain-Specific Smells}
 Each end-user domain has unique characteristics that create opportunities for defining domain-specific smells. In Yahoo Pipes, prior work has explored the presence of broken or deprecated data sources as a smell unique to the domain~\cite{StoleeTSE2013}. In Excel, prior work defined referring to an empty cells are smelly~\cite{cunha2012towards}. Here, we explore smells in EV3 and Kodu that are unique to their languages and environments. 
 
 \subsubsection{EV3}
 %\subsubsection{Hardware/Software Interface Smells}
-The \ms~programming language differs significantly from the other end-user domains, as EV3 programmers work with both software and hardware. While programming, users need to configure motor blocks to the right port, for example the blocks in Figure \ref{fig:dup_ev3} are controlling motors A and D. This means that, when a user has the wrong mental model of what motor is connected to what port, the program will not function as wanted. It appears users run into this issue too, as some of the programs we saw comment blocks where the mapping was described, in an effort to ensure proper mapping \todo{if room add example}.
-
-Hence a smell unique to the EV3 domain is a wrong mapping between the robot in reality and the motor and sensor blocks. 
-
-%Not sure if we should add this, but I have the rule in class that you can only raise your hand to ask a question if you have checked the mapping. And it still goes wrong often. 
+The \ms~programming language differs significantly from the other end-user domains, as EV3 programmers work with both software and hardware. While programming, users need to configure motor blocks to the right port, for example the blocks in Figure \ref{fig:dup_ev3} are controlling motors A and D. This means that, when a user has the wrong mental model of what motor is connected to what port, the program will not function as wanted. It appears users run into this issue too, some of the programs contained comment blocks in which the mapping was described, in an effort to ensure proper mapping. Hence a smell unique to the EV3 domain is a wrong mapping between the robot in reality and the motor and sensor blocks. 
 
 \subsubsection{Kodu}
 The Kodu environment involves designing games, programming games, and playing games. This, paired with the unique event-driven language, creates unique opportunities for domain-specific Kodu smells. 
@@ -641,16 +636,17 @@ The event-driven language in Kodu allows a user to write conflicting outcomes fo
 Games in Kodu can be programmed and played using an Xbox controller or a keyboard and mouse. Many games are programed assuming a particular device for input, such as an Xbox. However, when playing a game in a different environment, that device may not be available, and thus the game is not portable. This smell could be mitigated by adding analogous rules for other input devices, such as mapping the gamepad trigger switches to the keyboard shift keys or mapping the right stick to movement. 
 
 \paragraph{Lost Character smell}
-The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them as a marker, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
+The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. \todo{because you have to click them in order to program them?} Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them as a marker, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
 
 \section{Related Work}
 
 \label{sec:related_work}
-Related to the current research are efforts on code smells within traditional languages, starting with the work of Fowler\cite{Fowl1999}. His book gives an overview of code smells and corresponding refactorings. Recent efforts focused on the automatic identification of code smells by means of metrics. Marinescu~\cite{Mari2001} for instance, uses metrics to identify \emph{suspect} classes, those classes that might have design flaws. Lanza and Marinescu~\cite{Lanz06} explain this methodology in more detail. Alves \emph{et al.}~\cite{Alves2010} focus on a strategy to obtain thresholds for metrics from a benchmark. Olbrich \emph{et al.} furthermore investigates the changes in smells over time, and discusses their impact~\cite{Olbr2009}.
+Related to the current research are efforts on code smells within traditional languages, starting with the work of Fowler\cite{Fowl1999}. His book gives an overview of code smells and corresponding refactorings. Recent efforts focused on the automatic identification of code smells by means of metrics. Marinescu~\cite{Mari2001} for instance, uses metrics to identify \emph{suspect} classes, those classes that might have design flaws. 
+%Lanza and Marinescu~\cite{Lanz06} explain this methodology in more detail. Alves \emph{et al.}~\cite{Alves2010} focus on a strategy to obtain thresholds for metrics from a benchmark. Olbrich \emph{et al.} furthermore investigates the changes in smells over time, and discusses their impact~\cite{Olbr2009}.
 
-Within end-user programming, this paper builds upon two lines of related work. First, the work of Stolee and Elbaum that studied smells~\cite{StoleeTSE2013} and refactorings~\cite{Stolee2011}. They designed a number of smells by transforming known OO smells to the domain of Yahoo Pipes. The second direction is the work by Hermans \emph{et al.} that also took OO smells as an inspiration from a number of smells~\cite{Hermans2012intra, Hermans2012inter}. Subsequently they described corresponding refactorings~\cite{Hermans2012intraExt} and a tool that applies refactorings~\cite{hermans2014bumblebee}. This final work builds upon previous work by Badame and Dig that described the first spreadsheet refactoring tool RefBook~\cite{badame2012refactoring}.
+Within end-user programming, this paper builds upon two lines of related work. First, the work of Stolee and Elbaum that studied smells~\cite{StoleeTSE2013} and refactorings~\cite{Stolee2011}. They designed a number of smells by transforming known OO smells to the domain of Yahoo Pipes. The second direction is the work by Hermans \emph{et al.} that also took OO smells as an inspiration from a number of smells~\cite{Hermans2012intra, Hermans2012inter}. Subsequently they described corresponding refactorings~\cite{Hermans2012intraExt} and a tool that applies refactorings~\cite{hermans2014bumblebee}. This final work generalized previous work by Badame and Dig~\cite{badame2012refactoring}.
 
-In end-user programming environments, user input and logic are often more closely linked than they are in general purpose languages, and as such analyzing the input data as opposed to the logic can also be used as a means of \emph{smell detection}. This is a direction that has been applied to spreadsheets. Cunha et. al \cite{cunha2012towards} for example look at anomalies in the data and define these as smells. Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations. In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a more formalized approach which they label ``Data Debugging''. Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
+%In end-user programming environments, user input and logic are often more closely linked than they are in general purpose languages, and as such analyzing the input data as opposed to the logic can also be used as a means of \emph{smell detection}. This is a direction that has been applied to spreadsheets. Cunha et. al \cite{cunha2012towards} for example look at anomalies in the data and define these as smells. Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations. In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a more formalized approach which they label ``Data Debugging''. Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
 
 In addition two above described work on Yahoo Pipes and spreadsheets, there is previous smells work on other end-user environments too, like performance smells in LabView, a visual language for system-design~\cite{chambers2013smell, chambers2015impact}. 
 
@@ -672,32 +668,30 @@ There is some, albeit limited, work on detecting code smells in educational lang
 
 \section{Threats to Validity}
 \label{sec:threats}
-The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, badame2012refactoring} on end-user refactoring in spreadsheets and Yahoo Pipes.
+The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter} on end-user smells in spreadsheets and Yahoo Pipes.
 
 %Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
 
-Three domains studied in this paper are dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains (e.g., Scratch is OO-based). However, we mitigate this threat by analyzing Kodu, an event-driven language, and show that the smells are also applicable in that context. This provides more evidence of the generality of these smells. 
+Three domains studied in this paper are dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains. However, we mitigate this threat by analyzing Kodu, an event-driven language, and show that the smells are also applicable in that context. This provides more evidence of the generality of these smells. 
 
 We have defined OO smells in two languages, EV3~and Kodu, yet we have not evaluated whether these smells matter to the end users. Future work is needed to determine the impact of these smell on users of the languages. 
 
-In Kodu, the presence of the \emph{lazy class} smell may be intentional and simply represent a design decision (i.e., a rock is not programmed because it's there purely for aesthetics). Evaluating these smells with actual users will help tease out when code is smelly and when it is actually designed intentionally. 
+In Kodu, the presence of the \emph{lazy class} smell may be intentional and simply represent a design decision (i.e., a rock is not programmed because it's there purely for aesthetics), and in EV3 the this smell might occur because users make up for the lack of ability to name single blocks. Evaluating these smells with actual users will help tease out when code is smelly and when it is actually designed intentionally. 
 
 We have sampled programs from two sources for each EV3 and Kodu, yet these programs may not be representative of what children and community members create. A larger-scale analysis is necessary to generalize these findings to the populations of EV3 and Kodu programs. 
 
 \section{Conclusion}
 \label{sec:conclusions}
-This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and \emph{lazy class} (small abstractions), \emph{duplicate code} and \emph{dead code} occur frequently in these educational languages too, while being of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This shows the applicability of these smells, and also warrants further research into issues end-users encounter while programming. The contributions of this paper are:
+This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and \emph{lazy class} (small abstractions), \emph{duplicate code} and \emph{dead code} occur frequently in these educational languages. The contributions of this paper are:
 
 \begin{itemize}
 	\item A catalog of object-oriented-inspired code smells in end-user programs (Section \ref{sec:smells})
-	\item Application of the catalog to two new end-user domains focused on education (Section \ref{sec:application})
-	\item Identification of future opportunities for smell detection in end-user programming domains, both within and beyond the OO paradigm (Section \ref{sec:beyond})
+	\item An application of the catalog to two new end-user domains focused on education (Section \ref{sec:application})
+	\item The identification of future opportunities for smell detection in end-user programming domains, both within and beyond the OO paradigm (Section \ref{sec:beyond})
 \end{itemize}
 
-The current work also gives rise to more research, for example, exploring the impact of code smells on children who use the educational languages or designing user-friendly refactoring tools for visual languages. 
-
-%sentence from the original intro, I think I like it better here, it feels reflecting
-In the end, we observe that the applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is. Furthermore, studying the smells in a fresh context provides new insight on how to use smells in software engineering \todo{do we show this insight on how to use smells in SE?} and even suggests new types of smells. 
+In the end, we observe that the original concept of code smells is applicable to end-user languages, of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This underlines the applicability of these smells, and also warrants further research into issues end-users encounter while programming. For example, exploring the impact of code smells on children who use the educational languages or designing user-friendly refactoring tools for visual languages. 
+Furthermore, studying the smells in a fresh context provides new insight on how to use smells in software engineering and could even give rise to new types of smells. 
 
 \balance
 
