@@ -370,12 +370,12 @@ On average, the programs from children's robotics club had 2.5 smells each and t
 Next, we discuss the three most common smells within the EV3 programs. 
 %Duplicate Code occurs most, in over half of the programs. 
 
-\begin{figure} [ht]
-\caption{The project properties screen for the Sumo program 1, showing the three \mbs, but not indicating the \mb~`draaien' is currently not called anywhere.}
-\centering
-\includegraphics[width=\columnwidth]{img/overview-small}
-\label{fig:overview}
-\end{figure}
+%\begin{figure} [ht]
+%\caption{The project properties screen for program L1, showing the three \mbs, but not indicating which are used.}
+%\centering
+%\includegraphics[width=\columnwidth]{img/overview-small}
+%\label{fig:overview}
+%\end{figure}
 
 \paragraph{Duplicate Code}
 The most common smell we found in the programs is the \emph{duplicate code} smell, which 65\% of the programs suffer from. Duplication comes in various forms.  Some of the programs use two motor blocks in a row, which could have been merged. For example, consider the two blocks from program L17, shown in Figure \ref{fig:dup_ev3}. This might have been challenging for the users to detect, as they use two slight variations of the motor block, but the two behave exactly the same in this case. Hence, one block moving forward 1.25 would have sufficed. Other programs exhibit duplication at a high level, such as the two \mbs~in program L16, depicted in Figure \ref{fig:dup_ev3_myblocks}. Here, the two \mbs~perform the exact same operation, but on a different motor. By connecting the name of the motor to a parameter, like angle and speed already are, the same functionality could have been implemented with one \mb.
@@ -383,21 +383,24 @@ The most common smell we found in the programs is the \emph{duplicate code} smel
 \begin{figure} [tb]
 \caption{The duplication smell in two subsequent motor blocks. Since both have the same power and direction, they could have been merged. }
 \centering
-\includegraphics[width=\columnwidth]{img/dup_ev3}
+\includegraphics[width=6cm]{img/dup_ev3}
 \label{fig:dup_ev3}
 \end{figure}
 
 \begin{figure} [tb]
 \caption{The duplication smell in two different but very similar \mbs. By parameterizing the motor name, this could have been implemented with 1 \mb. }
 \centering
-\includegraphics[width=\columnwidth]{img/dup_ev3_myblocks}
+\includegraphics[width=6cm]{img/dup_ev3_myblocks}
 \label{fig:dup_ev3_myblocks}
 \end{figure}
 
 \paragraph{Dead Code}
 The second most common smell is \emph{dead code}. In 41\% of the programs we found \mbs~that no longer connected to one of programs. This can pose a problem, firstly, for understandability, but also poses a practical program as the EV3 environment compiles and transfers all programs and \mbs~to the physical brick, so dead code takes up unnecessary space on the brick. The \emph{dead code} smells is more common in the robotics class programs than in the programs we received via Facebook. This is to be expected, as users felt confident enough to share their programs, so probably they either programs before sharing them, or selected `clean' programs to share.
 
-Looking at the EV3 programming interface, it is not that surprising that users forget about disconnected \mbs. The interface does not help users in understanding what \mbs~are used. If we look at the project properties screen, shown in Figure \ref{fig:overview}, one can see that there is no information about which \mb~is used, and where. Even worse, users can delete \mbs~that are still being called, without a warning being issued about this. After removal of a \mb~ in use, the program no longer compiles.
+Looking at the EV3 programming interface, it is not that surprising that users forget about disconnected \mbs, as the EV3 interface provided no information on which \mb~is used and where. Even worse, users can delete \mbs~that are still being called, without a warning being issued about this. After removal of a \mb~ in use, the program no longer compiles.
+
+%If we look at the project properties screen, shown in Figure \ref{fig:overview}, one can see that there is no information about which \mb~is used, and where. 
+%Even worse, users can delete \mbs~that are still being called, without a warning being issued about this. After removal of a \mb~ in use, the program no longer compiles.
 
 
 \paragraph{Lazy Class}
