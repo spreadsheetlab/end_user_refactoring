@@ -595,6 +595,7 @@ In the previous sections we have looked at OO smells in end-user programming lan
 
 \subsection{End-User Programming Smells}
 %Many smells beyond the OO language exist in several of the domains studied. 
+The following smells appear in at least two  end-user programming languages but are not related to OO smells. 
 
 \subsubsection{Layout smells}
 The EV3 and Yahoo Pipes languages are visual and involve connecting boxes with wires, making it easy to create an unwieldily structure. EV3 is especially problematic as it lacks an auto-layouting function.
@@ -610,11 +611,25 @@ A special case where layout issues arise is when a user creates a \mb. Remember 
 %One way to deal with this kind of visual smell is through abstraction. The Yahoo Pipes language provides this through the subpipe module, EV3 through MyBlocks, and Excel through worksheets.  Including subpages or being able to collapse rules on a page would facilitate this in Kodu but support for that is currently not available. 
 
 
-\subsubsection{Lack of Comments smell} \todo{I do not think this is a very strong `smell', I'd propose to drop it}
-The lack of comments in a program can make it difficult to understand. Kodu and Yahoo Pipes both do not have a commenting feature in the programming language and development environment, often making it difficult to understand another's work or maintain old code. 
+%\subsubsection{Lack of Comments smell} \todo{I do not think this is a very strong `smell', I'd propose to drop it}
+%The lack of comments in a program can make it difficult to understand. Kodu and Yahoo Pipes both do not have a commenting feature in the programming language and development environment, often making it difficult to understand another's work or maintain old code. 
 
 \subsubsection{Programming Organization smell}
 Communities of programmers often have standards for how to structure program code. These \emph{population-based} smells were first introduced for Yahoo Pipes~\cite{StoleeTSE2013} and can be uncovered by exploring programs written by the community. In Kodu, often the rules that map a character's behavior to user input from a gamepad, keyboard or mouse are at the top of a page and the remaining logic is at the bottom. Deviating from this structure can lead to programs that are more difficult to understand when shared. In spreadsheets, there have been attempts to define programming standards\footnote{\url{www.fast-standard.org/}}, if such a standard is common within a company, a deviation could be considered smelly as well.
+
+
+\paragraph{Conflicting Outcomes smell}
+In robotics inspired languages, actions are performed based on sensor values. This is true of EV3 and Kodu. This provides the opportunity to create conflicting outcomes for the same sensor. 
+In Kodu, this can happen when the same \texttt{when} clause is followed by conflicting \texttt{do} clauses. For example, consider the following two Kodu rules:
+\begin{verbatim}
+(1) When hear turtle : do score 1 red
+(2) When hear turtle : do unscore 1 red
+\end{verbatim}
+\noindent The {\tt do} clauses are in conflict, both scoring and unscoring the red variable score by 1. In if the {\tt do} clause on rule~2 was instead, {\tt do score 1 red}, then the rules would both execute outcome would be adding 2 to the red score. 
+In EV3, \todo{is the behavior the same?}
+Flagging conflicting rules during development would help alert users to this smell. 
+
+
 
 \subsection{Domain-Specific Smells}
 Each end-user domain has unique characteristics that create opportunities for defining domain-specific smells. In Yahoo Pipes, prior work has explored the presence of broken or deprecated data sources as a smell unique to the domain~\cite{StoleeTSE2013}. In Excel, prior work defined referring to an empty cells are smelly~\cite{cunha2012towards}. Here, we explore smells in EV3 and Kodu that are unique to their languages and environments. 
@@ -629,13 +644,6 @@ The Kodu environment involves designing games, programming games, and playing ga
 % 
 
 
-\paragraph{Conflicting Outcomes smell}
-The event-driven language in Kodu allows a user to write conflicting outcomes for the same trigger, that is, with the same \texttt{when} clause, to write conflicting \texttt{do} clauses. For example, consider the following two Kodu rules:
-\begin{verbatim}
-(1) When hear turtle : do score 1 red
-(2) When hear turtle : do unscore 1 red
-\end{verbatim}
-\noindent The \emph{do} clauses are in conflict, both scoring and unscoring the red score by 1, and hence the outcome is the same. Flagging conflicting rules during development would help alert users to this smell. 
 
 \paragraph{Single Input Device smell}
 Games in Kodu can be programmed and played using an Xbox controller or a keyboard and mouse. Many games are programed assuming a particular device for input, such as an Xbox. However, when playing a game in a different environment, that device may not be available, and thus the game is not portable. This smell could be mitigated by adding analogous rules for other input devices, such as mapping the gamepad trigger switches to the keyboard shift keys or mapping the right stick to movement. 
