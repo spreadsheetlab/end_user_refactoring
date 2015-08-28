@@ -400,28 +400,15 @@ Looking at the EV3 programming interface, it is not that surprising that users f
 
 
 \paragraph{Lazy Class}
-Lazy classes, which we count as \mbs~containing three or fewer blocks, are also relatively common, occurring in four of the programs. However, we only find this smell in the programs from the robotics club and not in the programs received via Facebook. Many of `lazy \mbs'~were relatively small, consisting of two or three blocks, or even one in some cases. In general, small abstraction are considered smelly, as understanding the abstraction requires inspecting it, which might not be worth it for small classes, methods or \mbs. However, the EV3 programming interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a coherent set of blocks, even if this set consist of just one block. 
+A \emph{lazy class}, which we count as \mbs~containing three or fewer blocks, are also relatively common, occurring in four of the programs. However, we only find this smell in the programs from the robotics club and not in the programs received via Facebook. Many `lazy \mbs'~were relatively small, consisting of two or three blocks, or even one in some cases. In general, small abstraction are considered smelly, as understanding the abstraction requires inspecting it, which might not be worth it for small classes, methods or \mbs. However, the EV3 programming interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a coherent set of blocks, even if this set consist of just one block. 
 
 As an example, consider the two blocks shown in Figure 5, where the left block is regular block controlling a motor, while the right one is a call to a \mb~with the same functionality. The first one just expresses what the robot must do, but the second one expresses the intent (`weg' meaning flee). By using the \mb, even with one block, the program gets easier to read.
 
 \paragraph{Long method}
-We defined Long Method as \mbs~with over 10 blocks, as this is typically the size that all blocks would not fit on the screen anymore. Long method occurs in four programs, but, contrary to Lazy Class, is found mostly in the Facebook programs. This is to be expected, more experienced users can handle bigger \mbs, while the kids from the robotics club stick with making small blocks.
+We defined Long Method as \mbs~with over 10 blocks, as this is typically the size that all blocks would not fit on the screen anymore. Long method occurs in four programs, but, contrary to Lazy Class, is found mostly in the Facebook programs. This is to be expected, as more experienced users can handle bigger \mbs, while the kids from the robotics club stick with making small blocks.
 
 \subsubsection{Summary}
-To summarize, smells indeed occur in the EV3 programs, in 88\% of the programs one or more smells is found, with duplicate code, dead code and small abstractions observed most often. Hence we conclude that smells from OO are applicable to end-user domain, while the latter might not be as smelly in the context of EV3 as it is in OO. However, in general we observe that the occurring smells seem to be anti-patterns that occur in programming in general, independent of the programming language. 
-
-\subsection{Kodu}
-Microsoft Research's Kodu is a visual programming language~\cite{kodugrammar} and environment that allows users to create, play, and share their own video games. 
-It is available for download on the Xbox and PC and is heavily inspired by robotics, and the context of programming in it and its language both show this. 
-Users add characters, objects and land to the world and can program each character or object (e.g., a kodu \todo{Katie, what is a kodu, is that a common word?}, cycle, apple, tree; we use character and object interchangeably) individually. The programming defines how to interact with the world, treating each character or object as an autonomous agent. Each object has 12 pages that can be programmed, analogous to methods in an OO language, where the current page defines the current behavior of the object. 
-The object's behavior can change by switching between pages to modify state and control flow. 
-Each page contains a set of rules, and each rule is in the form of a condition and an action, which form a when~--~do clause. The \emph{when} is defined by a sensor (e.g., see, hear, gamepad input) and filters (e.g., apple, gamepad A button). The \emph{do} is defined by an actuator (e.g., movement, shoot) and modifiers (e.g., missile, toward). All the rules on a page are evaluated in a single frame, from top to bottom. 
-Despite its unique language, Kodu  can be used to express many basic concepts in computer science, such as variables, boolean logic and conditional control flow~\cite{Stolee:2011:ECS:1953163.1953197}. 
-
-Figure~\ref{fig:Kodu} shows a page and two rules  in Kodu. For the first rule, the condition is, when see red apple, and the action is, move toward it. The action defines the behavior of this particular character when it sees a red apple, that is, it moves toward it. Since the condition identifies an object (i.e., apple), it becomes the default selector, even though it is not explicitly specified. The second rule has a similar condition with a different sensor, bump. The action of the second rule, eat, indicates that the character should eat any red apple it bumps. 
-Rules can also be indented to create complex \emph{when} clauses, where both conditions need to be true for the action to occur. Alternatively, indenting a rule and removing the \emph{when} means that multiple \emph{do} clauses occur for the same trigger condition. 
-The programming in Figure~\ref{fig:Kodu} applies to the first page in this character's programming, as indicated by the number one at the top of the screen. The first page is the default start page.
-
+To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% of the programs, with \emph{duplicate code}, \emph{dead code} and \emph{lazy class} (small abstractions) observed most often. Hence we conclude that smells from OO are applicable to this end-user language, though programs might not be as smelly in the context of EV3 as they are in OO. 
 
 \begin{figure}[ht]
 \caption{The interface of Kodu~showing programming behavior for a bot.}
@@ -431,22 +418,39 @@ The programming in Figure~\ref{fig:Kodu} applies to the first page in this chara
 \end{figure}
 
 
+\subsection{Kodu}
+Microsoft Research's Kodu is a visual programming language~\cite{kodugrammar} and environment that allows users to create, play, and share their own video games. 
+It is available for download on the Xbox and PC and is heavily inspired by robotics, as illustrated by the context of programming in it and its language. 
+
+Users create a world (e.g., land, water, clouds),  add characters and objects, and then can program each character or object (e.g., a kodu robot character, a turtle character, an apple object, a tree object; we use character and object interchangeably) individually. The programming defines how to interact with the world, treating each character or object as an autonomous agent. Each object has 12 pages that can be programmed, analogous to methods in an OO language, where the current page defines the current behavior of the object. 
+The object's behavior can change by switching between pages to modify state and control flow. 
+Each page contains a set of rules, and each rule is in the form of a condition and an action, which form a {\tt when~--~do} clause. The {\tt when} is defined by a sensor (e.g., see, hear, gamepad input) and filters (e.g., apple, gamepad A button). The {\tt do} is defined by an actuator (e.g., movement, shoot) and modifiers (e.g., missile, toward). All the rules on a page are evaluated in a single frame, from top to bottom. 
+Despite its unique language, Kodu  can be used to express many basic concepts in computer science, such as variables, boolean logic and conditional control flow~\cite{Stolee:2011:ECS:1953163.1953197}. 
+
+Figure~\ref{fig:Kodu} shows a page and two rules  in Kodu. For the first rule, the condition is, {\tt when see red apple}, and the action is, {\tt move toward it}. The action defines the behavior of this particular character when it sees a red apple, that is, it moves toward it. Since the condition identifies an object (i.e., apple), it becomes the default selector, even though it is not explicitly specified. The second rule has a similar condition with a different sensor, {\tt bump}. The action of the second rule, {\tt eat}, indicates that the character should eat any red apple it bumps. 
+The programming in Figure~\ref{fig:Kodu} applies to the first page in this character's programming, as indicated by the number one at the top of the screen. The first page is the  start page.
+
+To form more complex boolean logic, rules can also be indented to create complex {\tt when} clauses, where both conditions need to be true for the action to occur. Alternatively, indenting a rule and removing the {\tt when} means that multiple {\tt do} clauses occur for the same trigger condition. 
+
+
+
+
 
 \subsubsection{Smells in Kodu}
-We describe how the smells in our OO-inspired catalog apply to Kodu programs. We define a loose mapping of the OO concepts to the end-user language. We consider pages of programming as analogous to methods or classes, similar to how modules are treated in Yahoo Pipes, worksheets in spreadsheets and \mbs~in \ms. 
+We describe how the smells in our OO-inspired catalog apply to Kodu programs using a loose mapping of the OO concepts. We consider pages of programming as analogous to methods or classes, similar to how modules are treated in Yahoo Pipes, worksheets in spreadsheets and \mbs~in \ms. 
 
 \begin{description}
 \item[Dead Code:] If there exists a page with programming such that there is no explicit path of control flow from Page~1 to it, it is unreachable and therefore dead. 
-\item[Deprecated Interface:] Some language features and bots may exist in early versions of Kodu but not be available in future versions. use of these deprecated entities may cause unexpected behavior when running an old program in a new environment and be smelly. 
+\item[Deprecated Interface:] Some language features may exist in early versions of Kodu but not be available in future versions. As none of these features were ever deployed, this smell is not possible. 
 \item[Duplicate Code:] Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same \emph{when} clauses (i.e., sensor and filter) but different actions could be consolidated using the indent feature and thus are smelly. 
 \item[Feature envy:] All global variables, such as game scores, can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell. 
 \item[Inappropriate Intimacy:] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy). If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
 \item[Lazy Class:] If a character has no programming, it could be an instance of the lazy smell. 
 %Characters with no programming are different than objects. Characters can have movement whereas objects cannot. 
-\item[Long method:] A page with many, many rules may be difficult to understand. Some programming could potentially move to other pages or other characters. We counted long methods as those with more than five rules. 
-\item[Many Parameters:] A game can have 37 different global scores. Games that use many of these could be unnecessarily smelly. 
+\item[Long method:] A page with many, many rules may be difficult to understand. Some programming could potentially move to other characters. %We counted long methods as those with ten or more rules. 
+\item[Many Parameters:] A game can have 37 different global scores. Games that use many of these could be unnecessarily smelly. %We set the threshold at three. 
 \item[Message Chain:] It is possible for a character to create a chain of switches between pages without any logic on the page other than the jump. This would create a long and unnecessary message chain. 
-\item[No-op:] Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck in that state. Alternatively, rules with \emph{when} clauses but no \emph{do} clauses do not perform any actions. 
+\item[No-op:] Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck. Alternatively, rules with \emph{when} clauses but no \emph{do} clauses do not perform any actions. 
 \item[Unused Field:] A global variable that is written to but not read is an instance of the the unused field smell. 
 
 %\todo{emailed scoy at Microsoft about this}
@@ -530,7 +534,7 @@ For the first data source, we ran a workshop at the Microsoft FUSE lab that intr
 Children between the ages of 9 and 12 volunteered to participate, with parental consent. We collected 17 programs created during the workshop for analysis. 
 For the second data source, we randomly sampled 10 programs from the public Xbox Live community. No demographic information was collected about the users. 
 
-The programs were analyzed by hand by one of the authors. Table~\ref{tab:koduanalysis} presents the 17 programs created by children (K1 \dots K17), 10 programs created by the Xbox Live community (K18 \dots K27), and the smells found in each. The \emph{Characters} row defines how many characters and actors are in the program, \emph{Pages} defines how many pages of programming are used by the characters, \emph{Rules} counts all the rules on all the pages, and \emph{HCI Actors} counts the number of actors in the program that are controllable by the Xbox controller, mouse or keyboard. 
+The programs were analyzed  by one of the authors. Table~\ref{tab:koduanalysis} presents the 17 programs created by children (K1 \dots K17), 10 programs created by the Xbox Live community (K18 \dots K27), and the smells found in each. The \emph{Characters} row defines how many characters and actors are in the program, \emph{Pages} defines how many pages of programming are used by the characters, \emph{Rules} counts all the rules on all the pages, and \emph{HCI Actors} counts the number of actors in the program that are controllable by the Xbox controller, mouse, or keyboard. 
 To count the number of instances of the \emph{long method}, a smell was counted when the page had 10 or more rules. For the  \emph{many parameters} smell, the use of four or more game scores. These thresholds were determined by the authors as 10 rules cannot be viewed on a screen screen without scrolling and only a couple games used more than three game scores. 
 
 \subsubsection{Findings}
@@ -540,10 +544,14 @@ On average, the programs from children had 2.3 smells each and the programs from
 The lazy class smell was the most common, appearing in 79\% of the Kodu programs. This smell is intended to capture when a character is placed in the world but has no programming, and thus no behavior. In some cases, this may not be a smell at all, such as when characters are used as decorations in the world (e.g., trees and rocks). In others, it could be similar to an object that is created but that has no behavior. 
 
 \subsubsection{Duplicate Code}
-This smell was present in 61\% of the programs. All instances were that of duplicate \emph{when} clauses within a page, and there were no instances of identical rules on a page or identical pages within the same character. The prevalence of this feature shows a missed opportunity for consolidating the code. 
+This smell was present in 61\% of the programs. All instances were that of duplicate {\tt when} clauses within a page, and there were no instances of identical rules on a page or identical pages within the same character. The prevalence of this feature shows a missed opportunity for consolidating the code. 
 
 \subsubsection{No-op}
-The next most-common smell is the no-op, present in 41\% of the programs. All instances of this smell were rules without \emph{do} clauses, rather than jumping to pages without logic. This is probably the product of the rapid cycling between testing and developing observed in Kodu development~\cite{Stolee:2011:ECS:1953163.1953197}; since the clauses have no actionable logic, keeping them in the code does not impact the semantics of the program. 
+The next most-common smell is the no-op, present in 41\% of the programs. All instances of this smell were rules without {\tt do} clauses, rather than jumping to pages without logic.  This is probably the product of the rapid cycling between testing and developing observed in Kodu development~\cite{Stolee:2011:ECS:1953163.1953197}; since the clauses have no actionable logic, keeping them in the code does not impact the semantics of the program. We note that none of the rules following these clauses were indented to create a conditional conjunction. 
+
+
+\subsubsection{Summary}
+To summarize, smells indeed occur in the Kodu programs. Smells are found in 93\% of the programs, with \emph{lazy class}, \emph{duplicate code},  and \emph{no-op} (small abstractions) appearing most often. Hence we conclude that smells from OO are applicable to this end-user language. 
 
 \subsection{Summary}
 Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the various smells in the EV3 and Kodu programs. Overall, 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. Coupled with the 81\% of Yahoo Pipes programs~\cite{StoleeTSE2013} and 42\% of Excel programs~\cite{Hermans2012intra} that were previously found to be smelly, this provides further evidence of the prevalence of smells in end-user programs. 
@@ -551,10 +559,11 @@ Table~\ref{tab:smellsummary} summarizes the frequencies of occurrence of the var
 As with code written by other end-user programmers~\cite{StoleeTSE2013}, \emph{duplicate code} is prevalent in EV3 and Kodu programs, affecting over 60\% of the samples in both languages. The other two smells that were studied in Excel and Yahoo Pipes, \emph{lazy class} and \emph{long method}, are present in at least 24\% of the studied EV3 and Kodu programs, illustrating commonality across all end-user programming domains. 
 
 \emph{Dead code} is more frequently found in EV3 and \emph{lazy class} smells are more common in Kodu. The \emph{no-op} smell is present in 41\% of the Kodu programs, which is similar in spirit to the 41\% of EV3 programs with \emph{dead code}. \emph{Feature envy} was also prevalent across both languages, appearing in 18\% and 22\% of the EV3 and Kodu programs, respectively. 
-
+We observe that the occurring smells seem to be anti-patterns that occur in programming in general, independent of the programming language. 
 
 \begin{table}
 \caption{Summary of Smells Across EV3 and Kodu Programs \label{tab:smellsummary}}
+\begin{small}
 \begin{center}
 \begin{tabular}{l | r r}
 &EV3&Kodu\\ \hline
@@ -572,6 +581,7 @@ Unused Field&12\%&25\%\\ \hline
 Any smell & 88\% & 93\%
 \end{tabular}
 \end{center}
+\end{small}
 \end{table}
 
 \section{Beyond OO Smells}
@@ -632,6 +642,8 @@ The event-driven language in Kodu allows a user to write conflicting outcomes fo
 \end{verbatim}
 \noindent The \emph{do} clauses are in conflict, both scoring and unscoring the red score by 1, and hence the outcome is the same. Flagging conflicting rules during development would help alert users to this smell. 
 
+\paragraph{Single Input Device smell}
+Games in Kodu can be programmed and played using an Xbox controller or a keyboard and mouse. Many games are programed assuming a particular device for input, such as an Xbox. However, when playing a game in a different environment, that device may not be available. This smell could be mitigated by adding analogous rules for other input devices, such as mapping the gamepad trigger switches to the keyboard shift keys or mapping the right stick to movement. 
 
 \paragraph{Lost Character smell}
 The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
