@@ -423,11 +423,13 @@ To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% 
 
 
 \subsection{Kodu}
-\todo{this part does not really explain how variables work, you mention them, but I find it a bit hard to know how they work/look like.}
+%\todo{this part does not really explain how variables work, you mention them, but I find it a bit hard to know how they work/look like.}
 Microsoft Research's Kodu is a visual programming language~\cite{kodugrammar} and environment that allows users to create, play, and share their own video games. 
 It is available for download on the Xbox and PC and is heavily inspired by robotics, as illustrated by the context of programming in it and its language. 
 
-Users create a world (e.g., land, water, clouds),  add characters and objects, and then can program each character or object (e.g., a kodu robot character, a turtle character, an apple object, a tree object; we use character and object interchangeably) individually. The programming defines how to interact with the world, treating each character or object as an autonomous agent. Each object has 12 pages that can be programmed, analogous to methods in an OO language, where the current page defines the current behavior of the object. 
+Users create a world (e.g., land, water, clouds),  add characters and objects, and then can program each character or object (e.g., a kodu robot character, a turtle character, an apple object, a tree object; we use character and object interchangeably) individually. Variables are introduced as scores or properties of characters. Scores are global variables, identified by color or letter, and readable and editable by all characters and objects. Character properties, such as color, glow color, expression and health, are like local variables. A character or object can read and write any of these properties for itself, and it can also read and write selected properties of other objects. 
+
+The programming defines how to interact with the world, treating each character or object as an autonomous agent. Each object has 12 pages that can be programmed, analogous to methods in an OO language, where the current page defines the current behavior of the object. 
 The object's behavior can change by switching between pages to modify state and control flow. 
 Each page contains a set of rules, and each rule is in the form of a condition and an action, which form a {\tt when~--~do} clause. The {\tt when} is defined by a sensor (e.g., see, hear, gamepad input) and filters (e.g., apple, gamepad A button). The {\tt do} is defined by an actuator (e.g., movement, shoot) and modifiers (e.g., missile, toward). All the rules on a page are evaluated in a single frame, from top to bottom. 
 Despite its unique language, Kodu  can be used to express many basic concepts in computer science, such as variables, boolean logic and conditional control flow~\cite{Stolee:2011:ECS:1953163.1953197}. 
@@ -445,7 +447,7 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs usi
 \item[Deprecated Interface:] Some language features may exist in early versions of Kodu but not be available in future versions. As none of these features were ever deployed, this smell is not possible. 
 \item[Duplicate Code:] Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same \emph{when} clauses (i.e., sensor and filter) but different actions could be consolidated using the indent feature and thus are smelly. 
 \item[Feature envy:] All global variables, such as game scores, can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell. 
-\item[Inappropriate Intimacy:] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy) \todo{this are just 3, not 4} If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
+\item[Inappropriate Intimacy:] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy), and health.  If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
 \item[Lazy Class:] If a character has no programming, it could be an instance of the lazy smell. 
 %Characters with no programming are different than objects. Characters can have movement whereas objects cannot. 
 \item[Long method:] A page with many, many rules may be difficult to understand. Some programming could potentially move to other characters. %We counted long methods as those with ten or more rules. 
