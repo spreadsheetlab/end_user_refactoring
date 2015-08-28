@@ -594,20 +594,17 @@ The end-user programming environments offer many opportunities to define smells 
 Many smells beyond the OO language exist in several of the domains studied. 
 
 \subsubsection{Layout smells}
-The EV3 language is a visual language without an auto-layouting function, which means that, when users are making changes to their programs, the layout can quickly get messy. 
+The EV3 and Yahoo Pipes languages are visual and involve connecting boxes with wires, making it easy to create an unwieldily structure. EV3 is especially problematic as it lacks an auto-layouting function.
 
-A special case where this happens is when a user creates a \mb. Remembert that \mbs~can only be created with an `extract method' operation. If this operation is called, all selected are moved to the newly created \mb, and are replaced by one block that is a call to this new \mb. Other than that, the layout remains unchanged. So if a big \mb~is created, the program will now have a big gap, making the program harder to read \todo{if room show example}. This, and other layout smells too are unique to visual languages where the layout is not modified by the environment.
+A special case where this happens is when a user creates a \mb. Remember that \mbs~can only be created with an `extract method' operation. If this operation is called, all selected are moved to the newly created \mb, and are replaced by one block that is a call to this new \mb. Other than that, the layout remains unchanged. So if a big \mb~is created, the program will now have a big gap, making the program harder to read \todo{if room show example}. This, and other layout smells too are unique to visual languages and can impede understandability. 
 
-\todo{connect this to at least one other language, Katie, what about Yahoo! Pipes, whatis the layouting there? I guess it is more applicable there than on Excel.}
-
-
-\subsubsection{Lack of Visual Abstraction smell}
-\todo{need to differentiate clearly from layout smell}
-Visual languages can suffer from a visual lack of abstraction smell in which the entire program does not fit on the screen and thus is difficult to comprehend. The threshold for the presence of this smell is clearly dependent on screen size, but nonetheless, it can have an impact on program maintainability~\cite{StoleeTSE2013}. 
-
-This is similar to the \emph{long method} smell in Kodu and EV3, the \emph{duplicate code} smell in Yahoo Pipes (named \emph{isomorphic paths}), or \emph{many operations} in Excel.
-	
-One way to deal with this kind of visual smell is through abstraction. The Yahoo Pipes language provides this through the subpipe module, EV3 through MyBlocks, and Excel through worksheets.  Including subpages or being able to collapse rules on a page would facilitate this in Kodu but support for that is currently not available. 
+%Katie just realized this is true of ALL LANGUAGES EVERYWHERE, since most don't fit on whatever screen. Oops. 
+%\subsubsection{Lack of Visual Abstraction smell}
+%Visual languages can suffer from a visual lack of abstraction smell when the entire program does not fit well on the screen and thus is difficult to comprehend. The threshold for the presence of this smell is clearly dependent on screen size, but nonetheless, it can have an impact on program maintainability~\cite{StoleeTSE2013}. 
+%
+%This is similar to the \emph{long method} smell in Kodu and EV3, the \emph{duplicate code} smell in Yahoo Pipes (named \emph{isomorphic paths}), or \emph{many operations} in Excel.
+%	
+%One way to deal with this kind of visual smell is through abstraction. The Yahoo Pipes language provides this through the subpipe module, EV3 through MyBlocks, and Excel through worksheets.  Including subpages or being able to collapse rules on a page would facilitate this in Kodu but support for that is currently not available. 
 
 
 \subsubsection{Lack of Comments smell}
@@ -635,7 +632,7 @@ The Kodu environment involves designing games, programming games, and playing ga
 
 
 \paragraph{Conflicting Outcomes smell}
-The event-driven language in Kodu allows a user to write conflicting outcomes for the same trigger, that is, with the same \emph{when} clause, to write conflicting \emph{do} clauses. For example, consider the following two Kodu rules:
+The event-driven language in Kodu allows a user to write conflicting outcomes for the same trigger, that is, with the same \texttt{when} clause, to write conflicting \texttt{do} clauses. For example, consider the following two Kodu rules:
 \begin{verbatim}
 (1) When hear turtle : do score 1 red
 (2) When hear turtle : do unscore 1 red
@@ -643,10 +640,10 @@ The event-driven language in Kodu allows a user to write conflicting outcomes fo
 \noindent The \emph{do} clauses are in conflict, both scoring and unscoring the red score by 1, and hence the outcome is the same. Flagging conflicting rules during development would help alert users to this smell. 
 
 \paragraph{Single Input Device smell}
-Games in Kodu can be programmed and played using an Xbox controller or a keyboard and mouse. Many games are programed assuming a particular device for input, such as an Xbox. However, when playing a game in a different environment, that device may not be available. This smell could be mitigated by adding analogous rules for other input devices, such as mapping the gamepad trigger switches to the keyboard shift keys or mapping the right stick to movement. 
+Games in Kodu can be programmed and played using an Xbox controller or a keyboard and mouse. Many games are programed assuming a particular device for input, such as an Xbox. However, when playing a game in a different environment, that device may not be available, and thus the game is not portable. This smell could be mitigated by adding analogous rules for other input devices, such as mapping the gamepad trigger switches to the keyboard shift keys or mapping the right stick to movement. 
 
 \paragraph{Lost Character smell}
-The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
+The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them as a marker, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
 
 \section{Related Work}
 
@@ -663,7 +660,7 @@ Research related to  EV3 and Kodu predominantly explores
 language design~\cite{Fristoe:2011:SSE:2159365.2159396, Stolee:2011:ECS:1953163.1953197, MacLaurin:2009:KEP:1536513.1536516, MacLaurin:2011:DKT:1925844.1926413} 
 and educational benefits~\cite{Fowler:2011:KGL:2159365.2159398, Touretzky:2013:AKC:2445196.2445374, Barnes:2002:TIJ:563340.563397, Hood:2005:TPL:1067445.1067454}. 
 %The language of Kodu can be used to express computer science concepts commonly taught in introductory classes, such as boolean logic, variables, and objects~\cite{Stolee:2011:ECS:1953163.1953197}. 
-There is some, albeit limited, work on detecting code smells in educational languages. Chatley and Timbul describe Kenya, a simple programming language for educational purposes, which they have integrated into the Eclipse environment~\cite{Chatley2005}. They built features that allow the detection of `bad style' in programs to be detected and reported as code is written, concentrating on encouraging students to program like they were taught in class. This work might indicate that smell detection can be useful for education, but the authors unfortunately did not perform an evaluation of the usefulness of this approach.
+There is some, albeit limited, work on detecting code smells in educational languages. Chatley and Timbul describe Kenya, a simple programming language for educational purposes, which they have integrated into the Eclipse environment~\cite{Chatley2005}. They built features that allow the detection of `bad style' in programs to be detected and reported as code is written, concentrating on encouraging students to program like they were taught in class. This work might indicate that smell detection can be useful for education, but the authors  did notevaluate the usefulness of this approach.
 
 
 %\section{Discussion}
@@ -679,13 +676,17 @@ There is some, albeit limited, work on detecting code smells in educational lang
 \label{sec:threats}
 The threats to validity of this work inherit the threats to validity of the original studies~\cite{Stolee2015, Stolee2011, StoleeTSE2013, Hermans2011, Hermans2012intra, Hermans2012inter, hermans2014bumblebee, badame2012refactoring} on end-user refactoring in spreadsheets and Yahoo Pipes.
 
-Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
+%Furthermore, research in smells and spreadsheets has focused on Microsoft Excel. However, other spreadsheet software exists and operates on the same principles. Thus there is also an opportunity to confirm that the identified smells apply in other spreadsheet software.
 
+Three domains studied in this paper all happen to be dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains (e.g., Scratch is OO-based). However, we mitigate this threat by analyzing Kodu, an event-driven language, and show that the 
+smells are also applicable in that context. This provides more evidence of the generality of these smells. 
+%\todo{katie, would you say Kodu is dataflow based too?} \todo{no, Kodu is an event-driven language}
 
-The three domains studied in this paper all happen to be dataflow languages, and the smells and refactorings may not generalize to other end-user programming domains (e.g., Scratch is OO-based). \todo{katie, would you say Kodu is dataflow based too?} \todo{no, Kodu is an event-driven language}
+We have defined OO smells in two languages, EV3~and Kodu, yet we have not evaluated whether these smells matter to the end users. Future work is needed to determine the impact of these smell on users of the languages. 
 
+In Kodu, the presence of the \emph{lazy class} smell may be intentional and simply represent a design decision (i.e., a rock is not programmed because it's there purely for aesthetics). Evaluating these smells with actual users will help tease out when code is smelly and when it is actually designed intentionally. 
 
-\todo{In Kodu, smells vs. design decisions}
+We have sampled programs from two sources for each EV3 and Kodu, yet these programs may not be representative of what children and community members create. A larger-scale analysis is necessary to generalize these findings to the populations of EV3 and Kodu programs. 
 
 \section{Conclusion}
 \label{sec:conclusions}
