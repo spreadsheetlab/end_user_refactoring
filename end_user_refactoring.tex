@@ -75,22 +75,22 @@ David Hoepelman\\
 
 
 \begin{abstract}
-Millions of people in the workforce today program, without degrees or professional training in software development. These end-user programmers perform a variety of tasks, from combining web information to building models to support business decisions. Software engineering research into code smells has traditionally focused on professionally used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
+Millions of people in the workforce today write code, without degrees or professional training in software development. These end-user programmers perform a variety of tasks, from combining web information to building models to support business decisions. Software engineering research into code smells has traditionally focused on professionally used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
 
-In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo Pipes. Based on existing OO-smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
-We demonstrate the broad applicability of the catalog by mapping the smells to two additional end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that  OO inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication, and dead code smells, with duplication smells being present in nearly 2/3 of programs in each language. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the OO paradigm. 
+In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo Pipes. Based on existing object-oriented smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
+We demonstrate the broad applicability of the catalog by mapping the smells to two additional end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that  object-oriented-inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication, and dead code smells, with duplication smells being present in nearly 2/3 of programs in each language. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the object-oriented paradigm. 
 \end{abstract}
 
 
 \section{Introduction}
-\todo{make smell names consistent and emph everywhere}
+%\todo{make smell names consistent and emph everywhere}
 End-user programmers are said to outnumber  professional programmers three times over \cite{Scaf2005}.
 These end-user programmers perform a wide variety of tasks within their organizations, ranging from creating new web streams to building and maintaining applications in a spreadsheet. When performing these tasks, end-user programmers, including users of educational languages,  face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}. 
 
-Also similar to professional development is the longevity of the produced artefacts, the average lifespan of a corporate spreadsheet for example is five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people.
+Also similar to professional development is the longevity of the produced artifacts, the average lifespan of a corporate spreadsheet for example is five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people.
 These properties make them, like source code artifacts, vulnerable to \emph{smells}. 
 
-Code smells, at outlined in the taxonomy of Fowler pertained to object-oriented (OO) code, and professional programming languages were the focus for at least the first decade of code smell  and refactoring research~\cite{Mens:2004:SSR:972215.972286}. Recently, however, smells in end-user programming have also reveived attention in research, most notable structural smells in Yahoo Pipes web mashups~\cite{Stolee2011} and Excel spreadsheets \cite{Hermans2012inter}. Experiments in these and other end-user areas have shown that end-user programmers understand smells, and often prefer versions of their code that are non-smelly~\cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}.
+Code smells, as outlined in the taxonomy of Fowler~\cite{Fowl1999}, pertained to object-oriented (OO) code, and professional programming languages were the focus for at least the first decade of code smell  and refactoring research~\cite{Mens:2004:SSR:972215.972286}. Recently, however, smells in end-user programming have also reveived attention in research, most notable structural smells in Yahoo Pipes web mashups~\cite{Stolee2011} and Excel spreadsheets \cite{Hermans2012inter}. Experiments in these and other end-user areas have shown that end-user programmers understand smells, and often prefer versions of their code that are non-smelly~\cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}.
 
 % Related is also the work by Chambers and Scaffidi who study performance smells in LabView programming~\cite{chambers2013smell}.
 
@@ -98,9 +98,9 @@ In this paper we combine the above two end-user smell approaches and observe tha
 
 In EV3 and Kodu, the smells that we most commonly find are small abstractions (lazy class), duplication, and dead code, illustrating commonality across all end-user programming domains. The contributions of this work are as follows:
 
-\begin{itemize}
-	\item Synthesis and catalog of object-oriented-inspired code smells in end-user programs
-	\item Application of the catalog to two additional end-user domains focused on education: \ms~and Kodu
+\begin{itemize} \itemsep -0.25pt
+	\item Synthesis and catalog of OO-inspired code smells in end-user programs
+	\item Application of the catalog to two additional end-user domains focused on education: \ms~and Kodu, and smell detection analyses of programs in each domain
 	\item Identification of future opportunities for domain-specific, non-OO-inspired smell detection in end-user programming domains
 \end{itemize}
 
@@ -141,20 +141,6 @@ Abstraction was possible with \emph{subpipe} modules, which allowed a programmer
 \includegraphics[width=\columnwidth]{img/yp-1}
 \label{fig:ypexample}
 \end{figure}
-
-
-\section{Smells in end-user programs}
-\label{sec:smells}
-Research into end-user language smells has had two approaches, which are not mutually exclusive.
-The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013, chambers2013smell}.
-The second approach is to define smells tailored to the end-user environment.
-This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available repositories~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra}.
-
-
-This section provides an overview of different OO-inspired smells that researchers have found to be applicable to end-user artifacts. 
- We catalog the OO smells present in two end-user languages, Excel spreadsheets and Yahoo Pipes mashups, in Table~\ref{table:oosmellslarge}, as identified in prior work~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra, Hermans2012inter}.
- Overall, we often observe similarities in the code smells studied. Specifically, the \emph{duplicate code}, \emph{lazy class}, and \emph{long method} smells  have been studied in both languages. 
-Next, we briefly explore some of the studied smells in these two domains. 
 
 
 
@@ -228,6 +214,22 @@ Unused Field
 \end{table*}
 
 
+\section{Smells in end-user programs}
+\label{sec:smells}
+Research into end-user language smells has had two approaches, which are not mutually exclusive.
+The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013, chambers2013smell}.
+The second approach is to define smells tailored to the end-user environment.
+This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available repositories~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra}.
+
+
+This section provides an overview of different OO-inspired smells that researchers have found to be applicable to end-user artifacts. 
+ We catalog the OO smells present in two end-user languages, Excel spreadsheets and Yahoo Pipes mashups, in Table~\ref{table:oosmellslarge}, as identified in prior work~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra, Hermans2012inter}.
+  Since the smell names for the end-user languages often differ from the OO smell names, we use the OO names throughout the paper. 
+ Overall, we often observe similarities in the code smells studied. Specifically, the \emph{duplicate code}, \emph{lazy class}, and \emph{long method} smells  have been studied in both languages. 
+Next, we briefly explore some of the studied smells in these two domains. 
+
+
+
  \subsection{Excel}
 Hermans \emph{et al.} \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to adapt nine of Fowler's smells~\cite{Fowl1999} to the spreadsheet domain.
 An example of this is the \emph{long method} smell, which translates to the \emph{multiple operations} smell, since formulas with a large number of operations suffer from similar problems as long methods in terms of understandability and similarly the \emph{many parameters} smell applies to spreadsheet formulas that refer to a large number of other cells or ranges. 
@@ -275,7 +277,11 @@ Similarly, \emph{no-op} could occur in Excel in a formula like {\tt SUM(A1+A2+A3
 
 \section{Application}
 \label{sec:application}
-In Section~\ref{sec:smells}, we cataloged OO-inspired end-user smells from previous work. In order to demonstrate the applicability of our catalog, we apply it to two new domains: \ms~software (EV3 for short) and  Kodu. 
+In Section~\ref{sec:smells}, we cataloged OO-inspired end-user smells from previous work. In order to demonstrate the applicability of our catalog, we apply it to two new domains: a data-flow educational language for programming robots, \ms~software (EV3 for short),  and an event-driven educational language for building and playing video games, Kodu. 
+
+While these languages have different paradigms, they share some similarities. EV3 is a robotics language and Kodu is inspired by robotics. As such, they share some high-level concepts, such as performing actions based on sensor values. This allows us to find non-OO smells common to both (e.g., conflicting outcomes, discussed in Section~\ref{sec:eupsmells}) and similarly tune the smell detection thresholds in our studies.
+
+In this section, we introduce the EV3 language, map the OO catalog smells to the language, and perform a study to detect smells in a corpus of EV3 programs. Then, we repeat the process of mapping the smells and analyzing programs for Kodu, and synthesize the findings. 
 
 \subsection{\ms}
 \label{sec:lego}
@@ -354,9 +360,9 @@ Total Smells & 3 & 0 & 4 & 5 & 2 & 2 & 2 & 2 & 1 & 2 & 1 & 1 & 1 & 4 & 0 & 1 & 3
 
 
 \subsubsection{Study setup}
-To determine if EV3 programs suffer from OO-inspired smells, we  gathered 17 programs from two data sources. The first source is a robotics club run by one of the authors, where kids aged 8 to 13 program robots every week. The programs collected were designed to participate in two robot competitions: A sumo wresting game in which robot have to push each other out of a ring\footnote{\url{http://www.sugobot.com/}}, and a search and rescue game in which robots have to detect a soda can\footnote{\url{http://rcj.robocup.org/rescue.html}}. To obtain a more diverse set of EV3 programs, we also solicited members of the EV3 programming group on Facebook to share their programs with us\footnote{\url{https://www.facebook.com/groups/legomindstorms/permalink/527560164058881/}}. Nine programs come from this second source. 
+To determine if EV3 programs suffer from OO-inspired smells, we  gathered 17 programs from two data sources. The first source is a robotics club run by one of the authors, where kids aged 8 to 13 program robots every week. The programs collected were designed to participate in two robot competitions: A sumo wresting game in which robot have to push each other out of a ring\footnote{\url{http://www.sugobot.com/}}, and a search and rescue game in which robots have to detect a soda can\footnote{\url{http://rcj.robocup.org/rescue.html}}. To obtain a more diverse set of EV3 programs, we also solicited members of the EV3 programming group on Facebook to share their programs with us\footnote{\url{https://www.facebook.com/groups/legomindstorms/permalink/527560164058881/}} and refer to these as programs from the \emph{community}. Nine programs come from this second source. 
 
-After collection, the programs were analyzed by one of the authors. Table \ref{tab:robotica} shows an overview of the EV3 programs from the Sumo (L1...L5), RoboCup (L6...L8) and Facebook (L9...L17) programs and the smells found in them. 
+After collection, the programs were analyzed by one of the authors. Table \ref{tab:robotica} shows an overview of the EV3 programs from the Sumo (L1...L5), RoboCup (L6...L8) and community (L9...L17) programs and the smells found in them. 
 
 The EV3 programming interface divides the programming blocks into 6 categories, indicated in the colored tabs in Figure \ref{fig:ms}. The number of blocks in each of the categories for the programs are listed in the first 6 rows in Table \ref{tab:robotica}. Furthermore we have counted the number of comment blocks: special blocks that do not perform any action but are used to document programs, the number of variables: blocks that store a value that can be retrieved later, and the number of \mbs~ created in the program. The \emph{Total Blocks} column provides an indication of program size.  
 
@@ -365,7 +371,7 @@ To count the number of instances of the \emph{long method}, a smell was counted 
 \subsubsection{Findings}
 When investigating the programs, we found that they indeed can suffer from OO-inspired smells. 
 
-On average, the programs from children's robotics club had 2.5 smells each and the programs from the community received through Facebook had 1.4 smells each, though  the people submitting through Facebook most likely sent in nicely polished programs. Furthermore, the community programs were generally smaller (a median of 17 versus 23 total blocks) exhibiting more reuse as they more often used call to \mbs. There are only three smells that do not occur in any of the programs: \emph{deprecated interface} (not applicable), \emph{inappropriate intimacy} and \emph{message chain}.
+On average, the programs from children's robotics club had 2.5 smells each and the programs from the community  had 1.4 smells each, though  the people submitting through the Facebook community most likely sent in nicely polished programs. Furthermore, the community programs were generally smaller (a median of 17 versus 23 total blocks) exhibiting more reuse as they more often used call to \mbs. There are only three smells that do not occur in any of the programs: \emph{deprecated interface} (not applicable), \emph{inappropriate intimacy} and \emph{message chain}.
 
 Next, we discuss the three most common smells within the EV3 programs. 
 %Duplicate Code occurs most, in over half of the programs. 
@@ -395,7 +401,7 @@ The most common smell we found in the programs is the \emph{duplicate code} smel
 \end{figure}
 
 \paragraph{Dead Code}
-The second most common smell is \emph{dead code}. In 41\% of the programs we found \mbs~that no longer connected to one of programs. This can pose a problem, firstly, for understandability, but also poses a practical program as the EV3 environment compiles and transfers all programs and \mbs~to the physical brick, so dead code takes up unnecessary space on the brick. The \emph{dead code} smells is more common in the robotics class programs than in the programs we received via Facebook. This is to be expected, as users felt confident enough to share their programs, so probably they either programs before sharing them, or selected `clean' programs to share.
+The second most common smell is \emph{dead code}. In 41\% of the programs we found \mbs~that no longer connected to one of programs. This can pose a problem, firstly, for understandability, but also poses a practical program as the EV3 environment compiles and transfers all programs and \mbs~to the physical brick, so dead code takes up unnecessary space on the brick. The \emph{dead code} smells is more common in the robotics class programs than in the community programs. This is to be expected, as users felt confident enough to share their programs, so probably they either programs before sharing them, or selected `clean' programs to share.
 
 Looking at the EV3 programming interface, it is not that surprising that users forget about disconnected \mbs, as the EV3 interface provided no information on which \mb~is used and where. Even worse, users can delete \mbs~that are still being called, without a warning being issued about this. After removal of a \mb~ in use, the program no longer compiles.
 
@@ -404,7 +410,7 @@ Looking at the EV3 programming interface, it is not that surprising that users f
 
 
 \paragraph{Lazy Class}
-A \emph{lazy class}, which we count as \mbs~containing three or fewer blocks, are also relatively common, occurring in four of the programs. However, we only find this smell in the programs from the robotics club and not in the programs received via Facebook. Many `lazy \mbs'~were relatively small, consisting of two or three blocks, or even one in some cases. In general, small abstraction are considered smelly, as understanding the abstraction requires inspecting it, which might not be worth it for small classes, methods or \mbs. However, for EV3 this smell might not be as smelly as in other languages, as the programming interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a coherent set of blocks, even if this set consist of just one block. 
+A \emph{lazy class}, which we count as \mbs~containing three or fewer blocks, are also relatively common, occurring in four of the programs. However, we only find this smell in the programs from the robotics club and not in the community programs. Many `lazy \mbs'~were relatively small, consisting of two or three blocks, or even one in some cases. In general, small abstraction are considered smelly, as understanding the abstraction requires inspecting it, which might not be worth it for small classes, methods or \mbs. However, for EV3 this smell might not be as smelly as in other languages, as the programming interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a coherent set of blocks, even if this set consist of just one block. 
 
 As an example, consider the two blocks from program L6, shown in Figure \ref{fig:weg}. The left block is regular block controlling a motor, while the right one is a call to a \mb~with the same functionality. The first one just expresses what the robot must do, but the second one expresses the intent (`weg' meaning flee). Using the \mb~here serves as an alternative for adding comment blocks. While small \mbs~still add overhead, as the user need to navigate to the block to understand it, the trade off might be different for EV3 than in other languages.
 
@@ -427,14 +433,14 @@ To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% 
 Microsoft Research's Kodu is a visual programming language~\cite{kodugrammar} and environment that allows users to create, play, and share their own video games. 
 It is available for download on the Xbox and PC and is heavily inspired by robotics, as illustrated by the context of programming in it and its language. 
 
-Users create a world (e.g., land, water, clouds),  add characters and objects, and then can program each character or object (e.g., a kodu robot character, a turtle character, an apple object, a tree object; we use character and object interchangeably) individually. Variables are introduced as scores or properties of characters. Scores are global variables, identified by color or letter, and readable and editable by all characters and objects. Character properties, such as color, glow color, expression and health, are like local variables. A character or object can read and write any of these properties for itself, and it can also read and write selected properties of other objects. 
+Users create a world (e.g., land, water, clouds),  add characters and objects, and then can program each character or object (e.g., a kodu robot character, a turtle character, an apple object, a tree object; we use character and object interchangeably) individually. Variables are introduced as scores or properties of characters. Scores are integers and global variables, identified by color or letter, and readable and editable by all characters and objects. Character properties, such as color, glow color, expression and health, are like local variables. A character or object can read and write any of these properties for itself, and it can also read and write selected properties of other objects. 
 
-The programming defines how to interact with the world, treating each character or object as an autonomous agent. Each object has 12 pages that can be programmed, analogous to methods in an OO language, where the current page defines the current behavior of the object. 
+The programming defines how a character or object can interact with the world, treating each character or object as an autonomous agent. Each object has 12 pages that can be programmed, analogous to methods in an OO language, where the current page defines the current behavior of the object. 
 The object's behavior can change by switching between pages to modify state and control flow. 
 Each page contains a set of rules, and each rule is in the form of a condition and an action, which form a {\tt when~--~do} clause. The {\tt when} is defined by a sensor (e.g., see, hear, gamepad input) and filters (e.g., apple, gamepad A button). The {\tt do} is defined by an actuator (e.g., movement, shoot) and modifiers (e.g., missile, toward). All the rules on a page are evaluated in a single frame, from top to bottom. 
 Despite its unique language, Kodu  can be used to express many basic concepts in computer science, such as variables, boolean logic and conditional control flow~\cite{Stolee:2011:ECS:1953163.1953197}. 
 
-Figure~\ref{fig:Kodu} shows a page and two rules  in Kodu. For the first rule, the condition is, {\tt when see red apple}, and the action is, {\tt move toward it}. The action defines the behavior of this particular character when it sees a red apple, that is, it moves toward it. Since the condition identifies an object (i.e., apple), it becomes the default selector, even though it is not explicitly specified. The second rule has a similar condition with a different sensor, {\tt bump}. The action of the second rule, {\tt eat}, indicates that the character should eat any red apple it bumps. 
+Figure~\ref{fig:Kodu} shows a page and two rules  in Kodu. For the first rule, the condition is, {\tt when see red apple}, and the action is, {\tt move toward it}. The action defines the behavior of this particular character when it sees a red apple, that is, it moves toward it. Since the condition identifies an object (i.e., apple), it becomes the default selector, even though it is not explicitly specified. The second rule, {\tt when bump red apple, do eat}, has a similar condition with a different sensor, {\tt bump}. The action of the second rule, {\tt eat}, indicates that the character should eat any red apple it bumps. 
 The programming in Figure~\ref{fig:Kodu} applies to the first page in this character's programming, as indicated by the number one at the top of the screen. The first page is the  start page.
 
 To form more complex boolean logic, rules can also be indented to create complex {\tt when} clauses, where both conditions need to be true for the action to occur. Alternatively, indenting a rule and removing the {\tt when} means that multiple {\tt do} clauses occur for the same trigger condition. 
@@ -445,7 +451,7 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs usi
 \begin{description}
 \item[Dead Code:] If there exists a page with programming such that there is no explicit path of control flow from Page~1 to it, it is unreachable and therefore dead. 
 \item[Deprecated Interface:] Some language features may exist in early versions of Kodu but not be available in future versions. As none of these features were ever deployed, this smell is not possible. 
-\item[Duplicate Code:] Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same \emph{when} clauses (i.e., sensor and filter) but different actions could be consolidated using the indent feature and thus are smelly. 
+\item[Duplicate Code:] Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same {\tt when} clauses (i.e., sensor and filter) but different actions could be consolidated using the indent feature and thus are smelly. 
 \item[Feature envy:] All global variables, such as game scores, can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell. 
 \item[Inappropriate Intimacy:] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy), and health.  If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
 \item[Lazy Class:] If a character has no programming, it could be an instance of the lazy smell. 
@@ -453,7 +459,7 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs usi
 \item[Long method:] A page with many, many rules may be difficult to understand. Some programming could potentially move to other characters. %We counted long methods as those with ten or more rules. 
 \item[Many Parameters:] A game can have 37 different global scores. Games that use many of these could be unnecessarily smelly. %We set the threshold at three. 
 \item[Message Chain:] It is possible for a character to create a chain of switches between pages without any logic on the page other than the jump. This would create a long and unnecessary message chain. 
-\item[No-op:] Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck. Alternatively, rules with \emph{when} clauses but no \emph{do} clauses do not perform any actions. 
+\item[No-op:] Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck. Alternatively, rules with {\tt when} clauses but no {\tt do} clauses do not perform any actions. 
 \item[Unused Field:] A global variable that is written to but not read is an instance of the the unused field smell. 
 
 %\todo{emailed scoy at Microsoft about this}
@@ -537,20 +543,20 @@ For the first data source, we ran a workshop at the Microsoft FUSE lab that intr
 Children between the ages of 9 and 12 volunteered to participate, with parental consent. We collected 17 programs created during the workshop for analysis. 
 For the second data source, we randomly sampled 10 programs from the public Xbox Live community. No demographic information was collected about the users. 
 
-The programs were analyzed  by one of the authors. Table~\ref{tab:koduanalysis} presents the 17 programs created by children (K1 \dots K17), 10 programs created by the Xbox Live community (K18 \dots K27), and the smells found in each. The \emph{Characters} row defines how many characters and actors are in the program, \emph{Pages} defines how many pages of programming are used by the characters, \emph{Rules} counts all the rules on all the pages, and \emph{HCI Actors} counts the number of actors in the program that are controllable by the Xbox controller, mouse, or keyboard. 
-To count the number of instances of the \emph{long method}, a smell was counted when the page had 10 or more rules. For the  \emph{many parameters} smell, the use of four or more game scores. These thresholds were determined by the authors as 10 rules cannot be viewed on a screen screen without scrolling and only a couple games used more than three game scores. 
+The programs were analyzed  by one of the authors. Table~\ref{tab:koduanalysis} presents the 17 programs created by children (K1 \dots K17), 10 programs created by the Xbox Live community (K18 \dots K27), and the smells found in each. The \emph{Characters} row defines how many characters and objects are in the program, \emph{Pages} defines how many pages of programming are used by the characters, \emph{Rules} counts all the rules on all the pages, and \emph{HCI Actors} counts the number of characters in the program that are controllable by the Xbox controller, mouse, or keyboard. 
+To count the number of instances of the \emph{long method}, a smell was counted when the page had 10 or more rules. For the  \emph{many parameters} smell, the use of four or more game scores. These thresholds were determined by the authors as 10 rules cannot be viewed on a screen screen without scrolling and only a couple games used more than three game scores; these are the same as those used for EV3. 
 
 \subsubsection{Findings}
 On average, the programs from children had 2.3 smells each and the programs from the community had 3.5 smells each, though we note that the programs from the community tend to be larger (e.g., an average of 101 rules vs. 42 rules). Next, we discuss the three most common smells found in the Kodu programs, appearing in 40\% or more of the sample. The remaining smells appear in 25\% or fewer programs. 
 
 \subsubsection{Lazy class}
-The lazy class smell was the most common, appearing in 79\% of the Kodu programs. This smell is intended to capture when a character is placed in the world but has no programming, and thus no behavior. In some cases, this may not be a smell at all, such as when characters are used as decorations in the world (e.g., trees and rocks). In others, it could be similar to an object that is created but that has no behavior. 
+The \emph{lazy class} smell was the most common, appearing in 79\% of the Kodu programs. This smell is intended to capture when a character is placed in the world but has no programming, and thus no behavior. In some cases, this may not be a smell at all, such as when characters are used as decorations in the world (e.g., trees and rocks). In others, it could be similar to an object that is created but that has no behavior. 
 
 \subsubsection{Duplicate Code}
-This smell was present in 61\% of the programs. All instances were that of duplicate {\tt when} clauses within a page, and there were no instances of identical rules on a page or identical pages within the same character. The prevalence of this feature \todo{what feature? did you mean smell?} shows a missed opportunity for consolidating the code. 
+This smell was present in 61\% of the programs. All instances were that of duplicate {\tt when} clauses within a page, and there were no instances of identical rules on a page or identical pages within the same character. The prevalence of this smell shows a missed opportunity for consolidating the code. 
 
 \subsubsection{No-op}
-The next most-common smell is the no-op, present in 41\% of the programs. All instances of this smell were rules without {\tt do} clauses, rather than jumping to pages without logic.  This is probably the product of the rapid cycling between testing and developing observed in Kodu development~\cite{Stolee:2011:ECS:1953163.1953197}; since the clauses have no actionable logic, keeping them in the code does not impact the semantics of the program. We note that none of the rules following these clauses were indented to create a conditional conjunction. 
+The next most-common smell is the no-op, present in 41\% of the programs. All instances of this smell were rules without {\tt do} clauses, rather than jumping to pages without logic.  This is probably the product of the rapid cycling between testing and developing observed in Kodu development~\cite{Stolee:2011:ECS:1953163.1953197}; since the clauses have no actionable logic, keeping them in the code does not impact the semantics of the program, though it may impact performance. We note that none of the rules following these no-op clauses were indented to create a conditional conjunction. 
 
 
 \subsubsection{Summary}
@@ -594,6 +600,7 @@ Any smell & 88\% & 93\%
 In the previous sections we have looked at OO smells in end-user programming languages. However, end-user programming environments offer many opportunities to define smells based on user behavior or unique elements of the domain. Hence in this section we explore opportunities for new smells in end-user domains that extend beyond the OO-inspired smells in Section~\ref{sec:smells}. 
 
 \subsection{End-User Programming Smells}
+\label{sec:eupsmells}
 %Many smells beyond the OO language exist in several of the domains studied. 
 The following smells appear in at least two  end-user programming languages but are not related to OO smells. 
 
@@ -619,7 +626,7 @@ Communities of programmers often have standards for how to structure program cod
 
 
 \paragraph{Conflicting Outcomes smell}
-In robotics inspired languages, actions are performed based on sensor values. This is true of EV3 and Kodu. This provides the opportunity to create conflicting outcomes for the same sensor. 
+In robotics inspired languages, actions are performed based on sensor values. This is true of EV3 and Kodu and  provides the opportunity to create conflicting outcomes for the same sensor. 
 In Kodu, this can happen when the same \texttt{when} clause is followed by conflicting \texttt{do} clauses. For example, consider the following two Kodu rules:
 \begin{verbatim}
 (1) When hear turtle : do score 1 red
@@ -636,7 +643,7 @@ Each end-user domain has unique characteristics that create opportunities for de
 
 \subsubsection{EV3}
 %\subsubsection{Hardware/Software Interface Smells}
-The \ms~programming language differs significantly from the other end-user domains, as EV3 programmers work with both software and hardware. While programming, users need to configure motor blocks to the right port, for example the blocks in Figure \ref{fig:dup_ev3} are controlling motors A and D. This means that, when a user has the wrong mental model of what motor is connected to what port, the program will not function as wanted. It appears users run into this issue too, some of the programs contained comment blocks in which the mapping was described, in an effort to ensure proper mapping. Hence a smell unique to the EV3 domain is a wrong mapping between the robot in reality and the motor and sensor blocks. 
+The \ms~programming language differs significantly from the other end-user domains, as EV3 programmers work with both software and hardware. While programming, users need to configure motor blocks to the right port, for example the blocks in Figure \ref{fig:dup_ev3} are controlling motors A and D. This means that, when a user has the wrong mental model of what motor is connected to what port, the program will not function as wanted. It appears users run into this issue too, some of the programs contained comment blocks in which the mapping was described, in an effort to ensure proper mapping. Hence a smell unique to the EV3 domain is a wrong mapping between the robot in reality and the motor and sensor blocks, forming a \emph{hardware/software interface smell}. 
 
 \subsubsection{Kodu}
 The Kodu environment involves designing games, programming games, and playing games. This, paired with the unique event-driven language, creates unique opportunities for domain-specific Kodu smells. 
@@ -649,15 +656,15 @@ The Kodu environment involves designing games, programming games, and playing ga
 Games in Kodu can be programmed and played using an Xbox controller or a keyboard and mouse. Many games are programed assuming a particular device for input, such as an Xbox. However, when playing a game in a different environment, that device may not be available, and thus the game is not portable. This smell could be mitigated by adding analogous rules for other input devices, such as mapping the gamepad trigger switches to the keyboard shift keys or mapping the right stick to movement. 
 
 \paragraph{Lost Character smell}
-The \emph{lazy class} smell is related to a non-programmed character or object. However, there is also a design smell that can manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. \todo{because you have to click them in order to program them?} Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them as a marker, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
+The \emph{lazy class} smell is related to a non-programmed character or object. Characters and objects need to be clicked on to be programs. A design smell can then manifest when a programmed object cannot be easily found in the world, and thus there is program behavior that is difficult to change. Resolving this smell could involve physically moving the characters or objects to be more accessible, adding a color or speech bubble above them as a marker, or by adding an environment feature that maintains a list of programmed and non-programmed characters that can be accessed. 	
 
 \section{Related Work}
 
 \label{sec:related_work}
-Related to the current research are efforts on code smells within traditional languages, starting with the work of Fowler\cite{Fowl1999}. His book gives an overview of code smells and corresponding refactorings. Recent efforts focused on the automatic identification of code smells by means of metrics. Marinescu~\cite{Mari2001} for instance, uses metrics to identify \emph{suspect} classes, those classes that might have design flaws. 
+Related to the current research are efforts on code smells within traditional languages, we start with the work of Fowler\cite{Fowl1999}. His book gives an overview of code smells and corresponding refactorings. Recent efforts focused on the automatic identification of code smells by means of metrics. Marinescu~\cite{Mari2001} for instance, uses metrics to identify \emph{suspect} classes, those classes that might have design flaws. 
 %Lanza and Marinescu~\cite{Lanz06} explain this methodology in more detail. Alves \emph{et al.}~\cite{Alves2010} focus on a strategy to obtain thresholds for metrics from a benchmark. Olbrich \emph{et al.} furthermore investigates the changes in smells over time, and discusses their impact~\cite{Olbr2009}.
 
-Within end-user programming, this paper builds upon two lines of related work. First, the work of Stolee and Elbaum that studied smells~\cite{StoleeTSE2013} and refactorings~\cite{Stolee2011}. They designed a number of smells by transforming known OO smells to the domain of Yahoo Pipes. The second direction is the work by Hermans \emph{et al.} that also took OO smells as an inspiration from a number of smells~\cite{Hermans2012intra, Hermans2012inter}. Subsequently they described corresponding refactorings~\cite{Hermans2012intraExt} and a tool that applies refactorings~\cite{hermans2014bumblebee}. This final work generalized previous work by Badame and Dig~\cite{badame2012refactoring}.
+Within end-user programming, this paper builds upon two lines of related work. First, the work of Stolee and Elbaum that studied smells~\cite{StoleeTSE2013} and refactorings~\cite{Stolee2011}. They designed a number of smells by transforming known OO smells to the domain of Yahoo Pipes. The second direction is the work by Hermans \emph{et al.} that also took OO smells as an inspiration for a number of smells in spreadsheets~\cite{Hermans2012intra, Hermans2012inter}. Subsequently they described corresponding refactorings~\cite{Hermans2012intraExt} and a tool that applies refactorings~\cite{hermans2014bumblebee}. This final work generalized previous work by Badame and Dig~\cite{badame2012refactoring}.
 
 %In end-user programming environments, user input and logic are often more closely linked than they are in general purpose languages, and as such analyzing the input data as opposed to the logic can also be used as a means of \emph{smell detection}. This is a direction that has been applied to spreadsheets. Cunha et. al \cite{cunha2012towards} for example look at anomalies in the data and define these as smells. Examples of this are \textit{Standard Deviation} which occurs if one assumes a normal distribution for a column in numeric values and the column contains values which fall outside two standard deviations. In more recent work, Barowy et. Al \cite{barowy2014checkcell} take a more formalized approach which they label ``Data Debugging''. Their solution uses statistical analysis to find values with an unusually high impact on the calculated results in a spreadsheet, as such values are likely either very important or erroneous.
 
@@ -689,7 +696,7 @@ Three domains studied in this paper are dataflow languages, and the smells and r
 
 We have defined OO smells in two languages, EV3~and Kodu, yet we have not evaluated whether these smells matter to the end users. Future work is needed to determine the impact of these smell on users of the languages. 
 
-In Kodu, the presence of the \emph{lazy class} smell may be intentional and simply represent a design decision (i.e., a rock is not programmed because it's there purely for aesthetics), and in EV3 the this smell might occur because users make up for the lack of ability to name single blocks. Evaluating these smells with actual users will help tease out when code is smelly and when it is actually designed intentionally. 
+In Kodu, the presence of the \emph{lazy class} smell may be intentional and simply represent a design decision (i.e., a rock is not programmed because it is there purely for aesthetics), and in EV3 the this smell might occur because users make up for the lack of ability to name single blocks. Evaluating these smells with actual users will help tease out when code is smelly and when it is actually designed intentionally. 
 
 We have sampled programs from two sources for each EV3 and Kodu, yet these programs may not be representative of what children and community members create. A larger-scale analysis is necessary to generalize these findings to the populations of EV3 and Kodu programs. 
 
@@ -703,13 +710,13 @@ This paper presents an overview of the work in smell detection for end-user prog
 	\item The identification of future opportunities for smell detection in end-user programming domains, both within and beyond the OO paradigm (Section \ref{sec:beyond})
 \end{itemize}
 
-In the end, we observe that the original concept of code smells is applicable to end-user languages, of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This underlines the applicability of these smells, and also warrants further research into issues end-users encounter while programming. For example, exploring the impact of code smells on children who use the educational languages or designing user-friendly refactoring tools for visual languages. 
+In the end, we observe that the original concept of code smells is applicable to end-user languages, of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This underlines the applicability of these smells, and also warrants further research into issues end-users encounter while programming. For example, exploring the impact of code smells on children who use the educational languages or designing user-friendly refactoring tools for visual languages are potential future directions. 
 Furthermore, studying the smells in a fresh context provides new insight on how to use smells in software engineering and could even give rise to new types of smells. 
 
 \balance
 
 \section*{Acknowledgements}
-Special thanks to Stephen Coy for his help with Kodu, to all kids at `Instituut het Centrum` and the members of Facebook group `legomindstorms' for sharing their programs. This work is supported in part by  NSF SHF-EAGER-1446932 and the Harpole-Pentair endowment at Iowa State University.
+Special thanks to Stephen Coy for his help with Kodu, to all kids at `Instituut het Centrum' and the members of Facebook group `legomindstorms' for sharing their programs. This work is supported in part by  NSF SHF-EAGER-1446932 and the Harpole-Pentair endowment at Iowa State University.
 
 
 \bibliographystyle{IEEEtran}
