@@ -229,13 +229,13 @@ Unused Field
 
 
  \subsection{Excel}
-Hermans et al. \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to adapt nine of Fowler's smells~\cite{Fowl1999} to the spreadsheet domain.
+Hermans \emph{et al.} \cite{Hermans2012inter,Hermans2012intra} analogize a workbook to a program, a worksheet to a class inside that program and a cell to a method and use this to adapt nine of Fowler's smells~\cite{Fowl1999} to the spreadsheet domain.
 An example of this is the \emph{long method} smell, which translates to the \emph{multiple operations} smell, since formulas with a large number of operations suffer from similar problems as long methods in terms of understandability and similarly the \emph{many parameters} smell applies to spreadsheet formulas that refer to a large number of other cells or ranges. 
 
-The above two smells occur at the formula level, but smells at the worksheet level occur too. For example, the \emph{feature envy} smell occurs where a given formula mainly uses cells located on a different worksheet, such as: \begin{quote} \begin{small}{\tt =('Required Funds'!B9/'Required Funds'!C9/12) + ('Required Funds'!B10/'Required Funds'!C10/12) + ('Required Funds'!B11/'Required Funds'!C11/12)}, \end{small}\end{quote} which is taken from the clienttemplate.xlsx spreadsheet from the EUSES corpus~\cite{fisher2005euses}. As this formula refers to cells from the {\tt Required Funds} worksheets, it would fit there better. Similarly, two worksheets can have formulas that refer to each other heavily, introducing the \emph{inappropriate intimacy} smells. The \emph{message chain} smell occurs within spreadsheets if long chains of connecting formulas are constructed, hindering understandability as the entire chain has to be traced. In an study on the above mentioned EUSES corpus, 42\% of spreadsheets were found to be smelly~\cite{Hermans2012intra}.
+The above two smells occur at the formula level, but smells at the worksheet level occur too. For example, the \emph{feature envy} smell occurs where a given formula mainly uses cells located on a different worksheet, such as: \begin{quote} \begin{small}{\tt =('Required Funds'!B9/'Required Funds'!C9/12) + ('Required Funds'!B10/'Required Funds'!C10/12) + ('Required Funds'!B11/'Required Funds'!C11/12)} \end{small}\end{quote} This formula occurs in the clienttemplate.xlsx spreadsheet stemming from the EUSES corpus~\cite{fisher2005euses}. As this formula refers to cells from the {\tt Required Funds} worksheet, it would be a better fit. Similarly, two worksheets can have formulas that refer to each other heavily, introducing the \emph{inappropriate intimacy} smell. The \emph{message chain} smell occurs within spreadsheets if long chains of connecting formulas are constructed. This hampers understandability, as the entire chain of formulas has to be traced. In a study on the above mentioned EUSES corpus, 42\% of spreadsheets were found to be smelly~\cite{Hermans2012intra}.
 
 \subsection{Yahoo Pipes}
-Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells were mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{duplicate strings}, an instance of Fowler's \emph{duplicate code} smell. 
+Stolee and Elbaum~\cite{Stolee2011, StoleeTSE2013} treat a Yahoo Pipes mashup as a class and each module as a method.  Fields in a module are treated as parameters. Using this analogy,  several OO smells can be mapped to this language. The most common smell, appearing in nearly one-third of the 8,000 pipes studied, was \emph{duplicate strings}, an instance of Fowler's \emph{duplicate code} smell. 
 A similar smell, \emph{duplicate modules}, impacted nearly one-quarter of the pipes studied. 
 % Overall, 81\% of the programs studied from the Yahoo Pipes community had at least one smell. 
  
@@ -245,7 +245,7 @@ A similar smell, \emph{duplicate modules}, impacted nearly one-quarter of the pi
 In both the Excel and the Yahoo! Pipes work, OO inspired smells were applied to end-user languages. Some of the smells have been already studied in both domains, while others have not. However, the absence of an entry in Table~\ref{table:oosmellslarge} does not mean the absence of the smell in that language, it simply means such smells have not been studied. While measuring the occurrence of these smells falls outside the scope of the current work, we speculate
 that some of these unstudied smells may be applicable. 
 For example, \emph{many parameters} is not discussed in previous work on Yahoo Pipes, but could apply when a pipe module receives many field values via wire from other modules. 
-Similarly, \emph{no-op} could occur in Excel in a formula like {\tt SUM(A1+A2+A3)}. Here, the {\tt SUM} function does not add anything because it is only sums one value: the result of the addition. 
+Similarly, \emph{no-op} could occur in Excel in a formula like {\tt SUM(A1+A2+A3)}. Here, the {\tt SUM} function does not add anything, it is only sums one value: the result of the addition. 
 
 
 \begin{figure} [ht]
@@ -279,24 +279,24 @@ In Section~\ref{sec:smells}, we cataloged OO-inspired end-user smells from previ
 
 \subsection{\ms}
 \label{sec:lego}
-EV3 is the third iteration of the LEGO MINDSTORMS robotics line. It consists of a number of sensors, four motors and an ARM 9 ``intelligent brick''. The robotics kit comes with a control software package, which allows for visual programming of the brick, based on LabView\footnote{\url{http://www.ni.com/labview/}}. The software supports several basic constructs common to programming, including loops and conditionals, but also more advanced features like parallel execution. Figure \ref{fig:ms} shows the user interface of the EV3 software with a program that makes a robot follow a black line by steering left if the sensor value is below the threshold of 7 and right if the value is above, and in parallel writes the sensor value to the screen. This program demonstrates some of the basic EV3 programming concepts including parallel execution, loops and switches. Blocks have to be connected by wires, like the two coming from the `Play button' that acts as the starting point, to be executed. 
+EV3 is the third iteration of the LEGO MINDSTORMS robotics line. It consists of a number of sensors, four motors and an ARM 9 ``intelligent brick''. The robotics kit comes with a control software package, which allows for visual programming of the brick, based on LabView\footnote{\url{http://www.ni.com/labview/}}. The software supports several basic constructs common to programming, including loops and conditionals, as well as more advanced features like parallel execution. Figure \ref{fig:ms} shows the user interface of the EV3 software with a program that makes a robot follow a black line by steering left if the sensor value is below the threshold of 7 and right if the value is above, and in parallel writes the sensor value to the screen. This program demonstrates some of the basic EV3 programming concepts including parallel execution, loops and switches. Blocks have to be connected to the `Play button' on the left with wires to be executed, the block on the lower right is not connected and thus colored gray to indicate this to the user.
 
-In addition to the programming concepts described above, users have the possibility to define `\mbs' which are basically  subroutines. \mbs~may have up to 9 different input and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and clicking `my block builder'. This puts the selected blocks in a new \mb~ and replaces the blocks with a call to the newly created \mb, an abstraction action very functionality similar to `extract method' present in most modern IDEs. 
+In addition to the programming concepts described above, users have the possibility to define `\mbs' which are basically  subroutines. \mbs~may have up to 9 different input and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and clicking `my block builder'. This puts the selected blocks in a new \mb~and replaces the blocks with a call to the newly created \mb, an abstraction action very functionally similar to `extract method' present in most modern IDEs. 
 
 \subsubsection{Smells in \ms}
 In this subsection we describe how the smells in our OO-inspired catalog apply to EV3 programs. As common in the other approaches, we define a loose mapping of OO concepts to the end-user language in question, to be able to translate the smells. In EV3 programming, \emph{\mbs~} consist of a number of blocks, can be called multiple times, and use input and output. As such they resemble methods in source code, modules in Yahoo Pipes and worksheets in spreadsheets. Based on this translation, we investigate whether and how each of the smells in our catalog  apply to EV3 programs.  
 
 \begin{description}
-\item[Dead Code:] It is possible for programming blocks to be disconnected, but the interface clearly indicates this by making them gray \todo{if room, add a loose block to fig 3?}. However, unused \mbs~can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large.
+\item[Dead Code:] It is possible for programming blocks to be disconnected, but the interface clearly indicates this as explained above. However, unused \mbs~can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large.
 \item[Deprecated Interface:] This is a smell that does not apply, as, to date, there is only one version of the EV3 software and no blocks have been deprecated.
 \item[Duplicate Code:] When the same, or very similar combinations of blocks occur, the program suffers from the duplicate code smell.
 \item[Feature envy:] While all defined variables within EV3 programs are global, they can be written in a certain \mb~but read in a different one. If, in a given \mb~many variables are read that have been written somewhere else, this is be an occurrence of the feature envy smell. 
 \item[Inappropriate Intimacy:] Variables can be read in one \mb~but written somewhere else. If there are two \mbs~sharing multiple variables this way, it might be better to combine them.
-\item[Lazy Class:] If a \mb~is very small, for example, consisting of just one block, they do not add a lot of value, while making the program harder to understand, as a user has to navigate to the \mb~to see what its functionality is.
+\item[Lazy Class:] If a \mb~is very small, for example, consisting of just one block, they do not add a lot of value, while impacting understandability, as a user has to navigate to the \mb~to see what its functionality is.
 \item[Long method:] If a \mb~grows very large, it will no longer be easy to understand, counteracting the added value of the abstraction.
 \item[Many Parameters:] \mbs~can have 9 different parameters, which could be considered too much for easy understandability, especially since parameters need to be connected with wires, potentially leading to visual clutter.
-\item[Message Chain:] Since \mbs~can have both input and output parameters, they can form a message chain, in which values are continuously passed until they are used, while they could have been passed outside of the \mbs.
-\item[No-op:] It is possible to combine blocks in such a fashion that they do not actually contribute to the functionality of the program. For example, it a user stops the same motor twice, the second stop will be a no-op.
+\item[Message Chain:] Since \mbs~can have both input and output parameters, they can form a message chain, in which values are continuously passed until they are used, while they could have been passed directly, outside of the \mbs.
+\item[No-op:] It is possible to combine blocks in such a fashion that they do not actually contribute to the functionality of the program. For example, if a user stops the same motor twice, the second stop will be a no-op.
 \item[Unused Field:] As explained above, \mbs~can define parameters. However, the user is not forced to use them, hence it is possible to define parameters but not use them.
 
 \end{description}
@@ -305,7 +305,7 @@ In this subsection we describe how the smells in our OO-inspired catalog apply t
 \begin{figure} [ht]
 \caption{Two blocks representing the same functionality, one in a regular block and one using a call to a \mb.}
 \centering
-\includegraphics[width=5cm]{img/weg}
+\includegraphics[width=6cm]{img/weg}
 \label{fig:weg}
 \end{figure}
 
@@ -353,15 +353,14 @@ Total Smells & 3 & 0 & 4 & 5 & 2 & 2 & 2 & 2 & 1 & 2 & 1 & 1 & 1 & 4 & 0 & 1 & 3
 \end{table*}
 
 
-\subsubsection{Study context}
-To determine if EV3 programs suffer from OO-inspired smells, we  gathered 17 programs from two data sources. The first source is a robotics club run by one of the authors, where kids aged 8 to 13 program robots every week. Their programs have been collected as dataset for this paper. More specifically, we focus on two different projects within this set, RoboCup and Sumo. These two types of programs related to two different LEGO MINDSTORMS competitions: Sumo is a simple robot game in which robots have to `sumo wrestle' each other\footnote{\url{http://www.sugobot.com/}} and RoboCup Junior Rescue\footnote{\url{http://rcj.robocup.org/rescue.html}}, where robots have to navigate through a field and detect a soda can. Eight programs come from this source. 
+\subsubsection{Study setup}
+To determine if EV3 programs suffer from OO-inspired smells, we  gathered 17 programs from two data sources. The first source is a robotics club run by one of the authors, where kids aged 8 to 13 program robots every week. The programs collected were designed to participate in two robot competitions: A sumo wresting game in which robot have to push each other out of a ring\footnote{\url{http://www.sugobot.com/}}, and a search and rescue game in which robots have to detect a soda can\footnote{\url{http://rcj.robocup.org/rescue.html}}. To obtain a more diverse set of EV3 programs, we also solicited members of the EV3 programming group on Facebook to share their programs with us\footnote{\url{https://www.facebook.com/groups/legomindstorms/permalink/527560164058881/}}. Nine programs come from this second source. 
 
-To obtain a more diverse set of EV3 programs, we also solicited members of the EV3 programming group on Facebook to share their programs with us\footnote{\url{https://www.facebook.com/groups/legomindstorms/permalink/527560164058881/}}. Nine programs come from this second source. 
+After collection, the programs were analyzed by one of the authors. Table \ref{tab:robotica} shows an overview of the EV3 programs from the Sumo (L1...L5), RoboCup (L6...L8) and Facebook (L9...L17) programs and the smells found in them. 
 
-After collection, the programs were analyzed by one of the authors. Table \ref{tab:robotica} shows an overview of the EV3 programs, where programs L1 to L8 are programs from the robotics club (L1 to L5 are programs for Sumo and L6 to L8 are for RoboCup Junior) and programs L9 to L17  are programs received through Facebook. 
+The EV3 programming interface divides the programming blocks into 6 categories, indicated in the colored tabs in Figure \ref{fig:ms}. The number of blocks in each of the categories for the programs are listed in the first 6 rows in Table \ref{tab:robotica}. Furthermore we have counted the number of comment blocks: special blocks that do not perform any action but are used to document programs, the number of variables: blocks that store a value that can be retrieved later, and the number of \mbs~ created in the program. The \emph{Total Blocks} column provides an indication of program size.  
 
-The EV3 programming interface divides the programming blocks into 6 categories, of which the number of blocks found in the programs is listed in the first 6 rows. Furthermore we have counted the number of comment blocks: special blocks that do not perform any action but are used to document programs, the number of variables: blocks that store a value that can be retreived later and the number of \mbs~ created in the program. The \emph{Total Blocks} column provides an indication of program size.  
-
+To count the number of instances of the \emph{long method}, a smell was counted when the \mb~had 10 or more blocks, as this is typically the size that all blocks would not fit on the screen anymore. For the \emph{lazy class} we defined smelly as three blocks or fewer. For the  \emph{many parameters} smell, the use of four or more input values as typically in the programs one or two were used.
 
 \subsubsection{Findings}
 When investigating the programs, we found that they indeed can suffer from OO-inspired smells. 
@@ -379,7 +378,7 @@ Next, we discuss the three most common smells within the EV3 programs.
 \end{figure}
 
 \paragraph{Duplicate Code}
-The most common smell we found in the nine programs is the \emph{duplicate code} smell, which 11 out of 17 programs suffer from. Duplication comes in various forms.  Some of the programs use two motor blocks in a row, which could have been merged. For example, consider the two blocks from program L17, shown in Figure \ref{fig:dup_ev3}. This might have been challenging for the users to detect, as they use two slight variations of the motor block, but the two behave exactly the same in this case. Hence, one block moving forward 1.25 would have sufficed. Other programs exhibit duplication at a high level, such as the two \mbs~in program L16, depicted in Figure \ref{fig:dup_ev3_myblocks}. Here, the two \mbs~perform the exact same operation, but on a different motor. By connecting the name of the motor to a parameter two, this functionality could have been implemented with one \mb.
+The most common smell we found in the programs is the \emph{duplicate code} smell, which 65\% of the programs suffer from. Duplication comes in various forms.  Some of the programs use two motor blocks in a row, which could have been merged. For example, consider the two blocks from program L17, shown in Figure \ref{fig:dup_ev3}. This might have been challenging for the users to detect, as they use two slight variations of the motor block, but the two behave exactly the same in this case. Hence, one block moving forward 1.25 would have sufficed. Other programs exhibit duplication at a high level, such as the two \mbs~in program L16, depicted in Figure \ref{fig:dup_ev3_myblocks}. Here, the two \mbs~perform the exact same operation, but on a different motor. By connecting the name of the motor to a parameter, like angle and speed already are, the same functionality could have been implemented with one \mb.
 
 \begin{figure} [tb]
 \caption{The duplication smell in two subsequent motor blocks. Since both have the same power and direction, they could have been merged. }
@@ -389,31 +388,31 @@ The most common smell we found in the nine programs is the \emph{duplicate code}
 \end{figure}
 
 \begin{figure} [tb]
-\caption{The duplication smell in two different \mbs. Both \mbs~turn a motor, and which motor could have been put in a parameter, like angle and speed already are. }
+\caption{The duplication smell in two different but very similar \mbs. By parameterizing the motor name, this could have been implemented with 1 \mb. }
 \centering
 \includegraphics[width=\columnwidth]{img/dup_ev3_myblocks}
 \label{fig:dup_ev3_myblocks}
 \end{figure}
 
 \paragraph{Dead Code}
-The second most common smell is \emph{dead code}. In 7 out of 17 programs we found \mbs~that no longer connected to one of programs. This can pose a problem, as the EV3 environment compiles and transfers all programs and \mbs~to the physical brick, causing the memory to be full quite quickly. We see that \emph{dead code} is more common in the robotics class programs than in the programs we received via Facebook. This is probably due to the fact that these users felt confident enough to share their programs. Either the programs were reviewed before sharing them, or the experienced users selected `clean' programs to share.
+The second most common smell is \emph{dead code}. In 41\% of the programs we found \mbs~that no longer connected to one of programs. This can pose a problem, firstly, for understandability, but also poses a practical program as the EV3 environment compiles and transfers all programs and \mbs~to the physical brick, so dead code takes up unnecessary space on the brick. The \emph{dead code} smells is more common in the robotics class programs than in the programs we received via Facebook. This is to be expected, as users felt confident enough to share their programs, so probably they either programs before sharing them, or selected `clean' programs to share.
 
 Looking at the EV3 programming interface, it is not that surprising that users forget about disconnected \mbs. The interface does not help users in understanding what \mbs~are used. If we look at the project properties screen, shown in Figure \ref{fig:overview}, one can see that there is no information about which \mb~is used, and where. Even worse, users can delete \mbs~that are still being called, without a warning being issued about this. After removal of a \mb~ in use, the program no longer compiles.
 
 
 \paragraph{Lazy Class}
-A \emph{lazy class}, which we count as \mbs~containing three or fewer blocks, are also relatively common, occurring in four of the programs. However, we only find this smell in the programs from the robotics club and not in the programs received via Facebook. Many `lazy \mbs'~were relatively small, consisting of two or three blocks, or even one in some cases. In general, small abstraction are considered smelly, as understanding the abstraction requires inspecting it, which might not be worth it for small classes, methods or \mbs. However, the EV3 programming interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a coherent set of blocks, even if this set consist of just one block. 
+A \emph{lazy class}, which we count as \mbs~containing three or fewer blocks, are also relatively common, occurring in four of the programs. However, we only find this smell in the programs from the robotics club and not in the programs received via Facebook. Many `lazy \mbs'~were relatively small, consisting of two or three blocks, or even one in some cases. In general, small abstraction are considered smelly, as understanding the abstraction requires inspecting it, which might not be worth it for small classes, methods or \mbs. However, for EV3 this smell might not be as smelly as in other languages, as the programming interface does not allow regular blocks to be named, but it does allow this for \mbs. So by making a \mb, users can express the intent of a coherent set of blocks, even if this set consist of just one block. 
 
-As an example, consider the two blocks shown in Figure \ref{img/weg}, where the left block is regular block controlling a motor, while the right one is a call to a \mb~with the same functionality. The first one just expresses what the robot must do, but the second one expresses the intent (`weg' meaning flee). By using the \mb, even with one block, the program gets easier to read.
+As an example, consider the two blocks from program L6, shown in Figure \ref{fig:weg}. The left block is regular block controlling a motor, while the right one is a call to a \mb~with the same functionality. The first one just expresses what the robot must do, but the second one expresses the intent (`weg' meaning flee). Using the \mb~here serves as an alternative for adding comment blocks. While small \mbs~still add overhead, as the user need to navigate to the block to understand it, the trade off might be different for EV3 than in other languages.
 
-\paragraph{Long method}
-We defined Long Method as \mbs~with over 10 blocks, as this is typically the size that all blocks would not fit on the screen anymore. Long method occurs in four programs, but, contrary to Lazy Class, is found mostly in the Facebook programs. This is to be expected, as more experienced users can handle bigger \mbs, while the kids from the robotics club stick with making small blocks.
+%\paragraph{Long method}
+%Long method occurs in four programs, but, contrary to Lazy Class, is found mostly in the Facebook programs. This is to be expected, as more experienced users can handle bigger \mbs, while the kids from the robotics club stick with making small blocks.
 
 \subsubsection{Summary}
-To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% of the programs, with \emph{duplicate code}, \emph{dead code} and \emph{lazy class} (small abstractions) observed most often. Hence we conclude that smells from OO are applicable to this end-user language, though programs might not be as smelly in the context of EV3 as they are in OO. 
+To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% of the programs, with \emph{duplicate code}, \emph{dead code} and \emph{lazy class} (small abstractions) observed most often. Hence we conclude that smells from OO are applicable to this end-user language, though for the \emph{lazy class} smell, the impact might be different in the context of EV3. 
 
 \begin{figure}[ht]
-\caption{The interface of Kodu~showing programming behavior for a bot.}
+\caption{The interface of Kodu~showing programming behavior for a bot that moves towards a red apple and then eats it.}
 \centering
 \includegraphics[width=\columnwidth]{programmingui.png}
 \label{fig:Kodu}
@@ -421,6 +420,7 @@ To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% 
 
 
 \subsection{Kodu}
+\todo{this part does not really explain how variables work, you mention them, but I find it a bit hard to know how they work/look like.}
 Microsoft Research's Kodu is a visual programming language~\cite{kodugrammar} and environment that allows users to create, play, and share their own video games. 
 It is available for download on the Xbox and PC and is heavily inspired by robotics, as illustrated by the context of programming in it and its language. 
 
@@ -434,10 +434,6 @@ The programming in Figure~\ref{fig:Kodu} applies to the first page in this chara
 
 To form more complex boolean logic, rules can also be indented to create complex {\tt when} clauses, where both conditions need to be true for the action to occur. Alternatively, indenting a rule and removing the {\tt when} means that multiple {\tt do} clauses occur for the same trigger condition. 
 
-
-
-
-
 \subsubsection{Smells in Kodu}
 We describe how the smells in our OO-inspired catalog apply to Kodu programs using a loose mapping of the OO concepts. We consider pages of programming as analogous to methods or classes, similar to how modules are treated in Yahoo Pipes, worksheets in spreadsheets and \mbs~in \ms. 
 
@@ -446,7 +442,7 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs usi
 \item[Deprecated Interface:] Some language features may exist in early versions of Kodu but not be available in future versions. As none of these features were ever deployed, this smell is not possible. 
 \item[Duplicate Code:] Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same \emph{when} clauses (i.e., sensor and filter) but different actions could be consolidated using the indent feature and thus are smelly. 
 \item[Feature envy:] All global variables, such as game scores, can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell. 
-\item[Inappropriate Intimacy:] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy). If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
+\item[Inappropriate Intimacy:] A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy) \todo{this are just 3, not 4} If one character frequently checks the properties of another character, this could constitute inappropriate intimacy. 
 \item[Lazy Class:] If a character has no programming, it could be an instance of the lazy smell. 
 %Characters with no programming are different than objects. Characters can have movement whereas objects cannot. 
 \item[Long method:] A page with many, many rules may be difficult to understand. Some programming could potentially move to other characters. %We counted long methods as those with ten or more rules. 
@@ -530,7 +526,7 @@ Total Smells & 0 & 2 & 4 & 1 & 1 & 3 & 2 & 2 & 3 & 2 & 1 & 5 & 5 & 3 & 2 & 3 & 2
 \end{table*}
 
 
-\subsubsection{Study Context}
+\subsubsection{Study Setup}
 To determine if Kodu programs indeed suffer from the above defined smells, we have gathered  programs from two data sources. 
 For the first data source, we ran a workshop at the Microsoft FUSE lab that introduced children to Kodu Game Lab in a series of three 3-hour sessions.  To recruit participants, we advertised the Kodu workshop using a mailing list of parents interested in Kodu.  
 Children between the ages of 9 and 12 volunteered to participate, with parental consent. We collected 17 programs created during the workshop for analysis. 
@@ -546,7 +542,7 @@ On average, the programs from children had 2.3 smells each and the programs from
 The lazy class smell was the most common, appearing in 79\% of the Kodu programs. This smell is intended to capture when a character is placed in the world but has no programming, and thus no behavior. In some cases, this may not be a smell at all, such as when characters are used as decorations in the world (e.g., trees and rocks). In others, it could be similar to an object that is created but that has no behavior. 
 
 \subsubsection{Duplicate Code}
-This smell was present in 61\% of the programs. All instances were that of duplicate {\tt when} clauses within a page, and there were no instances of identical rules on a page or identical pages within the same character. The prevalence of this feature shows a missed opportunity for consolidating the code. 
+This smell was present in 61\% of the programs. All instances were that of duplicate {\tt when} clauses within a page, and there were no instances of identical rules on a page or identical pages within the same character. The prevalence of this feature \todo{what feature? did you mean smell?} shows a missed opportunity for consolidating the code. 
 
 \subsubsection{No-op}
 The next most-common smell is the no-op, present in 41\% of the programs. All instances of this smell were rules without {\tt do} clauses, rather than jumping to pages without logic.  This is probably the product of the rapid cycling between testing and developing observed in Kodu development~\cite{Stolee:2011:ECS:1953163.1953197}; since the clauses have no actionable logic, keeping them in the code does not impact the semantics of the program. We note that none of the rules following these clauses were indented to create a conditional conjunction. 
