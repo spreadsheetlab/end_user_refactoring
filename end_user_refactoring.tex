@@ -690,7 +690,7 @@ We have sampled programs from two sources for each EV3 and Kodu, yet these progr
 
 \section{Conclusion}
 \label{sec:conclusions}
-This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and small abstractions, duplicate code and dead code occur in these educational languages too, while being of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This shows the applicability of these smells, and also warrants further research into issues end-users encounter while programming. The contributions of this paper are:
+This paper presents an overview of the work in smell detection for end-user programming languages. More specifically, it synthesizes work on Yahoo Pipes and Excel into a catalog of generally applicable smells in end-user languages. To demonstrate the applicability of the catalog, we apply it to two new domains: \ms~and Kodu, two visual languages aimed at programming education. The results show that indeed many of the catalog's smells apply in the new domains, and \emph{lazy class} (small abstractions), \emph{duplicate code} and \emph{dead code} occur frequently in these educational languages too, while being of a quite different character than the textual languages aimed at professional developers that the smells were originally defined for. This shows the applicability of these smells, and also warrants further research into issues end-users encounter while programming. The contributions of this paper are:
 
 \begin{itemize}
 	\item A catalog of object-oriented-inspired code smells in end-user programs (Section \ref{sec:smells})
@@ -698,10 +698,10 @@ This paper presents an overview of the work in smell detection for end-user prog
 	\item Identification of future opportunities for smell detection in end-user programming domains, both within and beyond the OO paradigm (Section \ref{sec:beyond})
 \end{itemize}
 
-The current work gives rise to more research, for example \todo{future work}
+The current work also gives rise to more research, for example, exploring the impact of code smells on children who use the educational languages or designing user-friendly refactoring tools for visual languages. 
 
 %sentence from the original intro, I think I like it better here, it feels reflecting
-The applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is. Furthermore, studying the smells in a fresh context provides new insight on how to use smells in software engineering and even suggests new types of smells. 
+In the end, we observe that the applicability of smells, originally created to detect weaknesses in source code, to other domains shows how powerful the concept is. Furthermore, studying the smells in a fresh context provides new insight on how to use smells in software engineering \todo{do we show this insight on how to use smells in SE?} and even suggests new types of smells. 
 
 \balance
 
