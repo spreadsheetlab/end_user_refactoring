@@ -30,7 +30,6 @@
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
 
-\newcommand{\todo}[1]{\textbf{TODO: #1}}
 \newcommand{\ms}{LEGO MINDSTORMS EV3}
 \newcommand{\mbs}{\textsc{my blocks}}
 \newcommand{\mb}{\textsc{my block}}
@@ -78,7 +77,7 @@ David Hoepelman\\
 Millions of people in the workforce today write code, without degrees or professional training in software development. These end-user programmers perform a variety of tasks, from combining web information to building models to support business decisions. Software engineering research into code smells has traditionally focused on professionally used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
 
 In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo Pipes. Based on existing object-oriented smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
-We demonstrate the broad applicability of the catalog by mapping the smells to two additional end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that  object-oriented-inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication, and dead code smells, with duplication smells being present in nearly 2/3 of programs in each language. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the object-oriented paradigm. 
+We demonstrate the broad applicability of the catalog by mapping the smells to two additional end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that  object-oriented-inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication, and dead code smells, with duplication smells being present in nearly two thirds of programs in each language. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the object-oriented paradigm. 
 \end{abstract}
 
 
@@ -138,7 +137,7 @@ Abstraction was possible with \emph{subpipe} modules, which allowed a programmer
 \begin{figure}[h!tb]
 \caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{fetch feed} module, feeding to a \emph{union} module that concatenates the feeds, a \emph{truncate} module that limits the number of items to 15 prior to the final \emph{pipe output}. }
 \centering
-\includegraphics[width=\columnwidth]{img/yp-1}
+\includegraphics[width=6cm]{img/yp-1}
 \label{fig:ypexample}
 \end{figure}
 
@@ -253,7 +252,7 @@ Similarly, \emph{no-op} could occur in Excel in a formula like {\tt SUM(A1+A2+A3
 \begin{figure} [ht]
 \caption{The interface of \ms~showing a line following program.}
 \centering
-\includegraphics[width=\columnwidth]{img/ms}
+\includegraphics[width=7cm]{img/ms}
 \label{fig:ms}
 \end{figure}
 
@@ -429,7 +428,6 @@ To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% 
 
 
 \subsection{Kodu}
-%\todo{this part does not really explain how variables work, you mention them, but I find it a bit hard to know how they work/look like.}
 Microsoft Research's Kodu is a visual programming language~\cite{kodugrammar} and environment that allows users to create, play, and share their own video games. 
 It is available for download on the Xbox and PC and is heavily inspired by robotics, as illustrated by the context of programming in it and its language. 
 
@@ -462,7 +460,6 @@ We describe how the smells in our OO-inspired catalog apply to Kodu programs usi
 \item[No-op:] Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck. Alternatively, rules with {\tt when} clauses but no {\tt do} clauses do not perform any actions. 
 \item[Unused Field:] A global variable that is written to but not read is an instance of the the unused field smell. 
 
-%\todo{emailed scoy at Microsoft about this}
 \end{description}
 
 
@@ -633,10 +630,9 @@ In Kodu, this can happen when the same \texttt{when} clause is followed by confl
 (2) When hear turtle : do unscore 1 red
 \end{verbatim}
 \noindent The {\tt do} clauses are in conflict, both scoring and unscoring the red variable score by 1. In if the {\tt do} clause on rule~2 was instead, {\tt do score 1 red}, then the rules would both execute outcome would be adding 2 to the red score. 
-In EV3, \todo{is the behavior the same?}
+In EV3, the same situation can occur, as it supports \texttt{wait} blocks, which are very similar to a \texttt{when} clause. For example, a user can define a \texttt{wait} block for a sensor to detect black. Only when the \texttt{wait} block returns true the following block is executed. Similar to Kodu, when to similar \texttt{wait} blocks would be defined with conflicting following blocks, for example one where the motor moves 60 degrees clockwise and one where it moves 60 degrees counterclockwise, they would cancel each other out too.
+
 Flagging conflicting rules during development would help alert users to this smell. 
-
-
 
 \subsection{Domain-Specific Smells}
 Each end-user domain has unique characteristics that create opportunities for defining domain-specific smells. In Yahoo Pipes, prior work has explored the presence of broken or deprecated data sources as a smell unique to the domain~\cite{StoleeTSE2013}. In Excel, prior work defined referring to an empty cells are smelly~\cite{cunha2012towards}. Here, we explore smells in EV3 and Kodu that are unique to their languages and environments. 
