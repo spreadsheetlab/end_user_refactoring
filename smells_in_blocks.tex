@@ -1,4 +1,51 @@
-\documentclass{sig-alternate}
+
+
+
+
+\documentclass[conference]{IEEEtran}
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+   \usepackage[pdftex]{graphicx}
+   %declare the path(s) where your graphic files are
+   \graphicspath{{../img/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+   \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
 
 \usepackage{url}
 \usepackage[table,xcdraw]{xcolor}
@@ -20,11 +67,9 @@
 \renewcommand*\cmidrule{\midrule[0.001em]} % Thin middle lines
 %\renewcommand*\cmidrule{\midrule} % Thick middle lines
 
-%Images
-%\usepackage[pdftex]{graphicx}
-\DeclareGraphicsExtensions{.pdf,.jpg,.png}
 
-\hyphenation{second-ly ap-pen-dix}
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
 
 \clubpenalty = 10000
 \widowpenalty = 10000
@@ -36,42 +81,34 @@
 \newcommand{\horiz}{\hspace{2.1pt}}
 \renewcommand{\topfraction}{.9}
 
-\newcommand{\ignore}[1]{}
 
 \begin{document}
-%\bstctlcite{IEEEexample:BSTcontrol}
-%
-% paper title
-% can use linebreaks \\ within to get better formatting as desired
-\title{A Catalog of OO-inspired End-User Smells, \\and Application to \ms~and Kodu}
-%\title{Perspectives on End-User Refactoring: Past, Present, and Future}
 
-\numberofauthors{3}
+\title{A Catalog of OO-inspired End-User Smells, \\and Application to \ms~and Kodu}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
 \author{
-% 1st. author
-\alignauthor
-Felienne Hermans\\
-       \affaddr{Delft University of Technology}\\
-       \affaddr{Mekelweg 4}\\
-       \affaddr{Delft, the Netherlands}\\
-       \email{f.f.j.hermans@tudelft.nl}
-\alignauthor
-Kathryn T. Stolee\\
-       \affaddr{Department of Computer Science}\\
-       \affaddr{Iowa State University}\\
-       \affaddr{Ames, IA, U.S.A.}\\
-       \email{kstolee@iastate.edu}
-\alignauthor
-David Hoepelman\\
-       \affaddr{Delft University of Technology}\\
-       \affaddr{Mekelweg 4}\\
-       \affaddr{Delft, the Netherlands}\\
-       \email{D.J.Hoepelman@tudelft.nl}
-}
-%\author{David Hoepelman, Katryn Stolee, Felienne Hermans}
+\IEEEauthorblockN{Felienne Hermans}
+\IEEEauthorblockA{Delft University of Technology\\
+Mekelweg 4\\
+Delft, the Netherlands\\
+f.f.j.hermans@tudelft.nl }
+\and
+\IEEEauthorblockN{Kathryn T. Stolee}
+\IEEEauthorblockA{}
+\and
+\IEEEauthorblockN{David Hoepelman}
+\IEEEauthorblockA{Delft University of Technology\\
+Mekelweg 4\\
+Delft, the Netherlands\\
+D.J.Hoepelman@student.tudelft.nl}}
+
+
 
 \maketitle
-
 
 \begin{abstract}
 Millions of people in the workforce today write code, without degrees or professional training in software development. These end-user programmers perform a variety of tasks, from combining web information to building models to support business decisions. Software engineering research into code smells has traditionally focused on professionally used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
@@ -79,6 +116,7 @@ Millions of people in the workforce today write code, without degrees or profess
 In this work, we explore recent research in two distinct end-user domains and languages: spreadsheets in Microsoft Excel and web mashups in Yahoo Pipes. Based on existing object-oriented smells and their applications to these two end-user domains, we distill a catalog of generic end-user smells. 
 We demonstrate the broad applicability of the catalog by mapping the smells to two additional end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that  object-oriented-inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication, and dead code smells, with duplication smells being present in nearly two thirds of programs in each language. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the object-oriented paradigm. 
 \end{abstract}
+
 
 
 \section{Introduction}
@@ -422,7 +460,7 @@ To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% 
 \begin{figure}[ht]
 \caption{The interface of Kodu~showing programming behavior for a bot that moves towards a red apple and then eats it.}
 \centering
-\includegraphics[width=\columnwidth]{programmingui.png}
+\includegraphics[width=\columnwidth]{img/programmingui.png}
 \label{fig:Kodu}
 \end{figure}
 
@@ -719,4 +757,3 @@ Special thanks to Stephen Coy for his help with Kodu, to all kids at `Instituut 
 \bibliography{literaturelist}
 
 \end{document}
-
