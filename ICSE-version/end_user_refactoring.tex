@@ -1,4 +1,4 @@
-\documentclass{sig-alternate}
+\documentclass{../sig-alternate}
 
 \usepackage{url}
 \usepackage[table,xcdraw]{xcolor}
@@ -129,7 +129,7 @@ Abstraction was possible with \emph{subpipe} modules, which allowed a programmer
 \begin{figure}[htb]
 \caption{Microsoft Excel 2013 showing a spreadsheet. Columns B and C show the typical mix of data and calculation. The formula of the selected cell B13 is visible right above the spreadsheet.}
 \centering
-\includegraphics[width=\columnwidth]{img/excel-2}
+\includegraphics[width=\columnwidth]{../img/excel-2}
 \label{fig:spreadsheetexample}
 %file: fin_accounts from Euses / financial
 \end{figure}
@@ -137,7 +137,7 @@ Abstraction was possible with \emph{subpipe} modules, which allowed a programmer
 \begin{figure}[h!tb]
 \caption{Example of a program in Yahoo Pipes. It has five RSS feed data sources, each in a \emph{fetch feed} module, feeding to a \emph{union} module that concatenates the feeds, a \emph{truncate} module that limits the number of items to 15 prior to the final \emph{pipe output}. }
 \centering
-\includegraphics[width=6cm]{img/yp-1}
+\includegraphics[width=6cm]{../img/yp-1}
 \label{fig:ypexample}
 \end{figure}
 
@@ -252,7 +252,7 @@ Similarly, \emph{no-op} could occur in Excel in a formula like {\tt SUM(A1+A2+A3
 \begin{figure} [ht]
 \caption{The interface of \ms~showing a line following program.}
 \centering
-\includegraphics[width=7cm]{img/ms}
+\includegraphics[width=7cm]{../img/ms}
 \label{fig:ms}
 \end{figure}
 
@@ -310,7 +310,7 @@ In this subsection we describe how the smells in our OO-inspired catalog apply t
 \begin{figure} [ht]
 \caption{Two blocks representing the same functionality, one in a regular block and one using a call to a \mb.}
 \centering
-\includegraphics[width=6cm]{img/weg}
+\includegraphics[width=6cm]{../img/weg}
 \label{fig:weg}
 \end{figure}
 
@@ -388,14 +388,14 @@ The most common smell we found in the programs is the \emph{duplicate code} smel
 \begin{figure} [tb]
 \caption{The duplication smell in two subsequent motor blocks. Since both have the same power and direction, they could have been merged. }
 \centering
-\includegraphics[width=6cm]{img/dup_ev3}
+\includegraphics[width=6cm]{../img/dup_ev3}
 \label{fig:dup_ev3}
 \end{figure}
 
 \begin{figure} [tb]
 \caption{The duplication smell in two different but very similar \mbs. By parameterizing the motor name, this could have been implemented with 1 \mb. }
 \centering
-\includegraphics[width=6cm]{img/dup_ev3_myblocks}
+\includegraphics[width=6cm]{../img/dup_ev3_myblocks}
 \label{fig:dup_ev3_myblocks}
 \end{figure}
 
@@ -422,7 +422,7 @@ To summarize, smells indeed occur in the EV3 programs. Smells are found in 88\% 
 \begin{figure}[ht]
 \caption{The interface of Kodu~showing programming behavior for a bot that moves towards a red apple and then eats it.}
 \centering
-\includegraphics[width=\columnwidth]{programmingui.png}
+\includegraphics[width=\columnwidth]{../img/programmingui.png}
 \label{fig:Kodu}
 \end{figure}
 
@@ -716,7 +716,7 @@ Special thanks to Stephen Coy for his help with Kodu, to all kids at `Instituut 
 
 
 \bibliographystyle{IEEEtran}
-\bibliography{literaturelist}
+\bibliography{../literaturelist}
 
 \end{document}
 
