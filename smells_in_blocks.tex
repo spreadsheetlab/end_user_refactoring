@@ -84,7 +84,7 @@
 
 \begin{document}
 
-\title{Spreadsheets are Code \large{\\Case studies on \ms~and Kodu}}
+\title{Code Smells in Education Programming Languages \large{\\Case studies on \ms~and Kodu}}
 
 
 % author names and affiliations
@@ -98,7 +98,9 @@ Delft, the Netherlands\\
 f.f.j.hermans@tudelft.nl }
 \and
 \IEEEauthorblockN{Kathryn T. Stolee}
-\IEEEauthorblockA{}
+\IEEEauthorblockA{North Carolina State University\\
+Raleigh, NC, USA\\
+ktstolee@ncsu.edu}
 \and
 \IEEEauthorblockN{David Hoepelman}
 \IEEEauthorblockA{Delft University of Technology\\
@@ -111,7 +113,7 @@ D.J.Hoepelman@student.tudelft.nl}}
 \maketitle
 
 \begin{abstract}
-Millions of people in the workforce today write code, without degrees or professional training in software development. These end-user programmers perform a variety of tasks, from combining web information to building models to support business decisions. Software engineering research into code smells has traditionally focused on professionally used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
+Millions of people in the workforce today write code, without degrees or professional training in software development. These end-user programmers perform a variety of tasks, from combining web information to building models that support business decisions. Software engineering research into code smells has traditionally focused on professionally-used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
 
 In this work, we explore the hypothesis that end-user smells also occur in languages aimed at programming education. We distill a catalog of end-user smells from existing work on object-oriented smells and their applications to two end-user domains: Excel and Yahoo! Pipes.
 
@@ -124,26 +126,26 @@ We subsequently explore the occurrence of end-user smells by examining two end-u
 End-user programmers are said to outnumber  professional programmers three times over \cite{Scaf2005}.
 These end-user programmers perform a wide variety of tasks within their organizations, ranging from creating new web streams to building and maintaining applications in a spreadsheet. When performing these tasks, end-user programmers, including users of educational languages,  face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}. 
 
-Also similar to professional development is the longevity of the produced artifacts, the average lifespan of a corporate spreadsheet for example is five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people.
+Similar to professional development is the longevity of the produced artifacts; the average lifespan of a corporate spreadsheet, for example, is five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people.
 These properties make them, like source code artifacts, vulnerable to \emph{smells}. 
 
-Code smells, as outlined in the taxonomy of Fowler~\cite{Fowl1999}, pertained to object-oriented (OO) code, and professional programming languages were the focus for at least the first decade of code smell  and refactoring research~\cite{Mens:2004:SSR:972215.972286}. Recently, however, smells in end-user programming have also received attention in research, most notable structural smells in Yahoo Pipes web mashups~\cite{Stolee2011} and Excel spreadsheets \cite{Hermans2012inter}. Experiments in these and other end-user areas have shown that end-user programmers understand smells, and often prefer versions of their code that are non-smelly~\cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}.
+Code smells, as outlined in the taxonomy of Fowler~\cite{Fowl1999}, pertained to object-oriented (OO) code and professional programming languages were the focus for at least the first decade of code smell  and refactoring research~\cite{Mens:2004:SSR:972215.972286}. Recently, however, smells in end-user programming have also received attention in research, most notable structural smells in Yahoo!\ Pipes web mashups~\cite{Stolee2011} and Excel spreadsheets \cite{Hermans2012inter}. Experiments in these and other end-user areas have shown that end-user programmers understand smells, and often prefer versions of their code that are non-smelly~\cite{Hermans2012intra, StoleeTSE2013, chambers2013smell}.
 
 % Related is also the work by Chambers and Scaffidi who study performance smells in LabView programming~\cite{chambers2013smell}.
 
-In this paper we broaden research on end-use code smells by examining the domain of educational programming languages. We gathered .... programs in \ms~and Microsoft's Kodu and studied the occurrence of code smells in these.
+In this paper we broaden research on end-user code smells by examining the domain of educational programming languages. We gathered 44 programs written by kids and online community members in both languages, \ms~and Microsoft's Kodu, and studied the occurrences of code smells.
 
-The results of this evaluation show that OO inspired smells in fact occur in both end-user languages: 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. This underlines the power of the code smells concept: they are applicable to visual languages aimed at education, which are quite different from the textual languages aimed at professional developers that the concept was initially designed for. 
+The results of this evaluation show that OO inspired smells in fact occur in both end-user education languages: 88\% of the EV3 and 93\% of the Kodu programs contained at least one smell. This underlines the power of the code smells concept: they are applicable to visual languages aimed at education, which are quite different from the textual languages aimed at professional developers that the concept was initially designed for. 
 
 In EV3 and Kodu, the smells that we most commonly find are small abstractions (lazy class), duplication, and dead code, illustrating commonality across all end-user programming domains. The contributions of this work are as follows:
 
 \begin{itemize} \itemsep -0.25pt
-	\item A definition of end-user programming smells in \ms~and Kodu each domain (Section \ref{sec:definition})
+	\item A definition of end-user programming smells in \ms~and Kodu  (Section \ref{sec:definition})
 	\item Two case studies investigating end-user smells in educational programming languages: \ms~and Kodu each domain  (Section \ref{sec:evaluation})
 	\item Identification of future opportunities for domain-specific, non-OO-inspired smell detection in end-user programming domains (Section \ref {sec:beyond})
 \end{itemize}
 
-\todo{fix later of potentially drop ``The rest of this paper''}
+\todo{fix later or potentially drop ``The rest of this paper''}
 % is organized as follows. Section~\ref{sec:background} provides background on the two previously studied domains, Excel spreadsheets and Yahoo Pipes mashups. The synthesized catalog of smells is presented in Section~\ref{sec:background}. We apply the catalog to \ms~and Kodu in Section~\ref{sec:evaluation} by defining each smell in each domain and measuring the presence of smells in corpuses of programs created by both children and the community for each language. We explore opportunities for new, non-OO smells in end-user domains in Section~\ref{sec:beyond}, which is followed by related work in Section~\ref{sec:related_work}, threats to validity in Section~\ref{sec:threats} and a conclusion in Section~\ref{sec:conclusions}. 
 
 
@@ -157,7 +159,7 @@ In EV3 and Kodu, the smells that we most commonly find are small abstractions (l
 \toprule
 \textbf{OO Smell}
 	& \textbf{Excel}
-	& \textbf{Yahoo Pipes}
+	& \textbf{Yahoo!\ Pipes}
 \\ \midrule
 Dead Code
 	& %~\ding{55}
@@ -217,7 +219,7 @@ Unused Field
 \section{Background}
 \label{sec:background}
 In previous research, code smells, a concept that originated from the OO domain, were applied to various other, end-user programming paradigms. 
-Most prominently, research has focused on Yahoo Pipes, a web mashup language and environment with which RSS feed information could\footnote{We use the past tense as the Yahoo Pipes environment has been discontinued as of September 30, 2015.} be collected and combined from various sources, and spreadsheets.
+Most prominently, research has focused on Yahoo!\ Pipes, a web mashup language and environment with which RSS feed information could\footnote{We use the past tense as the Yahoo!\ Pipes environment has been discontinued as of September 30, 2015.} be collected and combined from various sources, and spreadsheets.
 
 Research into end-user language smells has had two approaches, which are not mutually exclusive. The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013, chambers2013smell}. The second approach is to define smells tailored to the end-user environment. This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available repositories~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra}.
 
