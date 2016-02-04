@@ -364,11 +364,11 @@ In this section, we describe a our study design and implementation for identifyi
 For each language, we sought to explore programs created by two communities, kids (the intended audience of the languages) and the community at large, which often includes kids and adults. 
 
 \subsubsection{\ms}
-To determine if EV3 programs suffer from OO-inspired smells, we  gathered 17 programs from two data sources. The first source is a robotics club run by one of the authors, where kids aged 8 to 13 program robots every week. The programs collected were designed to participate in two robot competitions: A sumo wresting game in which robot have to push each other out of a ring\footnote{\url{http://www.sugobot.com/}}, and a search and rescue game in which robots have to detect a soda can\footnote{\url{http://rcj.robocup.org/rescue.html}}. To obtain a more diverse set of EV3 programs, we also solicited members of the EV3 programming group on Facebook to share their programs with us\footnote{\url{https://www.facebook.com/groups/legomindstorms/permalink/527560164058881/}} and refer to these as programs from the \emph{community}. Nine programs come from this second source. 
+We  gathered 17 programs from two data sources. The first source is a robotics club run by one of the authors, where kids aged 8 to 13 program robots every week. The programs collected were designed to participate in two robot competitions: A sumo wresting game in which robot have to push each other out of a ring\footnote{\url{http://www.sugobot.com/}}, and a search and rescue game in which robots have to detect a soda can\footnote{\url{http://rcj.robocup.org/rescue.html}}. To obtain a more diverse set of EV3 programs, we also solicited members of the EV3 programming group on Facebook to share their programs with us\footnote{\url{https://www.facebook.com/groups/legomindstorms/permalink/527560164058881/}} and refer to these as programs from the \emph{community}. Nine programs come from this second source. 
 
 
 \subsubsection{Kodu}
-To determine if Kodu programs indeed suffer from the above defined smells, we have gathered  programs from two data sources. 
+We gathered 27  programs from two data sources. 
 For the first data source, we ran a workshop at the Microsoft FUSE lab that introduced children to Kodu Game Lab in a series of three 3-hour sessions.  To recruit participants, we advertised the Kodu workshop using a mailing list of parents interested in Kodu.  
 Children between the ages of 9 and 12 volunteered to participate, with parental consent. We collected 17 programs created during the workshop for analysis. 
 For the second data source, we randomly sampled 10 programs from the public Xbox Live community. No demographic information was collected about the users. 
@@ -376,7 +376,7 @@ For the second data source, we randomly sampled 10 programs from the public Xbox
 
 
 \subsection{Analysis}
-At a high level, EV3 is a robotics language and Kodu is inspired by robotics. As such, they share some high-level concepts, such as performing actions based on sensor values. This allows us to find non-OO smells common to both (e.g., conflicting outcomes, discussed in Section~\ref{sec:eupsmells}) and similarly tune the smell detection thresholds in our studies.
+At a high level, EV3 is a robotics language and Kodu is inspired by robotics. As such, they share some high-level concepts, such as performing actions based on sensor values. This allows us to similarly tune the smell detection thresholds in our studies.
 
 \subsubsection{\ms}
 To count the number of instances of the \emph{long method}, a smell was counted when the \mb~had 10 or more blocks, as this is typically the size that all blocks would not fit on the screen anymore. For the \emph{lazy class} we defined smelly as three blocks or fewer. For the  \emph{many parameters} smell, the use of four or more input values as typically in the programs one or two were used.
