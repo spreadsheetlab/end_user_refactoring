@@ -115,16 +115,16 @@ D.J.Hoepelman@student.tudelft.nl}}
 \begin{abstract}
 Millions of people in the workforce today write code, without degrees or professional training in software development. These end-user programmers perform a variety of tasks, from combining web information to building models that support business decisions. Software engineering research into code smells has traditionally focused on professionally-used object-oriented programming languages, yet these end-user domains and languages also suffer from code smells. 
 
-In this work, we explore the hypothesis that end-user smells also occur in languages aimed at programming education. We distill a catalog of end-user smells from existing work on object-oriented smells and their applications to two end-user domains: Excel and Yahoo! Pipes.
+In this work, we explore the hypothesis that end-user smells also occur in languages aimed at programming education. We distill a catalog of end-user smells from existing work on object-oriented smells, plus their applications to two end-user domains: Excel and Yahoo! Pipes.
 
-We subsequently explore the occurrence of end-user smells by examining two end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that object-oriented-inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication, and dead code smells, with duplication smells being present in nearly two thirds of programs in each language. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the object-oriented paradigm. 
+We subsequently explore the occurrence of end-user smells by examining two end-user languages not previously targeted by smell detection and refactoring research, both aimed at education: \ms~and Microsoft's Kodu. The results of this application show that object-oriented-inspired smells indeed occur in educational end-user languages and are present in 88\% and 93\% of the EV3 and Kodu programs, respectively. Most commonly we find that programs are plagued with lazy class, duplication, and dead code smells, with duplication smells being present in nearly two thirds of programs in both languages. We conclude the paper by proposing new end-user smells inspired by the educational languages, moving beyond the object-oriented paradigm. 
 \end{abstract}
 
 
 \section{Introduction}
 %\todo{make smell names consistent and emph everywhere}
 End-user programmers are said to outnumber  professional programmers three times over \cite{Scaf2005}.
-These end-user programmers perform a wide variety of tasks within their organizations, ranging from creating new web streams to building and maintaining applications in a spreadsheet. When performing these tasks, end-user programmers, including users of educational languages,  face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}. 
+These end-user programmers perform a wide variety of tasks within their organizations, ranging from creating new web streams to building and maintaining applications in a spreadsheet. When performing these tasks, end-user programmers face many of the challenges of professional developers, such as identifying faults, debugging, or understanding code written by someone else~\cite{Ko2011}. 
 
 Similar to professional development is the longevity of the produced artifacts; the average lifespan of a corporate spreadsheet, for example, is five years~\cite{Hermans2011}. During this long lifespan, end-user artifacts are modified, often by different people.
 These properties make them, like source code artifacts, vulnerable to \emph{smells}. 
@@ -141,7 +141,7 @@ In EV3 and Kodu, the smells that we most commonly find are small abstractions (l
 
 \begin{itemize} \itemsep -0.25pt
 	\item A definition of end-user programming smells in \ms~and Kodu  (Section \ref{sec:definition})
-	\item Two case studies investigating end-user smells in educational programming languages: \ms~and Kodu each domain  (Section \ref{sec:evaluation})
+	\item Two case studies investigating end-user smells in educational programming languages: \ms~and Kodu each domain  (Section \ref{sec:study})
 	\item Identification of future opportunities for domain-specific, non-OO-inspired smell detection in end-user programming domains (Section \ref {sec:beyond})
 \end{itemize}
 
@@ -218,10 +218,11 @@ Unused Field
 
 \section{Background}
 \label{sec:background}
-In this work, we use the smells previously explored in end-user programming language to guide our exploration and analysis of programs written in the education languages. In this section, we introduce previous work on code smells in end-user languages and the education languages  \ms  (EV3 for short) and Kodu.
+In this work, we use the smells previously explored in end-user programming language to guide our exploration and analysis of programs written in the education languages. In this section, we introduce previous work on code smells in end-user languages and the education languages  \ms (EV3 for short) and Kodu.
 
 \subsection{End-User Smells}
-In previous research, code smells, a concept that originated from the OO domain, were applied to various other, end-user programming paradigms. 
+\label{subsec:eusmells}
+In previous research, code smells, originating from the OO domain, were applied to various other, end-user programming paradigms. 
 Most prominently, research has focused on Yahoo!\ Pipes, a web mashup language and environment with which RSS feed information could\footnote{We use the past tense as the Yahoo!\ Pipes environment has been discontinued as of September 30, 2015.} be collected and combined from various sources, and spreadsheets.
 
 Research into end-user language smells has taken two approaches, which are not mutually exclusive. The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013, chambers2013smell}. The second approach is to define smells tailored to the end-user environment. This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell}, by looking at user reports like forum or newsgroup posts~\cite{badame2012refactoring,chambers2013smell}, or by analyzing publicly available repositories~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra}.
@@ -240,7 +241,7 @@ This section presents an overview of different OO-inspired smells that researche
 \subsection{Education Languages}
 
 Many languages have been developed with computer science education in mind (e.g., Scratch~\cite{scratch}, Alice~\cite{aliceIntro}, Kodu~\cite{kodugrammar}, \ms~\cite{lego}), and each language has its own unique structures, abstractions, and programming environment. One advantage of
-educational languages, from the user's perspective, is that syntax errors are often prevented, allowing the user to concentrate on program design and logic. For example, the blocks in Scratch and \ms~fit together like building blocks and the selection menu for choosing programming tiles in Kodu dynamically updates based on context. In addition to support to make programming easy, these languages also offer abstractions in the form of objects and subroutines, allowing programmers to create complex code~\cite{Stolee:2011:ECS:1953163.1953197}. As such, these languages, like professional languages, are susceptible to poor design and code smells. In this work, we focus on \ms and Kodu. 
+educational languages, from the user's perspective, is that syntax errors are often prevented, allowing the user to concentrate on program design and logic. For example, the blocks in Scratch and \ms~fit together like building blocks and the selection menu for choosing programming tiles in Kodu dynamically updates based on context. In addition to support to make programming easy, these languages also offer abstractions in the form of objects and subroutines, allowing programmers to create complex code~\cite{Stolee:2011:ECS:1953163.1953197}. As such, these languages, like professional languages, are susceptible to poor design and code smells. In this work, we focus on \ms~and Kodu. 
 \todo{Why? Can we justify why these languages, other than convenience?}
 
 
@@ -248,7 +249,7 @@ educational languages, from the user's perspective, is that syntax errors are of
 \label{sec:lego}
 EV3 is the third iteration of the LEGO MINDSTORMS robotics line. It consists of a number of sensors, four motors and an ARM 9 ``intelligent brick''. The robotics kit comes with a control software package, which allows for visual programming of the brick, based on LabView\footnote{\url{http://www.ni.com/labview/}}. The software supports several basic constructs common to programming, including loops and conditionals, as well as more advanced features like parallel execution. Figure \ref{fig:ms} shows the user interface of the EV3 software with a program that makes a robot follow a black line by steering left if the sensor value is below the threshold of 7 and right if the value is above, and in parallel writes the sensor value to the screen. This program demonstrates some of the basic EV3 programming concepts including parallel execution, loops and switches. Blocks have to be connected to the `Play button' on the left with wires to be executed, the block on the lower right is not connected and thus colored gray to indicate this to the user.
 
-In addition to the programming concepts described above, users have the possibility to define `\mbs' which are basically  subroutines. \mbs~may have up to 9 different input and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and clicking `my block builder'. This puts the selected blocks in a new \mb~and replaces the blocks with a call to the newly created \mb, an abstraction action very functionally similar to `extract method' present in most modern IDEs. 
+In addition to the programming concepts described above, users have the possibility to define `\mbs' which are basically  subroutines. \mbs~may have up to 9 different input parameters and one output parameter. \mbs~cannot be programmed from scratch; they can only be created by selecting blocks in an existing program and clicking `my block builder'. This puts the selected blocks in a new \mb~and replaces the blocks with a call to the newly created \mb, an abstraction action very functionally similar to `extract method' present in most modern IDEs. 
 
 \begin{figure} [tb]
 \caption{Two blocks representing the same functionality, one in a regular block and one using a call to a \mb.}
@@ -260,7 +261,7 @@ In addition to the programming concepts described above, users have the possibil
 \begin{figure}[tb]
 \caption{The interface of Kodu~showing programming behavior for a bot that moves towards a red apple and then eats it.}
 \centering
-\includegraphics[width=\columnwidth]{img/programmingui.png}
+\includegraphics[width=7cm]{img/programmingui.png}
 \label{fig:Kodu}
 \end{figure}
 
@@ -300,9 +301,9 @@ To form more complex boolean logic, rules can also be indented to create complex
 
 \section{Definitions of Smells}
 \label{sec:definition}
-In Section~\ref{sec:background}, we summarized OO-inspired end-user smells from previous work. In both the Excel and the Yahoo! Pipes work, it was found that OO inspired smells were applied to end-user languages. This leads to the question how broadly applicable code smells are to end-user languages. 
+In Section~\ref{subsec:eusmells}, we summarized OO-inspired end-user smells from previous work. In both the Excel and the Yahoo! Pipes work, it was found that OO inspired smells were applied to end-user languages. This leads to the question how broadly applicable code smells are to end-user languages. 
 
-We begin by mapping the smells to two education languages.  Given that this is a first look into code smells in education languages, we limit our exploration to the 11 code smells found in other end-user programming languages, \ms and Kodu. 
+We begin by mapping the smells to two education languages.  Given that this is a first look into code smells in education languages, we limit our exploration to the 11 code smells found in other end-user programming languages, \ms~and Kodu. 
 As is common in the other approaches, we define a loose mapping of OO concepts to the end-user languages in question.
 The thresholds we used for the study to determine when the presence of a pattern is considered smelly, (e.g., how big must a method be to have a \emph{long method} smell?),  are defined in Section~\ref{sec:study}. 
 
@@ -360,7 +361,9 @@ In this section, we describe the artifacts and analysis used for the study.
 For each language, we sought to explore programs created by two communities, kids (the intended audience of the languages) and the community at large, which often includes kids and adults. 
 
 \subsubsection{\ms}
-We  gathered 17 programs from two data sources. The first source is a robotics club run by one of the authors, where kids aged 8 to 13 program robots every week. The programs collected were designed to participate in two robot competitions: A sumo wresting game in which robot have to push each other out of a ring\footnote{\url{http://www.sugobot.com/}}, and a search and rescue game in which robots have to detect a soda can\footnote{\url{http://rcj.robocup.org/rescue.html}}. To obtain a more diverse set of EV3 programs, we also solicited members of the EV3 programming group on Facebook to share their programs with us\footnote{\url{https://www.facebook.com/groups/legomindstorms/permalink/527560164058881/}} and refer to these as programs from the \emph{community}. Nine programs come from this second source. 
+We  gathered 17 programs from two data sources. The first source is a weekly robotics club for children aged 8 to 13. The programs collected were designed to participate in two robot competitions: 
+
+A sumo wresting game in which robot have to push each other out of a ring\footnote{\url{http://www.sugobot.com/}}, and a search and rescue game in which robots have to detect a soda can\footnote{\url{http://rcj.robocup.org/rescue.html}}. To obtain a more diverse set of EV3 programs, we also solicited members of the EV3 programming group on Facebook to share their programs with us\footnote{\url{https://www.facebook.com/groups/legomindstorms/permalink/527560164058881/}} and refer to these as programs from the \emph{community}. Nine programs come from this second source. 
 
 
 \subsubsection{Kodu}
@@ -384,7 +387,7 @@ To count the number of instances of the \emph{long method}, a smell was counted 
 
 \section{Results}
 \label{sec:results}
-Results for the smell detection analysis in \ms and Kodu are presented here. When investigating the programs in both languages, we found that they indeed can suffer from OO-inspired smells. 
+Results for the smell detection analysis in \ms~and Kodu are presented here. When investigating the programs in both languages, we found that they indeed can suffer from OO-inspired smells. 
 
 %Table \ref{tab:robotica} shows an overview of the EV3 programs from the Sumo (L1...L5), RoboCup (L6...L8) and community (L9...L17) programs and the smells found in them. The EV3 programming interface divides the programming blocks into 6 categories, indicated in the colored tabs in Figure \ref{fig:ms}. The number of blocks in each of the categories for the programs are listed in the first 6 rows in Table \ref{tab:robotica}. Furthermore we have counted the number of comment blocks: special blocks that do not perform any action but are used to document programs, the number of variables: blocks that store a value that can be retrieved later, and the number of \mbs~ created in the program. The \emph{Total Blocks} column provides an indication of program size.  
 
@@ -598,7 +601,7 @@ This paper describes code smells for two new end- user programming domain, not y
 
 \begin{itemize} \itemsep -0.25pt
 	\item A definition of end-user programming smells in \ms~and Kodu each domain (Section \ref{sec:definition})
-	\item Two case studies investigating end-user smells in educational programming languages: \ms~and Kodu each domain  (Section \ref{sec:evaluation})
+	\item Two case studies investigating end-user smells in educational programming languages: \ms~and Kodu each domain  (Section \ref{sec:study})
 	\item Identification of future opportunities for domain-specific, non-OO-inspired smell detection in end-user programming domains (Section \ref {sec:beyond})
 \end{itemize}
 
