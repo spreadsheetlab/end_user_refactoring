@@ -219,7 +219,7 @@ Unused Field
 
 \section{Background}
 \label{sec:background}
-In this work, we use the smells previously explored in end-user programming language to guide our exploration and analysis of programs written in the education languages. In this section, we introduce previous work on code smells in end-user languages and the education languages  EV3 and Kodu.
+In this work, we use smells previously explored in end-user programming language to guide our exploration and analysis of programs written in the education languages. In this section, we summarize previous work on code smells in end-user languages and furthermore we introduce the education languages EV3 and Kodu.
 
 \subsection{End-User Smells}
 \label{subsec:eusmells}
@@ -297,7 +297,7 @@ To form more complex boolean logic, rules can also be indented to create complex
 \label{sec:definition}
 In Section~\ref{subsec:eusmells}, we briefly summarized OO-inspired end-user smells from previous work. In both the Excel and Yahoo!\ Pipes work, it was found that OO-inspired smells were applied to end-user languages, and that some smells were found in both languages. This leads to the question how broadly applicable code smells are to end-user languages. 
 
-We begin by mapping the smells to two education languages.  Given that this is a first look into code smells in education languages, we limit our exploration to the 11 code smells found in other end-user programming languages, as shown in Table~\ref{table:oosmellslarge}.
+We begin by mapping OO smells to two education languages. Given that this is a first look into code smells in education languages, we limit our exploration to the 11 code smells found in other end-user programming languages, as shown in Table~\ref{table:oosmellslarge}.
 As is common in the other approaches, we define a loose mapping of OO concepts to the end-user languages in question.
 The thresholds we used for the study to determine when the presence of a pattern is considered smelly, (e.g., how big must a method be to have a \emph{long method} smell?),  are defined in Section~\ref{sec:study}. 
 
@@ -380,7 +380,7 @@ To count the number of instances of the \emph{long method}, a smell was counted 
 
 \section{Results}
 \label{sec:results}
-Results for the smell detection analysis in EV3 and Kodu are presented here, but overall, we found that most programs in both language suffer from at least one OO-inspired smell. 
+In this section we explore the smell detection analysis in EV3 and Kodu, but summarizing the results, we found that most programs in both language suffer from at least one OO-inspired smell. 
 
 Table~\ref{tab:smellsummary} summarizes the frequency of occurrence for each smell in the EV3 and Kodu programs. 
 For each language and each code smell, we show the percentage of programs affected by each smell among programs created by kids (i.e., the \emph{Kids} column), those created by the community (i.e., the \emph{Com} column), and overall (i.e., the \emph{All} column). For example, 63\% of the EV3 programs created by kids have the \emph{dead code} smell whereas only 11\% of the EV3 programs created by the community have this smell. Among all EV3 programs we collected, 35\% have the \emph{dead code} smell. 
