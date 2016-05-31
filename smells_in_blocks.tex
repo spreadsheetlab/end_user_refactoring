@@ -286,26 +286,27 @@ In EV3 and Kodu, the smells that we most commonly find are small abstractions (l
 
 \section{Background}
 \label{sec:background}
+\todo{TODO: make this section one column only in length}
 In this work, we use smells previously explored in end-user programming languages to guide our exploration and analysis of programs written in the education languages. In this section, we summarize previous work on code smells in end-user languages and furthermore we introduce the education languages EV3 and Kodu.
 
-\subsection{End-User Smells}
-\label{subsec:eusmells}
+%\subsection{End-User Smells}
+%\label{subsec:eusmells}
 In previous research, code smells, originating from the OO domain, were applied to various other, end-user programming paradigms. 
 Most prominently, research has focused on Yahoo!\ Pipes, a web mashup language and environment with which RSS feed information could\footnote{We use the past tense as the Yahoo!\ Pipes environment has been discontinued as of September 30, 2015.} be collected and combined from various sources, and spreadsheets.
+We often observe  few similarities in the code smells studied. Of the 11 smells covered between the two languages, only the \emph{duplicate code}, \emph{lazy class}, and \emph{long method} smells  were studied in both, illustrating the breadth of  possible code smells, even in smaller, end-user languages.  
 
-Research into end-user language smells has taken two approaches, which are not mutually exclusive. The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013, chambers2013smell}. The second approach is to define smells tailored to the end-user environment. This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell},  looking at user reports like forum or newsgroup posts~\cite{badame2012refactoring,chambers2013smell}, or  analyzing publicly available repositories~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra}.
-
-Table~\ref{table:oosmellslarge} presents an overview of different OO-inspired smells that researchers have found to be applicable to end-user artifacts, as identified in prior work~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra, Hermans2012inter}.
- Since the smell names for the end-user languages often differ from the OO smell names, we use the OO names throughout the paper. Overall, we often observe  few similarities in the code smells studied. Of the 11 smells covered between the two languages, only the \emph{duplicate code}, \emph{lazy class}, and \emph{long method} smells  were studied in both, illustrating the breadth of  possible code smells, even in smaller, end-user languages.  
+%Research into end-user language smells has taken two approaches, which are not mutually exclusive. The first approach is to take existing smells for OO programming languages, usually those defined by Fowler~\cite{Fowl1999}, and transform them to be applicable to the end-user environment \cite{Hermans2012inter,Hermans2012intra,Stolee2011,StoleeTSE2013, chambers2013smell}. The second approach is to define smells tailored to the end-user environment. This can be done by interviewing experienced end-users to see which smells they perceive \cite{chambers2013smell},  looking at user reports like forum or newsgroup posts~\cite{badame2012refactoring,chambers2013smell}, or  analyzing publicly available repositories~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra}.
+%
+%Table~\ref{table:oosmellslarge} presents an overview of different OO-inspired smells that researchers have found to be applicable to end-user artifacts, as identified in prior work~\cite{Stolee2011,StoleeTSE2013,Hermans2012intra, Hermans2012inter}.
  
 
-\subsection{Education Languages}
+%\subsection{Education Languages}
 
 Many languages have been developed with computer science education in mind, such as Scratch~\cite{scratch}, Alice~\cite{aliceIntro}, Kodu~\cite{kodugrammar}, \ms~\cite{lego}, and each language has its own unique structures, abstractions, and programming environment. One advantage of
 educational languages, from the user's perspective, is that syntax errors are often prevented, allowing the user to concentrate on program design and logic. For example, the blocks in Scratch and EV3 fit together like building blocks and the selection menu for choosing programming tiles in Kodu dynamically updates based on context. In addition to support to make programming easy, these languages also offer abstractions in the form of objects and subroutines, allowing programmers to create complex code~\cite{Stolee:2011:ECS:1953163.1953197}. As such, these languages, like professional languages, are susceptible to poor design and code smells. In this work, we focus on EV3 and Kodu, two popular educational languages with public repositories for sharing programs and with which the authors have prior experience. Next, we briefly introduce each language. 
 
 
-\subsubsection{\ms}
+\subsection{\ms}
 \label{sec:lego}
 EV3 is the third iteration of the LEGO MINDSTORMS robotics line. It consists of several sensors, four motors and an ARM 9 ``intelligent brick''. The robotics kit comes with a control software package, which allows for visual programming of the brick, based on LabView. The software supports several basic constructs common to programming, including loops and conditionals, as well as more advanced features like parallel execution. 
 
@@ -320,7 +321,7 @@ In addition to the programming concepts described above, users have the possibil
 %\end{figure}
 
 
-\subsubsection{Kodu}
+\subsection{Kodu}
 Microsoft Research's Kodu is a visual programming language~\cite{kodugrammar} and environment that allows users to create, play, and share their own video games. 
 It is available for download on the Xbox and PC and is heavily inspired by robotics, as illustrated by the context of programming in it and its language. 
 Users create a world (e.g., land, water, clouds),  add characters and objects, and then can program each character or object (e.g., a kodu robot character, a turtle character, an apple object, a tree object; we use character and object interchangeably) individually. Variables are introduced as scores or properties of characters. Scores are integers and global variables, identified by color or letter, and readable and editable by all characters and objects. Character properties, such as color, glow color, expression and health, are like local variables. 
@@ -365,9 +366,10 @@ Kodu's unique language  can be used to express many fundamental concepts in comp
 
 \section{Definitions of Smells}
 \label{sec:definition}
-In Section~\ref{subsec:eusmells}, we briefly summarized OO-inspired end-user smells from previous work. In both the Excel and Yahoo!\ Pipes work, it was found that OO-inspired smells were applied to end-user languages, and that some smells were found in both languages. This leads to the question how broadly applicable code smells are to end-user languages. 
+%In Section~\ref{subsec:eusmells}, we briefly summarized OO-inspired end-user smells from previous work. 
+%In both the Excel and Yahoo!\ Pipes work, it was found that OO-inspired smells were applied to end-user languages, and that some smells were found in both languages. This leads to the question how broadly applicable code smells are to end-user languages. 
 
-We begin by mapping OO smells to two education languages. Given that this is a first look into code smells in education languages, we limit our exploration to the 11 code smells found in other end-user programming languages, as shown in Table~\ref{table:oosmellslarge}.
+We begin by mapping OO smells to two education languages. Given that this is a first look into code smells in education languages, we limit our exploration to the 11 code smells found in other end-user programming languages. 
 As is common in the other approaches, we define a loose mapping of OO concepts to the end-user languages in question.
 The thresholds we used for the study to determine when the presence of a pattern is considered smelly, (e.g., how big must a method be to have a \emph{long method} smell?),  are defined in Section~\ref{sec:study}. 
 
@@ -729,7 +731,7 @@ Furthermore, studying the smells in a fresh context provides new insight on how 
 \balance
 
 \section*{Acknowledgements}
-Special thanks to Stephen Coy for his help with Kodu, to all children at `Instituut het Centrum' and the members of Facebook group `legomindstorms' for sharing their programs. This work is supported in part by  NSF SHF-EAGER-1446932 and the Harpole-Pentair endowment at Iowa State University.
+Special thanks to Stephen Coy and `Instituut het Centrum'. This work is supported in part by  NSF SHF-EAGER-1446932.
 
 
 \bibliographystyle{IEEEtran}
