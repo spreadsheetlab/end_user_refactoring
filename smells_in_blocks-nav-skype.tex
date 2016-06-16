@@ -84,7 +84,7 @@
 
 \begin{document}
 
-\title{Smells in Block-Based Programming Languages} % \large{\\Case studies on \ms~and Kodu}}
+\title{Code Smells in Education Programming Languages} % \large{\\Case studies on \ms~and Kodu}}
 
 
 % author names and affiliations
@@ -305,7 +305,7 @@ block-based languages, from the user's perspective, is that syntax errors are of
 EV3 is the third iteration of the LEGO MINDSTORMS robotics line. It consists of several sensors, four motors and an ARM 9 ``intelligent brick''. The robotics kit comes with a control software package, which allows for visual programming of the brick, based on LabView. The software supports several basic constructs common to programming, including loops and conditionals, as well as more advanced features like parallel execution. 
 
 In addition to these programming concepts, users have the possibility to define `\mbs' which are basically  subroutines. 
-\mbs~cannot be programmed from scratch; they can only be created by replacing existing blocks with a new \mb, similar to `extract method' present in most modern IDEs. 
+\mbs~cannot be programmed from scratch; they can only be created by replacing existing blocks with a new \mb. This is functionally very similar to `extract method' present in most modern IDEs. 
 
 %\begin{figure} [tb]
 %\centering
@@ -326,9 +326,7 @@ The programming environment treats each character or object as an autonomous age
 Each object has 12 pages that can be programmed  where the current page defines the current behavior of the object. 
 The object's behavior can be changed by switching between pages to modify state and control flow. 
 Each page contains a set of rules, and each rule is in the form of a condition and an action, which form a {\tt when~--~do} clause. 
-The {\tt when} is defined by a sensor (e.g., see, hear, gamepad input) and filters (e.g., apple, gamepad A button). The {\tt do} is defined by an actuator (e.g., movement, shoot) and modifiers (e.g., missile, toward). 
-
-Kodu's unique language  can be used to express many fundamental concepts in computer science, such as  boolean logic~\cite{Stolee:2011:ECS:1953163.1953197}. 
+The {\tt when} is defined by a sensor (e.g., see, hear, gamepad input) and filters (e.g., apple, gamepad A button). The {\tt do} is defined by an actuator (e.g., movement, shoot) and modifiers (e.g., missile, toward). Kodu's unique language  can be used to express many fundamental concepts in computer science, such as  boolean logic~\cite{Stolee:2011:ECS:1953163.1953197}. 
 
 
 
@@ -374,70 +372,30 @@ As is common in the other approaches, we define a loose mapping of OO concepts t
 In EV3 programming, \emph{\mbs~}resemble methods in source code in that they abstract one or more  blocks and can be called multiple times. We investigate whether and how each of the smells in our catalog  apply to EV3 programs. In Kodu, we consider pages of programming as analogous to methods or classes and scores and character properties as analogous to variables. These analogies are used in the smell definitions.
 
 
-\begin{table*}
-\caption{Smell definitions for \ms~and Kodu \label{smelldefs}}
-\begin{tabular}{ p{3.38in}  p{3.37in} } 
-\multicolumn{1}{c}{\textbf{\ms}} & \multicolumn{1}{c}{\textbf{Kodu}} \\ \bottomrule
-\multicolumn{2}{c}{\emph{Dead Code}} \\ \hline
-Unused \mbs~can be present in the project without a warning being issued. This makes the program unnecessarily large.  & If there exists a page with programming such that there is no explicit path of control flow from Page~1 to it, it is unreachable and therefore dead. \\ \bottomrule
-\multicolumn{2}{c}{ \emph{Deprecated Interface}}\\ \hline
-This is a smell that does not apply, as there is only one version of the EV3 software. 
-&Some language features may exist in early versions of Kodu, but none of these features were ever deployed, this smell is not possible\\ \bottomrule
-\multicolumn{2}{c}{ \emph{Duplicate Code}} \\ \hline
-The same or very similar combinations of blocks occur
-&Two identical rules on a page,  two identical pages for an object, or two rules on the same page with the same {\tt when} clauses, but different actions. \\ \bottomrule
-\multicolumn{2}{c}{ \emph{Feature Envy}} \\ \hline
-While all variables within EV3 programs are global, they can be written in one \mb~but read in a different one. If, in a \mb~many variables are read that are written somewhere else, this the feature envy. 
-& All global variables can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell.\\ \bottomrule
-\multicolumn{2}{c}{ \emph{Inappropriate Intimacy}} \\ \hline
-Variables can be read in one \mb~but written somewhere else. Two \mbs~sharing multiple variables this way suffer from this smell. 
-& If one character frequently checks the properties of another character, this could constitute inappropriate intimacy.\\ \bottomrule
-\multicolumn{2}{c}{ \emph{Lazy Class}} \\ \hline
-A \mb~with few blocks can be considered lazy. 
-& A character has no programming, it could be an instance of the lazy smell. \\ \bottomrule
-\multicolumn{2}{c}{ \emph{Long Method}} \\ \hline
- If a \mb~ has many blocks is suffer from the long method smell. & A page with many rules may be difficult to understand.\\ \bottomrule
-\multicolumn{2}{c}{ \emph{Many Parameters}} \\ \hline
- \mbs~with too much parameters are smelly, especially since parameters need to be connected with wires leading to visual clutter. 
- & A game can have 37 different global scores. Games that use many of these could be unnecessarily complex.\\ \bottomrule
-\multicolumn{2}{c}{ \emph{Message Chain}} \\ \hline
-Since \mbs~can have both input and output parameters, so they can form a message chain, in which values are passed. 
-& A chain of switches between pages without any logic on the page other than the jump. \\ \bottomrule
-\multicolumn{2}{c}{ \emph{No-op}} \\ \hline 
- It is possible to combine blocks such that they do not actually contribute to the functionality of the program. For example, if a user stops the same motor twice, the second stop will be a no-op.
- & Jumping to a page with no logic is the logical equivalent of a null pointer. 
-% While no error would be raised, the character would no longer have any behavior and would be stuck. 
- Alternatively, rules with {\tt when} clauses but no {\tt do} clauses do not perform any actions.\\ \bottomrule
-\multicolumn{2}{c}{ \emph{Unused Field}} \\ \hline
- \mbs~can define parameters, but the user is not forced to use them, hence creating a code smell.
- & A global variable that is written to but not read is an instance of the the unused field smell.\\ \bottomrule
-\end{tabular}
-\end{table*}
 
 \noindent 
-%\textbf{Dead Code} \textbf{EV3} It is possible for programming blocks to be disconnected, but the interface clearly indicates this as an issue. However, unused \mbs~can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large. \textbf{Kodu} If there exists a page with programming such that there is no explicit path of control flow from Page~1 to it, it is unreachable and therefore dead.\\
-%\textbf{Deprecated Interface} \textbf{EV3} This is a smell that does not apply, as there is only one version of the EV3 software. \textbf{Kodu} Some language features may exist in early versions of Kodu but not be available in future versions. As none of these features were ever deployed, this smell is not possible\\
-%\textbf{Duplicate Code} \textbf{EV3} When the same or very similar combinations of blocks occur, the program suffers from the duplicate code smell.
-%\textbf{Kodu} Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same {\tt when} clauses (i.e., sensor and filter) but different actions could be consolidated using the indent feature and thus are smelly. \\
-%\textbf{Feature Envy} \textbf{EV3} While all variables within EV3 programs are global, they can be written in one \mb~but read in a different one. If, in a \mb~many variables are read that are written somewhere else, this the feature envy. \textbf{Kodu} All global variables can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell.\\
-%\textbf{Inappropriate Intimacy} Variables can be read in one \mb~but written somewhere else. If there are two \mbs~sharing multiple variables this way, it might be better to combine them and the program is smelly. \textbf{Kodu} A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy), and health.  If one character frequently checks the properties of another character, this could constitute inappropriate intimacy.\\
-%\textbf{Lazy Class} \textbf{EV3} If a \mb~is very small, for example, consisting of just one block, it does not add a lot of value but impacte understandability as a user has to navigate to the \mb~to see what its functionality is. \textbf{Kodu}  a character has no programming, it could be an instance of the lazy smell.
-%\textbf{Long Method} \textbf{EV3} If a \mb~grows very large, it will no longer be easy to understand, counteracting the added value of the abstraction. \textbf{Kodu} A page with many, many rules may be difficult to understand. Some programming could potentially move to other characters.\\
-%\textbf{Many Parameters} \textbf{EV3} \mbs~can have 9 different parameters, which could be considered too much for easy understandability, especially since parameters need to be connected with wires, potentially leading to visual clutter. \textbf{Kodu} A game can have 37 different global scores. Games that use many of these could be unnecessarily complex and thus smelly.\\
-%\textbf{Message Chain} \textbf{EV3} Since \mbs~can have both input and output parameters, so they can form a message chain, in which values are passed. \textbf{Kodu} It is possible for a character to create a chain of switches between pages without any logic on the page other than the jump. This would create a long and unnecessary message chain.\\
-%\textbf{No-op} \textbf{EV3} It is possible to combine blocks such that they do not actually contribute to the functionality of the program. For example, if a user stops the same motor twice, the second stop will be a no-op. \textbf{Kodu} Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck. Alternatively, rules with {\tt when} clauses but no {\tt do} clauses do not perform any actions.\\
-%\textbf{Unused Field} \textbf{EV3} \mbs~can define parameters, but the user is not forced to use them, hence creating a code smell.  \textbf{Kodu} A global variable that is written to but not read is an instance of the the unused field smell.\\
-%
+\textbf{Dead Code} \textbf{EV3} It is possible for programming blocks to be disconnected, but the interface clearly indicates this as an issue. However, unused \mbs~can be present in the project without a warning being issued. This is smelly as it makes the program unnecessarily large. \textbf{Kodu} If there exists a page with programming such that there is no explicit path of control flow from Page~1 to it, it is unreachable and therefore dead.\\
+\textbf{Deprecated Interface} \textbf{EV3} This is a smell that does not apply, as there is only one version of the EV3 software. \textbf{Kodu} Some language features may exist in early versions of Kodu but not be available in future versions. As none of these features were ever deployed, this smell is not possible\\
+\textbf{Duplicate Code} \textbf{EV3} When the same or very similar combinations of blocks occur, the program suffers from the duplicate code smell.
+\textbf{Kodu} Two pages for the same character with exactly the same set of rules, or two identical rules on a page constitute duplicate code. Alternatively, two rules on the same page with the same {\tt when} clauses (i.e., sensor and filter) but different actions could be consolidated using the indent feature and thus are smelly. \\
+\textbf{Feature Envy} \textbf{EV3} While all variables within EV3 programs are global, they can be written in one \mb~but read in a different one. If, in a \mb~many variables are read that are written somewhere else, this the feature envy. \textbf{Kodu} All global variables can be read and written by any character. If a certain character reads variables that have been written by another character, this could be an instance of the feature envy smell.\\
+\textbf{Inappropriate Intimacy} Variables can be read in one \mb~but written somewhere else. If there are two \mbs~sharing multiple variables this way, it might be better to combine them and the program is smelly. \textbf{Kodu} A character has four local properties that describe its state: color, glow color, expressions (angry, crazy, happy), and health.  If one character frequently checks the properties of another character, this could constitute inappropriate intimacy.\\
+\textbf{Lazy Class} \textbf{EV3} If a \mb~is very small, for example, consisting of just one block, it does not add a lot of value but impacte understandability as a user has to navigate to the \mb~to see what its functionality is. \textbf{Kodu}  a character has no programming, it could be an instance of the lazy smell.
+\textbf{Long Method} \textbf{EV3} If a \mb~grows very large, it will no longer be easy to understand, counteracting the added value of the abstraction. \textbf{Kodu} A page with many, many rules may be difficult to understand. Some programming could potentially move to other characters.\\
+\textbf{Many Parameters} \textbf{EV3} \mbs~can have 9 different parameters, which could be considered too much for easy understandability, especially since parameters need to be connected with wires, potentially leading to visual clutter. \textbf{Kodu} A game can have 37 different global scores. Games that use many of these could be unnecessarily complex and thus smelly.\\
+\textbf{Message Chain} \textbf{EV3} Since \mbs~can have both input and output parameters, so they can form a message chain, in which values are passed. \textbf{Kodu} It is possible for a character to create a chain of switches between pages without any logic on the page other than the jump. This would create a long and unnecessary message chain.\\
+\textbf{No-op} \textbf{EV3} It is possible to combine blocks such that they do not actually contribute to the functionality of the program. For example, if a user stops the same motor twice, the second stop will be a no-op. \textbf{Kodu} Jumping to a page with no logic is the logical equivalent of a null pointer. While no error would be raised, the character would no longer have any behavior and would be stuck. Alternatively, rules with {\tt when} clauses but no {\tt do} clauses do not perform any actions.\\
+\textbf{Unused Field} \textbf{EV3} \mbs~can define parameters, but the user is not forced to use them, hence creating a code smell.  \textbf{Kodu} A global variable that is written to but not read is an instance of the the unused field smell.\\
+
 
 \section{Study}
 \label{sec:study}
-The aim of this paper is to explore \textbf{to what extent do code smells occur in educational programs?} 
-We analyze and count code smells in programs created in two new domains: a data-flow educational language for programming robots, \ms~software,  and an event-driven educational language for building and playing video games, Kodu. 
+The aim of this paper is to explore the following research question: \textbf{To what extent do code smells occur in educational programs?} 
+We analyze and count code smells in programs created in two new domains: a data-flow educational language for programming robots, \ms~software, and an event-driven educational language for building and playing video games, Kodu. 
 In this section, we describe the study artifacts and analysis. 
 
 \subsection{Artifacts}
-For each language, we sought to explore programs created by two communities, children (the intended audience of the languages) and the community at large, which often includes children and adults. One threat to validity is that programs may not be representative of what all users create. 
-
+For each language, we sought to explore programs created by two communities, children (the intended audience of the languages) and the community at large, which often includes children and adults. One threat to validity is that programs may not be representative of what all users create. No demographic information was reported for any of the program authors. 
 
 \subsubsection{\ms}
 We  gathered 17 programs from two data sources. The first is a weekly robotics club for children aged 8 to 13, which yielded eight programs. 
@@ -456,7 +414,7 @@ For the second data source, we randomly sampled 10 programs from the public Xbox
 
 
 \subsection{Analysis}
-At a high level, EV3 is a robotics language and Kodu is inspired by robotics. As such, they share some high-level concepts, such as performing actions based on sensor values. This allows us to similarly tune the smell detection thresholds. For both languages, we count \emph{long method}, a smell was counted when the \mb~had 10 or more blocks or rules per \mb~ or page, as this is the maximum number that fits on a screen.
+\todo{TODO: can we fit in some justification for these levels?} At a high level, EV3 is a robotics language and Kodu is inspired by robotics. As such, they share some high-level concepts, such as performing actions based on sensor values. This allows us to similarly tune the smell detection thresholds. For both languages, we count \emph{long method}, a smell was counted when the \mb~had 10 or more blocks or rules per \mb~ or page, as this is the maximum number that fits on a screen.
 
 \subsubsection{\ms}
 To count the number of instances of the \emph{lazy class} we defined smelly as three blocks or fewer. For the \emph{many parameters} smell, the use of four or more input values as typically in the programs one or two were used.
@@ -545,6 +503,7 @@ On average, the programs from children had 2.3 smells each and the programs from
 
 \begin{table}
 \caption{Summary of Smells Across EV3 and Kodu Programs \label{tab:smellsummary}}
+\begin{small}
 \begin{center}
 \begin{tabular}{| l || r r | r || r r | r||} \cline{2-7}
 \multicolumn{1}{c||}{}&\multicolumn{3}{c||}{EV3}&\multicolumn{3}{c||}{Kodu}\\ \cline{2-7}
@@ -563,6 +522,7 @@ Unused Field&13\%&11\%&12\%&24\%&30\%&26\%\\ \hline\hline
 Any smell & 88\%&89\%&88\% & 94\%&90\%&93\% \\ \hline
 \end{tabular}
 \end{center}
+\end{small}
 \vspace{-12pt}
 \end{table}
 
